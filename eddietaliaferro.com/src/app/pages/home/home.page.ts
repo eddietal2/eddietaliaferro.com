@@ -26,9 +26,25 @@ export class HomePage implements OnInit {
       console.log('Safari');
       this.downloadButton.innerHTML = 'Safari';
     }
-    if (deviceType.search('iPhone') > -1) {
+    if (deviceType.search('iPhone' && 'Safari') > -1) {
       console.log('iPhone');
-      this.downloadButton.innerHTML = 'iOS'; this.downloadButton.addEventListener('click', () => {
+      this.downloadButton.innerHTML = 'iOS Safari'; this.downloadButton.addEventListener('click', () => {
+        console.log('Clicked Button');
+        this.iPhoneInstallBanner.style.display = 'block';
+        this.closeIPhoneInstallBannerButton.addEventListener('click', () => {
+          console.log('Closing iPhone Install banner');
+          this.iPhoneInstallBanner.style.height = '0';
+        });
+      });
+    }
+    if (deviceType.search('CriOS') > -1) {
+      console.log('Safari');
+      this.downloadButton.innerHTML = 'iOS Chrome';
+    }
+ 
+    if (deviceType.search('iPhone' && 'Firefox') > -1) {
+      console.log('iPhone');
+      this.downloadButton.innerHTML = 'iOS Chrome'; this.downloadButton.addEventListener('click', () => {
         console.log('Clicked Button');
         this.iPhoneInstallBanner.style.display = 'block';
         this.closeIPhoneInstallBannerButton.addEventListener('click', () => {
@@ -41,7 +57,11 @@ export class HomePage implements OnInit {
       console.log('iPad');
       this.downloadButton.innerHTML = 'iPad';
     }
-  
+
+    // Apple < Chrome
+    // Apple < Firefox
+    // 
+
     // Android
     if (deviceType.search('Chrome') > -1) {
       console.log('Chrome Browser');
