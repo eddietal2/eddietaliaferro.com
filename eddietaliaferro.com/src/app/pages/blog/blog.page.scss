@@ -1,0 +1,50 @@
+.blog-by-year-wrapper{
+  margin-bottom: 80px;
+}
+
+.page-sub-header {
+  color: #999;
+  margin: 30px 0;
+}
+
+.blog-search {
+  border: 1px solid #888;
+  width: 100%;
+  transition: 500ms;
+}
+
+.blog-search:hover {
+  border: 2px solid #2B50C8;
+  transition: 500ms;
+}
+
+.blog-post {
+  background: #FBFBFB;
+  padding: 25px;
+
+  .blog-date {
+    color: #999;
+    margin: 5px 0;
+    opacity: 0.6;
+  }
+  .blog-title {
+    margin: 5px 0;
+  }
+  .blog-hashtags {
+    margin: 5px 0;
+    color: #2B50C8;
+  }
+}
+
+.blog-post:hover {
+  background: #eeeded;
+  animation: slide-up 500ms ease forwards;
+  border: 1.5px solid #BC3790;
+}
+
+@media only screen and (min-width: 700px) {
+  .blog-search{
+    width: 350px;
+    margin: 0 auto;
+  }
+}

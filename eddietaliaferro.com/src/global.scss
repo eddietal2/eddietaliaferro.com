@@ -24,3 +24,101 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: Ayuthaya;
+  src: url(./assets/fonts/ayuthaya-1.ttf);
+}
+
+ion-grid {
+  --ion-grid-padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ion-content {
+  --background: white;
+  --color: #333;
+}
+
+ion-row {
+  margin-bottom: 100px;
+}
+
+ion-row:last-child {
+  margin-bottom: 0;
+}
+
+.page-header {
+  margin-top: 120px;
+  font-family: Ayuthaya;
+  font-size:  3em;
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 1090px) {
+    .page-header{
+      padding: 0px 0px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+  .page-header{
+    font-size: 2.2em;
+  }
+}
+
+.line {
+  border-top: solid 3px #E8B923;
+  margin: 20px 0;
+  opacity: 0.6;
+}
+
+.gold-button {
+  width: 150px;
+  display: block;
+  margin: 30px 0;
+  --background: #E8B923;
+  --color: white;
+  --border-radius: 50px;
+  --box-shadow: none;
+}
+
+.green-button {
+  width: 150px;
+  display: block;
+  margin: 30px 0;
+  --background: #32D969;
+  --color: white;
+  --border-radius: 50px;
+  --box-shadow: none;
+}
+
+@keyframes slide-up {
+ 0% {
+  transform: translateY(0px);
+ }
+ 100% {
+  transform: translateY(-5px);
+ }
+}
+
+@-webkit-keyframes slide-up {
+  0% {
+    transform: translateY(0px);
+   }
+   100% {
+    transform: translateY(-50px);
+   }
+}
+
+@keyframes slide-down {
+  0% {
+   transform: translateY(-5px);
+  }
+  100% {
+   transform: translateY(0px);
+  }
+ }

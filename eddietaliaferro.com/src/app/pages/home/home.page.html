@@ -1,0 +1,86 @@
+<ion-content>
+  <ion-grid>
+    <div id="iphone-install-banner">
+      
+      <p>Install this App on your iPhone.</p>
+      <p>Tap <span><img class="action-icon" src="../../../assets/icons/photo.png" alt="" srcset=""></span>then <b>Add to HomeScreen</b> <span id="close">&#10005;</span></p>
+    </div>
+    <ion-row style="margin-top: 55px">
+      <!-- Illustation 1 -->
+      <ion-col class="illustration" size="12" size-lg="8">
+        <div class="css-typing">
+          <h1>Hi, my name is <span>Eddie Taliaferro II</span>.</h1>
+          <h1 style="color: #E8B923; font-weight: 800;">Designer<span style="color: #fff">,</span></h1>
+          <h1 style="color: #E8B923; font-weight: 800;">Engineer<span style="color: #fff">,</span></h1>
+          <h1 style="color: #E8B923; font-weight: 800;"><span style="color: #fff">&</span> Instructor<span style="color: #fff">.</span></h1>
+          <h1 style="color: #BC3790; font-weight: 800;">I love what I do<span style="color: #fff">.</span></h1>
+        </div>
+      </ion-col>
+      <ion-col class="about" size="12" size-lg="4">
+        <div class="ion-text-center">
+          <button id="download-button" (click)="showInstallBanner()">Download App</button>
+          
+        </div>
+        <div class="picture"></div>
+        <p>This website is my blah blah blah. Make up text for this later. And this when you are done with that, make more text later. You can look at my blog posts, guides, projects, or contact me if you have a question or would like to do business. </p>
+        <ion-button class="gold-button" style="margin: 40px auto;" routerLink="/contact">
+          Contact Me
+        </ion-button>
+        <ion-button class="gold-button" style="margin: 40px auto;" routerLink="/donate">
+          Donate
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Ilustration 2 -->
+    <ion-row>
+      <ion-col class="illustration-2 ion-align-self-center" size="12">
+        <canvas id="abstract-1">
+
+        </canvas>
+      </ion-col>
+    </ion-row>
+
+    <!-- Latest Blog Posts -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="latest-blogs" size-xs="11" size-sm="10" size-lg="8">
+        <ion-toolbar>
+          <h1 class="page-header" slot="start">Latest Blog Posts</h1>
+          <ion-button slot="end" class="green-button" routerlink="/blog">
+          View All
+          </ion-button>
+        </ion-toolbar>
+        <hr class="line">
+        <div class="blog-post">
+          <h5 class="blog-date">Date</h5>
+          <h1 class="blog-title">Title</h1>
+          <h6 class="blog-hashtags">#Hashtags</h6>
+        </div>
+      </ion-col>
+    </ion-row>
+
+     <!-- Latest Projects -->
+     <ion-row class="ion-justify-content-center">
+      <ion-col class="latest-projects" size-xs="11" size-sm="10" size-lg="8">
+        <ion-toolbar>
+          <h1 class="page-header" slot="start">Latest Projects</h1>
+          <ion-button slot="end" class="green-button" routerlink="/projects">
+          View All
+          </ion-button>
+        </ion-toolbar>
+        <hr class="line">
+        <div class="projects">
+          <a class="project-name">Project Name</a>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Footer Illustation -->
+    <ion-row>
+      <ion-col class="footer-illustration" size="12">
+        <canvas id="abstract-2">
+
+        </canvas>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

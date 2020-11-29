@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-grid>
+
+    <!-- Blog Header and Search Bar -->
+    <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
+      <ion-col class="ion-text-center" size-xs="11" size-sm="8">
+        <h1 class="page-header">Blogs</h1>
+        <h4 class="page-sub-header">Search for articles, tutorials, rants, ect.</h4>
+        <ion-input class="blog-search" type="text" placeholder="Search ..."></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <!-- Blogs -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="blog-by-year-wrapper" size-xs="11" size-sm="8">
+        <h2 class="blog-year">2020</h2>
+        <hr class="line">
+        <div class="blog-post" routerLink="/blog/blog-page">
+          <h5 class="blog-date">September 3rd, 2020</h5>
+          <h1 class="blog-title">PWA App Shell Guide</h1>
+          <h6 class="blog-hashtags">#pwa #angular</h6>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

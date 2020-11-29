@@ -1,0 +1,31 @@
+#logo {
+  position: relative;
+  top: px;
+  width: 20px;
+}
+
+.navbar {
+  --background: linear-gradient(73.54497825384362deg, rgba(0, 199, 66,1) 8.871497304413253%,rgba(61, 173, 98,1) 89.69365126629889%,rgba(62, 173, 99,1) 89.69365126629889%)
+  ;
+  --box-shadow: none;
+  padding: 0px 30px;
+
+    a {
+      font-weight: 900;
+      font-size: 1em;
+      color: white;
+      margin: 0px 10px;
+    }
+}
+
+.name {
+  margin-left: 10px;
+  font-family: Ayuthaya;
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 1090px) {
+    .navbar {
+      padding: 0px 140px;
+    }
+}

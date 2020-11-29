@@ -1,0 +1,141 @@
+ion-toolbar:first-child {
+  margin-top: 130px;
+  --background: none;
+  color: white;
+
+  ion-button {
+    --background: #BC3790;
+    width: 100px;
+    height: 40px;
+  }
+}
+
+.blog-header {
+  font-family: Ayuthaya;
+  font-size:  1.3em;
+  font-weight: 800;
+}
+
+.blog-date {
+  color: #999;
+  margin: 5px 0;
+  opacity: 0.6;
+  font-size: 0.9em;
+}
+
+
+.blog-hashtags {
+  margin: 5px 0;
+  color: #2B50C8;
+}
+
+.blog-post {
+  line-height: 1.2em;
+  font-size: 1.2em;
+}
+
+.comment-wrapper {
+  background: #FBFBFB;
+  padding: 10px;
+}
+
+ion-toolbar {
+  --background: #E8E6E6;
+}
+
+.comment {
+  font-size: 1.1em;
+  line-height: 1.2em;
+}
+
+.post-button{
+  --background: linear-gradient(73.54497825384362deg, rgba(0, 199, 66,1) 8.871497304413253%,rgba(61, 173, 98,1) 89.69365126629889%,rgba(62, 173, 99,1) 89.69365126629889%)
+  ;
+}
+
+.info-footer-wrapper{
+  background: #FBFBFB;
+}
+
+.info-footer{
+  padding: 80px 20px;
+  // background: lightgray;
+}
+
+@media only screen and (max-width: 450px) {
+  .info-footer{
+    text-align: center;
+
+    .info-footer-text {
+      font-size: 1em;
+      margin: 55px 0px;
+    }
+
+    .green-button {
+      margin: 25px auto;
+    }
+  }
+}
+
+.info-footer-text {
+  font-size: 1.2em;
+  margin: 25px 0px;
+  line-height: 1.2em;
+}
+
+.picture {
+  height: 100px; width: 100px;
+  border-radius: 50px;
+}
+
+.prev-next{
+  background: lavenderblush;
+}
+
+.prev, .next {
+  background: #FBFBFB;
+  height: 150px; width: 100px;
+  padding: 20px;
+  transition: 0.5s;
+
+  h4 {
+    color: #2B50C8;
+  }
+
+  p {
+    color: #333;
+    font-weight: 800;
+  }
+}
+
+.next {
+  border-left: 1px solid rgb(230, 230, 230);
+}
+
+.prev:hover, .next:hover {
+  background: #E8E6E6;
+
+  p {
+    color: #000;
+  }
+
+  h4 {
+    color: #BC3790;
+  }
+}
+
+.commented-when{
+  opacity: 0.2;
+}
+
+.enter-comment {
+  background: #FBFBFB;
+  border-top: 5px solid #32D969;
+  margin-top: 80px;
+  padding: 8px;
+}
+
+.blog-page-illustration{
+  background: lightgoldenrodyellow;
+  height: 80vh;
+}

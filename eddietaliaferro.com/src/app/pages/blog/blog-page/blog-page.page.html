@@ -1,0 +1,99 @@
+<ion-content>
+
+  <!-- Back Button -->
+  <ion-row style="margin-bottom: 30px;">
+    <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="8" offset-lg="1">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button routerLink="/blog" style="--border-radius: 50px;">
+            Back
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-col>
+  </ion-row>
+  <!-- Blog Header and Search Bar -->
+  <ion-row>
+    <ion-col size-xs="11" offset-xs=0.5 size-sm="9" size-lg="8" offset-lg="1">
+      <h1 class="blog-header">This is the blog title</h1>
+      <h4 class="blog-date">September 3rd, 2020.</h4>
+      <h6 class="blog-hashtags">#pwa #angular</h6>
+      <hr class="line">
+      <p class="blog-post">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
+
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <!-- Comments -->
+  <ion-row>
+    <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="8" offset-lg="1">
+      <h3>Comments (1)</h3>
+      <hr class="line">
+      <div class="comment-wrapper">
+        <h5>Username <span class="commented-when">commented 8 minutes ago</span></h5>
+        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+      </div>
+
+      <!-- Comment Textarea -->
+      <ion-textarea
+        class="enter-comment"
+        rows="6" cols="20"
+        placeholder="Please enter comment here">
+      </ion-textarea>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button class="post-button">
+            Post
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-col>
+  </ion-row>
+
+  <!-- Info Footer -->
+  <ion-row class="info-footer-wrapper">
+    <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="6" offset-lg="1">
+      <div class="info-footer">
+        <img class="picture" src="../../../../assets/photo.png" alt="picture">
+        <h3>Eddie Taliaferro II</h3>
+        <p class="info-footer-text">This website is my blah blah blah. Make up text for this later. And this when you are done with that, make more text later. You can look at my blog posts, guides, projects, or contact me if you have a question or would like to do business. </p>
+        <ion-button class="green-button" routerLink="/contact">
+          Contact Me
+        </ion-button>
+        <ion-button class="green-button">
+          LinkedIN
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+  <!-- Prev & Next -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-xs="12" size-sm="9" size-lg="8" class="ion-text-center">
+      <h1 style="margin-bottom: 30px;">Read More</h1>
+      <div class="prev-next">
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="prev ion-text-right" size="6">
+           <p>Prev</p>
+           <h4>Title of prev page</h4>
+          </ion-col>
+          <ion-col class="next ion-text-left" size="6">
+            <p>Next</p>
+            <h4>Title of next page</h4>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- Footer Illustration -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12">
+      <div class="blog-page-illustration"></div>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>
