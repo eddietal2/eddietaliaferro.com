@@ -366,16 +366,17 @@ ion-toolbar {
 
 #iphone-install-banner {
   display: none;
-  transition: 0.5s;
-  background-color: #eef;
+  text-align: center;
+  background-color: rgb(238, 238, 255);
   z-index: 999;
   width: 100%;
-  height: 100px;
-  padding: 0.2em 1em;
+  height: 200px;
+  padding: 4.5em 2em;
   position: fixed;
   bottom: 0;
   animation: slide-up 0.5s ease forwards;
   -webkit-animation: slide-up 0.5s ease forwards;
+  -moz-animation: slide-up 0.5s ease forwards;
 
   .action-icon {
     height: 30px;
@@ -385,27 +386,80 @@ ion-toolbar {
   #close {
     color: white;
     padding: 0.4em;
+    margin: 40px auto 0px auto;
+    width: 100px;
+    height: 40px;
+    font-size: 1em;
     background: #bb3690;
     padding: 0.6em;
     border-radius: 5px;
-    display: inline-block;
-    float: right;
+    display: block;
   }
+  #close-2 {
+    color: white;
+    padding: 0.4em;
+    margin: 40px auto 0px auto;
+    width: 100px;
+    height: 40px;
+    font-size: 1em;
+    background: #bb3690;
+    padding: 0.6em;
+    border-radius: 5px;
+    display: block;
+  }
+}
+
+#open-safari-banner {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  display: none;
+  text-align: center;
+  background-color: rgb(238, 238, 255,);
+  z-index: 999;
+  width: 100%;
+  height: 360px;
+  font-size: 1.1em;
+  padding: 3.5em 2em;
+  position: fixed;
+  bottom: 0;
+  animation: slide-up 0.5s ease forwards;
+  -webkit-animation: slide-up 0.5s ease forwards;
+  -moz-animation: slide-up 0.5s ease forwards;
+}
+
+#safari-button {
+    color: white;
+    padding: 0.4em;
+    margin: 40px auto 0px auto;
+    width: 100px;
+    height: 40px;
+    font-size: 1em;
+    background: #bb3690;
+    padding: 0.6em;
+    border-radius: 5px;
+    display: block;
+}
+
+#safari-logo {
+  height: 50px;
+  width: 50px;
+  margin: 20px auto 0 auto;
 }
 
 @keyframes slide-up {
   0% {
-    transform: translateY(100px)
+    height: 0px;
   }
   100% {
-    transform: translateY(0px)
+    height: 100%;
   }
 }
 @-webkit-keyframes slide-up {
   0% {
-    transform: translateY(100px)
+    height: 0px;
   }
   100% {
-    transform: translateY(0px)
+    height: 100%;
   }
 }

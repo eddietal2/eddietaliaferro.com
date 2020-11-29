@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomePage implements OnInit {
   deferredPrompt: any;
   downloadButton;
-  iPhoneInstallBanner;
+  iPhoneInstallBanner: HTMLElement;
+  openSafariBanner: HTMLElement;
   closeIPhoneInstallBannerButton: HTMLElement;
+  openSafariClose: HTMLElement;
 
   constructor() { }
 
@@ -17,50 +19,90 @@ export class HomePage implements OnInit {
     this.downloadButton = document.getElementById('download-button');
     this.closeIPhoneInstallBannerButton = document.getElementById('close');
     this.iPhoneInstallBanner = document.getElementById('iphone-install-banner');
+    this.openSafariBanner = document.getElementById('open-safari-banner');
+    this.openSafariClose = document.getElementById('open-safari-close');
 
     const deviceType = window.navigator.userAgent;
     console.log(deviceType);
 
     // Apple
+    // Safari Desktop
     if (deviceType.search('Safari') > -1) {
       console.log('Safari');
       this.downloadButton.innerHTML = 'Safari';
     }
-    if (deviceType.search('iPhone' && 'Safari') > -1) {
-      console.log('iPhone');
-      this.downloadButton.innerHTML = 'iOS Safari'; this.downloadButton.addEventListener('click', () => {
+    // iPhone Safari
+    // The word Version is the only difference between the iOS Chrome and Safari User Agents
+    //Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1
+
+    if (deviceType.search('Version' && 'iPhone') > -1) {
+      this.downloadButton.innerHTML = 'iOS Safari';
+      this.downloadButton.addEventListener('click', () => {
         console.log('Clicked Button');
         this.iPhoneInstallBanner.style.display = 'block';
         this.closeIPhoneInstallBannerButton.addEventListener('click', () => {
           console.log('Closing iPhone Install banner');
-          this.iPhoneInstallBanner.style.height = '0';
+          this.iPhoneInstallBanner.style.display = 'none';
         });
       });
     }
+    // (Mobile) Chrome iOS
     if (deviceType.search('CriOS') > -1) {
-      console.log('Safari');
       this.downloadButton.innerHTML = 'iOS Chrome';
-    }
- 
-    if (deviceType.search('iPhone' && 'Firefox') > -1) {
-      console.log('iPhone');
-      this.downloadButton.innerHTML = 'iOS Chrome'; this.downloadButton.addEventListener('click', () => {
+      this.downloadButton.addEventListener('click', () => {
         console.log('Clicked Button');
-        this.iPhoneInstallBanner.style.display = 'block';
-        this.closeIPhoneInstallBannerButton.addEventListener('click', () => {
+        this.openSafariBanner.style.display = 'block';
+        this.openSafariClose.addEventListener('click', () => {
           console.log('Closing iPhone Install banner');
-          this.iPhoneInstallBanner.style.height = '0';
+          this.openSafariBanner.style.display = 'none';
         });
       });
     }
-    if (deviceType.search('iPad') > -1) {
-      console.log('iPad');
-      this.downloadButton.innerHTML = 'iPad';
+    // (Mobile) FireFox iOS
+    if (deviceType.search('FxiOS') > -1) {
+      this.downloadButton.innerHTML = 'iOS Firefox';
+      this.downloadButton.addEventListener('click', () => {
+        console.log('Clicked Button');
+        this.openSafariBanner.style.display = 'block';
+        this.iPhoneInstallBanner.style.display = 'none';
+        this.openSafariClose.addEventListener('click', () => {
+          console.log('Closing iPhone Install banner');
+          this.openSafariBanner.style.display = 'none';
+        });
+      });
+    }
+    // (Mobile) Edge iOS
+    if (deviceType.search('EdgiOS') > -1) {
+      this.downloadButton.innerHTML = 'iOS Edge';
+      this.downloadButton.addEventListener('click', () => {
+        this.openSafariBanner.style.display = 'block';
+        this.iPhoneInstallBanner.style.display = 'none';
+        this.openSafariClose.addEventListener('click', () => {
+          console.log('Closing iPhone Install banner');
+          this.openSafariBanner.style.display = 'none';
+        });
+      });
+    }
+    // (Mobile) Opera iOS
+    if (deviceType.search('OPT') > -1) {
+      this.downloadButton.innerHTML = 'iOS Opera';
+      this.downloadButton.addEventListener('click', () => {
+        console.log('Clicked Button');
+        this.openSafariBanner.style.display = 'block';
+        this.iPhoneInstallBanner.style.display = 'none';
+        this.openSafariClose.addEventListener('click', () => {
+          console.log('Closing iPhone Install banner');
+          this.openSafariBanner.style.display = 'none';
+        });
+      });
     }
 
-    // Apple < Chrome
-    // Apple < Firefox
-    // 
+
+
+    // iPad
+    if (deviceType.search('iPad') > -1) {
+      this.downloadButton.innerHTML = 'iPad';
+    }
 
     // Android
     if (deviceType.search('Chrome') > -1) {
@@ -68,10 +110,10 @@ export class HomePage implements OnInit {
       this.downloadButton.innerHTML = 'Chrome';
 
     }
-    if (deviceType.search('Chrome' && 'Mobile' && 'Android') > -1) {
-      console.log('Chrome Browser');
-      this.downloadButton.innerHTML = 'Android';
-    }
+    // if (deviceType.search('Chrome' && 'Mobile' && 'Android') > -1) {
+    //   console.log('Chrome Browser');
+    //   this.downloadButton.innerHTML = 'Android';
+    // }
 
     // Firefox
     if (deviceType.search('Firefox') > -1) {
@@ -79,15 +121,20 @@ export class HomePage implements OnInit {
       this.downloadButton.innerHTML = 'Firefox';
     }
 
+    // Edge
+    // if (deviceType.search('Edg') > -1) {
+    //   this.downloadButton.innerHTML = 'Edge';
+    // }
+    // Samsung Browser
+    // if (deviceType.search('Firefox') > -1) {
+
+    // }
+
     // Opera
-    if (deviceType.search('OPR') > -1) {
-      console.log('Opera');
-      this.downloadButton.innerHTML = 'Opera';
-    }
-
-    // Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:83.0) Gecko/20100101 Firefox/83.0
-
-    // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36
+    // if (deviceType.search('OPR') > -1) {
+    //   console.log('Opera');
+    //   this.downloadButton.innerHTML = 'Opera';
+    // }
 
 
     window.addEventListener('beforeinstallprompt', (e) => {

@@ -1,9 +1,13 @@
 <ion-content>
   <ion-grid>
     <div id="iphone-install-banner">
-      
       <p>Install this App on your iPhone.</p>
-      <p>Tap <span><img class="action-icon" src="../../../assets/icons/photo.png" alt="" srcset=""></span>then <b>Add to HomeScreen</b> <span id="close">&#10005;</span></p>
+      <p>Tap <span><img class="action-icon" src="../../../assets/icons/photo.png" alt="" srcset=""></span>then <b>Add to HomeScreen</b>
+        <button id="close">Close</button></p>
+    </div>
+
+    <div id="open-safari-banner">
+      <img style="margin: 20px auto" height="70" src="../../../assets/icons/safari.svg"><p>In order to download this app to your iPhone's Homescreen, you need to download it with <b>Safari</b>.  Open Safari, return to this page, then tap the Download button.</p><button id="open-safari-close" style="background: #bb3690; font-weight: 800; font-size: 1em; color: white; padding: 0.4em; margin: 40px auto 0px auto; width: 100px; height: 40px; border-radius: 5px;">Close</button>
     </div>
     <ion-row style="margin-top: 55px">
       <!-- Illustation 1 -->
@@ -18,7 +22,7 @@
       </ion-col>
       <ion-col class="about" size="12" size-lg="4">
         <div class="ion-text-center">
-          <button id="download-button" (click)="showInstallBanner()">Download App</button>
+          <button id="download-button">Download App</button>
           
         </div>
         <div class="picture"></div>
