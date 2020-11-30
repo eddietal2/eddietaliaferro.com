@@ -1,6 +1,6 @@
 {
-  "name": "Eddie Taliaferro ",
-  "short_name": "Eddie Taliaferro App",
+  "name": "Eddie Taliaferro App",
+  "short_name": "Ed App",
   "theme_color": "#eef",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -10,49 +10,49 @@
     {
       "src": "assets/icons/icon-72x72.svg",
       "sizes": "72x72",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-96x96.svg",
       "sizes": "96x96",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-128x128.svg",
       "sizes": "128x128",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-144x144.svg",
       "sizes": "144x144",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-152x152.svg",
       "sizes": "152x152",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-192x192.svg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-384x384.svg",
       "sizes": "384x384",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/icon-512x512.svg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/svg",
       "purpose": "maskable any"
     }
   ]
