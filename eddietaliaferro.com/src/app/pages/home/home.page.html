@@ -5,85 +5,205 @@
       <p>Tap <span><img class="action-icon" src="../../../assets/icons/photo.png" alt="" srcset=""></span>then <b>Add to HomeScreen</b>
         <button id="close">Close</button></p>
     </div>
-
     <div id="open-safari-banner">
       <img style="margin: 20px auto" height="70" src="../../../assets/icons/safari.svg"><p>In order to download this app to your iPhone's Homescreen, you need to download it with <b>Safari</b>.  Open Safari, return to this page, then tap the Download button.</p><button id="open-safari-close" style="background: #bb3690; font-weight: 800; font-size: 1em; color: white; padding: 0.4em; margin: 40px auto 0px auto; width: 100px; height: 40px; border-radius: 5px;">Close</button>
     </div>
-    <ion-row style="margin-top: 55px">
+
+    <!-- Landing Page Header -->
+    <ion-row class="ion-justify-content-center" style="margin-top: 55px">
       <!-- Illustation 1 -->
-      <ion-col class="illustration" size="12" size-lg="8">
-        <div class="css-typing">
-          <h1>Hi, my name is <span>Eddie Taliaferro II</span>.</h1>
-          <h1 style="color: #E8B923; font-weight: 800;">Designer<span style="color: #fff">,</span></h1>
-          <h1 style="color: #E8B923; font-weight: 800;">Engineer<span style="color: #fff">,</span></h1>
-          <h1 style="color: #E8B923; font-weight: 800;"><span style="color: #fff">&</span> Instructor<span style="color: #fff">.</span></h1>
-          <h1 style="color: #BC3790; font-weight: 800;">I love what I do<span style="color: #fff">.</span></h1>
-        </div>
-      </ion-col>
-      <ion-col class="about" size="12" size-lg="4">
-        <div class="ion-text-center">
-          <button id="download-button">Download App</button>
-        </div>
-        <div class="picture"></div>
-        <p>This website is my blah blah blah. Make up text for this later. And this when you are done with that, make more text later. You can look at my blog posts, guides, projects, or contact me if you have a question or would like to do business. </p>
-        <ion-button class="gold-button" style="margin: 40px auto;" routerLink="/contact">
-          Contact Me
-        </ion-button>
-        <ion-button class="gold-button" style="margin: 40px auto;" routerLink="/donate">
-          Donate
-        </ion-button>
+      <ion-col id="landing-page-header" size="12">
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="ion-hide-lg-up ion-text-center" size-xs="12" size-sm="11" size-md="10" size-lg="6">
+            <div id="header-illustration"></div>
+           </ion-col>
+          <ion-col size-xs="12" size-sm="11" size-md="7" size-lg="3">
+           <div class="ion-margin-top">
+            <div id="headshot-picture"></div>
+            <h1>Eddie Taliaferro II</h1>
+            <h3>Designer</h3>
+            <h3>Engineer</h3>
+            <h3>Instructor</h3>
+           <div id="header-buttons">
+            <ion-button class="gold-button" (click)="donatePage()">
+              Donate
+            </ion-button>
+            <ion-button class="red-button" (click)="contactPage()">
+              Contact
+            </ion-button>
+           </div>
+           </div>
+          </ion-col>
+          <ion-col class="ion-hide-lg-down ion-text-center" size-xs="12" size-sm="11" size-md="10" size-lg="6">
+           <div id="header-illustration"></div>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
 
-    <!-- Ilustration 2 -->
-    <ion-row>
-      <ion-col class="illustration-2 ion-align-self-center" size="12">
-        <canvas id="abstract-1">
+    <!-- Curve Under Header-->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 40" class="bottom-curve" style="position: relative;
+    top: -128px;"><path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#333"></path></svg> -->
 
-        </canvas>
+    <!-- Illustation -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="11">
+        <div id="illustration-1"></div>
       </ion-col>
     </ion-row>
 
     <!-- Latest Blog Posts -->
-    <ion-row class="ion-justify-content-center">
-      <ion-col class="latest-blogs" size-xs="11" size-sm="10" size-lg="8">
+    <ion-row class="latest-blogs ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6">
         <ion-toolbar>
-          <h1 class="page-header" slot="start">Latest Blog Posts</h1>
-          <ion-button slot="end" class="green-button" routerlink="/blog">
-          View All
-          </ion-button>
+          <h1 class="section-header" slot="start">Latest Blog Posts</h1>
+          <ion-buttons slot="end">
+            <ion-button class="gold-button" routerlink="/blog">
+              View All
+            </ion-button>
+          </ion-buttons>
         </ion-toolbar>
         <hr class="line">
-        <div class="blog-post">
-          <h5 class="blog-date">Date</h5>
-          <h1 class="blog-title">Title</h1>
-          <h6 class="blog-hashtags">#Hashtags</h6>
-        </div>
+        <!-- Delete 2 "blog-post" after back-end intergration. -->
+        <!-- Render the most recent 3 last blog post dynamically. -->
+        <ion-row class="blog-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="blog-date">Date</h5>
+            <h1 class="blog-title">Title</h1>
+            <h6 class="blog-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-button class="green-button" (click)="viewBlogPage()">
+              View Blog
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="blog-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="blog-date">Date</h5>
+            <h1 class="blog-title">Title</h1>
+            <h6 class="blog-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-button class="green-button" (click)="viewBlogPage()">
+              View Blog
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="blog-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="blog-date">Date</h5>
+            <h1 class="blog-title">Title</h1>
+            <h6 class="blog-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-button class="green-button" (click)="viewBlogPage()">
+              View Blog
+            </ion-button>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
 
      <!-- Latest Projects -->
-     <ion-row class="ion-justify-content-center">
-      <ion-col class="latest-projects" size-xs="11" size-sm="10" size-lg="8">
+     <ion-row class="latest-projects ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6">
         <ion-toolbar>
-          <h1 class="page-header" slot="start">Latest Projects</h1>
-          <ion-button slot="end" class="green-button" routerlink="/projects">
-          View All
-          </ion-button>
+          <h1 class="section-header" slot="start">Latest Projects</h1>
+          <ion-buttons slot="end">
+            <ion-button class="gold-button" routerlink="/blog">
+              View All
+            </ion-button>
+          </ion-buttons>
         </ion-toolbar>
         <hr class="line">
-        <div class="projects">
-          <a class="project-name">Project Name</a>
-        </div>
+        <!-- Delete 2 "blog-post" after back-end intergration. -->
+        <!-- Render the most recent 3 last blog post dynamically. -->
+        <ion-row class="project-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Project Post Thumbnail" class="project-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="project-date">Date</h5>
+            <h1 class="project-title">Title</h1>
+            <h6 class="project-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button">
+            <ion-button class="green-button" (click)="viewProjectPage()">
+              View Project
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="project-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Project Post Thumbnail" class="project-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="project-date">Date</h5>
+            <h1 class="project-title">Title</h1>
+            <h6 class="project-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button">
+            <ion-button class="green-button" (click)="viewProjectPage()">
+              View Project
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="project-post">
+            <ion-col size-xs="2" size-sm="2" size-lg="2">
+              <img src="../../../assets/gold-logo.svg" alt="Project Post Thumbnail" class="project-thumbnail">
+            </ion-col>
+            <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+              <h5 class="project-date">Date</h5>
+              <h1 class="project-title">Title</h1>
+              <h6 class="project-hashtags">#Hashtags</h6>
+            </ion-col>
+            <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button">
+              <ion-button class="green-button" (click)="viewProjectPage()">
+                View Project
+              </ion-button>
+            </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
-    <!-- Footer Illustation -->
-    <ion-row>
-      <ion-col class="footer-illustration" size="12">
-        <canvas id="abstract-2">
-
-        </canvas>
+    <!--  Curve -->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 40" class="bottom-curve" style="position: relative;
+    top: -29px;"><path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path></svg> -->
+    <!-- Footer Game -->
+    <ion-row id="footer" class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="11">
+        <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
+      </ion-col>
+      <ion-col class="ion-text-center" size="11">
+        <div id="footer-buttons">
+          <hr class="footer-hr">
+          <ion-button class="gold-button" (click)="donatePage()">
+            Donate
+          </ion-button>
+          <ion-button class="red-button" (click)="contactPage()">
+            Contact
+          </ion-button>
+        </div>
+      <div id="social-media">
+        <hr class="footer-hr">
+        <ion-icon size="large" name="logo-linkedin"></ion-icon>
+      </div>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<!-- <div class="css-typing">
+          <br class="ion-hide-sm-up">
+          <br class="ion-hide-sm-up">
+          <h1 style="color: #E2B00E; font-weight: 800;">Have a nice day!<span style="color: #fff">,</span></h1>
+        </div> -->

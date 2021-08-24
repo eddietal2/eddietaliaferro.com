@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
     }
      // Chrome Desktop
     if (deviceType.search('Chrome') > -1) {
-      this.downloadButton.innerHTML = 'Chrome';
+      // this.downloadButton.innerHTML = 'Chrome';
     }
     // Firefox Desktop
     if (deviceType.search('Firefox') > -1) {
@@ -190,7 +190,18 @@ export class HomePage implements OnInit {
       this.downloadButton.style.display = 'none';
     }
   }
+  donatePage() {
+    
+  }
+  contactPage() {
 
+  }
+  viewBlogPage() {
+
+  }
+  viewProjectPage() {
+    
+  }
   showInstallBanner() {
 
     console.log('Trying to Show Install Banner ...');

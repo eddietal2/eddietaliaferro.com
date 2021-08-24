@@ -1,355 +1,297 @@
-.illustration {
-  background: #333;
+ion-grid {
+  background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  --color: white;
+}
+@media only screen and (max-width: 600px) {
+  ion-grid {
+    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+#landing-page-header {
+
+  // background: linear-gradient(#F6FFFC, #EAFFF9);
+  background: linear-gradient(73.54497825384362deg, #F6FFFC 8.871497304413253%, #EAFFF9 89.69365126629889%);
+  color: #0B4F3B;
+  background-attachment: fixed;
+  // background-image: url('');
+  // background-attachment: fixed;
+  // background-size: auto 840px;
   // box-shadow: inset -10px 10px 20px #000;
   height: 550px;
   padding: 40px;
-}
-
-
-
-.about {
-  // background: lightcoral;
-  height: 550px;
-  padding: 40px;
-
-  .picture {
+  span {
+    font-weight: 800;
+  }
+  h3 {
+    margin: 0em 0em;
+    font-size: 1em;
+    color: #777;
+  }
+  #headshot-picture {
     width: 100px; height: 100px;
     border-radius: 50px;
     background-image: url('..//../../assets/photo.png');
     background-size: contain;
+    // margin: 0 auto;
+  }
+  #header-illustration {
+    background-color: blue;
+    height: 200px;
+    width: 100%;
+    // position: relative;
+    // left: 75px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  #landing-page-header {
+    height: auto;
+  }
+  #headshot-picture {
     margin: 0 auto;
   }
+  #header-buttons {
+    margin: 0 auto;
+    .gold-button {
+      display: inline-block;
+      height: 40px;
+      width: 120px;
+      margin: 1em auto;
+    }
+    .red-button {
+      display: inline-block;
+      height: 40px;
+      width: 120px;
+      margin: 1em auto;
+    }
+  }
+}
+#illustration-1 {
+  background: lightcoral;
+  height: 300px;
+  width: 350px;
+  margin: 3em auto;
+  padding: 3em;
+  border-radius: 5px;
 
   p {
     padding: 25px 0px;
-    line-height: 1.5em;
+    font-size: 1em;
+    line-height: 1.2em;
   }
 }
 
-@media only screen and (min-width: 1090px) {
-  .illustration {
-    height: 550px;
-  }
-
-  .about {
-    // background: lightcoral;
-    height: 550px;
-  }
-
-  .lastest-blogs {
-    padding: 0px 180px;
-  }
-}
-
-.css-typing h1 {
-  border-right: .15em solid #E8B923;
-  font-family: Ayuthaya;
-  font-size: 1.2em;
-  white-space: nowrap;
-  overflow: hidden;
-  color: white;
-}
-
-.css-typing h1 {
-  width: 100%;
-  opacity: 0;
-  -webkit-animation: type2 1s steps(1000, end);
-  animation: type2 1s steps(1000, end);
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.css-typing h1:nth-child(1) {
-  width: 22.3em;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-
-.css-typing h1:nth-child(2) {
-  width: 5.3em;
-  -webkit-animation-delay: 2.5s;
-  animation-delay: 2.5s;
-}
-
-.css-typing h1:nth-child(3) {
-  width: 5.3em;
-  -webkit-animation-delay: 4.5s;
-  animation-delay: 4.5s;
-}
-
-.css-typing h1:nth-child(4) {
-  width: 8em;
-  -webkit-animation-delay: 5.5s;
-  animation-delay: 5.5s;
-}
-
-.css-typing h1:nth-child(5) {
-  width: 10.3em;
-  font-weight: 800;
-  margin-top: 50px;
-  opacity: 0;
-  -webkit-animation: type3 1s steps(1000, end), blink .5s step-end infinite alternate;
-  animation: type3 1s steps(1000, end), blink .5s step-end infinite alternate;
-  -webkit-animation-delay: 7.5s;
-  animation-delay: 7.5s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-
-}
-
-
-@keyframes type {
-  0% {
-    width: 0;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    border: none;
-  }
-}
-
-@-webkit-keyframes type {
-  0% {
-    width: 0;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    border: none;
-  }
-}
-
-@keyframes type2 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@-webkit-keyframes type2 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@keyframes type3 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes type3 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-@-webkit-keyframes blink {
-  50% {
-    border-color: tranparent;
-  }
-}
-
-span {
-  color: #32D969;
-  font-weight: 800;
-}
-
-.illustration-2 {
-  // background: lightsteelblue;
-  height: 110vh;
-  text-align: center;
-}
-
-#abstract-1 {
-  // background: lightcoral;
-  margin-top: 70px;
-  height: 600px;
-  width: 95%;
-}
-
-.page-header{
-  font-size: 1.6em;
-  padding: 0;
-  color: #000;
-}
-
-ion-toolbar {
-  --background: white;
-  --color: white;
-
-  .green-button {
-    position: relative;
-    top: 50px;
-  }
-}
-
+// Latest Blogs
 .latest-blogs {
-  background: none;
-  height: 100vh;
+  // background: #f7f7f7;
+  height: auto;
+  padding: 1em 0;
+  margin: 0;
   // padding: 40px;
-}
 
+  ion-toolbar > ion-buttons > .gold-button {
+    width: 150px;
+    display: block;
+    margin: 30px 0;
+    --background: linear-gradient(360deg, #D3B900 -2%, #87780a, #D3B900);
+    --color: white;
+    --border-radius: 50px;
+    --box-shadow: none;
+  }
+}
 .blog-post {
-  background: #FBFBFB;
+  height: auto;
+  background: #F9F9F9;
   padding: 25px;
   transition: 0.5s;
+  margin: 2em 0;
+  border-radius: 10px;
+  border-left: 16px solid #00c400;
+  display: flex;
+  align-items: center;
+
+  .green-button {
+    margin: 0;
+  }
+
+  .blog-info {
+    display: inline-block;
+  }
+  .blog-thumbnail {
+    height: 100px;
+    margin-right: 2.5em;
+  }
   .blog-date {
     color: #999;
-    margin: 5px 0;
+    margin: 0 0;
     opacity: 0.6;
   }
   .blog-title {
-    margin: 5px 0;
+    margin: 0 0;
+    color: #333;
   }
   .blog-hashtags {
-    margin: 5px 0;
+    margin: 0 0;
     color: #2B50C8;
+  }
+  .view-page-button {
+
+  }
+}
+@media only screen and (max-width: 600px) {
+  .blog-post {
+    .blog-thumbnail {
+      height: 60px;
+      margin-right: 0.75em;
+    }
+    .green-button {
+      margin-top: 3em;
+    }
   }
 }
 
 .blog-post:hover {
-  background: #eeeded;
-  animation: slide-up 500ms ease forwards;
-  border: 1.5px solid #BC3790;
+  margin: 2.3em 0;
+  border-left: 16px solid #BC3790;
 }
 
+// Latest Project
 .latest-projects {
-  background: none;
-  height: 100vh;
+  // background: #222;
+  height: auto;
+  padding: 1em 0;
+  margin: 0;
+
+  ion-toolbar > ion-buttons > .gold-button {
+    width: 150px;
+    display: block;
+    margin: 30px 0;
+    --background: linear-gradient(360deg, #D3B900 -2%, #87780a, #D3B900);
+    --color: white;
+    --border-radius: 50px;
+    --box-shadow: none;
+  }
+
+  
+  .project-post:hover {
+    margin: 2.3em 0;
+    border-left: 16px solid #BC3790;
+  }
+
+  h2 {
+    color: white;
+    font-size: 3em;
+    margin: 2em 0;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.5em;
+  }
+  .logo {
+    background: blue;
+    height: 400px;
+  }
+  .description {
+    // background: #222;
+    box-shadow: 1px 1px 28px #161616;
+    border-radius: 15px;
+    height: 400px;
+  }
   // padding: 40px;
 }
-
-.projects {
-  background: #FBFBFB;
+.project-post {
+  height: auto;
+  background: #F9F9F9;
   padding: 25px;
+  transition: 0.5s;
+  margin: 2em 0;
+  border-radius: 10px;
+  border-left: 16px solid #00c400;
+  display: flex;
+  align-items: center;
 
-  .project-name {
-    color: #333;
-    margin: 5px 0;
+  .green-button {
+    margin: 0;
+  }
+
+  .project-info {
+    display: inline-block;
+  }
+  .project-thumbnail {
+    height: 100px;
+    margin-right: 2.5em;
+  }
+  .project-date {
+    color: #999;
+    margin: 0 0;
     opacity: 0.6;
   }
-
-  .project-name:hover {
+  .project-title {
+    margin: 0 0;
+    color: #333;
+  }
+  .project-hashtags {
+    margin: 0 0;
     color: #2B50C8;
-    text-decoration: underline;
+  }
+  .view-project-button {
+
   }
 }
 
-@media only screen and (max-width: 460px) {
-  .css-typing h1 {
-    font-size: 0.9em;
-  }
-
-  .illustration {
-    height: 480px;
-    padding: 40px;
-  }
-
-  .about {
-    height: 100vh;
-    padding-top: 80px;
-  }
-
-  .page-header {
-    font-size: 1em;
-  }
-
-  .green-button {
-    width: 90px;
+@media only screen and (max-width: 600px) {
+  .project-post {
+    .project-thumbnail {
+      height: 60px;
+      margin-right: 0.75em;
+    }
+    .green-button {
+      margin-top: 3em;
+    }
   }
 }
 
-@media only screen and (max-width: 360px) {
-  .illustration {
-    height: 300px;
-    padding: 20px;
-  }
+// Footer Game
 
-  .about {
-    text-align: center;
-  }
+#footer {
+  background: #0B4F3B;
+  height: 500px;
+  padding: 3em 0em;
 
-  .css-typing h1 {
-    font-size: 0.8em;
+  #footer-logo {
+    width: 100px;
   }
-
-  .lastest-blogs{
-    padding: 10px;
+  #footer-buttons {
+    width: 150px;
+    display: inline-block;
   }
-
-  .page-header{
-    font-size: 0.9em;
+  .footer-hr {
+    border-top: 5px solid #D3B900;
+    opacity: 0.4;
+    padding: 0;
+    width: 150px;
   }
-
-  .green-button {
-    width: 80px;
-    font-size: 0.4em;
-    --color: white;
+  #social-media {
+    margin-bottom: 1em;
   }
 }
 
-.lastest-projects {
-  background: none;
-  height: 100vh;
+.bottom-curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+ion-toolbar {
+  --background: none;
+}
+.section-header{
+  font-size: 1.6em;
+  padding: 0;
+  color: #D3B900;
 }
 
-.footer-illustration {
-  background: lightcyan;
-  height: 80vh;
-  text-align: center;
-}
-
-#abstract-2 {
-  background: lightgray;
-  height: 80vh;
-  width: 95%;
-}
-
+// PWA Install
 #download-button {
   transition: 0.5s;
   padding: 1.1em;
@@ -446,6 +388,45 @@ ion-toolbar {
   margin: 20px auto 0 auto;
 }
 
+// Media Queries
+@media only screen and (min-width: 1090px) {
+  .home-page-illustration-1 {
+    height: 800px;
+  }
+
+  .about {
+    // background: lightcoral;
+    height: 550px;
+  }
+
+  .lastest-blogs {
+    padding: 0px 180px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .home-page-illustration-1 {
+    height: auto;
+
+    .header-illustration {
+      margin-top: 2em;
+      background-color: azure;
+      height: 400px;
+      width: 350px;
+      position: relative;
+      left: 0px;
+    }
+  }
+}
+@media only screen and (max-width: 420px) {
+  .home-page-illustration-1 {
+    padding: 0px;
+
+    .header-illustration {
+      width: 100%;
+      background-color: lightsalmon;
+    }
+  }
+}
 @keyframes slide-up {
   0% {
     height: 0%;
@@ -460,5 +441,145 @@ ion-toolbar {
   }
   100% {
     height: 100%;
+  }
+}
+
+// For CSS Typing Animation in Header
+.css-typing h1 {
+  border-right: .15em solid #E8B923;
+  font-family: Ayuthaya;
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
+}
+.css-typing h1 {
+  width: 100%;
+  opacity: 0;
+  -webkit-animation: type2 1s steps(1000, end);
+  animation: type2 1s steps(1000, end);
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.css-typing h1:nth-child(1) {
+  width: 22.3em;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.css-typing h1:nth-child(2) {
+  width: 5.3em;
+  -webkit-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+.css-typing h1:nth-child(3) {
+  width: 5.3em;
+  -webkit-animation-delay: 4.5s;
+  animation-delay: 4.5s;
+}
+.css-typing h1:nth-child(4) {
+  width: 8em;
+  -webkit-animation-delay: 5.5s;
+  animation-delay: 5.5s;
+}
+.css-typing h1:nth-child(5) {
+  width: 10.3em;
+  font-weight: 800;
+  margin-top: 50px;
+  opacity: 0;
+  -webkit-animation: type3 1s steps(1000, end), blink .5s step-end infinite alternate;
+  animation: type3 1s steps(1000, end), blink .5s step-end infinite alternate;
+  -webkit-animation-delay: 7.5s;
+  animation-delay: 7.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+}
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
   }
 }
