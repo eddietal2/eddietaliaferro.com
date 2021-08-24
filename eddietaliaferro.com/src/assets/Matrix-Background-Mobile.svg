@@ -2,65 +2,8 @@
 <svg width="255px" height="844px" viewBox="0 0 255 844" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Matrix-Background-Mobile</title>
     <g id="Matrix-Background-Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <style>
-          text {
-            transform: scale(1.4);
-          }
-          tspan {
-            fill: black;
-            font-size: 1.3em;
-          }
-          tspan:nth-child(odd) {
-            animation: number-color-animation-1 1s linear infinite forwards;
-          }
-          tspan:nth-child(even) {
-            animation: number-color-animation-2 1s linear  infinite forwards;
-          }
-          text:nth-child(odd) {
-            animation: number-line-maxtrix-animation 10s linear infinite forwards;
-          }
-          text:nth-child(even) {
-            animation: number-line-maxtrix-animation 3s linear infinite forwards;
-          }
-          @keyframes number-line-maxtrix-animation {
-            0% {
-                transform: translateY(1000px);
-            }
-            100% {
-                transform: translateY(-1000px);
-            }
-          }
-          @keyframes number-color-animation-1 {
-            0% {
-              fill: black;
-            }
-            25% {
-              fill: white;
-            }
-            50% {
-              fill: #00C400;
-            }
-            75% {
-              fill: white;
-            }
-            100% {
-              fill: black;
-            }
-          }
-          @keyframes number-color-animation-2 {
-            0% {
-              fill: white;
-            }
-            50% {
-              fill: black;
-            }
-            100% {
-              fill: white;
-            }
-          }
-        </style>
         <rect fill="#333333" x="0" y="0" width="255" height="844"></rect>
-        <text id="010101011-010101011" transform="translate(57.000000, 53.000000) rotate(0.000000) translate(-57.000000, -53.000000) " font-family="Helvetica" font-size="10" font-weight="normal" fill="#FFFFFF">
+        <text id="010101011-010101011" transform="translate(57.000000, 53.000000) rotate(90.000000) translate(-57.000000, -53.000000) " font-family="Helvetica" font-size="10" font-weight="normal" fill="#FFFFFF">
             <tspan x="54.2192383" y="-56">0</tspan>
             <tspan x="54.2192383" y="-44">1</tspan>
             <tspan x="54.2192383" y="-32">0</tspan>

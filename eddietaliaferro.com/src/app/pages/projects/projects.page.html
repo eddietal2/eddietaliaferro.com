@@ -5,27 +5,104 @@
 </ion-header>
 
 <ion-content>
-  <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
-    <ion-col class="ion-text-center" size-xs="11" size-sm="8">
-      <h1 class="page-header">Projects</h1>
-      <h4 class="page-sub-header">Here are some personal and professional projects that I am at least willing to share.</h4>
-    </ion-col>
-  </ion-row>
-  <ion-row style="padding: 1em;" class="ion-justify-content-left">
-    <ion-col size-xs="11" size-sm="10" size-md="6" size-lg="5">
-      <div class="project">
-        <h3>Project</h3>
+  <ion-grid >
+    <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
+      <ion-col class="ion-text-center" size-xs="11" size-sm="8">
+        <h1 class="page-header">Projects</h1>
+        <h4 class="page-sub-header">Here are some personal and professional projects that I am at least willing to share.</h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="latest-blogs ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6">
+        <ion-toolbar>
+          <h1 class="section-header" slot="start">Latest Projects</h1>
+          <ion-buttons slot="end">
+            <ion-button class="gold-button" routerlink="/blog">
+              View All
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <hr class="line">
+        <!-- Delete 2 "blog-post" after back-end intergration. -->
+        <!-- Render the most recent 3 last blog post dynamically. -->
+        <ion-row class="blog-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="blog-date">Date</h5>
+            <h1 class="blog-title">Title</h1>
+            <h6 class="blog-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-button class="green-button" (click)="viewBlogPage()">
+              View Project
+            </ion-button>
+            <ion-button class="gold-button" (click)="viewBlogPage()">
+              Info
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="blog-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="blog-date">Date</h5>
+            <h1 class="blog-title">Title</h1>
+            <h6 class="blog-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-button class="green-button" (click)="viewBlogPage()">
+              View Project
+            </ion-button>
+            <ion-button class="gold-button" (click)="viewBlogPage()">
+              Info
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="blog-post">
+          <ion-col size-xs="2" size-sm="2" size-lg="2">
+            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+          </ion-col>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+            <h5 class="blog-date">Date</h5>
+            <h1 class="blog-title">Title</h1>
+            <h6 class="blog-hashtags">#Hashtags</h6>
+          </ion-col>
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-button class="green-button" (click)="viewBlogPage()">
+              View Project
+            </ion-button>
+            <ion-button class="gold-button" (click)="viewBlogPage()">
+              Info
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  
+    <!-- Footer Illustration -->
+    <ion-row id="footer" class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="11">
+        <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
+      </ion-col>
+      <ion-col class="ion-text-center" size="11">
+        <div id="footer-buttons">
+          <hr class="footer-hr">
+          <ion-button class="gold-button" (click)="donatePage()">
+            Donate
+          </ion-button>
+          <ion-button class="red-button" (click)="contactPage()">
+            Contact
+          </ion-button>
+        </div>
+      <div id="social-media">
+        <hr class="footer-hr">
+        <ion-icon size="large" name="logo-linkedin"></ion-icon>
       </div>
-    </ion-col>
-    <ion-col size-xs="11" size-sm="10" size-md="6" size-lg="5">
-      <div class="project">
-        <h3>Project</h3>
-      </div>
-    </ion-col>
-    <ion-col size-xs="11" size-sm="10" size-md="6" size-lg="5">
-      <div class="project">
-        <h3>Project</h3>
-      </div>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

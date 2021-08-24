@@ -1,6 +1,6 @@
 <ion-content>
-
-  <!-- Back Button -->
+  <ion-grid>
+      <!-- Back Button -->
   <ion-row style="margin-bottom: 30px;">
     <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="8" offset-lg="1">
       <ion-toolbar>
@@ -15,9 +15,11 @@
   <!-- Blog Header and Search Bar -->
   <ion-row>
     <ion-col size-xs="11" offset-xs=0.5 size-sm="9" size-lg="8" offset-lg="1">
-      <h1 class="blog-header">This is the blog title</h1>
-      <h4 class="blog-date">September 3rd, 2020.</h4>
-      <h6 class="blog-hashtags">#pwa #angular</h6>
+      <div class="blog-info">
+        <h1 class="blog-header">This is the blog title</h1>
+        <h4 class="blog-date">September 3rd, 2020.</h4>
+        <h6 class="blog-hashtags">#pwa #angular</h6>
+      </div>
       <hr class="line">
       <p class="blog-post">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
@@ -87,13 +89,27 @@
       </div>
     </ion-col>
   </ion-row>
-
+  
   <!-- Footer Illustration -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12">
-      <div class="blog-page-illustration"></div>
+  <ion-row id="footer" class="ion-justify-content-center">
+    <ion-col class="ion-text-center" size="11">
+      <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
+    </ion-col>
+    <ion-col class="ion-text-center" size="11">
+      <div id="footer-buttons">
+        <hr class="footer-hr">
+        <ion-button class="gold-button" (click)="donatePage()">
+          Donate
+        </ion-button>
+        <ion-button class="red-button" (click)="contactPage()">
+          Contact
+        </ion-button>
+      </div>
+    <div id="social-media">
+      <hr class="footer-hr">
+      <ion-icon size="large" name="logo-linkedin"></ion-icon>
+    </div>
     </ion-col>
   </ion-row>
-
-
+  </ion-grid>
 </ion-content>
