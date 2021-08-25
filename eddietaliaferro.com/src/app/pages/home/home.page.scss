@@ -69,6 +69,23 @@ ion-grid {
     }
   }
 }
+#services {
+  height: 650px;
+  width: 100%;
+  background: #0000006b;
+  position: relative;
+  top: -100px;
+  display: flex;
+  align-items: center;
+}
+#design-icon, #development-icon, #instructing-icon {
+  height: 100px;
+  width: 100px;
+  background: lightblue;
+}
+#design-icon {
+
+}
 #illustration-1 {
   background: lightcoral;
   height: 300px;
