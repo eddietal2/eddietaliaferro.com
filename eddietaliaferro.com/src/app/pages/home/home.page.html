@@ -10,59 +10,55 @@
     </div>
 
     <!-- Landing Page Header -->
-    <ion-row class="ion-justify-content-center" style="margin-top: 55px">
-      <!-- Illustation 1 -->
-      <ion-col id="landing-page-header" size="12">
-        <ion-row class="ion-justify-content-center">
-          <ion-col class="ion-hide-lg-up ion-text-center" size-xs="12" size-sm="11" size-md="10" size-lg="6">
+    <ion-row id="landing-page-header" class="ion-justify-content-center" style="margin-top: 55px">
+          <ion-col class="ion-hide-lg-up" size-xs="12" size-sm="11" size-md="10" size-lg="6">
             <div id="header-illustration"></div>
            </ion-col>
-          <ion-col size-xs="12" size-sm="11" size-md="7" size-lg="3">
-           <div class="ion-margin-top">
+          <ion-col class="ion-hide-lg-down" size-xs="12" size-sm="11" size-md="10" size-lg="6">
+            <div id="header-illustration"></div>
+           </ion-col>
+          <ion-col size-xs="12" size-sm="11" size-md="7" size-lg="6">
+           <div id="header-info-wrapper">
             <div id="headshot-picture"></div>
-            <h1>Eddie Taliaferro II</h1>
-            <h3>Designer</h3>
-            <h3>Engineer</h3>
-            <h3>Instructor</h3>
+            <h3 id="header-name">Eddie Taliaferro II</h3>
+            <h3>Designer.</h3>
+            <h3>Engineer.</h3>
+            <h3>Instructor.</h3>
            <div id="header-buttons">
-            <ion-button class="gold-button" (click)="donatePage()">
-              Donate
-            </ion-button>
-            <ion-button class="red-button" (click)="contactPage()">
-              Contact
-            </ion-button>
+            <ion-buttons slot="end">
+              <ion-button class="red-button" (click)="donatePage()">
+                Donate
+              </ion-button>
+              <ion-button class="green-button" (click)="contactPage()">
+                Contact
+              </ion-button>
+            </ion-buttons>
            </div>
            </div>
           </ion-col>
-          <ion-col class="ion-hide-lg-down ion-text-center" size-xs="12" size-sm="11" size-md="10" size-lg="6">
-           <div id="header-illustration"></div>
-          </ion-col>
-        </ion-row>
-      </ion-col>
     </ion-row>
 
     <!-- Curve Under Header-->
     <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 40" class="bottom-curve" style="position: relative;
     top: -128px;"><path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#333"></path></svg> -->
-    <ion-row class="ion-justify-content-center">
-      <ion-col id="services" class="ion-align-items-center" size="12">
-        <ion-row class="ion-justify-content-center">
-          <ion-col style="padding: 1em;" size="3">
+    <ion-row id="services" class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="10">
+        <h1 class="page-header">What do I do?</h1>
+      </ion-col>
+      <ion-col class="ion-text-center" style="padding: 3em 1em;" size-xs="11" size-sm="10" size-md="8" size-lg="3">
             <div id="design-icon"></div>
             <h3>UI / UX / Graphic Design</h3>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ut dolor iste rerum quos amet odit ad omnis voluptatibus totam? Laudantium autem repudiandae dolore ipsum similique aut mollitia eius eligendi.</p>
-          </ion-col>
-          <ion-col style="padding: 1em;" size="3">
+      </ion-col>
+      <ion-col class="ion-text-center" style="padding: 3em 1em;" size-xs="11" size-sm="10" size-md="8" size-lg="3">
             <div id="development-icon"></div>
             <h3>Web Development</h3>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ut dolor iste rerum quos amet odit ad omnis voluptatibus totam? Laudantium autem repudiandae dolore ipsum similique aut mollitia eius eligendi.</p>
-          </ion-col>
-          <ion-col style="padding: 1em;" size="3">
+      </ion-col>
+      <ion-col class="ion-text-center" style="padding: 3em 1em;" size-xs="11" size-sm="10" size-md="8" size-lg="3">
             <div id="instructing-icon"></div>
             <h3>Instructing</h3>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ut dolor iste rerum quos amet odit ad omnis voluptatibus totam? Laudantium autem repudiandae dolore ipsum similique aut mollitia eius eligendi.</p>
-          </ion-col>
-        </ion-row>
       </ion-col>
     </ion-row>
     <!-- Service -->

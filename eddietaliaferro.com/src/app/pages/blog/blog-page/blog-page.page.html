@@ -1,8 +1,8 @@
 <ion-content>
   <ion-grid>
       <!-- Back Button -->
-  <ion-row style="margin-bottom: 30px;">
-    <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="8" offset-lg="1">
+  <ion-row style="margin-bottom: 0px; background: #0000006b" class="ion-justify-content-center">
+    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
       <ion-toolbar>
         <ion-buttons slot="start">
           <ion-button routerLink="/blog" style="--border-radius: 50px;">
@@ -13,14 +13,13 @@
     </ion-col>
   </ion-row>
   <!-- Blog Header and Search Bar -->
-  <ion-row>
-    <ion-col size-xs="11" offset-xs=0.5 size-sm="9" size-lg="8" offset-lg="1">
+  <ion-row style="background: #0000006b; padding: 5em 0;" class="ion-justify-content-center">
+    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
       <div class="blog-info">
         <h1 class="blog-header">This is the blog title</h1>
         <h4 class="blog-date">September 3rd, 2020.</h4>
         <h6 class="blog-hashtags">#pwa #angular</h6>
       </div>
-      <hr class="line">
       <p class="blog-post">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
 
@@ -30,9 +29,9 @@
   </ion-row>
 
   <!-- Comments -->
-  <ion-row>
-    <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="8" offset-lg="1">
-      <h3>Comments (1)</h3>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
+      <h3 style="color: #00ff00;">Comments (1)</h3>
       <hr class="line">
       <div class="comment-wrapper">
         <h5>Username <span class="commented-when">commented 8 minutes ago</span></h5>
@@ -56,18 +55,12 @@
   </ion-row>
 
   <!-- Info Footer -->
-  <ion-row class="info-footer-wrapper">
-    <ion-col size-xs="11" offset-xs=0.5  size-sm="9" size-lg="6" offset-lg="1">
+  <ion-row class="info-footer-wrapper ion-justify-content-center">
+    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
       <div class="info-footer">
         <img class="picture" src="../../../../assets/photo.png" alt="picture">
         <h3>Eddie Taliaferro II</h3>
         <p class="info-footer-text">This website is my blah blah blah. Make up text for this later. And this when you are done with that, make more text later. You can look at my blog posts, guides, projects, or contact me if you have a question or would like to do business. </p>
-        <ion-button class="green-button" routerLink="/contact">
-          Contact Me
-        </ion-button>
-        <ion-button class="green-button">
-          LinkedIN
-        </ion-button>
       </div>
     </ion-col>
   </ion-row>

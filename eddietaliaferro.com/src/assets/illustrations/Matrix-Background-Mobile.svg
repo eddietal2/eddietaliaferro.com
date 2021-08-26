@@ -17,10 +17,10 @@
             animation: number-color-animation-2 1s linear  infinite forwards;
           }
           text:nth-child(odd) {
-            animation: number-line-maxtrix-animation 10s linear infinite forwards;
+            animation: number-line-maxtrix-animation 15s linear infinite forwards;
           }
           text:nth-child(even) {
-            animation: number-line-maxtrix-animation 3s linear infinite forwards;
+            animation: number-line-maxtrix-animation 5s linear infinite forwards;
           }
           @keyframes number-line-maxtrix-animation {
             0% {

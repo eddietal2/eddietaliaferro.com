@@ -56,16 +56,13 @@ ion-toolbar:first-child {
 }
 
 .blog-date {
-  color: #999;
+  color: #D3B900;
   margin: 5px 0;
-  opacity: 0.6;
   font-size: 0.9em;
 }
-
-
 .blog-hashtags {
   margin: 5px 0;
-  color: #2B50C8;
+  color: #BC3790;
 }
 
 .blog-post {
@@ -74,12 +71,13 @@ ion-toolbar:first-child {
 }
 
 .comment-wrapper {
-  background: #FBFBFB;
-  padding: 10px;
+  background: #fbfbfb24;
+  padding: 1em;
+  border-radius: 5px;
 }
 
 ion-toolbar {
-  --background: #E8E6E6;
+  // --background: #E8E6E6;
 }
 
 .comment {
@@ -88,8 +86,8 @@ ion-toolbar {
 }
 
 .post-button{
-  --background: linear-gradient(73.54497825384362deg, rgba(0, 199, 66,1) 8.871497304413253%,rgba(61, 173, 98,1) 89.69365126629889%,rgba(62, 173, 99,1) 89.69365126629889%)
-  ;
+  --background: #00ff00;
+  color: #222;
 }
 
 .info-footer-wrapper{
@@ -132,7 +130,7 @@ ion-toolbar {
 }
 
 .prev, .next {
-  background: #FBFBFB;
+  background: #fbfbfb24;
   height: 150px; width: 100px;
   padding: 20px;
   transition: 0.5s;
@@ -164,13 +162,19 @@ ion-toolbar {
 }
 
 .commented-when{
-  opacity: 0.2;
+  opacity: 1;
+  color: #D3B900;
+  font-size: 0.7em;
+  position: relative;
+  top: 10px;
+  float: right;
 }
 
 .enter-comment {
-  background: #FBFBFB;
-  border-top: 5px solid #32D969;
+  background: #212521;
+  border: 2px solid #00ff00;
   margin-top: 80px;
+  margin-bottom: 1em;
   padding: 8px;
 }
 

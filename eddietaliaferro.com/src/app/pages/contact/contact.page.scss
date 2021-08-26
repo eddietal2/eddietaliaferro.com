@@ -36,25 +36,53 @@ ion-grid {
 }
 .page-sub-header {
   color: white;
-  margin: 30px 0;
+  margin: 3em 0;
   line-height: 1.3em;
 }
-
-.contact-message {
-  background: #FBFBFB;
-  border: 1px solid #888;
-  padding: 8px;
+form {
+  background: #413f36;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 1px 1px 40px #0000001f;
 }
 
-.contact-name {
-  background: #FBFBFB;
-  border: 1px solid #888;
+@media only screen and (max-width: 600px) {
+  form {
+    padding: 0.3em;
+  }
+}
+.contact-message {
+  background: #fbfbfb47;
+  border: 1px solid #fff;
+  padding: 8px;
+  margin-bottom: 0.9em;
+}
+
+.contact-input {
+  background: #fbfbfb47;
+  border: 1px solid #fff;
   width: 100%;
   transition: 500ms;
-  margin: 10px 0;
+  margin: 0.6em 0;
+  --inner-padding-start: 4px 8px;
 }
 
-.contact-name:hover, .contact-message:hover {
-  border: 2px solid #2B50C8;
+ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-md-h {
+  --padding-start: 8px;
+}
+
+ion-item {
+  margin: 1em;
+  --background: none;
+  --highlight-color-focused: #BC3790;
+}
+
+.contact-name:focus{
+  border: 3px solid #BC3790;
+  transition: 500ms;
+}
+.contact-message:focus {
+  // E8B923
+  border: 3px solid #BC3790;
   transition: 500ms;
 }
