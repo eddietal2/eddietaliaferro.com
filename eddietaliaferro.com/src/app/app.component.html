@@ -1,4 +1,46 @@
 <ion-app>
   <app-navbar></app-navbar>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="end" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <img id="logo" src="../assets/gold-logo.svg" alt="Side menu logo">
+        </ion-buttons>
+        <ion-buttons (click)="closeMenu()" slot="end">
+          <ion-icon slot="start" name="close"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <a routerLink="/home" routerLinkActive="active-link">Home</a>
+        </ion-item>
+        <ion-item>
+          <a routerLink="/about" routerLinkActive="active-link">About</a>
+        </ion-item>
+        <ion-item>
+          <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
+        </ion-item>
+        <ion-item>
+          <a routerLink="/blog" routerLinkActive="active-link">Blog</a>
+        </ion-item>
+        <ion-item>
+          <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
+        </ion-item>
+        <ion-item>
+          <a routerLink="/donate" routerLinkActive="active-link">Donate</a>
+        </ion-item>
+        <ion-item>
+          <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
+        </ion-item>
+      </ion-list>
+
+      <ion-button id="bottom-close-button"
+        (click)="closeMenu()">
+        Close
+      </ion-button>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

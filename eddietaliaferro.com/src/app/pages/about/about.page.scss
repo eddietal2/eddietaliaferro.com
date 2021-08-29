@@ -77,16 +77,14 @@ ion-slides {
 #slide-3 {
   background-image: url('../../../assets/photo.png');
 }
-#about-me {
-  background: #f9f9f9f2;
-  padding: 1.6em;
-  color: #333;
-  border-radius: 10px;
+sub-title {
+  color: #3df63d;
 }
-#about-me-2 {
-  background: #f9f9f9f2;
+#about-me, #about-me-2 {
+  background: #404040;
   padding: 1.6em;
-  color: #333;
+  box-shadow: 1px 1px 21px #00000057;
+  color: white;
   border-radius: 10px;
 }
 .page-sub-header {

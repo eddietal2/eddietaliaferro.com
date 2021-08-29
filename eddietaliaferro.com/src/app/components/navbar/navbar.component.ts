@@ -12,5 +12,8 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+  openMenu () {
+    console.log('Opening side menu ..')
+  }
 
 }

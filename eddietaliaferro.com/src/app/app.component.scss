@@ -1,0 +1,28 @@
+#logo {
+  position: relative;
+  left: 15px;
+}
+#bottom-close-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  --background: #333;
+  --color: #ffa4a4;
+}
+ion-toolbar {
+  --background: #002a00;
+}
+a {
+  color: #ffffffad;
+  font-size: 1.3em;
+}
+ion-item {
+  padding: 0.5em 0em;
+}
+.active-link {
+  color: #3df63d;
+  border-left: 4px solid #3df63d;
+  padding-left: 0.3em;
+  font-weight: 600;
+  transition: 0.5s;
+}

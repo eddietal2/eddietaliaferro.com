@@ -56,7 +56,7 @@ ion-grid {
 
 .blog-post {
   height: auto;
-  background: #f9f9f9f2;
+  background: #404040;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
@@ -64,6 +64,7 @@ ion-grid {
   border-left: 16px solid #00c400;
   display: flex;
   align-items: center;
+  box-shadow: 1px 1px 21px #00000057;
 
   .green-button {
     margin: 0;
@@ -83,11 +84,11 @@ ion-grid {
   }
   .blog-title {
     margin: 0 0;
-    color: #333;
+    color: white;
   }
   .blog-hashtags {
     margin: 0 0;
-    color: #2B50C8;
+    color: #00c400;
   }
   .view-page-button {
 
@@ -111,9 +112,17 @@ ion-grid {
   }
 }
 .blog-post:hover {
-  margin: 2.3em 0;
-  background: white;
+  background: 404040;
   border-left: 16px solid #BC3790;
+}
+.purple-button {
+  width: 150px;
+  display: block;
+  margin: 30px 0;
+  --background: linear-gradient(360deg, #BC3790 -2%, #87005a, #BC3790);
+  --color: white;
+  --border-radius: 50px;
+  --box-shadow: none;
 }
 
 @media only screen and (min-width: 700px) {

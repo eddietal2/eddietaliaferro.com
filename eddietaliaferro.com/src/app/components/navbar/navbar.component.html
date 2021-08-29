@@ -6,23 +6,32 @@
         <p class="ion-hide-sm-down name">Eddie Taliaferro II</p>
       </ion-button>
     </ion-buttons>
-    <ion-buttons class="ion-hide-sm-down" slot="primary">
-      <a routerLink="/home">Home</a>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/home" routerLinkActive="active-link">Home</a>
     </ion-buttons>
-    <ion-buttons class="ion-hide-sm-down" slot="primary">
-      <a routerLink="/about">About</a>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/about" routerLinkActive="active-link">About</a>
     </ion-buttons>
-    <ion-buttons class="ion-hide-sm-down" slot="primary">
-      <a routerLink="/projects">Projects</a>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
     </ion-buttons>
-    <ion-buttons class="ion-hide-sm-down" slot="primary">
-      <a routerLink="/blog">Blog</a>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/blog" routerLinkActive="active-link">Blog</a>
     </ion-buttons>
-    <ion-buttons class="ion-hide-sm-down" slot="primary">
-      <a routerLink="/contact">Contact</a>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
+    </ion-buttons>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/donate" routerLinkActive="active-link">Donate</a>
+    </ion-buttons>
+    <ion-buttons class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
     </ion-buttons>
     <ion-buttons class="ion-hide-lg-up" slot="primary">
-      <img src="../../../assets/icons/hanburger-menu-gold.svg" alt="Hamburger Menuo" srcset="">
+      <ion-button id="side-menu-button" (click)="openMenu()">
+        <ion-menu-button></ion-menu-button>
+        <!-- <img src="../../../assets/icons/hanburger-menu-gold.svg" alt="Hamburger Menuo" srcset=""> -->
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

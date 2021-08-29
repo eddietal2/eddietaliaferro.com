@@ -57,7 +57,7 @@ ion-row:last-child {
   font-size:  1.4em;
   padding: 1.5em 1em;
   font-weight: 800;
-  background: #138c133d;
+  background: #002a00;
   border: 5px solid #E8B923;
   opacity: 0;
   transition: 0.5s;
@@ -150,6 +150,15 @@ p {
   display: block;
   margin: 30px 0;
   --background: linear-gradient(360deg, #0B4F3B -2%, #005c47, #0B4F3B);
+  --color: white;
+  --border-radius: 50px;
+  --box-shadow: none;
+}
+.purple-button {
+  width: 150px;
+  display: block;
+  margin: 30px 0;
+  --background: linear-gradient(360deg, #BC3790 -2%, #87005a, #BC3790);
   --color: white;
   --border-radius: 50px;
   --box-shadow: none;
