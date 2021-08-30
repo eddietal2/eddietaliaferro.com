@@ -1,308 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Header-Artwork</title>
-    <style>
-   
-    </style>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="72" height="136" rx="36"></rect>
+        <rect id="path-3" x="0" y="0" width="72" height="136" rx="36"></rect>
+        <rect id="path-5" x="0" y="0" width="72" height="136" rx="36"></rect>
+        <rect id="path-7" x="0" y="0" width="72" height="136" rx="36"></rect>
+    </defs>
     <g id="Header-Artwork" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect id="Rectangle" fill="#1C1C1C" x="0" y="0" width="500" height="500"></rect>
-        <text id="line-1" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="19">0</tspan>
-            <tspan x="16.7" y="19">1</tspan>
-            <tspan x="33.4" y="19">0</tspan>
-            <tspan x="50.1" y="19">1</tspan>
-            <tspan x="66.8" y="19">0</tspan>
-            <tspan x="83.5" y="19">1</tspan>
-            <tspan x="100.2" y="19">0</tspan>
-            <tspan x="116.9" y="19">1</tspan>
-            <tspan x="132" y="19">0</tspan>
-            <tspan x="150.3" y="19">1</tspan>
-            <tspan x="167" y="19">0</tspan>
-            <tspan x="183.5" y="19">1</tspan>
-            <tspan x="200.4" y="19">0</tspan>
-            <tspan x="217.1" y="19">1</tspan>
-            <tspan x="233.8" y="19">0</tspan>
-            <tspan x="250.5" y="19">1</tspan>
-            <tspan x="267.2" y="19">0</tspan>
-            <tspan x="283.9" y="19">1</tspan>
-            <tspan x="300.6" y="19">0</tspan>
-            <tspan x="317.3" y="19">1</tspan>
-            <tspan x="334" y="19">0</tspan>
-            <tspan x="350.7" y="19">1</tspan>
-            <tspan x="367.4" y="19">0</tspan>
-            <tspan x="384.1" y="19">1</tspan>
-            <tspan x="400.8" y="19">0</tspan>
-            <tspan x="417.5" y="19">1</tspan>
-            <tspan x="434.2" y="19">0</tspan>
-            <tspan x="450.9" y="19">1</tspan>
-            <tspan x="467.6" y="19">0</tspan>
-            <tspan x="484.3" y="19">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="19">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-2" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="43">0</tspan>
-            <tspan x="16.7" y="43">1</tspan>
-            <tspan x="33.4" y="43">0</tspan>
-            <tspan x="50.1" y="43">1</tspan>
-            <tspan x="66.8" y="43">0</tspan>
-            <tspan x="83.5" y="43">1</tspan>
-            <tspan x="100.2" y="43">0</tspan>
-            <tspan x="116.9" y="43">1</tspan>
-            <tspan x="132" y="43">0</tspan>
-            <tspan x="150.3" y="43">1</tspan>
-            <tspan x="167" y="43">0</tspan>
-            <tspan x="183.5" y="43">1</tspan>
-            <tspan x="200.4" y="43">0</tspan>
-            <tspan x="217.1" y="43">1</tspan>
-            <tspan x="233.8" y="43">0</tspan>
-            <tspan x="250.5" y="43">1</tspan>
-            <tspan x="267.2" y="43">0</tspan>
-            <tspan x="283.9" y="43">1</tspan>
-            <tspan x="300.6" y="43">0</tspan>
-            <tspan x="317.3" y="43">1</tspan>
-            <tspan x="334" y="43">0</tspan>
-            <tspan x="350.7" y="43">1</tspan>
-            <tspan x="367.4" y="43">0</tspan>
-            <tspan x="384.1" y="43">1</tspan>
-            <tspan x="400.8" y="43">0</tspan>
-            <tspan x="417.5" y="43">1</tspan>
-            <tspan x="434.2" y="43">0</tspan>
-            <tspan x="450.9" y="43">1</tspan>
-            <tspan x="467.6" y="43">0</tspan>
-            <tspan x="484.3" y="43">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-2" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="43">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-3" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="67">0</tspan>
-            <tspan x="16.7" y="67">1</tspan>
-            <tspan x="33.4" y="67">0</tspan>
-            <tspan x="50.1" y="67">1</tspan>
-            <tspan x="66.8" y="67">0</tspan>
-            <tspan x="83.5" y="67">1</tspan>
-            <tspan x="100.2" y="67">0</tspan>
-            <tspan x="116.9" y="67">1</tspan>
-            <tspan x="132" y="67">0</tspan>
-            <tspan x="150.3" y="67">1</tspan>
-            <tspan x="167" y="67">0</tspan>
-            <tspan x="183.5" y="67">1</tspan>
-            <tspan x="200.4" y="67">0</tspan>
-            <tspan x="217.1" y="67">1</tspan>
-            <tspan x="233.8" y="67">0</tspan>
-            <tspan x="250.5" y="67">1</tspan>
-            <tspan x="267.2" y="67">0</tspan>
-            <tspan x="283.9" y="67">1</tspan>
-            <tspan x="300.6" y="67">0</tspan>
-            <tspan x="317.3" y="67">1</tspan>
-            <tspan x="334" y="67">0</tspan>
-            <tspan x="350.7" y="67">1</tspan>
-            <tspan x="367.4" y="67">0</tspan>
-            <tspan x="384.1" y="67">1</tspan>
-            <tspan x="400.8" y="67">0</tspan>
-            <tspan x="417.5" y="67">1</tspan>
-            <tspan x="434.2" y="67">0</tspan>
-            <tspan x="450.9" y="67">1</tspan>
-            <tspan x="467.6" y="67">0</tspan>
-            <tspan x="484.3" y="67">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-4" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="67">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-4" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="91">0</tspan>
-            <tspan x="16.7" y="91">1</tspan>
-            <tspan x="33.4" y="91">0</tspan>
-            <tspan x="50.1" y="91">1</tspan>
-            <tspan x="66.8" y="91">0</tspan>
-            <tspan x="83.5" y="91">1</tspan>
-            <tspan x="100.2" y="91">0</tspan>
-            <tspan x="116.9" y="91">1</tspan>
-            <tspan x="132" y="91">0</tspan>
-            <tspan x="150.3" y="91">1</tspan>
-            <tspan x="167" y="91">0</tspan>
-            <tspan x="183.5" y="91">1</tspan>
-            <tspan x="200.4" y="91">0</tspan>
-            <tspan x="217.1" y="91">1</tspan>
-            <tspan x="233.8" y="91">0</tspan>
-            <tspan x="250.5" y="91">1</tspan>
-            <tspan x="267.2" y="91">0</tspan>
-            <tspan x="283.9" y="91">1</tspan>
-            <tspan x="300.6" y="91">0</tspan>
-            <tspan x="317.3" y="91">1</tspan>
-            <tspan x="334" y="91">0</tspan>
-            <tspan x="350.7" y="91">1</tspan>
-            <tspan x="367.4" y="91">0</tspan>
-            <tspan x="384.1" y="91">1</tspan>
-            <tspan x="400.8" y="91">0</tspan>
-            <tspan x="417.5" y="91">1</tspan>
-            <tspan x="434.2" y="91">0</tspan>
-            <tspan x="450.9" y="91">1</tspan>
-            <tspan x="467.6" y="91">0</tspan>
-            <tspan x="484.3" y="91">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-3" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="91">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-5" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="115">0</tspan>
-            <tspan x="16.7" y="115">1</tspan>
-            <tspan x="33.4" y="115">0</tspan>
-            <tspan x="50.1" y="115">1</tspan>
-            <tspan x="66.8" y="115">0</tspan>
-            <tspan x="83.5" y="115">1</tspan>
-            <tspan x="100.2" y="115">0</tspan>
-            <tspan x="116.9" y="115">1</tspan>
-            <tspan x="132" y="115">0</tspan>
-            <tspan x="150.3" y="115">1</tspan>
-            <tspan x="167" y="115">0</tspan>
-            <tspan x="183.5" y="115">1</tspan>
-            <tspan x="200.4" y="115">0</tspan>
-            <tspan x="217.1" y="115">1</tspan>
-            <tspan x="233.8" y="115">0</tspan>
-            <tspan x="250.5" y="115">1</tspan>
-            <tspan x="267.2" y="115">0</tspan>
-            <tspan x="283.9" y="115">1</tspan>
-            <tspan x="300.6" y="115">0</tspan>
-            <tspan x="317.3" y="115">1</tspan>
-            <tspan x="334" y="115">0</tspan>
-            <tspan x="350.7" y="115">1</tspan>
-            <tspan x="367.4" y="115">0</tspan>
-            <tspan x="384.1" y="115">1</tspan>
-            <tspan x="400.8" y="115">0</tspan>
-            <tspan x="417.5" y="115">1</tspan>
-            <tspan x="434.2" y="115">0</tspan>
-            <tspan x="450.9" y="115">1</tspan>
-            <tspan x="467.6" y="115">0</tspan>
-            <tspan x="484.3" y="115">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-8" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="115">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-6" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="139">0</tspan>
-            <tspan x="16.7" y="139">1</tspan>
-            <tspan x="33.4" y="139">0</tspan>
-            <tspan x="50.1" y="139">1</tspan>
-            <tspan x="66.8" y="139">0</tspan>
-            <tspan x="83.5" y="139">1</tspan>
-            <tspan x="100.2" y="139">0</tspan>
-            <tspan x="116.9" y="139">1</tspan>
-            <tspan x="132" y="139">0</tspan>
-            <tspan x="150.3" y="139">1</tspan>
-            <tspan x="167" y="139">0</tspan>
-            <tspan x="183.5" y="139">1</tspan>
-            <tspan x="200.4" y="139">0</tspan>
-            <tspan x="217.1" y="139">1</tspan>
-            <tspan x="233.8" y="139">0</tspan>
-            <tspan x="250.5" y="139">1</tspan>
-            <tspan x="267.2" y="139">0</tspan>
-            <tspan x="283.9" y="139">1</tspan>
-            <tspan x="300.6" y="139">0</tspan>
-            <tspan x="317.3" y="139">1</tspan>
-            <tspan x="334" y="139">0</tspan>
-            <tspan x="350.7" y="139">1</tspan>
-            <tspan x="367.4" y="139">0</tspan>
-            <tspan x="384.1" y="139">1</tspan>
-            <tspan x="400.8" y="139">0</tspan>
-            <tspan x="417.5" y="139">1</tspan>
-            <tspan x="434.2" y="139">0</tspan>
-            <tspan x="450.9" y="139">1</tspan>
-            <tspan x="467.6" y="139">0</tspan>
-            <tspan x="484.3" y="139">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-7" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="139">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-7" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="163">0</tspan>
-            <tspan x="16.7" y="163">1</tspan>
-            <tspan x="33.4" y="163">0</tspan>
-            <tspan x="50.1" y="163">1</tspan>
-            <tspan x="66.8" y="163">0</tspan>
-            <tspan x="83.5" y="163">1</tspan>
-            <tspan x="100.2" y="163">0</tspan>
-            <tspan x="116.9" y="163">1</tspan>
-            <tspan x="132" y="163">0</tspan>
-            <tspan x="150.3" y="163">1</tspan>
-            <tspan x="167" y="163">0</tspan>
-            <tspan x="183.5" y="163">1</tspan>
-            <tspan x="200.4" y="163">0</tspan>
-            <tspan x="217.1" y="163">1</tspan>
-            <tspan x="233.8" y="163">0</tspan>
-            <tspan x="250.5" y="163">1</tspan>
-            <tspan x="267.2" y="163">0</tspan>
-            <tspan x="283.9" y="163">1</tspan>
-            <tspan x="300.6" y="163">0</tspan>
-            <tspan x="317.3" y="163">1</tspan>
-            <tspan x="334" y="163">0</tspan>
-            <tspan x="350.7" y="163">1</tspan>
-            <tspan x="367.4" y="163">0</tspan>
-            <tspan x="384.1" y="163">1</tspan>
-            <tspan x="400.8" y="163">0</tspan>
-            <tspan x="417.5" y="163">1</tspan>
-            <tspan x="434.2" y="163">0</tspan>
-            <tspan x="450.9" y="163">1</tspan>
-            <tspan x="467.6" y="163">0</tspan>
-            <tspan x="484.3" y="163">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-6" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="163">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="line-8" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
-            <tspan x="0" y="187">0</tspan>
-            <tspan x="16.7" y="187">1</tspan>
-            <tspan x="33.4" y="187">0</tspan>
-            <tspan x="50.1" y="187">1</tspan>
-            <tspan x="66.8" y="187">0</tspan>
-            <tspan x="83.5" y="187">1</tspan>
-            <tspan x="100.2" y="187">0</tspan>
-            <tspan x="116.9" y="187">1</tspan>
-            <tspan x="132" y="187">0</tspan>
-            <tspan x="150.3" y="187">1</tspan>
-            <tspan x="167" y="187">0</tspan>
-            <tspan x="183.5" y="187">1</tspan>
-            <tspan x="200.4" y="187">0</tspan>
-            <tspan x="217.1" y="187">1</tspan>
-            <tspan x="233.8" y="187">0</tspan>
-            <tspan x="250.5" y="187">1</tspan>
-            <tspan x="267.2" y="187">0</tspan>
-            <tspan x="283.9" y="187">1</tspan>
-            <tspan x="300.6" y="187">0</tspan>
-            <tspan x="317.3" y="187">1</tspan>
-            <tspan x="334" y="187">0</tspan>
-            <tspan x="350.7" y="187">1</tspan>
-            <tspan x="367.4" y="187">0</tspan>
-            <tspan x="384.1" y="187">1</tspan>
-            <tspan x="400.8" y="187">0</tspan>
-            <tspan x="417.5" y="187">1</tspan>
-            <tspan x="434.2" y="187">0</tspan>
-            <tspan x="450.9" y="187">1</tspan>
-            <tspan x="467.6" y="187">0</tspan>
-            <tspan x="484.3" y="187">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1-copy-5" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
+            <tspan x="0" y="187">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
-        <text id="bug-line-start" font-family="Helvetica" font-size="20" font-weight="normal">
-            <tspan x="0" y="211">0</tspan>
-            <tspan x="16.7" y="211">1</tspan>
-            <tspan x="33.4" y="211">0</tspan>
-            <tspan x="50.1" y="211">1</tspan>
-            <tspan x="66.8" y="211">0</tspan>
-            <tspan x="83.5" y="211">1</tspan>
-            <tspan x="100.2" y="211">0</tspan>
-            <tspan x="116.9" y="211">1</tspan>
-            <tspan x="132" y="211">0</tspan>
-            <tspan x="150.3" y="211">1</tspan>
-            <tspan x="167" y="211">0</tspan>
-            <tspan x="183.5" y="211">1</tspan>
-            <tspan x="200.4" y="211">0</tspan>
-            <tspan x="217.1" y="211">1</tspan>
-        </text>
-        <text id="bug-line-middle-1" font-family="Helvetica" font-size="20" font-weight="normal">
-            <tspan x="233.8" y="211">0</tspan>
-        </text>
-        <text id="bug-line-middle-2" font-family="Helvetica" font-size="20" font-weight="normal">
-            <tspan x="250.5" y="211">1</tspan>
-        </text>
-        <text id="bug-line-middle-3" font-family="Helvetica" font-size="20" font-weight="normal">
-            <tspan x="267.2" y="211">0</tspan>
-        </text>
-        <text id="bug-line-middle-4" font-family="Helvetica" font-size="20" font-weight="normal">
-            <tspan x="283.9" y="211">1</tspan>
-        </text>
-        <text id="bug-line-end" font-family="Helvetica" font-size="20" font-weight="normal">
-            <tspan x="300.6" y="211">0</tspan>
-            <tspan x="317.3" y="211">1</tspan>
-            <tspan x="334" y="211">0</tspan>
-            <tspan x="350.7" y="211">1</tspan>
-            <tspan x="367.4" y="211">0</tspan>
-            <tspan x="384.1" y="211">1</tspan>
-            <tspan x="400.8" y="211">0</tspan>
-            <tspan x="417.5" y="211">1</tspan>
-            <tspan x="434.2" y="211">0</tspan>
-            <tspan x="450.9" y="211">1</tspan>
-            <tspan x="467.6" y="211">0</tspan>
-            <tspan x="484.3" y="211">1</tspan>
+        <text id="0-1-0-1-0-1-0-1-0-1" font-family="Helvetica" font-size="20" font-weight="normal">
+            <tspan x="0" y="211" fill="#FFFFFF">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
+            <tspan x="261.318359" y="211" fill="#EC0909"> </tspan>
+            <tspan x="266.875" y="211" fill="#FFFFFF">0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
         <text id="0-1-0-1-0-1-0-1-0-1-copy-15" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
             <tspan x="0" y="235">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
@@ -340,5 +74,52 @@
         <text id="0-1-0-1-0-1-0-1-0-1-copy-21" font-family="Helvetica" font-size="20" font-weight="normal" fill="#FFFFFF">
             <tspan x="0" y="499">0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</tspan>
         </text>
+        <g id="choice-message" transform="translate(79.000000, 0.000000)">
+            <g id="Group-Copy">
+                <rect id="Rectangle-Copy" x="0" y="0" width="342" height="220" rx="24"></rect>
+            </g>
+            <g id="Line-Copy" transform="translate(75.000000, 15.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#507BFF" xlink:href="#path-1"></use>
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask-Copy" fill="#507BFF" xlink:href="#path-3"></use>
+                <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#0600BD" mask="url(#mask-4)"></path>
+            </g>
+            <g id="Line-Copy" transform="translate(196.000000, 15.000000)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <use id="Mask" fill="#507BFF" xlink:href="#path-5"></use>
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <use id="Mask-Copy" fill="#FF5050" xlink:href="#path-7"></use>
+                <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#BD0000" mask="url(#mask-8)"></path>
+            </g>
+        </g>
+        <g id="select-pill-message" transform="translate(18.000000, 252.000000)">
+            <g id="Group" transform="translate(0.000000, 60.000000)">
+                <rect id="Rectangle" stroke="#FF5050" stroke-width="7" fill="#FFF0F0" x="0" y="0" width="464" height="168" rx="6"></rect>
+                <text id="You’ve-encountered-a" font-family="Helvetica" font-size="20" font-weight="normal" fill="#000000">
+                    <tspan x="58.9189453" y="38">You’ve encountered a bug in the </tspan>
+                    <tspan x="350.637695" y="38" text-decoration="line-through">matrix</tspan>
+                    <tspan x="405.081055" y="38"> </tspan>
+                    <tspan x="47.9960938" y="62">system. You have the choice either fix the </tspan>
+                    <tspan x="56.3261719" y="86">bug, or become the bug and be stuck in </tspan>
+                    <tspan x="44.1289062" y="110">the matrix forever. Do you take the red pill, </tspan>
+                    <tspan x="164.177734" y="134">or the blue pill?</tspan>
+                </text>
+            </g>
+            <g id="Group-2" transform="translate(112.000000, 0.000000)">
+                <path d="M10,0 L225,0 C230.522847,-1.01453063e-15 235,4.4771525 235,10 L235,60 L235,60 L0,60 L0,10 C-6.76353751e-16,4.4771525 4.4771525,1.01453063e-15 10,0 Z" id="Rectangle" fill="#FF5050"></path>
+                <text id="Please-select-a-pill" font-family="Helvetica-Bold, Helvetica" font-size="20" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="25.6113281" y="34">Please select a pill</tspan>
+                </text>
+            </g>
+        </g>
     </g>
 </svg>

@@ -22,7 +22,7 @@ ion-grid {
   // background-size: auto 840px;
   // box-shadow: inset -10px 10px 20px #000;
   height: 700px;
-  padding: 40px;
+  padding: 5em 2em;
   span {
     font-weight: 800;
   }
@@ -81,14 +81,40 @@ ion-grid {
     }
   }
 }
-#header-illustration {
-  background-image: url('../../../assets/illustrations/Header-Artwork.svg');
-  height: 300px;
-  width: 300px;
-  margin: 0 auto;
-  // position: relative;
-  // left: 75px;
-}
+
+// @media only screen and (max-width: 400px) {
+//   #header-illustration {
+//     margin: 0 auto;
+//     height: 350px;
+//     width: 350px;
+//     background-image: url('../../../assets/illustrations/Header-Artwork-Mobile.svg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
+//   #landing-page-header {
+//     padding: 0;
+//   }
+// }
+// @media only screen and (max-width: 350px) {
+//   #header-illustration {
+//     margin: 0 auto 3em auto;
+//     height: 320px;
+//     width: 320px;
+//     background-image: url('../../../assets/illustrations/Header-Artwork-Mobile.svg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
+// }
+// @media only screen and (max-width: 320px) {
+//   #header-illustration {
+//     margin: 0 auto;
+//     height: 300px;
+//     width: 300px;
+//     background-image: url('../../../assets/illustrations/Header-Artwork-Mobile.svg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
+// }
 #services {
   height: auto;
   width: 100%;
@@ -116,11 +142,16 @@ ion-grid {
 #design-icon, #development-icon, #instructing-icon {
   height: 100px;
   width: 100px;
-  background: lightblue;
   margin: 0.5em auto;
 }
 #design-icon {
-
+  background-image: url('../../../assets/icons/design-icon.svg');
+}
+#development-icon {
+  background-image: url('../../../assets/icons/development-icon.svg');
+}
+#instructing-icon {
+  background-image: url('../../../assets/icons/instructing-icon.svg');
 }
 @media only screen and (max-width: 600px) {
   #landing-page-header {
@@ -168,7 +199,7 @@ ion-grid {
   }
 }
 #illustration-1 {
-  background: lightcoral;
+  background-image: url('../../../assets/illustrations/home-illustration-2.svg');
   height: 300px;
   width: 350px;
   margin: 3em auto;

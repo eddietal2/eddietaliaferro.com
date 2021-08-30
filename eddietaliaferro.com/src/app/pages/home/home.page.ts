@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,9 @@ export class HomePage implements OnInit {
   closeIPhoneInstallBannerButton: HTMLElement;
   openSafariClose: HTMLElement;
 
-  constructor() { }
+  @ViewChild('svgObject') svgObject;
 
+  constructor() { }
   ngOnInit() {
     this.downloadButton = document.getElementById('download-button');
     this.closeIPhoneInstallBannerButton = document.getElementById('close');
@@ -190,8 +192,12 @@ export class HomePage implements OnInit {
       this.downloadButton.style.display = 'none';
     }
   }
+  ngAfterViewInit(){
+
+
+  }
   donatePage() {
-    
+
   }
   contactPage() {
 
@@ -200,7 +206,7 @@ export class HomePage implements OnInit {
 
   }
   viewProjectPage() {
-    
+
   }
   showInstallBanner() {
 
