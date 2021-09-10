@@ -1,0 +1,36 @@
+ion-grid {
+  background-image: url('../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  --color: white;
+}
+@media only screen and (max-width: 600px) {
+  ion-grid {
+    background-image: url('../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+ion-menu {
+  --background: white;
+}
+ion-list {
+  margin: 150px 12px auto 0;
+  background: none;
+
+  ion-item {
+    text-align: right;
+    font-size: 1.3em;
+    --background: none;
+
+    a {
+      color: #333;
+    }
+    .selected {
+      --background: rgba(var(--ion-color-primary-rgb), 0.14);
+    }
+  }
+}
+ion-menu {
+  max-width: 200px;
+}
