@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="350px" height="350px" viewBox="0 0 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="600px" height="500px" viewBox="0 0 600 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>home-illustration-2</title>
-    <g id="home-illustration-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Avenir-Heavy, Avenir" font-size="20" font-weight="600">
-        <text id="Icon" fill="#E8B923">
-            <tspan x="156.06" y="143">Icon</tspan>
-        </text>
+    <g id="home-illustration-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#000000" x="0" y="0" width="600" height="500"></rect>
+        <circle id="Oval" fill="#E8B923" cx="441" cy="140" r="34"></circle>
+        <polyline id="Path-2" stroke="#979797" points="441 174 441 311.904269 332.401513 311.904269 332.401513 257.702586 262 257.702586 262 29.0726168 115.653861 228.239785 165.374995 250 149.763659 265.38448 165.374995 272.415838 165.374995 297.110146 191.32542 304.019932 100.086187 408.505731 557.09835 416.75 569.596501 257.702586 524.481511 250 557.09835 140 441 140"></polyline>
     </g>
 </svg>

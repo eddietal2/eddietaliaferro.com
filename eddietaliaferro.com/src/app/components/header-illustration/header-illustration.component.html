@@ -11,12 +11,6 @@
 #select-pill-message{
     opacity: 0;
 }
-#blue-pill {
-  animation: number-up 1s ease 1s forwards;
-}
-#red-pill {
-  animation: number-up 1s ease 1s forwards;
-}
 
 /* Number Lines */
 #line-1 {
@@ -912,7 +906,7 @@
                     delay="12s"
                     from="75 90"
                     to="75 15"
-                    begin="0.5s"
+                    begin="12.5s"
                     dur="1s"
                 />
 
@@ -926,7 +920,7 @@
                     dur="2s"
                     repeatCount="indefinite"
                 />
-                <set attributeName="opacity" to="1" begin="0.5s"/>
+                <set attributeName="opacity" to="1" begin="12.5s"/>
             </g>
             <g (click)="redPill()"
             style="opacity: 0; transition: 0.5s;" id="red-bill" transform="translate(196.000000, 15.000000)">
@@ -947,7 +941,7 @@
                     delay="12s"
                     from="196 90"
                     to="196 15"
-                    begin="0s"
+                    begin="12.75s"
                     dur="1s"
                 />
                 <animateTransform attributeName="transform"
@@ -955,7 +949,7 @@
                     time="12s"
                     delay="12s"
                     values="196 15; 196 5; 196 15;"
-                    begin="0s"
+                    begin="12.75s"
                     dur="2s"
                     repeatCount="indefinite"
                 />

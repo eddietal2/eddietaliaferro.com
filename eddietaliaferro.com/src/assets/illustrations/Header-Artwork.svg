@@ -78,7 +78,7 @@
             <g id="Group-Copy">
                 <rect id="Rectangle-Copy" x="0" y="0" width="342" height="220" rx="24"></rect>
             </g>
-            <g id="Line-Copy" transform="translate(75.000000, 15.000000)">
+            <g (click)="bluePill()" style="opacity: 0; transition: 0.5s;" id="blue-bill" transform="translate(75.000000, 15.000000)">
                 <mask id="mask-2" fill="white">
                     <use xlink:href="#path-1"></use>
                 </mask>
@@ -87,9 +87,34 @@
                     <use xlink:href="#path-3"></use>
                 </mask>
                 <use id="Mask-Copy" fill="#507BFF" xlink:href="#path-3"></use>
-                <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#0600BD" mask="url(#mask-4)"></path>
+                <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#0600BD" mask="url(#mask-4)">
+                </path>
+                
+                <!-- Blue Pill Animation -->
+                <animateTransform           attributeName="transform"
+                    type="translate"
+                    time="12s"
+                    delay="12s"
+                    from="75 90"
+                    to="75 15"
+                    begin="0.5s"
+                    dur="1s"
+                />
+
+                <!-- Blue Pill Animation -->
+                <animateTransform           attributeName="transform"
+                    type="translate"
+                    time="12s"
+                    delay="12s"
+                    values="75 15; 75 5; 75 15;"
+                    begin="0s"
+                    dur="2s"
+                    repeatCount="indefinite"
+                />
+                <set attributeName="opacity" to="1" begin="0.5s"/>
             </g>
-            <g id="Line-Copy" transform="translate(196.000000, 15.000000)">
+            <g (click)="redPill()"
+            style="opacity: 0; transition: 0.5s;" id="red-bill" transform="translate(196.000000, 15.000000)">
                 <mask id="mask-6" fill="white">
                     <use xlink:href="#path-5"></use>
                 </mask>
@@ -99,6 +124,27 @@
                 </mask>
                 <use id="Mask-Copy" fill="#FF5050" xlink:href="#path-7"></use>
                 <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#BD0000" mask="url(#mask-8)"></path>
+
+                <!-- Red Pill Animation -->
+                <animateTransform           attributeName="transform"
+                    type="translate"
+                    time="12s"
+                    delay="12s"
+                    from="196 90"
+                    to="196 15"
+                    begin="0s"
+                    dur="1s"
+                />
+                <animateTransform           attributeName="transform"
+                    type="translate"
+                    time="12s"
+                    delay="12s"
+                    values="196 15; 196 5; 196 15;"
+                    begin="0s"
+                    dur="2s"
+                    repeatCount="indefinite"
+                />
+                <set attributeName="opacity" to="1" begin="0.2s"/>
             </g>
         </g>
         <g id="select-pill-message" transform="translate(18.000000, 252.000000)">
