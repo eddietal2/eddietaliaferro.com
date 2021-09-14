@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>contact</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ion-grid>
+    <ion-row style="height: 100px;"></ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-lg="6">
+        <h1>Messages (1)</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="position: relative; top: -64px;" size-lg="6">
+        <div class="message">
+          <h2>Name</h2>
+          <h5>Email</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button id="delete-message-button" (click)="deleteMessage()">
+                Delete
+              </ion-button>
+              <ion-button id="reply-message-button" (click)="reply()">
+                Reply
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

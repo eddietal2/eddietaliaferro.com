@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'blogs',
-        pathMatch: '',
+        pathMatch: '/admin',
         loadChildren: () => import('./blogs/blogs.module').then( m => m.BlogsPageModule)
       },
       {

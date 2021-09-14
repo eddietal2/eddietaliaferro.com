@@ -11,5 +11,11 @@ export class ContactPage implements OnInit {
 
   ngOnInit() {
   }
+  deleteMessage() {
+    console.log('Deleting message ...');
+  }
+  reply() {
+    console.log('Replying to message ...');
+  }
 
 }

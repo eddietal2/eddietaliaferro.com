@@ -1,0 +1,95 @@
+ion-grid {
+  background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  --color: white;
+  height: 100vh;
+}
+@media only screen and (max-width: 600px) {
+  ion-grid {
+    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+#header-button {
+  margin-top: 40px;
+  border-bottom: #333 solid 2px;
+}
+
+.blog-post {
+  height: auto;
+  background: #404040;
+  padding: 8px 25px;
+  transition: 0.5s;
+  margin: 2em 0;
+  border-radius: 10px;
+  border-left: 16px solid #00c400;
+  display: flex;
+  align-items: center;
+
+  ion-toolbar {
+    font-size:  1.4em;
+    font-weight: 800;
+    background: #002a00;
+    border: 5px solid #E8B923;
+
+    .section-header {
+      font-family: Ayuthaya;
+      font-size:  1.4em;
+      color: white;
+    }
+  }
+
+  .green-button {
+    margin: 0;
+  }
+
+  .blog-info {
+    display: inline-block;
+  }
+  .blog-thumbnail {
+    height: 100px;
+    margin-right: 2.5em;
+  }
+  .blog-date {
+    color: #999;
+    margin: 0 0;
+    opacity: 0.6;
+  }
+  .blog-title {
+    margin: 0 0;
+    color: white;
+  }
+  .blog-hashtags {
+    margin: 0 0;
+    color: #3df63d;
+    padding: 0em 1em 1em 0;
+    border-bottom: 1px solid #777;
+  }
+  ion-toggle {
+    position: relative;
+    top: 12px;
+    --background: #000;
+    --background-checked: #999;
+    --handle-background: #777;
+    --handle-background-checked: #3df63d;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .blog-post {
+    .blog-thumbnail {
+      height: 60px;
+      margin-right: 0.75em;
+    }
+    .green-button {
+      margin-top: 3em;
+    }
+  }
+}
+
+.blog-post:hover {
+  margin: 2.3em 0;
+  background: #404040;
+  border-left: 16px solid #BC3790;
+}

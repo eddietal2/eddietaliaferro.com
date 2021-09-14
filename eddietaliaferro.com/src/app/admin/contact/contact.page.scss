@@ -1,0 +1,53 @@
+ion-grid {
+  background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  --color: white;
+  height: 100vh;
+}
+@media only screen and (max-width: 600px) {
+  ion-grid {
+    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+h1 {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1em;
+}
+.message {
+  background: #fff;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #333;
+  color: #333;
+  padding: 1em;
+
+  h2 {
+    color: #BC3790;
+  }
+  h5 {
+    color: #777;
+  }
+  ion-toolbar {
+    --background: none;
+    border-top: rgba(119, 119, 119, 0.2) solid 1px;
+    margin-top: 2em;
+
+    #delete-message-button {
+      --background: linear-gradient(360deg, #D01801 -2%, #810b00, #D01801);
+      --border-radius: 50px;
+      width: 100px;
+      margin: 0 0 0 0.5em;
+      --color: white;
+    }
+    #reply-message-button {
+      --background: linear-gradient(360deg, #00c400 -2%, #005c47, #00c400);
+      --border-radius: 50px;
+      width: 100px;
+      margin: 0 0 0 0.5em;
+      --color: white;
+    }
+  }
+}

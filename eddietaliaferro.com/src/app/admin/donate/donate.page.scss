@@ -1,0 +1,43 @@
+ion-grid {
+  background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  --color: white;
+  height: 100vh;
+}
+@media only screen and (max-width: 600px) {
+  ion-grid {
+    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+h1 {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1em;
+}
+.message {
+  background: #fff;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #333;
+  color: #333;
+  padding: 1em;
+
+  h2 {
+    color: #BC3790;
+  }
+  h5 {
+    color: #777;
+  }
+  p {
+    background: #00c400;
+    padding: 0.2em 0.5em;
+    width: 100px;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    float: right;
+    display: inline;
+  }
+}
