@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DonatePageRoutingModule } from './donate-routing.module';
+import { CustomComponentsModule } from 'src/app/components/custom-components.module';
 
 import { DonatePage } from './donate.page';
 
@@ -14,7 +15,8 @@ import { DonatePage } from './donate.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    DonatePageRoutingModule
+    DonatePageRoutingModule,
+    CustomComponentsModule
   ],
   declarations: [DonatePage]
 })

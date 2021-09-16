@@ -27,4 +27,13 @@ describe('AddProjectsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('The back button should go back to the admin blog page', () => {
+    
+  });
+  it('submitting the project should have at least a title, a thumbnail, and a description', () => {
+    
+  });
+  it('The Project submits successfully.', () => {
+    
+  });
 });

@@ -24,4 +24,25 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('clicking Home should go to the Home Page', () => {
+    
+  });
+  it('clicking About should go to the About Page', () => {
+    
+  });
+  it('clicking Projects should go to the Projects Page', () => {
+    
+  });
+  it('clicking Blog should go to the Blog Page', () => {
+    
+  });
+  it('clicking Contact should go to the Contact Page', () => {
+    
+  });
+  it('clicking Donate should go to the Donate Page', () => {
+    
+  });
+  it('clicking Admin should go to the Admin Page', () => {
+    
+  });
 });

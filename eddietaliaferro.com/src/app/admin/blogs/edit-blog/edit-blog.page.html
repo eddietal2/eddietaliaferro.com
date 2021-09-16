@@ -18,6 +18,10 @@
           <h4 style="margin-top: 0em;">Title</h4>
           <ion-input placeholder="Title" required formControlName="title" type="text"></ion-input>
 
+          <!-- Thumbnail -->
+          <h4>Thumbnail</h4>
+          <ion-input placeholder="Title" required formControlName="thumbnail" type="file"></ion-input>
+
           <!-- Hashtags -->
           <h4>Hashtags</h4>
           <ion-input placeholder="Hashtag 1" required formControlName="hashtags" type="text"></ion-input>
@@ -53,7 +57,7 @@
           <h4>Post Content</h4>
           <ion-textarea (ionChange)="trackTextArea($event)" rows="30" placeholder="Post" required formControlName="post"></ion-textarea>
 
-          <ion-button class="green-button" type="submit" [disabled]="editBlogForm.invalid">
+          <ion-button style="margin: 5em auto 10em auto;" class="green-button" type="submit" [disabled]="editBlogForm.invalid">
             Submit
           </ion-button>
         </form>

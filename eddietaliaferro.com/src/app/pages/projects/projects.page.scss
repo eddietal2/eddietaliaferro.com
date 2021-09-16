@@ -43,7 +43,7 @@ ion-grid {
 }
 .blog-post {
   height: auto;
-  background: #f9f9f9f2;
+  background: #404040;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
@@ -70,7 +70,7 @@ ion-grid {
   }
   .blog-title {
     margin: 0 0;
-    color: #333;
+    color: white;
   }
   .blog-hashtags {
     margin: 0 0;
@@ -82,7 +82,7 @@ ion-grid {
 }
 .blog-post:hover {
   margin: 2.3em 0;
-  background: white;
+  background: #404040;
   border-left: 16px solid #BC3790;
 }
 .latest-blogs {

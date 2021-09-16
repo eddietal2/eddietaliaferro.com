@@ -27,4 +27,13 @@ describe('EditBlogPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('All this blogs infomation should be fetched from the Blog Service @ ngOnInit', () => {
+    
+  });
+  it('The back button should go back to the admin blog page', () => {
+    
+  });
+  it('submitting the blog should have at least a title, a thumbnail, and a blog', () => {
+    
+  });
 });

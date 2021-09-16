@@ -23,6 +23,7 @@ export class EditBlogPage implements OnInit {
   ngOnInit() {
     this.editBlogForm = this.formBuilder.group({
       title: ['', [Validators.required]],
+      thumbnail: ['', [Validators.required]],
       hashtags: ['', [Validators.required]],
       post: ['', Validators.compose([
         Validators.minLength(6),

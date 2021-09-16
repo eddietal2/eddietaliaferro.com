@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,9 @@ export class HomePage implements OnInit {
 
   @ViewChild('svgObject') svgObject;
 
-  constructor() { }
+  constructor(
+    private router: Router) { }
+
   ngOnInit() {
     this.downloadButton = document.getElementById('download-button');
     this.closeIPhoneInstallBannerButton = document.getElementById('close');
@@ -197,10 +199,10 @@ export class HomePage implements OnInit {
 
   }
   donatePage() {
-
+    this.router.navigateByUrl('/donate');
   }
   contactPage() {
-
+    this.router.navigateByUrl('/contact');
   }
   viewBlogPage() {
 

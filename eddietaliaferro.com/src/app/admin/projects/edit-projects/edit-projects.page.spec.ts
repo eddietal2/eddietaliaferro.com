@@ -27,4 +27,13 @@ describe('EditProjectsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('All this projects infomation should be fetched from the Project Service @ ngOnInit', () => {
+    
+  });
+  it('The back button should go back to the admin projects page', () => {
+    
+  });
+  it('submitting the project should have at least a title, a thumbnail, and a blog', () => {
+    
+  });
 });

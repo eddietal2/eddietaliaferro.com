@@ -27,4 +27,13 @@ describe('AddBlogPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('The back button should go back to the admin blog page', () => {
+    
+  });
+  it('submitting the blog should have at least a title, a thumbnail, and the post', () => {
+    
+  });
+  it('The Blog submits successfully.', () => {
+    
+  });
 });

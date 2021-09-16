@@ -5,6 +5,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { HeaderIllustrationComponent } from './header-illustration/header-illustration.component';
 import { HomeIllustrationTwoComponent } from './home-illustration-two/home-illustration-two.component';
+import { DonateIllustrationComponent } from './donate-illustration/donate-illustration.component';
+import { ContactIllustrationComponent } from './contact-illustration/contact-illustration.component';
+
 
 @NgModule({
     imports: [
@@ -15,12 +18,16 @@ import { HomeIllustrationTwoComponent } from './home-illustration-two/home-illus
     declarations: [
         NavbarComponent,
         HeaderIllustrationComponent,
-        HomeIllustrationTwoComponent
+        HomeIllustrationTwoComponent,
+        DonateIllustrationComponent,
+        ContactIllustrationComponent
     ],
     exports: [
         NavbarComponent,
         HeaderIllustrationComponent,
-        HomeIllustrationTwoComponent
+        HomeIllustrationTwoComponent,
+        DonateIllustrationComponent,
+        ContactIllustrationComponent
     ]
 })
 export class CustomComponentsModule {}

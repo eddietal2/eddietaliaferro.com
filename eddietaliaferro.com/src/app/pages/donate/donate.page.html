@@ -4,13 +4,22 @@
   <ion-row class="ion-justify-content-center" style="margin-bottom: 20px;">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
       <h1 class="page-header">Donate</h1>
-      <h5 class="page-sub-header">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, natus eaque laborum quae perferendis, est, nostrum officiis eligendi cumque saepe laboriosam adipisci? Quibusdam blanditiis sunt corrupti sit magni facere et.</h5>
+    </ion-col>
+  </ion-row>
+
+  <!-- Donate Illustration -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
+      <app-donate-illustration></app-donate-illustration>
     </ion-col>
   </ion-row>
 
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
     <ion-col size-xs="11" size-sm="8" size-lg="6">
       <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+        <ion-item lines="none">
+          <h5 class="page-sub-header">Have a question? Want to do business? Just have something nice to say? Leave me a message and I will get back to you at my earliest convience.</h5>
+        </ion-item>
         <ion-item>
           <ion-input formControlName="name" class="contact-input" type="text" placeholder="First & Last name"></ion-input>
         </ion-item>
@@ -31,8 +40,8 @@
   </ion-row>
 
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px">
-    <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <ion-button class="gold-button" style="margin: 0 auto">
+    <ion-col size-xs="11" size-sm="8" size-lg="6">
+      <ion-button class="green-button" style="margin: 0 auto">
         Send
       </ion-button>
     </ion-col>
