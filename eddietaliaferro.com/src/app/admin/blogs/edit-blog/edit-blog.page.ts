@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { ToastController, LoadingController, IonInput, IonSpinner } from '@ionic/angular';
 
 @Component({
-  selector: 'app-add-blog',
-  templateUrl: './add-blog.page.html',
-  styleUrls: ['./add-blog.page.scss'],
+  selector: 'app-edit-blog',
+  templateUrl: './edit-blog.page.html',
+  styleUrls: ['./edit-blog.page.scss'],
 })
-export class AddBlogPage implements OnInit {
-  addBlogForm: FormGroup;
+export class EditBlogPage implements OnInit {
+  editBlogForm: FormGroup;
   pictureOne    =  '<< picture-1 >>';
   pictureTwo    =  '<< picture-2 >>';
   pictureThree  =  '<< picture-3 >>';
@@ -18,24 +18,16 @@ export class AddBlogPage implements OnInit {
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
-  ) { }
+    private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
-    this.addBlogForm = this.formBuilder.group({
+    this.editBlogForm = this.formBuilder.group({
       title: ['', [Validators.required]],
-      thumbnail: ['', [Validators.required]],
-      hashtag_1: [''],
-      hashtag_2: [''],
-      hashtag_3: [''],
-      hashtag_4: [''],
-      hashtag_5: [''],
-      picture_1: [''],
-      picture_2: [''],
-      picture_3: [''],
-      picture_4: [''],
-      picture_5: [''],
-      post: ['', [Validators.required,]]
+      hashtags: ['', [Validators.required]],
+      post: ['', Validators.compose([
+        Validators.minLength(6),
+        Validators.required,
+     ])]
     });
   }
   back() {
@@ -95,9 +87,4 @@ export class AddBlogPage implements OnInit {
 
   }
 
-  // Add codes inside of ion-textarea
-  // Each blog can have up to 5 pictures
-  // Desktop = 1000 x 478
-  // Tablet = 600 x ??
-  // Mobile = 400 x ??
 }

@@ -3,15 +3,15 @@ import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ContactPage } from './contact.page';
+import { AddProjectsPage } from './add-projects.page';
 
-describe('ContactPage', () => {
-  let component: ContactPage;
-  let fixture: ComponentFixture<ContactPage>;
+describe('AddProjectsPage', () => {
+  let component: AddProjectsPage;
+  let fixture: ComponentFixture<AddProjectsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactPage ],
+      declarations: [ AddProjectsPage ],
       imports: [IonicModule.forRoot(),
         RouterTestingModule,
         FormsModule,
@@ -19,24 +19,12 @@ describe('ContactPage', () => {
       ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ContactPage);
+    fixture = TestBed.createComponent(AddProjectsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-  it('all the messages should be gotten from the Contact Service', () => {
-
-  });
-  it('all the messages should be properly counted and the counter should have the right number', () => {
-
-  });
-  it('The Delete button should show an Alert', () => {
-
-  });
-  it('The Delete Alerts YES button should delete the message from the message list', () => {
-
   });
 });

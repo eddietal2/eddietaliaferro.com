@@ -1,19 +1,39 @@
 <ion-content>
   <ion-grid>
-    <ion-row style="height: 100px;"></ion-row>
+    <ion-row class="ion-hide-lg-down" style="height: 100px;"></ion-row>
+    <ion-row class="ion-hide-lg-up" style="height: 50px;"></ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-col size-lg="6">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
         <h1>Donations (1)</h1>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-col style="position: relative; top: -64px;" size-lg="6">
+      <ion-col style="position: relative; top: -64px;" size-xs="11" size-sm="9" size-md="8" size-lg="6">
         <div class="message">
           <h2>Name</h2>
-          <p>$50</p>
+          <p class="money">$50</p>
+          <h5 class="date">Date</h5>
           <h5>Email</h5>
-          <h5>Date</h5>
+          <div>
+            <p>This is a message explaining why this person left a donation.</p>
+          </div>
         </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Mobile Admin Tabbar -->
+    <ion-row class="admin-mobile-tab ion-hide-lg-up">
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/blogs" routerLinkActive="active-link">Blogs</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/projects" routerLinkActive="active-link">Projects</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/contact" routerLinkActive="active-link">Contact</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/donate" routerLinkActive="active-link">Donate</a>
       </ion-col>
     </ion-row>
   </ion-grid>

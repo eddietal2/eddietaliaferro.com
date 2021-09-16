@@ -7,7 +7,7 @@ ion-grid {
 }
 @media only screen and (max-width: 600px) {
   ion-grid {
-    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-image: url('../../../assets/illustrations/Matrix-Background.svg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -31,14 +31,7 @@ ion-grid {
   ion-toolbar {
     font-size:  1.4em;
     font-weight: 800;
-    background: #002a00;
-    border: 5px solid #E8B923;
-
-    .section-header {
-      font-family: Ayuthaya;
-      font-size:  1.4em;
-      color: white;
-    }
+    // background: #002a00;
   }
 
   .green-button {
@@ -92,4 +85,11 @@ ion-grid {
   margin: 2.3em 0;
   background: #404040;
   border-left: 16px solid #BC3790;
+}
+.active-link {
+  color: #3df63d;
+  padding-left: 0.3em;
+  padding-bottom: 4px;
+  font-weight: 600;
+  transition: 0.5s;
 }

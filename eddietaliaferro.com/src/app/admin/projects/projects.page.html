@@ -1,13 +1,15 @@
 <ion-content>
   <ion-grid>
     <ion-row style="margin-top: 3em;" class="ion-justify-content-center">
-      <ion-col id="header-button" size="8">
+      <ion-col id="header-button" size-xs="11" size-sm="9" size-md="8" size-lg="8">
         <ion-button class="green-button" (click)="addProject()">
           <ion-icon slot="start" name="add"></ion-icon>
           Add Project
         </ion-button>
       </ion-col>
-      <ion-col size="8">
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="8">
         <ion-row class="blog-post">
           <ion-col size-xs="2" size-sm="2" size-lg="2">
             <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
@@ -17,18 +19,34 @@
             <p style="display: inline;">Visible</p>
             <ion-toggle (ionChange)="visibleToggle($event)"></ion-toggle>
           </ion-col>
-          <ion-col size-xs="11" size-sm="11" push-lg="1" size-lg="3" class="view-page-button ion-text-center">
-            <ion-button class="purple-button" (click)="viewProject()">
+          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <!-- <ion-button class="purple-button" (click)="viewProject()">
               View
-            </ion-button>
+            </ion-button> -->
             <ion-button class="gold-button" (click)="editProject()">
               Edit
             </ion-button>
-            <ion-button class="red-button" (click)="deleteProject()">
+            <ion-button class="red-button" (click)="deleteAlert()">
               Delete
             </ion-button>
           </ion-col>
         </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <!-- Mobile Admin Tabbar -->
+    <ion-row class="admin-mobile-tab ion-hide-lg-up">
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/blogs" routerLinkActive="active-link">Blogs</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/projects" routerLinkActive="active-link">Projects</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/contact" routerLinkActive="active-link">Contact</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/donate" routerLinkActive="active-link">Donate</a>
       </ion-col>
     </ion-row>
   </ion-grid>

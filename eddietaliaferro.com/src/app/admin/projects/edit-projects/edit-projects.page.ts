@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-edit-projects',
+  templateUrl: './edit-projects.page.html',
+  styleUrls: ['./edit-projects.page.scss'],
+})
+export class EditProjectsPage implements OnInit {
+  editProjectForm: FormGroup;
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.editProjectForm = this.formBuilder.group({
+      title: ['', [Validators.required]],
+      thumbnail: ['', [Validators.required]],
+      link: ['', Validators.required],
+      description: ['', Validators.required]
+    });
+  }
+  back() {
+    this.router.navigateByUrl('/admin/blogs')
+  }
+  submitEdittedProject() {
+    
+  }
+
+}

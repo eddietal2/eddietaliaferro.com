@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: ProjectsPage
+  },
+  {
+    path: 'add-projects',
+    loadChildren: () => import('./add-projects/add-projects.module').then( m => m.AddProjectsPageModule)
+  },
+  {
+    path: 'edit-projects',
+    loadChildren: () => import('./edit-projects/edit-projects.module').then( m => m.EditProjectsPageModule)
   }
 ];
 

@@ -1,0 +1,41 @@
+<ion-content>
+  <ion-grid>
+    <ion-row style="height: 50px;"></ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col id="header-button" size-lg="8">
+        <ion-toolbar>
+          <ion-title>Add Project</ion-title>
+          <ion-buttons slot="end">
+            <ion-button style="--border-radius: 50px;" class="purple-button" (click)="back()">
+              Back
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col size-lg="8">
+        <form [formGroup]="addProjectForm" (ngSubmit)="submitProject()">
+
+          <!-- Title -->
+          <h4 style="margin-top: 0em;">Title</h4>
+          <ion-input placeholder="Title" formControlName="title" type="text"></ion-input>
+
+          <!-- Project Link -->
+          <h4>Link</h4>
+          <ion-input placeholder="Link URL" formControlName="link" type="text"></ion-input>
+
+          <!-- Thumbnail -->
+          <h4>Thumbnail</h4>
+          <ion-input placeholder="Thumbnail" formControlName="thumbnail" type="file"></ion-input>
+
+          <!-- Project Description -->
+          <h4>Description</h4>
+          <ion-textarea rows="10" placeholder="Description of project" formControlName="description"></ion-textarea>
+
+          <ion-button style="margin: 5em auto 10em auto;" class="green-button" type="submit" [disabled]="addProjectForm.invalid">
+              Submit
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

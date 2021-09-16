@@ -7,7 +7,7 @@ ion-grid {
 }
 @media only screen and (max-width: 600px) {
   ion-grid {
-    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-image: url('../../../assets/illustrations/Matrix-Background.svg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -23,14 +23,20 @@ h1 {
   box-shadow: 1px 1px 10px #333;
   color: #333;
   padding: 1em;
+  margin-top: 3em;
 
   h2 {
     color: #BC3790;
   }
-  h5 {
+  .date {
     color: #777;
+    float: right;
+    display: inline;
+    position: relative;
+    top: -80px;
+    right: -90px;
   }
-  p {
+  .money {
     background: #00c400;
     padding: 0.2em 0.5em;
     width: 100px;
@@ -39,5 +45,14 @@ h1 {
     text-align: center;
     float: right;
     display: inline;
+    position: relative;
+    top: -60px;
   }
+}
+.active-link {
+  color: #3df63d;
+  padding-left: 0.3em;
+  padding-bottom: 4px;
+  font-weight: 600;
+  transition: 0.5s;
 }

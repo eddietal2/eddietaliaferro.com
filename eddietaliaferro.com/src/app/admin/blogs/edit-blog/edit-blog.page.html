@@ -1,0 +1,63 @@
+<ion-content>
+  <ion-grid>
+    <ion-row style="height: 50px;"></ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col id="header-button" size-lg="8">
+        <ion-toolbar>
+          <ion-title>Edit Blog</ion-title>
+          <ion-buttons slot="end">
+            <ion-button class="purple-button" (click)="back()">
+              Back
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+      <ion-col size-lg="8">
+        <form [formGroup]="editBlogForm" (ngSubmit)="submitBlogPost()">
+          <!-- Title -->
+          <h4 style="margin-top: 0em;">Title</h4>
+          <ion-input placeholder="Title" required formControlName="title" type="text"></ion-input>
+
+          <!-- Hashtags -->
+          <h4>Hashtags</h4>
+          <ion-input placeholder="Hashtag 1" required formControlName="hashtags" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 2" required formControlName="hashtags" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 3" required formControlName="hashtags" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 4" required formControlName="hashtags" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 5" required formControlName="hashtags" type="text"></ion-input>
+
+          <!-- Pictures -->
+          <div style="margin-top: 5em;"></div>
+          <h4>Picture 1</h4>
+          <ion-input type="file" placeholder="Picture-1"></ion-input>
+          <img src="../../../../assets/logo.svg">
+
+          <h4>Picture 2</h4>
+          <ion-input type="file" placeholder="Picture-2"></ion-input>
+          <img src="../../../../assets/logo.svg">
+
+          <h4>Picture 3</h4>
+          <ion-input type="file" placeholder="Picture-3"></ion-input>
+          <img src="../../../../assets/logo.svg">
+
+          <h4>Picture 4</h4>
+          <ion-input type="file" placeholder="Picture-4"></ion-input>
+          <img src="../../../../assets/logo.svg">
+
+          <h4>Picture 5</h4>
+          <ion-input type="file" placeholder="Picture-5"></ion-input>
+          <img src="../../../../assets/logo.svg">
+
+          <!-- Blog Post -->
+          <div style="margin-top: 5em;"></div>
+          <h4>Post Content</h4>
+          <ion-textarea (ionChange)="trackTextArea($event)" rows="30" placeholder="Post" required formControlName="post"></ion-textarea>
+
+          <ion-button class="green-button" type="submit" [disabled]="editBlogForm.invalid">
+            Submit
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

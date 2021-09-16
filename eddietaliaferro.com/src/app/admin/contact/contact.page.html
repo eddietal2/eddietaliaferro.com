@@ -1,28 +1,66 @@
 <ion-content>
   <ion-grid>
-    <ion-row style="height: 100px;"></ion-row>
+    <ion-row class="ion-hide-lg-down" style="height: 100px;"></ion-row>
+    <ion-row class="ion-hide-lg-up" style="height: 50px;"></ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-col size-lg="6">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
         <h1>Messages (1)</h1>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-col style="position: relative; top: -64px;" size-lg="6">
+      <ion-col style="position: relative; top: -32px;" size-xs="11" size-sm="9" size-md="8" size-lg="6">
         <div class="message">
           <h2>Name</h2>
           <h5>Email</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button id="delete-message-button" (click)="deleteMessage()">
+              <ion-button id="delete-message-button" (click)="deleteAlert()">
                 Delete
-              </ion-button>
-              <ion-button id="reply-message-button" (click)="reply()">
-                Reply
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
         </div>
+        <div class="message">
+          <h2>Name</h2>
+          <h5>Email</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button id="delete-message-button" (click)="deleteAlert()">
+                Delete
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </div>
+        <div class="message">
+          <h2>Name</h2>
+          <h5>Email</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button id="delete-message-button" (click)="deleteAlert()">
+                Delete
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Mobile Admin Tabbar -->
+    <ion-row class="admin-mobile-tab ion-hide-lg-up">
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/blogs" routerLinkActive="active-link">Blogs</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/projects" routerLinkActive="active-link">Projects</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/contact" routerLinkActive="active-link">Contact</a>
+      </ion-col>
+      <ion-col class="ion-text-center" size="3">
+        <a routerLink="/admin/donate" routerLinkActive="active-link">Donate</a>
       </ion-col>
     </ion-row>
   </ion-grid>

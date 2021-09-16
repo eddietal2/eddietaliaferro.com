@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'add-blog',
     loadChildren: () => import('./add-blog/add-blog.module').then( m => m.AddBlogPageModule)
+  },
+  {
+    path: 'edit-blog',
+    loadChildren: () => import('./edit-blog/edit-blog.module').then( m => m.EditBlogPageModule)
   }
 ];
 
