@@ -6,6 +6,11 @@ import { AdminPage } from './admin.page';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/admin/blogs',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: AdminPage,
     children: [
       {
