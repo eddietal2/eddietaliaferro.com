@@ -1,26 +1,60 @@
-<ion-header>
-  <!-- Desktop -->
-  <ion-toolbar class="ion-hide-md-down">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="2" routerLink="/home">Eddie</ion-col>
-        <ion-col offset="6" size="1">
-          <a routerLink="/about">About</a>
-        </ion-col>
-        <ion-col size="1">
-          <a routerLink="/blog">Blog</a>
-        </ion-col>
-        <ion-col size="1">
-          <a routerLink="/guide">Guides</a>
-        </ion-col>
-        <ion-col size="1">
-          <a routerLink="/contact">Contact</a>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-grid>
+    <!-- Blog Header and Search Bar -->
+  <ion-row class="ion-justify-content-center" style="margin-bottom: 20px;">
+    <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
+      <h1 class="page-header">Donate</h1>
+      <h5 class="page-sub-header">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, natus eaque laborum quae perferendis, est, nostrum officiis eligendi cumque saepe laboriosam adipisci? Quibusdam blanditiis sunt corrupti sit magni facere et.</h5>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
+    <ion-col size-xs="11" size-sm="8" size-lg="6">
+      <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-input formControlName="name" class="contact-input" type="text" placeholder="First & Last name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="dollar_amount" class="contact-input" type="number" placeholder="Dollar Amount"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="email" class="contact-input" type="email" placeholder="Email address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea formControlName="message"
+          class="contact-message"
+          rows="15" cols="20"
+          placeholder="Please enter your message here"></ion-textarea>
+        </ion-item>
+      </form>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center" style="margin-bottom: 80px">
+    <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
+      <ion-button class="gold-button" style="margin: 0 auto">
+        Send
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <!-- Footer Illustration -->
+  <ion-row id="footer" class="ion-justify-content-center">
+    <ion-col class="ion-text-center" size="11">
+      <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
+    </ion-col>
+    <ion-col class="ion-text-center" size="11">
+      <div id="footer-buttons">
+        <hr class="footer-hr">
+        <ion-button class="red-button" (click)="contactPage()">
+          Contact
+        </ion-button>
+      </div>
+    <div id="social-media">
+      <hr class="footer-hr">
+      <ion-icon size="large" name="logo-linkedin"></ion-icon>
+    </div>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
 </ion-content>

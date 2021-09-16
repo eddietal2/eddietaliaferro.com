@@ -1,0 +1,81 @@
+ion-grid {
+  background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  --color: white;
+}
+#footer {
+  background: #0b4f3b73;
+  height: 600px;
+  margin-top: 4em;
+  padding: 6em 0em 3em 0em;
+
+  #footer-logo {
+    width: 100px;
+  }
+  #footer-buttons {
+    width: 150px;
+    display: inline-block;
+  }
+  .footer-hr {
+    border-top: 5px solid #D3B900;
+    opacity: 0.4;
+    padding: 0;
+    width: 150px;
+  }
+  #social-media {
+    margin-bottom: 1em;
+  }
+}
+.page-sub-header {
+  color: white;
+  margin: 3em 0;
+  line-height: 1.3em;
+}
+form {
+  background: #fbfbfb24;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 1px 1px 40px #0000001f;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    padding: 0.3em;
+  }
+}
+.contact-message {
+  background: #fbfbfb47;
+  border: 1px solid #fff;
+  padding: 8px;
+  margin-bottom: 0.9em;
+}
+
+.contact-input {
+  background: #fbfbfb47;
+  border: 1px solid #fff;
+  width: 100%;
+  transition: 500ms;
+  margin: 0.6em 0;
+  --inner-padding-start: 4px 8px;
+}
+
+ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-md-h {
+  --padding-start: 8px;
+}
+
+ion-item {
+  margin: 1em;
+  --background: none;
+  --highlight-color-focused: #BC3790;
+}
+
+.contact-name:focus{
+  border: 3px solid #BC3790;
+  transition: 500ms;
+}
+.contact-message:focus {
+  // E8B923
+  border: 3px solid #BC3790;
+  transition: 500ms;
+}
