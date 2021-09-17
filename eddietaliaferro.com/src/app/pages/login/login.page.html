@@ -14,13 +14,16 @@
           <h5 class="page-sub-header">Login to make comments and replies on blog posts! You can also opt in to recieve email updates for new posts.</h5>
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="email" class="contact-input" type="email" placeholder="Email"></ion-input>
+          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="password" class="login-input" type="password" placeholder="Password"></ion-input>
+          <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
         </ion-item>
-        <ion-button class="green-button" style="margin: 3em auto">
+        <ion-button (click)="login()" class="green-button" style="margin: 3em auto">
             Send
+        </ion-button>
+        <ion-button (click)="register()" class="purple-button" style="margin: 3em auto">
+            Register
         </ion-button>
       </form>
     </ion-col>

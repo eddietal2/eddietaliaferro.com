@@ -29,10 +29,10 @@ describe('BlogPagePage', () => {
   it('should be able to let the user post a comment', () => {
     
   });
-  it('login should work', () => {
+  it('login should take a user to the login page with that blogs information, so when they are finished logging in, they can go back to the same blog they were on previously', () => {
     
   });
-  it('register should work', () => {
+  it('register should take a user to the regiser page with that blogs information, so when they are finished registering , they can go back to the same blog they were on previously', () => {
     
   });
   it('user should be able to make a reply on a comment', () => {

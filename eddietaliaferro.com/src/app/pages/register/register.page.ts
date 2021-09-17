@@ -4,25 +4,28 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
-  loginForm: FormGroup;
+export class RegisterPage implements OnInit {
+  registerForm: FormGroup;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      picture: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required,]]
     });
   }
-  login() {
-    
+  back() {
+    this.router.navigateByUrl('login');
   }
   register() {
     this.router.navigateByUrl('register');
