@@ -23,4 +23,10 @@ describe('BlogPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('View Blog button should navigate to that blogs page', () => {
+    
+  });
+  it('all blogs should be loaded from Blogs Service', () => {
+    
+  });
 });

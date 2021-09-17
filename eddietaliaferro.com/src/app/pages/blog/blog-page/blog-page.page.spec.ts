@@ -23,4 +23,28 @@ describe('BlogPagePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('back button goes back to main blog page', () => {
+    
+  });
+  it('should be able to let the user post a comment', () => {
+    
+  });
+  it('login should work', () => {
+    
+  });
+  it('register should work', () => {
+    
+  });
+  it('user should be able to make a reply on a comment', () => {
+    
+  });
+  it('should be able to view all replies to a comment', () => {
+    
+  });
+  it('should be able to view next blog', () => {
+    
+  });
+  it('should be able to previous next blog', () => {
+    
+  });
 });

@@ -53,8 +53,9 @@ ion-toolbar:first-child {
   padding: 1em 0em;
 }
 .blog-info {
-  background-color: #ffffff17;
-  padding: 1em;
+  background-color: #404040;
+  padding: 1.5em;
+  border-radius: 5px;
 }
 .blog-header {
   font-family: Ayuthaya;
@@ -69,27 +70,128 @@ ion-toolbar:first-child {
 }
 .blog-hashtags {
   margin: 5px 0;
-  color: #BC3790;
+  color: #00c400;
 }
-
+.blog-post-wrapper {
+  background: #0000006b;
+  margin: 6em auto;
+  padding-bottom: 5em;
+}
 .blog-post {
   line-height: 1.2em;
   font-size: 1.2em;
-}
-
-.comment-wrapper {
-  background: #fbfbfb24;
-  padding: 1em;
+  margin-top: 3em;
+  background: #eef;
+  color: #222;
+  padding: 2em;
   border-radius: 5px;
 }
+.comment-wrapper {
+  background: #404040;
+  padding: 1em;
+  margin: 2em auto;
+  border-radius: 5px;
 
-ion-toolbar {
-  // --background: #E8E6E6;
-}
+  h5 {
+    position: relative;
+    bottom: 9px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 1.3em;
+  }
 
-.comment {
-  font-size: 1.1em;
-  line-height: 1.2em;
+  .comment-pic {
+    position: relative;
+    top: 12px;
+    margin-right: 1em;
+    height: 40px;
+  }
+
+  .comment {
+    font-size: 1.1em;
+    line-height: 1.2em;
+    margin-top: 1em;
+  }
+  .commented-when{
+    opacity: 1;
+    color: #D3B900;
+    font-size: 0.7em;
+    position: relative;
+    top: 27px;
+    float: right;
+  }
+  .close-reply-button {
+    position: absolute;
+    bottom: -60px;
+    right: -4px;
+    --background: none
+  }
+  #reply-textarea {
+    background: #e1e9ee;
+    border-radius: 5px;
+    --placeholder-color: #333;
+    display: none;
+    animation: slide-up 0.5s ease-in forwards;
+  }
+  #replies {
+    padding: 2em 0 2em 2em;
+    height: auto;
+    display: none;
+    margin-bottom: 3em;
+    // background-color: #E8E6E6;
+    animation: slide-in-right 0.5s ease-in forwards;
+
+    #reply {
+      margin: 1em 0;
+    }
+  }
+  @keyframes slide-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  .comment-toolbar {
+    --background: none;
+    margin-top: 6em;
+    border-top: 1px solid #fff;
+    padding-top: 1em;
+
+    .green-button {
+      width: 100px;
+      --background: linear-gradient(360deg, #00c400 -2%, #005c47, #00c400);
+      --color: white;
+      --border-radius: 50px;
+      --box-shadow: none;
+    }
+    .grey-button {
+      width: 150px;
+      --background: linear-gradient(360deg, #666666 -2%, #333, #666666);
+      --color: white;
+      --border-radius: 50px;
+      --box-shadow: none;
+    }
+    .red-button {
+      width: 150px;
+      --background: linear-gradient(360deg, #D01801 -2%, #810b00, #D01801);
+      --color: white;
+      --border-radius: 50px;
+      --box-shadow: none;
+    }
+  }
 }
 
 .post-button{
@@ -169,14 +271,7 @@ ion-toolbar {
   }
 }
 
-.commented-when{
-  opacity: 1;
-  color: #D3B900;
-  font-size: 0.7em;
-  position: relative;
-  top: 10px;
-  float: right;
-}
+
 
 .enter-comment {
   background: #212521;

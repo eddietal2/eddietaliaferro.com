@@ -1,16 +1,16 @@
 <ion-content>
   <ion-grid>
   <!-- Blog Header and Search Bar -->
-  <ion-row style="background: #0000006b; margin-top: 6em; padding-bottom: 5em;" class="ion-justify-content-center">
+  <ion-row class="ion-justify-content-center blog-post-wrapper">
     <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button routerLink="/blog" class="purple-button">
+            Back
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
       <div class="blog-info">
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button routerLink="/blog" class="purple-button">
-              Back
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
         <h1 class="blog-header">This is the blog title</h1>
         <h4 class="blog-date">September 3rd, 2020.</h4>
         <h6 class="blog-hashtags">#pwa #angular</h6>
@@ -18,19 +18,133 @@
       <p class="blog-post">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
 
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!<br><br>
+
+        <img style="margin: 0 auto; width: 500px; display: block;" src="../../../../assets/logo.svg">
+
+        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
+
+        <br><br>
+
+        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
+
+        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
+
+        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
       </p>
     </ion-col>
   </ion-row>
 
   <!-- Comments -->
-  <ion-row class="ion-justify-content-center">
+  <ion-row class="ion-justify-content-center" style="margin-bottom: 6em;">
     <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
-      <h3 style="color: #00ff00;">Comments (1)</h3>
+      <h3 style="color: #00ff00;">Comments (3)</h3>
       <hr class="line">
       <div class="comment-wrapper">
-        <h5>Username <span class="commented-when">commented 8 minutes ago</span></h5>
+        <h5>
+          <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
+          <span class="commented-when">commented 8 minutes ago</span>
+        </h5>
         <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+        <div id="replies">
+          <h3>Replies</h3>
+          <div class="reply">
+            <h5>
+              <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
+              <span class="commented-when">commented 8 minutes ago</span>
+            </h5>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+          </div>
+        </div>
+        <ion-textarea id="reply-textarea" rows="5" placeholder="Add reply here">
+          <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
+            Close
+          </ion-button>
+        </ion-textarea>
+        <ion-toolbar class="comment-toolbar">
+          <ion-buttons slot="start">
+            <ion-button class="green-button" (click)="reply(comment)">
+              Reply
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button id="replies-button" class="grey-button" (click)="viewReplies(comment)">
+              View Replies (0)
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+      <div class="comment-wrapper">
+        <h5>
+          <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
+          <span class="commented-when">commented 8 minutes ago</span>
+        </h5>
+        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+        <div id="replies">
+          <h3>Replies</h3>
+          <div class="reply">
+            <h5>
+              <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
+              <span class="commented-when">commented 8 minutes ago</span>
+            </h5>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+          </div>
+        </div>
+        <ion-textarea id="reply-textarea" rows="5" placeholder="Add reply here">
+          <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
+            Close
+          </ion-button>
+        </ion-textarea>
+        <ion-toolbar class="comment-toolbar">
+          <ion-buttons slot="start">
+            <ion-button class="green-button" (click)="reply(comment)">
+              Reply
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button id="replies-button" class="grey-button" (click)="viewReplies(comment)">
+              View Replies (0)
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+      <div class="comment-wrapper">
+        <h5>
+          <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
+          <span class="commented-when">commented 8 minutes ago</span>
+        </h5>
+        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+        <div id="replies">
+          <h3>Replies</h3>
+          <div class="reply">
+            <h5>
+              <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
+              <span class="commented-when">commented 8 minutes ago</span>
+            </h5>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+          </div>
+        </div>
+        <ion-textarea id="reply-textarea" rows="5" placeholder="Add reply here">
+          <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
+            Close
+          </ion-button>
+        </ion-textarea>
+        <ion-toolbar class="comment-toolbar">
+          <ion-buttons slot="start">
+            <ion-button class="green-button" (click)="reply(comment)">
+              Reply
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button id="replies-button" class="grey-button" (click)="viewReplies(comment)">
+              View Replies (0)
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
       </div>
 
       <!-- Comment Textarea -->
@@ -49,7 +163,7 @@
           </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button class="post-button">
+          <ion-button style="width: 100px; position: relative; right: 10px;" class="purple-button">
             Post
           </ion-button>
         </ion-buttons>

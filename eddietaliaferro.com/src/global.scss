@@ -173,6 +173,15 @@ p {
   --border-radius: 50px;
   --box-shadow: none;
 }
+.grey-button {
+  width: 150px;
+  display: block;
+  margin: 30px 0;
+  --background: linear-gradient(360deg, #777777 -2%, #333, #777777);
+  --color: white;
+  --border-radius: 50px;
+  --box-shadow: none;
+}
 .alert-delete-button {
   color: red;
 }

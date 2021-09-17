@@ -21,4 +21,10 @@ describe('ProjectsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('Latests Project View Project button should navigate to that projects url', () => {
+    
+  });
+  it('all projects should be loaded from Projects Service', () => {
+    
+  });
 });

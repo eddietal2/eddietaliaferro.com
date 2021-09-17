@@ -23,4 +23,7 @@ describe('DonatePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('successful submission should add donation to Donations collection', () => {
+    
+  });
 });

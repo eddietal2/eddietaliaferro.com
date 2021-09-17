@@ -21,4 +21,7 @@ describe('ContactPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('successful submission should add message to Messages collection', () => {
+    
+  });
 });
