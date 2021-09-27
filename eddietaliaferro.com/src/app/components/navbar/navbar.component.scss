@@ -7,9 +7,9 @@
   height: 45px;
 }
 .navbar {
-  --background: linear-gradient(73.54497825384362deg, #0B4F3B, 8.871497304413253%,rgba(61, 173, 98,1) 89.69365126629889%,rgba(62, 173, 99,1) 89.69365126629889%)
-  ;
-  --box-shadow: none;
+  --background: linear-gradient(73.54497825384362deg, #0B4F3B, 8.871497304413253%,#3dad62 89.69365126629889%,#3ead63 89.69365126629889%);
+  // --background: white;
+  box-shadow: 1px 1px 30px #6f6f6f9e;
   padding: 0px 30px;
 
     a {

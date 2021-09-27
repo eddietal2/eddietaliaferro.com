@@ -10,14 +10,14 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="8">
-        <ion-row class="blog-post">
+        <ion-row *ngFor="let blog of allBlogs" class="blog-post">
           <ion-col size-xs="2" size-sm="2" size-lg="2">
-            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+            <img src="{{blog.thumbnail}}" alt="Blog Post Thumbnail" class="blog-thumbnail">
           </ion-col>
           <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h5 class="blog-date">Date</h5>
-            <h1 class="blog-title">Title</h1>
-            <h6 class="blog-hashtags">#Hashtags</h6>
+            <h5 class="blog-date">{{blog.date}}</h5>
+            <h1 class="blog-title">{{blog.title}}</h1>
+            <h6 class="blog-hashtags">{{blog.hashtags}}</h6>
             <p style="display: inline;">Visible</p>
             <ion-toggle (ionChange)="visibleToggle($event)"></ion-toggle>
           </ion-col>
@@ -25,10 +25,10 @@
             <!-- <ion-button class="purple-button" (click)="viewBlog()">
               View
             </ion-button> -->
-            <ion-button class="gold-button" (click)="editBlog()">
+            <ion-button class="gold-button" (click)="editBlog(blog._id)">
               Edit
             </ion-button>
-            <ion-button class="red-button" (click)="deleteAlert()">
+            <ion-button class="red-button" (click)="deleteAlert(blog._id)">
               Delete
             </ion-button>
           </ion-col>

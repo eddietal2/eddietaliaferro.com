@@ -9,7 +9,7 @@ const routes: Routes = [
     component: BlogPage
   },
   {
-    path: 'blog-page',
+    path: 'blog-page/:id',
     loadChildren: () => import('./blog-page/blog-page.module').then( m => m.BlogPagePageModule)
   }
 ];

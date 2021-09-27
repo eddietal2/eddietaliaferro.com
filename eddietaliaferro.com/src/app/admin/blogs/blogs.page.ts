@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { format, parseISO } from 'date-fns';
+import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 
 @Component({
   selector: 'app-blogs',
@@ -8,13 +10,26 @@ import { ToastController, LoadingController, IonInput, IonSpinner, AlertControll
   styleUrls: ['./blogs.page.scss'],
 })
 export class BlogsPage implements OnInit {
+  allBlogs;
 
   constructor(
     private router: Router,
     private alert: AlertController,
+    private loadingController: LoadingController,
+    private blogService: BlogService,
   ) { }
 
   ngOnInit() {
+    this.blogService.getBlogs().subscribe(
+      blogs => {
+        this.allBlogs = blogs;
+        console.log(blogs);
+        for (let i = 0; i < this.allBlogs.length; i++) {
+          this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM Lo, uu');
+        }
+        return;
+      }
+    )
   }
   viewBlog() {
 
@@ -22,9 +37,7 @@ export class BlogsPage implements OnInit {
   addBlog() {
     this.router.navigateByUrl('/admin/blogs/add-blog')
   }
-  deleteBlog() {
-  }
-  async deleteAlert() {
+  async deleteAlert(blogID) {
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',
       header: 'Delete Blog',
@@ -42,7 +55,13 @@ export class BlogsPage implements OnInit {
           text: 'Delete',
           cssClass: 'alert-delete-button',
           handler: () => {
-            console.log('Confirm Okay');
+            console.log(blogID);
+            this.blogService.deleteBlog(blogID).subscribe(
+              updatedBlogs => {
+                this.presentLoading(updatedBlogs);
+                this.allBlogs = updatedBlogs;
+              }
+            )
           }
         }
       ]
@@ -50,15 +69,29 @@ export class BlogsPage implements OnInit {
 
     await alert.present();
 
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+    const { role } = await alert.onDidDismiss().then(
+
+    );
   }
-  editBlog() {
-    this.router.navigateByUrl('/admin/blogs/edit-blog')
+  async presentLoading(updatedBlogs) {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      duration: 1000
+    });
+   await loading.present();
+   await loading.onDidDismiss().then( () => {
+      console.log(updatedBlogs);
+    }
+    )
   }
+  editBlog(id) {
+    this.router.navigate(['/admin/blogs/edit-blog', id])
+  }
+
   blogComments() {
 
   }
+
   visibleToggle(event) {
     let checked = event.detail.checked;
     if(checked === true) {
@@ -73,6 +106,7 @@ export class BlogsPage implements OnInit {
     }
 
   }
+
   async visibleAlert() {
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',

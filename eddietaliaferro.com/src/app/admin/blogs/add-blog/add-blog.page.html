@@ -6,7 +6,7 @@
         <ion-toolbar>
           <ion-title>Add Blog</ion-title>
           <ion-buttons slot="end">
-            <ion-button style="--border-radius: 50px;" class="purple-button" (click)="back()">
+            <ion-button id="back-button" style="--border-radius: 50px;" class="purple-button" (click)="back()">
               Back
             </ion-button>
           </ion-buttons>
@@ -20,7 +20,8 @@
 
           <!-- Thumbnail -->
           <h4>Thumbnail</h4>
-          <ion-input placeholder="Title" required formControlName="thumbnail" type="file"></ion-input>
+          <input id="thumbnail" (change)="getThumbnailFile($event)" name="blog-thumbnail" placeholder="Title"  type="file"/><br>
+          <img height="200" class="picture-preview" *ngIf="this.thumbnailDataURL" src="{{this.thumbnailDataURL}}">
 
           <!-- Hashtags -->
           <h4>Hashtags</h4>
@@ -33,31 +34,31 @@
           <!-- Pictures -->
           <div style="margin-top: 5em;"></div>
           <h4>Picture 1</h4>
-          <ion-input type="file" formControlName="picture_1" placeholder="Picture-1"></ion-input>
-          <img src="../../../../assets/logo.svg">
+          <input id="picture-1" (change)="getPictureOneFile($event)" name="blog-picture" type="file" placeholder="Picture-1" />
+          <img class="picture-preview" *ngIf="this.pictureOneDataURL" src="{{this.pictureOneDataURL}}">
 
           <h4>Picture 2</h4>
-          <ion-input type="file" formControlName="picture_2" placeholder="Picture-2"></ion-input>
-          <img src="../../../../assets/logo.svg">
+          <input id="picture-2" (change)="getPictureTwoFile($event)" name="blog-picture" type="file" placeholder="Picture-2" />
+          <img class="picture-preview" *ngIf="this.pictureTwoDataURL" src="{{this.pictureTwoDataURL}}">
 
           <h4>Picture 3</h4>
-          <ion-input type="file" formControlName="picture_3" placeholder="Picture-3"></ion-input>
-          <img src="../../../../assets/logo.svg">
+          <input id="picture-3" (change)="getPictureThreeFile($event)" name="blog-picture" type="file" placeholder="Picture-3" />
+          <img class="picture-preview" *ngIf="this.pictureThreeDataURL" src="{{this.pictureThreeDataURL}}">
 
           <h4>Picture 4</h4>
-          <ion-input type="file" formControlName="picture_4" placeholder="Picture-4"></ion-input>
-          <img src="../../../../assets/logo.svg">
+          <input id="picture-4" (change)="getPictureFourFile($event)" name="blog-picture" type="file" placeholder="Picture-4" />
+          <img class="picture-preview" *ngIf="this.pictureFourDataURL" src="{{this.pictureFourDataURL}}">
 
           <h4>Picture 5</h4>
-          <ion-input type="file" formControlName="picture_5" placeholder="Picture-5"></ion-input>
-          <img src="../../../../assets/logo.svg">
+          <input id="picture-5" (change)="getPictureFiveFile($event)" name="blog-picture"  type="file" placeholder="Picture-5" />
+          <img class="picture-preview" *ngIf="this.pictureFiveDataURL" src="{{this.pictureFiveDataURL}}">
 
           <!-- Blog Post -->
           <div style="margin-top: 5em;"></div>
           <h4>Post Content</h4>
           <ion-textarea (ionChange)="trackTextArea($event)" rows="30" placeholder="Post" required formControlName="post"></ion-textarea>
 
-          <ion-button style="margin: 5em auto 10em auto;" class="green-button" type="submit" [disabled]="addBlogForm.invalid">
+          <ion-button style="margin: 5em auto 10em auto;" class="green-button" id="submit-blog-button" type="submit">
             Submit
           </ion-button>
         </form>

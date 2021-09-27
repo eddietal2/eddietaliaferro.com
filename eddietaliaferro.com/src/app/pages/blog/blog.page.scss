@@ -57,7 +57,7 @@ ion-grid {
 .blog-post {
   height: auto;
   background: #404040;
-  padding: 25px;
+  padding: 30px;
   transition: 0.5s;
   margin: 2em 0;
   border-radius: 10px;
@@ -75,6 +75,7 @@ ion-grid {
   }
   .blog-thumbnail {
     height: 100px;
+    border-radius: 100px;
     margin-right: 2.5em;
   }
   .blog-date {

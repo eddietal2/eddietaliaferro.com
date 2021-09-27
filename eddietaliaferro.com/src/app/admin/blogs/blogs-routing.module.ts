@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./add-blog/add-blog.module').then( m => m.AddBlogPageModule)
   },
   {
-    path: 'edit-blog',
+    path: 'edit-blog/:id',
     loadChildren: () => import('./edit-blog/edit-blog.module').then( m => m.EditBlogPageModule)
   }
 ];

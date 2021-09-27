@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BlogService } from 'src/app/services/blog/blog.service';
+import { format, parseISO } from 'date-fns';
+
 
 @Component({
   selector: 'app-blog',
@@ -7,12 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog.page.scss'],
 })
 export class BlogPage implements OnInit {
+  allBlogs = [];
 
   constructor(
     private router: Router,
+    private blogs: BlogService,
   ) { }
 
   ngOnInit() {
+    this.blogs.getBlogs().subscribe(blogs => {
+      this.allBlogs = blogs;
+      console.log(blogs);
+      for (let i = 0; i < this.allBlogs.length; i++) {
+        this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM Lo, uu');
+      }
+      return;
+    });
   }
   donatePage() {
     
@@ -20,8 +33,9 @@ export class BlogPage implements OnInit {
   contactPage() {
 
   }
-  viewBlogPage() {
-    this.router.navigateByUrl('/blog/blog-page');
+  viewBlogPage(id) {
+    console.log(id);
+    this.router.navigate(['/blog/blog-page/', id]);
   }
 
 }

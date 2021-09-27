@@ -16,7 +16,8 @@
         <form [formGroup]="editBlogForm" (ngSubmit)="submitBlogPost()">
           <!-- Title -->
           <h4 style="margin-top: 0em;">Title</h4>
-          <ion-input placeholder="Title" required formControlName="title" type="text"></ion-input>
+          <ion-input placeholder="Title" required formControlName="title" type="text"
+          ></ion-input>
 
           <!-- Thumbnail -->
           <h4>Thumbnail</h4>
@@ -24,11 +25,11 @@
 
           <!-- Hashtags -->
           <h4>Hashtags</h4>
-          <ion-input placeholder="Hashtag 1" required formControlName="hashtags" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 2" required formControlName="hashtags" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 3" required formControlName="hashtags" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 4" required formControlName="hashtags" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 5" required formControlName="hashtags" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 1" required formControlName="hashtag_1" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 2" required formControlName="hashtag_2" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 3" required formControlName="hashtag_3" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 4" required formControlName="hashtag_4" type="text"></ion-input>
+          <ion-input placeholder="Hashtag 5" required formControlName="hashtag_5" type="text"></ion-input>
 
           <!-- Pictures -->
           <div style="margin-top: 5em;"></div>

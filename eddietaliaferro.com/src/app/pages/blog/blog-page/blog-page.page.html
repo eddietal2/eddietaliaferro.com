@@ -2,7 +2,7 @@
   <ion-grid>
   <!-- Blog Header and Search Bar -->
   <ion-row class="ion-justify-content-center blog-post-wrapper">
-    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
+    <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6">
       <ion-toolbar>
         <ion-buttons slot="start">
           <ion-button routerLink="/blog" class="purple-button">
@@ -11,30 +11,13 @@
         </ion-buttons>
       </ion-toolbar>
       <div class="blog-info">
-        <h1 class="blog-header">This is the blog title</h1>
-        <h4 class="blog-date">September 3rd, 2020.</h4>
-        <h6 class="blog-hashtags">#pwa #angular</h6>
+        <h1 class="blog-header">{{title}}</h1>
+        <h4 class="blog-date">{{date}}</h4>
+        <h6 class="blog-hashtags">{{hashtags}}</h6>
       </div>
-      <p class="blog-post">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
-
-        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!<br><br>
-
-        <img style="margin: 0 auto; width: 500px; display: block;" src="../../../../assets/logo.svg">
-
-        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
-
-        <br><br>
-
-        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
-
-        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, inventore! Asperiores adipisci illo harum qui commodi nemo animi corrupti omnis. Velit hic, veniam debitis mollitia cumque recusandae assumenda porro quae!
-
-        <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia voluptate odio, minima dignissimos, velit in eius officiis saepe repellat iusto nostrum expedita nobis commodi dolorum impedit eum ad repudiandae itaque!
+      <!-- <img style="margin: 0 auto; width: 500px; display: block;" src="../../../../assets/logo.svg"> -->
+      <p id="blog-post">
+        {{post}}
       </p>
     </ion-col>
   </ion-row>
@@ -199,7 +182,7 @@
       </div>
     </ion-col>
   </ion-row>
-  
+
   <!-- Footer Illustration -->
   <ion-row id="footer" class="ion-justify-content-center">
     <ion-col class="ion-text-center" size="11">

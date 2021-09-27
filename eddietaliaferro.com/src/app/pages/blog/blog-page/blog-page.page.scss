@@ -62,7 +62,6 @@ ion-toolbar:first-child {
   font-size:  1.3em;
   font-weight: 800;
 }
-
 .blog-date {
   color: #D3B900;
   margin: 5px 0;
@@ -73,15 +72,16 @@ ion-toolbar:first-child {
   color: #00c400;
 }
 .blog-post-wrapper {
-  background: #0000006b;
-  margin: 6em auto;
+  background: white;
+  margin: 3em auto 6em auto;
   padding-bottom: 5em;
+  padding-top: 3em;
 }
-.blog-post {
-  line-height: 1.2em;
-  font-size: 1.2em;
+#blog-post {
+  line-height: 32px;
+  white-space: pre-wrap;
+  font-size: 21px;
   margin-top: 3em;
-  background: #eef;
   color: #222;
   padding: 2em;
   border-radius: 5px;
