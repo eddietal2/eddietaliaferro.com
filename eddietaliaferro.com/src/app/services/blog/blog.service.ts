@@ -8,6 +8,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 
 export interface Blog {
   title: string,
+  visible: boolean,
   hashtags: Array<string>,
   thumbnail: string,
   post: string,
@@ -52,5 +53,10 @@ export class BlogService {
   public deleteBlog(blogID) {
     console.log('Deleting Blog ...');
     return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/delete-blog`, {id: blogID})
+  }
+
+  public blogVisibility(blogID, title, visible) {
+    console.log('Visibility ...');
+    return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/toggle-visibility`, {id: blogID, visible, title})
   }
 }

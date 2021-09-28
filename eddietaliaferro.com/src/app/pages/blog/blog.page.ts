@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import { format, parseISO } from 'date-fns';
@@ -9,7 +9,7 @@ import { format, parseISO } from 'date-fns';
   templateUrl: './blog.page.html',
   styleUrls: ['./blog.page.scss'],
 })
-export class BlogPage implements OnInit {
+export class BlogPage implements OnInit, OnDestroy {
   allBlogs = [];
 
   constructor(
@@ -36,6 +36,10 @@ export class BlogPage implements OnInit {
   viewBlogPage(id) {
     console.log(id);
     this.router.navigate(['/blog/blog-page/', id]);
+  }
+  @HostListener('unloaded')
+  ngOnDestroy() {
+    console.log('Blogs Page destroyed');
   }
 
 }

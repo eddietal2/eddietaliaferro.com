@@ -1,11 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { ToastController, LoadingController, IonSpinner } from '@ionic/angular';
 import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { of, scheduled } from 'rxjs';
+import { of } from 'rxjs';
 import { PicturesService } from 'src/app/services/pictures/pictures.service';
 
 
@@ -14,10 +14,8 @@ import { PicturesService } from 'src/app/services/pictures/pictures.service';
   templateUrl: './add-blog.page.html',
   styleUrls: ['./add-blog.page.scss'],
 })
-export class AddBlogPage implements OnInit {
+export class AddBlogPage implements OnInit, OnDestroy {
   addBlogForm: FormGroup;
-
-  blogContent;
   thumbnailDataURL;
   thumbnailS3Link;
 
@@ -26,12 +24,6 @@ export class AddBlogPage implements OnInit {
   pictureThreeDataURL;
   pictureFourDataURL;
   pictureFiveDataURL;
-
-  pictureOneS3Link;
-  pictureTwoS3Link;
-  pictureThreeS3Link;
-  pictureFourS3Link;
-  pictureFiveS3Link;
 
   pictureOneTag    =  '<< picture-1 >>';
   pictureTwoTag    =  '<< picture-2 >>';
@@ -45,6 +37,7 @@ export class AddBlogPage implements OnInit {
     private blogService: BlogService,
     private picturesService: PicturesService,
   ) { }
+
 
   ngOnInit() {
     this.addBlogForm = this.formBuilder.group({
@@ -71,46 +64,6 @@ export class AddBlogPage implements OnInit {
   back() {
     this.router.navigateByUrl('/admin/blogs')
   }
-  submitBlogPost() {
-    this.getThumbnailS3URL();
-    this.getPictureOneS3URL();
-    this.getPictureTwoS3URL();
-    this.getPictureThreeS3URL();
-    this.getPictureFourS3URL();
-    this.getPictureFiveS3URL();
-    let newBlog = {
-      title: this.addBlogForm.value.title,
-      thumbnail: this.addBlogForm.value.thumbnail,
-      hashtags: [
-        this.addBlogForm.value.hashtag_1,
-        this.addBlogForm.value.hashtag_2,
-        this.addBlogForm.value.hashtag_3,
-        this.addBlogForm.value.hashtag_4,
-        this.addBlogForm.value.hashtag_5
-      ],
-      post: this.addBlogForm.value.post,
-      comments: [],
-      picture_1: this.addBlogForm.value.picture_1,
-      picture_2: this.addBlogForm.value.picture_2,
-      picture_3: this.addBlogForm.value.picture_3,
-      picture_4: this.addBlogForm.value.picture_4,
-      picture_5: this.addBlogForm.value.picture_5,
-    }
-    console.log(newBlog)
-    this.blogService.submitBlog(newBlog)
-    .pipe(catchError(error => of(`I caught: ${error.error}`)))
-    .subscribe(
-      data => {
-        console.log(data);
-        return;
-      }
-    )
-
-  }
-  // formatHashtags() {
-  //   throw new Error('Method not implemented.');
-  // }
-
   // For each picture, get the DataURL of the file FIRST
   // When the blog is ready to be submitted, add them to S3 bucket
   // and get their links before adding the blog to the database
@@ -266,21 +219,67 @@ export class AddBlogPage implements OnInit {
     }
     return new Blob([u8arr], {type: mime});
   }
-  trackTextArea(event) {
-    let post: String = event.detail.value;
-    let pictureOnePosition = post.search(this.pictureOneTag)
-    let pictureTwoPosition = post.search(this.pictureTwoTag)
-    let pictureThreePosition = post.search(this.pictureThreeTag)
-    let pictureFourPosition = post.search(this.pictureFourTag)
-    let pictureFivePosition = post.search(this.pictureFiveTag)
 
+  submitBlogPost() {
+    this.getThumbnailS3URL();
+    // For each picture that is added, get a link for that photo
+    if(this.pictureOneDataURL) {
+      this.getPictureOneS3URL();
+    }
+    if(this.pictureTwoDataURL) {
+      this.getPictureTwoS3URL();
+    }
+    if(this.pictureThreeDataURL) {
+      this.getPictureThreeS3URL();
+    }
+    if(this.pictureFourDataURL) {
+      this.getPictureFourS3URL();
+    }
+    if(this.pictureFiveDataURL) {
+      this.getPictureFiveS3URL();
+    }
+
+    let formattedHashtags = [
+      this.addBlogForm.value.hashtag_1,
+      this.addBlogForm.value.hashtag_2,
+      this.addBlogForm.value.hashtag_3,
+      this.addBlogForm.value.hashtag_4,
+      this.addBlogForm.value.hashtag_5
+    ];
+
+    let newBlog = {
+      title: this.addBlogForm.value.title,
+      thumbnail: this.addBlogForm.value.thumbnail,
+      visible: false,
+      hashtags: formattedHashtags.filter(item => item),
+      post: this.addBlogForm.value.post,
+      comments: [],
+      picture_1: this.addBlogForm.value.picture_1,
+      picture_2: this.addBlogForm.value.picture_2,
+      picture_3: this.addBlogForm.value.picture_3,
+      picture_4: this.addBlogForm.value.picture_4,
+      picture_5: this.addBlogForm.value.picture_5,
+    }
+    console.log(newBlog)
+    // Check for Truthy title, thumbnail, and blog post.
+    // If one is messing, show a toast.
+    // If all three are valid, submit Blog.
+    this.blogService.submitBlog(newBlog)
+    .pipe(catchError(error => of(`I caught: ${error.error}`)))
+    .subscribe(
+      data => {
+        console.log(data);
+        this.router.navigateByUrl('admin/blogs');
+        return;
+      }
+    )
 
   }
-  // Add codes inside of ion-textarea
-  // Each blog can have up to 5 pictures
-  // Desktop = 1000 x 478
-  // Tablet = 600 x ??
-  // Mobile = 400 x ??
+
+  @HostListener('unloaded')
+  ngOnDestroy() {
+    console.log('Add Blog Page destroyed');
+  }
 }
 
 

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastController, LoadingController, IonInput, IonSpinner, AlertController, IonToggle } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
-import { BlogService, Blog } from 'src/app/services/blog/blog.service';
+import { BlogService } from 'src/app/services/blog/blog.service';
 
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.page.html',
   styleUrls: ['./blogs.page.scss'],
 })
-export class BlogsPage implements OnInit {
+export class BlogsPage implements OnInit, OnDestroy {
   allBlogs;
+  @ViewChild('visibilityToggle') visibilityToggle: IonToggle;
 
   constructor(
     private router: Router,
@@ -25,7 +26,8 @@ export class BlogsPage implements OnInit {
         this.allBlogs = blogs;
         console.log(blogs);
         for (let i = 0; i < this.allBlogs.length; i++) {
-          this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM Lo, uu');
+          console.log(this.allBlogs[i].date);
+          this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM do, uu');
         }
         return;
       }
@@ -92,48 +94,29 @@ export class BlogsPage implements OnInit {
 
   }
 
-  visibleToggle(event) {
+  visibleToggle(event, blogID, title, visible) {
+    console.log(event)
     let checked = event.detail.checked;
     if(checked === true) {
       console.log('The Blog is Visible');
-      this.visibleAlert();
+      this.blogService.blogVisibility(blogID, title, visible)
+        .subscribe( data => {
+          console.log(data);
+        })
     }
     else if(checked === false) {
       console.log('The Blog is NOT Visible');
+      this.blogService.blogVisibility(blogID, title, visible)
+        .subscribe( data => {
+          console.log(data);
+        })
     }
     else {
       return Error('There was an error with making toggling the Blogs visibility.')
     }
-
   }
-
-  async visibleAlert() {
-    const alert = await this.alert.create({
-      cssClass: 'my-custom-class',
-      header: 'Make Blog Visible',
-      message: 'Are you sure you want to make this Blog visible?',
-      buttons: [
-        {
-          text: 'No',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        },
-        {
-          text: 'Yes',
-          cssClass: 'alert-delete-button',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+  @HostListener('unloaded')
+  ngOnDestroy() {
+    console.log('Admin Blogs Page destroyed');
   }
 }
