@@ -7,6 +7,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { PicturesService } from 'src/app/services/pictures/pictures.service';
+import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
+
 
 
 @Component({
@@ -34,7 +36,9 @@ export class AddBlogPage implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
+    private toastController: ToastController,
     private blogService: BlogService,
+    private adminBlogEmitterService: AdminBlogEmitterService,
     private picturesService: PicturesService,
   ) { }
 
@@ -56,14 +60,16 @@ export class AddBlogPage implements OnInit, OnDestroy {
       post: ['', [Validators.required,]]
     });
 
-    this.addBlogForm.valueChanges.subscribe(
-      data => {
-        console.log(data);
-      });
+    // this.addBlogForm.valueChanges.subscribe(
+    //   data => {
+    //     console.log(data);
+    //   });
   }
   back() {
     this.router.navigateByUrl('/admin/blogs')
   }
+
+  // Pictures
   // For each picture, get the DataURL of the file FIRST
   // When the blog is ready to be submitted, add them to S3 bucket
   // and get their links before adding the blog to the database
@@ -193,19 +199,9 @@ export class AddBlogPage implements OnInit, OnDestroy {
     reader.addEventListener('load', () => {
       // Convert image file ot base64 string
       this.thumbnailDataURL = reader.result;
-      console.log(this.thumbnailDataURL);
+       console.log(this.thumbnailDataURL);
       }, false);
   }
-  getThumbnailS3URL() {
-    const formData = new FormData();
-    let thumbnailFile = new File([this.dataURLtoBlob(this.thumbnailDataURL)], 'thumbnail.png');
-    formData.append('blog-thumbnail', thumbnailFile);
-    this.picturesService.blogThumbnailUpload(formData)
-        .subscribe(pictureURL => {
-          this.addBlogForm.value.thumbnail = pictureURL['objectUrl'];
-        });
-  }
-
   dataURLtoBlob(dataurl) {
     // console.log(dataurl)
     const arr = dataurl.split(',');
@@ -220,59 +216,129 @@ export class AddBlogPage implements OnInit, OnDestroy {
     return new Blob([u8arr], {type: mime});
   }
 
+  // Toasts
+  async notTitleToast() {
+    const toast = await this.toastController.create({
+      message: 'There was no Title',
+      cssClass: 'danger-toast',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async notThumbnailToast() {
+    const toast = await this.toastController.create({
+      message: 'There was no Thumbnail',
+      cssClass: 'danger-toast',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async errorToast() {
+    const toast = await this.toastController.create({
+      message: 'There was an Error',
+      cssClass: 'danger-toast',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async notBlogContentToast() {
+    const toast = await this.toastController.create({
+      message: 'There was no Blog Toast',
+      cssClass: 'danger-toast',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async successfulBlogSubmit() {
+    const toast = await this.toastController.create({
+      message: 'Successfully added Blog!',
+      cssClass: 'success-toast',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+  }
+
   submitBlogPost() {
-    this.getThumbnailS3URL();
-    // For each picture that is added, get a link for that photo
-    if(this.pictureOneDataURL) {
-      this.getPictureOneS3URL();
-    }
-    if(this.pictureTwoDataURL) {
-      this.getPictureTwoS3URL();
-    }
-    if(this.pictureThreeDataURL) {
-      this.getPictureThreeS3URL();
-    }
-    if(this.pictureFourDataURL) {
-      this.getPictureFourS3URL();
-    }
-    if(this.pictureFiveDataURL) {
-      this.getPictureFiveS3URL();
-    }
+    console.log('Getting Thumbnail S3 URL');
+    const formData = new FormData();
+    let thumbnailFile = new File([this.dataURLtoBlob(this.thumbnailDataURL)], 'thumbnail.png');
+    formData.append('blog-thumbnail', thumbnailFile);
+    this.picturesService.blogThumbnailUpload(formData)
+      .subscribe(pictureURL => {
+          this.addBlogForm.value.thumbnail = pictureURL['objectUrl'];
 
-    let formattedHashtags = [
-      this.addBlogForm.value.hashtag_1,
-      this.addBlogForm.value.hashtag_2,
-      this.addBlogForm.value.hashtag_3,
-      this.addBlogForm.value.hashtag_4,
-      this.addBlogForm.value.hashtag_5
-    ];
+          if(!this.addBlogForm.value.title) {
+            console.log('There was no Title');
+            return this.notTitleToast();
+          }
+          if(!this.addBlogForm.value.thumbnail) {
+            console.log('There was no Thumbnail');
+            return this.notThumbnailToast();
+          }
+          if(!this.addBlogForm.value.post) {
+            console.log('There was no Blog Content');
+            return this.notBlogContentToast();
+          }
+          // For each picture that is added, get a link for that photo
+          if(this.pictureOneDataURL) {
+            this.getPictureOneS3URL();
+          }
+          if(this.pictureTwoDataURL) {
+            this.getPictureTwoS3URL();
+          }
+          if(this.pictureThreeDataURL) {
+            this.getPictureThreeS3URL();
+          }
+          if(this.pictureFourDataURL) {
+            this.getPictureFourS3URL();
+          }
+          if(this.pictureFiveDataURL) {
+            this.getPictureFiveS3URL();
+          }
 
-    let newBlog = {
-      title: this.addBlogForm.value.title,
-      thumbnail: this.addBlogForm.value.thumbnail,
-      visible: false,
-      hashtags: formattedHashtags.filter(item => item),
-      post: this.addBlogForm.value.post,
-      comments: [],
-      picture_1: this.addBlogForm.value.picture_1,
-      picture_2: this.addBlogForm.value.picture_2,
-      picture_3: this.addBlogForm.value.picture_3,
-      picture_4: this.addBlogForm.value.picture_4,
-      picture_5: this.addBlogForm.value.picture_5,
-    }
-    console.log(newBlog)
-    // Check for Truthy title, thumbnail, and blog post.
-    // If one is messing, show a toast.
-    // If all three are valid, submit Blog.
-    this.blogService.submitBlog(newBlog)
-    .pipe(catchError(error => of(`I caught: ${error.error}`)))
-    .subscribe(
-      data => {
-        console.log(data);
-        this.router.navigateByUrl('admin/blogs');
-        return;
-      }
-    )
+          let formattedHashtags = [
+            this.addBlogForm.value.hashtag_1,
+            this.addBlogForm.value.hashtag_2,
+            this.addBlogForm.value.hashtag_3,
+            this.addBlogForm.value.hashtag_4,
+            this.addBlogForm.value.hashtag_5
+          ];
+
+          let newBlog = {
+            title: this.addBlogForm.value.title,
+            thumbnail: this.addBlogForm.value.thumbnail,
+            visible: false,
+            hashtags: formattedHashtags.filter(item => item),
+            post: this.addBlogForm.value.post,
+            picture_1: this.addBlogForm.value.picture_1,
+            picture_2: this.addBlogForm.value.picture_2,
+            picture_3: this.addBlogForm.value.picture_3,
+            picture_4: this.addBlogForm.value.picture_4,
+            picture_5: this.addBlogForm.value.picture_5,
+          }
+          console.log(newBlog)
+          this.blogService.submitBlog(newBlog)
+          .pipe(catchError((error) => {
+            this.errorToast();
+            of(`I caught: ${error.error}`)
+            throw Error(error);
+          }))
+          .subscribe(
+            async data => {
+              console.log(data);
+              await this.adminBlogEmitterService.resetAdminBlogs()
+              await this.successfulBlogSubmit()
+              await this.router.navigateByUrl('admin/blogs');
+              return;
+            }
+          )
+        });
+    
 
   }
 

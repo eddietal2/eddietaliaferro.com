@@ -27,98 +27,30 @@
     <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
       <h3 style="color: #00ff00;">Comments (3)</h3>
       <hr class="line">
-      <div class="comment-wrapper">
+      <div class="comment-wrapper" *ngFor="let comment of comments">
         <h5>
-          <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
-          <span class="commented-when">commented 8 minutes ago</span>
+          <img class="comment-pic" src="../../../../assets/logo-2.svg">{{comment.name}}
+          <span class="commented-when">commented {{comment.date}} ago</span>
         </h5>
-        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+        <p class="comment">{{comment.comment}}</p>
         <div id="replies">
           <h3>Replies</h3>
-          <div class="reply">
+          <div class="reply" *ngFor="let reply of comment.replies">
             <h5>
-              <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
-              <span class="commented-when">commented 8 minutes ago</span>
+              <img class="comment-pic" src="../../../../assets/logo-2.svg">{{reply.name}}
+              <span class="commented-when">commented {{reply.date}} ago</span>
             </h5>
-            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
+            <p class="comment">{{reply.reply}}</p>
           </div>
         </div>
         <ion-textarea id="reply-textarea" rows="5" placeholder="Add reply here">
-          <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
+          <!-- <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
             Close
-          </ion-button>
+          </ion-button> -->
         </ion-textarea>
         <ion-toolbar class="comment-toolbar">
           <ion-buttons slot="start">
-            <ion-button class="green-button" (click)="reply(comment)">
-              Reply
-            </ion-button>
-          </ion-buttons>
-          <ion-buttons slot="end">
-            <ion-button id="replies-button" class="grey-button" (click)="viewReplies(comment)">
-              View Replies (0)
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </div>
-      <div class="comment-wrapper">
-        <h5>
-          <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
-          <span class="commented-when">commented 8 minutes ago</span>
-        </h5>
-        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
-        <div id="replies">
-          <h3>Replies</h3>
-          <div class="reply">
-            <h5>
-              <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
-              <span class="commented-when">commented 8 minutes ago</span>
-            </h5>
-            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
-          </div>
-        </div>
-        <ion-textarea id="reply-textarea" rows="5" placeholder="Add reply here">
-          <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
-            Close
-          </ion-button>
-        </ion-textarea>
-        <ion-toolbar class="comment-toolbar">
-          <ion-buttons slot="start">
-            <ion-button class="green-button" (click)="reply(comment)">
-              Reply
-            </ion-button>
-          </ion-buttons>
-          <ion-buttons slot="end">
-            <ion-button id="replies-button" class="grey-button" (click)="viewReplies(comment)">
-              View Replies (0)
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </div>
-      <div class="comment-wrapper">
-        <h5>
-          <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
-          <span class="commented-when">commented 8 minutes ago</span>
-        </h5>
-        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
-        <div id="replies">
-          <h3>Replies</h3>
-          <div class="reply">
-            <h5>
-              <img class="comment-pic" src="../../../../assets/logo-2.svg">Username
-              <span class="commented-when">commented 8 minutes ago</span>
-            </h5>
-            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae atque obcaecati numquam nobis, totam reiciendis recusandae asperiores assumenda illo praesentium ex dolor, minima omnis molestiae nesciunt in! Rem, odit.</p>
-          </div>
-        </div>
-        <ion-textarea id="reply-textarea" rows="5" placeholder="Add reply here">
-          <ion-button class="close-reply-button" (click)="closeReplyTeaxtarea()">
-            Close
-          </ion-button>
-        </ion-textarea>
-        <ion-toolbar class="comment-toolbar">
-          <ion-buttons slot="start">
-            <ion-button class="green-button" (click)="reply(comment)">
+            <ion-button class="green-button" (click)="reply(this.id, comment._id)">
               Reply
             </ion-button>
           </ion-buttons>
@@ -146,7 +78,7 @@
           </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button style="width: 100px; position: relative; right: 10px;" class="purple-button">
+          <ion-button (click)="comment(this.id)" style="width: 100px; position: relative; right: 10px;" class="purple-button">
             Post
           </ion-button>
         </ion-buttons>

@@ -15,6 +15,20 @@ ion-grid {
 form {
   padding: 1em;
 }
+.picture-preview {
+  margin-top: 3em;
+  animation: preview-slide-in 0.5s ease-in forwards;
+}
+@keyframes preview-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 ion-toolbar {
   margin-bottom: 2.5em;
   --background: none;
@@ -24,16 +38,15 @@ ion-toolbar {
     position: relative;
     left: -20px;
   }
-
-  .purple-button {
-    width: 150px;
-    display: block;
-    margin: 30px 0;
-    --background: linear-gradient(360deg, #BC3790 -2%, #87005a, #BC3790);
-    --color: white;
-    --border-radius: 50px;
-    --box-shadow: none;
-  }
+}
+.purple-button {
+  width: 150px;
+  display: block;
+  margin: 30px 0;
+  --background: linear-gradient(360deg, #BC3790 -2%, #87005a, #BC3790);
+  --color: white;
+  --border-radius: 50px;
+  --box-shadow: none;
 }
 ion-input, ion-textarea {
   background: #fff;

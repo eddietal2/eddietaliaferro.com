@@ -12,7 +12,6 @@ export interface Blog {
   hashtags: Array<string>,
   thumbnail: string,
   post: string,
-  comments: Array<string>
   picture_1: string,
   picture_2: string,
   picture_3: string,
@@ -50,6 +49,12 @@ export class BlogService {
     return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/add-blog`, blog)
   }
 
+  public editBlog(blog) {
+    console.log(blog);
+    console.log('Editting Blogs ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/edit-blog`, blog)
+  }
+
   public deleteBlog(blogID) {
     console.log('Deleting Blog ...');
     return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/delete-blog`, {id: blogID})
@@ -59,4 +64,15 @@ export class BlogService {
     console.log('Visibility ...');
     return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/toggle-visibility`, {id: blogID, visible, title})
   }
+
+  public comment(blogID) {
+    console.log('Commenting on Blog ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-comment`, {id: blogID})
+  }
+
+  public reply(blogID, commentID) {
+    console.log('Replying to Comment ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-reply`, {blogID: blogID, commentID: commentID})
+  }
+
 }

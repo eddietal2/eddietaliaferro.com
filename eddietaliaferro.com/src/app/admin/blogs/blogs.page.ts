@@ -1,8 +1,10 @@
 import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController, IonToggle } from '@ionic/angular';
+import { ToastController, LoadingController, AlertController, IonToggle } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { BlogService } from 'src/app/services/blog/blog.service';
+import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
+
 
 @Component({
   selector: 'app-blogs',
@@ -16,11 +18,26 @@ export class BlogsPage implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private alert: AlertController,
+    private toastController: ToastController,
+    private adminBlogEmitterService: AdminBlogEmitterService,
     private loadingController: LoadingController,
     private blogService: BlogService,
   ) { }
 
   ngOnInit() {
+    // When a blog is added on the Add Blog page, refresh this page.
+    if (this.adminBlogEmitterService.subsVar == undefined) {
+      this.adminBlogEmitterService.subsVar = this.adminBlogEmitterService.invokeAdminBlogsPageRefresh.subscribe(() => {
+        this.getBlogs();
+      });
+    }
+
+    this.getBlogs();
+  }
+  viewBlog() {
+
+  }
+  getBlogs() {
     this.blogService.getBlogs().subscribe(
       blogs => {
         this.allBlogs = blogs;
@@ -30,11 +47,7 @@ export class BlogsPage implements OnInit, OnDestroy {
           this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM do, uu');
         }
         return;
-      }
-    )
-  }
-  viewBlog() {
-
+      });
   }
   addBlog() {
     this.router.navigateByUrl('/admin/blogs/add-blog')
@@ -62,6 +75,7 @@ export class BlogsPage implements OnInit, OnDestroy {
               updatedBlogs => {
                 this.presentLoading(updatedBlogs);
                 this.allBlogs = updatedBlogs;
+                this.deleteBlogToast();
               }
             )
           }
@@ -85,6 +99,15 @@ export class BlogsPage implements OnInit, OnDestroy {
       console.log(updatedBlogs);
     }
     )
+  }
+  async deleteBlogToast() {
+    const toast = await this.toastController.create({
+      message: 'Deleted Blog!',
+      cssClass: 'danger-toast',
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
   }
   editBlog(id) {
     this.router.navigate(['/admin/blogs/edit-blog', id])

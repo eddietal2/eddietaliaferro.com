@@ -9,6 +9,7 @@ import { format, parseISO } from 'date-fns';
   styleUrls: ['./blog-page.page.scss'],
 })
 export class BlogPagePage implements OnInit {
+  id: string;
   title: string;
   date: string;
   post: string;
@@ -28,6 +29,7 @@ export class BlogPagePage implements OnInit {
     ngOnInit() {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
       console.log(id);
+      this.id = id;
 
       this.blogService.getBlogInfo(id).subscribe(
         info => {
@@ -75,9 +77,20 @@ export class BlogPagePage implements OnInit {
         }
       )
     }
-    reply(comment) {
-      let replyTextarea = document.getElementById('reply-textarea');
-      replyTextarea.style.display = 'block';
+    comment(blogID) {
+      this.blogService.comment(blogID).subscribe(
+        data => {
+          console.log(data);
+          return;
+        });
+    }
+    reply(blodID, commentID) {
+      this.blogService.reply(blodID, commentID).subscribe(
+        data => {
+          console.log(data);
+          return;
+        }
+      )
     }
     closeReplyTeaxtarea() {
       let replyTextarea = document.getElementById('reply-textarea');
