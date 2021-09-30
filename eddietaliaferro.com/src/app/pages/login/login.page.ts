@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,9 +13,11 @@ import { ToastController, LoadingController, IonInput, IonSpinner, AlertControll
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+  BACKEND_URL = environment.url;
 
   constructor(
     private router: Router,
+    private auth: AuthService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -22,7 +27,7 @@ export class LoginPage implements OnInit {
     });
   }
   login() {
-    
+    this.auth.login(this.loginForm.value.email, this.loginForm.value.password)
   }
   register() {
     this.router.navigateByUrl('register');

@@ -24,8 +24,17 @@
     <ion-buttons class="ion-hide-lg-down" slot="primary">
       <a routerLink="/donate" routerLinkActive="active-link">Donate</a>
     </ion-buttons>
-    <ion-buttons class="ion-hide-lg-down" slot="primary">
+    <ion-buttons *ngIf="this.userType === 'none'" class="ion-hide-lg-down" slot="primary">
       <a routerLink="/login" routerLinkActive="active-link">Login</a>
+    </ion-buttons>
+    <ion-buttons *ngIf="this.userType === 'user'" class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/profile" routerLinkActive="active-link">Profile</a>
+    </ion-buttons>
+    <ion-buttons *ngIf="this.userType === 'admin'" class="ion-hide-lg-down" slot="primary">
+      <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
+    </ion-buttons>
+    <ion-buttons *ngIf="this.userType === 'admin' || this.userType === 'user'" class="ion-hide-lg-down" slot="primary">
+      <a (click)="this.logout()" routerLinkActive="active-link">Logout</a>
     </ion-buttons>
     <!-- <ion-buttons class="ion-hide-lg-down" slot="primary">
       <a routerLink="/login" routerLinkActive="active-link">Logout</a>

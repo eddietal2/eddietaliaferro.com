@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, HostListener, } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from './services/auth/auth.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +17,32 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
+    private auth: AuthService,
+    private storage: Storage,
+    private router: Router,
     private menu: MenuController
   ) {
     this.initializeApp();
   }
+  ngOnInit() {
+
+  }
   initializeApp() {
+    this.storage.create();
+    this.auth.checkToken();
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+
+    // State for the User. If Authentication State == False, the app reverts back to the landing page
+    this.auth.authenticationState.subscribe(async state => {
+      if (state) {
+        this.router.navigate(['home']);
+
+      } else {
+        this.router.navigate(['']);
+      }
     });
   }
   openFirst() {
@@ -31,6 +51,10 @@ export class AppComponent {
   }
   closeMenu() {
     this.menu.close();
+  }
+  @HostListener('unloaded')
+  ngOnDestroy() {
+    this.auth.authenticationState.unsubscribe();
   }
 
 }
