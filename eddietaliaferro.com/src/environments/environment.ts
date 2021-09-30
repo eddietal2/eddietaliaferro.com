@@ -6,11 +6,14 @@
 
 const ip = '10.0.1.7';
 const mobileIP = '192.168.43.128';
-const baseUrl = `http://${mobileIP}:3000`;
+const baseUrl = `http://${ip}:3000`;
+const stripeKeyLive = 'pk_live_51JfTbQEo9mAig2o8WBjwlzGV5JPOjLICIj7zGlVqlKFbloDjnXJxw7fauYLTGfYPyGlVDdaN7ThdUg75mwVbXJRY00fP3MSXx6';
+const stripeKeyTest = 'pk_test_51JfTbQEo9mAig2o8V8YUYYdgLtvnvzWvVfnUnnySoAmrCP7AdEvnJ6AGBGbQf6lYGUiKOCMurhKUFf9p6odalfmi00ojrGPFVe';
 
 export const environment = {
   production: false,
   url: baseUrl,
+  stripeKey: stripeKeyTest
 };
 
 /*

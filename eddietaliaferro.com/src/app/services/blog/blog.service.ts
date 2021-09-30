@@ -35,6 +35,13 @@ export class BlogService {
       return of<Blog[]>([]);
     }))
   }
+  public getLatestBlogPosts(): Observable<Blog[]> {
+    console.log('Getting Blogs from Blog Service');
+    return this.http.get<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/get-latest-blog-posts`).pipe(catchError(error => {
+      console.log(error);
+      return of<Blog[]>([]);
+    }))
+  }
 
   public getBlogInfo(blogID): Observable<Blog[]> {
     console.log(blogID)

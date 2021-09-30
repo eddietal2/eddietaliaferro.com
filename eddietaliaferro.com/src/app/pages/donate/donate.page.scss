@@ -4,6 +4,39 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
+#cash-app-message {
+  font-size: 21px;
+  background: #40ff7f3b;
+  padding: 1em 0 2.5em 0;
+  border-radius: 10px;
+}
+
+#cash-app-logo {
+  position: relative;
+  top: 24px;
+  margin: 0 18px;
+
+}
+#paypal-message {
+  font-size: 21px;
+  background: #0055a542;
+  padding: 1em 0 2.5em 0;
+  border-radius: 10px;
+}
+
+#paypal-logo {
+  position: relative;
+  top: 24px;
+  margin: 0 18px;
+
+}
+#or {
+  border: 3px solid #00c400;
+  border-radius: 5px;
+  width: 100px;
+  margin: 3em auto;
+  padding: 0.3em 0.3em;
+}
 #footer {
   background: #0b4f3b73;
   height: 600px;
