@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: RegisterPage
+  },
+  {
+    path: 'success/:firstName/:picture',
+    loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
   }
 ];
 

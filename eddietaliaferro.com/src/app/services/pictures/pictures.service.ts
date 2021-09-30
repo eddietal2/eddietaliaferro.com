@@ -14,13 +14,16 @@ export class PicturesService {
     blogPictureUpload(picture) {
       console.log('blog picture uploading');
       console.log(picture);
-      return this.http.post(`${this.BACKEND_URL}/pictures/upload-blog-picture`,
-      picture);
+      return this.http.post(`${this.BACKEND_URL}/pictures/upload-blog-picture`, picture);
      }
     blogThumbnailUpload(thumbnail) {
       console.log('blog thumbnail uploading');
       console.log(thumbnail);
-      return this.http.post(`${this.BACKEND_URL}/pictures/upload-blog-thumbnail`,
-      thumbnail);
+      return this.http.post(`${this.BACKEND_URL}/pictures/upload-blog-thumbnail`, thumbnail);
+     }
+    userProfilePictureUpload(picture) {
+      console.log('user profile picture uploading');
+      console.log(picture);
+      return this.http.post(`${this.BACKEND_URL}/pictures/upload-user-profile-picture`, picture);
      }
 }

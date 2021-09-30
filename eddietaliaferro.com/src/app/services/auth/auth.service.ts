@@ -134,8 +134,8 @@ export class AuthService {
       // window.location.reload();
     });
   }
-  register() {
-    this.http.post(`${this.BACKEND_URL}/user/register`, this.userInfo).subscribe();
+  register(fullName, picture, email, password) {
+    return this.http.post(`${this.BACKEND_URL}/user/register-user`, {fullName, picture, email, password});
   }
 
   // looks up our storage for a valid JWT and if found, changes our authenticationState
