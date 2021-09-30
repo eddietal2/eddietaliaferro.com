@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angula
 import { Router, ActivatedRoute } from '@angular/router';
 import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { format, parseISO } from 'date-fns';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
 
 @Component({
   selector: 'app-blog-page',
@@ -20,16 +22,29 @@ export class BlogPagePage implements OnInit {
   picture_4: string;
   picture_5: string;
   comments: Array<object>;
+  userType = 'none'
+  userPicture;
+  userFullName;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private auth: AuthService,
     private blogService: BlogService,) { }
 
     ngOnInit() {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
       console.log(id);
       this.id = id;
+      this.userPicture = this.auth.userInfo.fullName;
+      this.userFullName = this.auth.userInfo.picture;
+
+      this.auth.userType.subscribe(
+        data => {
+          console.log('Usertype: ' + data);
+          this.userType = data;
+        }
+      )
 
       this.blogService.getBlogInfo(id).subscribe(
         info => {
@@ -91,10 +106,6 @@ export class BlogPagePage implements OnInit {
           return;
         }
       )
-    }
-    closeReplyTeaxtarea() {
-      let replyTextarea = document.getElementById('reply-textarea');
-      replyTextarea.style.display = 'none';
     }
     viewReplies(comment) {
       let replies = document.getElementById('replies');

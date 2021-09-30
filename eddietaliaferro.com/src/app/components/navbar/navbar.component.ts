@@ -1,6 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 
@@ -11,9 +12,11 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class NavbarComponent implements OnInit {
   userType;
-  
+
   constructor(
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private alertController: AlertController,
+    ) { }
 
   ngOnInit() {
     this.auth.userType.subscribe(
@@ -24,8 +27,29 @@ export class NavbarComponent implements OnInit {
       }
     )
   }
-  logout() {
-    this.auth.logout();
+
+  async logoutConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      message: 'Are you sure you want to Logout?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            this.auth.logout();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
   openMenu () {
     console.log('Opening side menu ..')

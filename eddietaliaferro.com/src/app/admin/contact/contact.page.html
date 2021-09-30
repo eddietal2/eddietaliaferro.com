@@ -4,42 +4,18 @@
     <ion-row class="ion-hide-lg-up" style="height: 50px;"></ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
-        <h1>Messages (1)</h1>
+        <h1>Messages ({{this.messageCount}})</h1>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col style="position: relative; top: -32px;" size-xs="11" size-sm="9" size-md="8" size-lg="6">
-        <div class="message">
-          <h2>Name</h2>
-          <h5>Email</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
+        <div *ngFor="let message of this.allMessages" class="message">
+          <h2>{{message.fullName}}</h2>
+          <h5>{{message.email}}</h5>
+          <p>{{message.message}}</p>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button id="delete-message-button" (click)="deleteAlert()">
-                Delete
-              </ion-button>
-            </ion-buttons>
-          </ion-toolbar>
-        </div>
-        <div class="message">
-          <h2>Name</h2>
-          <h5>Email</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
-          <ion-toolbar>
-            <ion-buttons slot="end">
-              <ion-button id="delete-message-button" (click)="deleteAlert()">
-                Delete
-              </ion-button>
-            </ion-buttons>
-          </ion-toolbar>
-        </div>
-        <div class="message">
-          <h2>Name</h2>
-          <h5>Email</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis qui recusandae, debitis ut tenetur eos necessitatibus vero reprehenderit illum eligendi eveniet mollitia corrupti suscipit distinctio, consequatur facere odit maiores. Quo.</p>
-          <ion-toolbar>
-            <ion-buttons slot="end">
-              <ion-button id="delete-message-button" (click)="deleteAlert()">
+              <ion-button id="delete-message-button" (click)="deleteAlert(message._id)">
                 Delete
               </ion-button>
             </ion-buttons>

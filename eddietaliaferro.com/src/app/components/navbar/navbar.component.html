@@ -34,7 +34,7 @@
       <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
     </ion-buttons>
     <ion-buttons *ngIf="this.userType === 'admin' || this.userType === 'user'" class="ion-hide-lg-down" slot="primary">
-      <a (click)="this.logout()" routerLinkActive="active-link">Logout</a>
+      <a (click)="this.logoutConfirm()" routerLinkActive="active-link">Logout</a>
     </ion-buttons>
     <!-- <ion-buttons class="ion-hide-lg-down" slot="primary">
       <a routerLink="/login" routerLinkActive="active-link">Logout</a>

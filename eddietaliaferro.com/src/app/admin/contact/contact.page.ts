@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { ContactService } from 'src/app/services/contact/contact.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -8,18 +10,24 @@ import { ToastController, LoadingController, IonInput, IonSpinner, AlertControll
   styleUrls: ['./contact.page.scss'],
 })
 export class ContactPage implements OnInit {
+  allMessages: Array<object>;
+  messageCount: Number;
 
   constructor(
     private router: Router,
+    private contactService: ContactService,
     private alert: AlertController,) { }
 
   ngOnInit() {
+    this.contactService.getMessages().subscribe(
+      messages => {
+        console.log(messages);
+        this.allMessages = messages['messages'];
+        this.messageCount = messages['messageCount'];
+      }
+    )
   }
-  deleteMessage() {
-    console.log('Deleting message ...');
-  }
-
-  async deleteAlert() {
+  async deleteAlert(id) {
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',
       header: 'Delete Message',
@@ -37,7 +45,14 @@ export class ContactPage implements OnInit {
           text: 'Delete',
           cssClass: 'alert-delete-button',
           handler: () => {
-            console.log('Confirm Okay');
+            console.log('Deleting message ...');
+            this.contactService.deleteMessage(id).subscribe(
+              data => {
+                console.log(data)
+                this.allMessages = data['messages'];
+                this.messageCount = data['messageCount'];
+              }
+            )
           }
         }
       ]

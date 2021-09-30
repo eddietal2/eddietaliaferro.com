@@ -13,6 +13,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 })
 export class AuthService {
   BACKEND_URL = environment.url;
+  loginSub: Subscription;
   TOKEN_KEY = 'access_token';
   user = null;
   downloadPrompt;
@@ -23,11 +24,10 @@ export class AuthService {
 
   userInfo = {
     fullName: '',
-    profilePicture: '',
+    picture: '',
     email: '',
     password: ''
   };
-  loginSub: Subscription;
 
   constructor(
     private http: HttpClient,
@@ -79,6 +79,8 @@ export class AuthService {
       .subscribe(
         data => {
           console.log(data);
+          this.userInfo.fullName = data['fullName'];
+          this.userInfo.picture = data['picture'];
         }
       );
     } else {
@@ -111,6 +113,8 @@ export class AuthService {
         .subscribe(
           data => {
             console.log(data);
+            this.userInfo.fullName = data['fullName'];
+            this.userInfo.picture = data['picture'];
           }
         );
     }
@@ -121,7 +125,7 @@ export class AuthService {
       this.user = null;
       this.userInfo = {
         fullName: '',
-        profilePicture: '',
+        picture: '',
         email: '',
         password: ''
       },
@@ -143,6 +147,7 @@ export class AuthService {
 
         if (!isExpired) {
           this.user = decoded;
+          // Check to see if the Token is for an admin or user
           if(decoded.email === 'eddielacrosse2@gmail.com') {
             this.userType.next('admin');
           } else {

@@ -6,7 +6,7 @@
 
 const ip = '10.0.1.7';
 const mobileIP = '192.168.43.128';
-const baseUrl = `http://${ip}:3000`;
+const baseUrl = `http://${mobileIP}:3000`;
 
 export const environment = {
   production: false,

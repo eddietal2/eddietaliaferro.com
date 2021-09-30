@@ -16,7 +16,7 @@
 
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
     <ion-col size-xs="11" size-sm="8" size-lg="6">
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="contactForm" (ngSubmit)="sendMessage(this.contactForm.value)">
         <ion-item lines="none">
           <h5 class="page-sub-header">Have a question? Want to do business? Just have something nice to say? Leave me a message and I will get back to you at my earliest convience.</h5>
         </ion-item>
@@ -33,15 +33,15 @@
           rows="15" cols="20"
           placeholder="Please enter your message here"></ion-textarea>
         </ion-item>
+        <ion-button type="submit" class="green-button" style="margin: 0 auto">
+          Send
+        </ion-button>
       </form>
     </ion-col>
   </ion-row>
 
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px">
     <ion-col size-xs="11" size-sm="8" size-lg="6">
-      <ion-button class="green-button" style="margin: 0 auto">
-        Send
-      </ion-button>
     </ion-col>
   </ion-row>
 

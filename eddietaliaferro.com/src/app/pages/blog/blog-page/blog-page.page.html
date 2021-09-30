@@ -69,13 +69,21 @@
         placeholder="Please enter comment here">
       </ion-textarea>
       <ion-toolbar>
-        <ion-buttons slot="start">
+        <ion-buttons *ngIf="this.userType === 'none'" slot="start">
           <ion-button class="login-button">
             Login
           </ion-button>
           <ion-button class="register-button">
             Register
           </ion-button>
+        </ion-buttons>
+        <ion-buttons *ngIf="this.userType === 'user'" slot="start">
+          <h1>{{this.userFullName}}</h1>
+          <img src="{{this.userPicture}}" alt="">
+        </ion-buttons>
+        <ion-buttons *ngIf="this.userType === 'admin'" slot="start">
+          <!-- <h1>{{this.userFullName}}</h1> -->
+          <img src="{{this.userFullName}}" alt="">
         </ion-buttons>
         <ion-buttons slot="end">
           <ion-button (click)="comment(this.id)" style="width: 100px; position: relative; right: 10px;" class="purple-button">
