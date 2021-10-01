@@ -21,6 +21,11 @@ export class PicturesService {
       console.log(thumbnail);
       return this.http.post(`${this.BACKEND_URL}/pictures/upload-blog-thumbnail`, thumbnail);
      }
+    projectThumbnailUpload(thumbnail) {
+      console.log('project thumbnail uploading');
+      console.log(thumbnail);
+      return this.http.post(`${this.BACKEND_URL}/pictures/upload-project-thumbnail`, thumbnail);
+     }
     userProfilePictureUpload(picture) {
       console.log('user profile picture uploading');
       console.log(picture);

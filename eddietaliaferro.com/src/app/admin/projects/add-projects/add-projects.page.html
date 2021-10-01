@@ -21,11 +21,12 @@
 
           <!-- Project Link -->
           <h4>Link</h4>
-          <ion-input placeholder="Link URL" formControlName="link" type="text"></ion-input>
+          <ion-input placeholder="Link URL" formControlName="url" type="text"></ion-input>
 
           <!-- Thumbnail -->
           <h4>Thumbnail</h4>
-          <ion-input placeholder="Thumbnail" formControlName="thumbnail" type="file"></ion-input>
+          <input id="thumbnail" (change)="getThumbnailFile($event)" placeholder="Thumbnail" formControlName="thumbnail" type="file" />
+          <img height="200" class="picture-preview" *ngIf="this.thumbnailDataURL" src="{{this.thumbnailDataURL}}" alt="Project Thumbnail">
 
           <!-- Project Description -->
           <h4>Description</h4>

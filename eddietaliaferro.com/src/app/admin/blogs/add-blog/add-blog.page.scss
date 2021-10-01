@@ -16,6 +16,7 @@ form {
   padding: 1em;
 }
 .picture-preview {
+  display: block;
   margin-top: 3em;
   animation: preview-slide-in 0.5s ease-in forwards;
 }

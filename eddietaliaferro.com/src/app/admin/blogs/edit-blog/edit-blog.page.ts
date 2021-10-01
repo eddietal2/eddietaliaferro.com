@@ -21,8 +21,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
   hashtagThree;
   hashtagFour;
   hashtagFive;
-
-  formattedThumbailToDataURL;
+;
   thumbnailDataURL;
   thumbnailS3Link;
 
@@ -80,8 +79,9 @@ export class EditBlogPage implements OnInit, OnDestroy {
               var reader = new FileReader();
               reader.readAsDataURL(request.response);
               reader.onload =  function(e){
-                  // console.log('DataURL:', e.target.result);
-                  res(e.target.result);
+                let convertOctetStreamToPNGImage = e.target.result.toString().replace('data:application/octet-stream', 'data:image/png')
+                res(convertOctetStreamToPNGImage);
+                rej('Something bad happened')
                   return;
               };
             return;
@@ -91,7 +91,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
 
         xhr.then( data => {
           console.log(data);
-          this.formattedThumbailToDataURL = data;
+          this.thumbnailDataURL = data;
         })
 
         // Properly format Hashtags
@@ -129,7 +129,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
         this.editBlogForm.patchValue({
           title: blogInfo['title'],
           post: blogInfo['post'],
-          thumbnail: this.formattedThumbailToDataURL,
+          // thumbnail: this.formattedThumbailToDataURL,
           // Deleting # from beginning of tag
           // First chatacter is a space
           // Second character is hashtag
@@ -169,9 +169,8 @@ export class EditBlogPage implements OnInit, OnDestroy {
       // Convert image file ot base64 string
       this.pictureOneDataURL = reader.result;
       console.log(this.pictureOneDataURL);
-      }, false);
-  }
-  getPictureOneS3URL() {
+
+
     const formData = new FormData();
     let pictureOneFile = new File([this.dataURLtoBlob(this.pictureOneDataURL)], 'picture-1.png');
     formData.append('blog-picture', pictureOneFile);
@@ -179,8 +178,8 @@ export class EditBlogPage implements OnInit, OnDestroy {
         .subscribe(pictureURL => {
           this.editBlogForm.value.picture_1 = pictureURL['objectUrl'];
         });
+      }, false);
   }
-
   getPictureTwoFile(event) {
     this.editBlogForm.value.picture_2 = '';
     const pictureTwo = document.getElementById('picture-2');
@@ -192,19 +191,19 @@ export class EditBlogPage implements OnInit, OnDestroy {
       // Convert image file ot base64 string
       this.pictureTwoDataURL = reader.result;
       console.log(this.pictureTwoDataURL);
-      }, false);
 
-  }
-  getPictureTwoS3URL() {
+
     const formData = new FormData();
     let pictureTwoFile = new File([this.dataURLtoBlob(this.pictureTwoDataURL)], 'picture-2.png');
     formData.append('blog-picture', pictureTwoFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.editBlogForm.value.picture_2 = pictureURL['objectUrl'];
+          console.log(pictureURL)
+          return this.editBlogForm.value.picture_2 = pictureURL['objectUrl'];
         });
-  }
+      }, false);
 
+  }
   getPictureThreeFile(event) {
     this.editBlogForm.value.picture_3 = '';
     const pictureThree = document.getElementById('picture-3');
@@ -216,19 +215,18 @@ export class EditBlogPage implements OnInit, OnDestroy {
       // Convert image file ot base64 string
       this.pictureThreeDataURL = reader.result;
       console.log(this.pictureThreeDataURL);
-      }, false);
 
-  }
-  getPictureThreeS3URL() {
+
     const formData = new FormData();
     let pictureThreeFile = new File([this.dataURLtoBlob(this.pictureThreeDataURL)], 'picture-3.png');
     formData.append('blog-picture', pictureThreeFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.editBlogForm.value.picture_3 = pictureURL['objectUrl'];
+          return this.editBlogForm.value.picture_3 = pictureURL['objectUrl'];
         });
-  }
+      }, false);
 
+  }
   getPictureFourFile(event) {
     this.editBlogForm.value.picture_4 = '';
     const pictureFour = document.getElementById('picture-4');
@@ -240,19 +238,15 @@ export class EditBlogPage implements OnInit, OnDestroy {
       // Convert image file ot base64 string
       this.pictureFourDataURL = reader.result;
       console.log(this.pictureFourDataURL);
+      const formData = new FormData();
+      let pictureFourFile = new File([this.dataURLtoBlob(this.pictureFourDataURL)], 'picture-4.png');
+      formData.append('blog-picture', pictureFourFile);
+      this.picturesService.blogPictureUpload(formData)
+          .subscribe(pictureURL => {
+            this.editBlogForm.value.picture_4 = pictureURL['objectUrl'];
+          });
       }, false);
-
   }
-  getPictureFourS3URL() {
-    const formData = new FormData();
-    let pictureFourFile = new File([this.dataURLtoBlob(this.pictureFourDataURL)], 'picture-4.png');
-    formData.append('blog-picture', pictureFourFile);
-    this.picturesService.blogPictureUpload(formData)
-        .subscribe(pictureURL => {
-          this.editBlogForm.value.picture_4 = pictureURL['objectUrl'];
-        });
-  }
-
   getPictureFiveFile(event) {
     this.editBlogForm.value.picture_5 = '';
     const pictureFive = document.getElementById('picture-5');
@@ -264,19 +258,17 @@ export class EditBlogPage implements OnInit, OnDestroy {
       // Convert image file ot base64 string
       this.pictureFiveDataURL = reader.result;
       console.log(this.pictureFiveDataURL);
+
+      const formData = new FormData();
+      let pictureFiveFile = new File([this.dataURLtoBlob(this.pictureFiveDataURL)], 'picture-5.png');
+      formData.append('blog-picture', pictureFiveFile);
+      this.picturesService.blogPictureUpload(formData)
+          .subscribe(pictureURL => {
+            this.editBlogForm.value.picture_5 = pictureURL['objectUrl'];
+          });
       }, false);
 
   }
-  getPictureFiveS3URL() {
-    const formData = new FormData();
-    let pictureFiveFile = new File([this.dataURLtoBlob(this.pictureFiveDataURL)], 'picture-5.png');
-    formData.append('blog-picture', pictureFiveFile);
-    this.picturesService.blogPictureUpload(formData)
-        .subscribe(pictureURL => {
-          this.editBlogForm.value.picture_5 = pictureURL['objectUrl'];
-        });
-  }
-
   getThumbnailFile(event) {
     this.editBlogForm.value.thumbnail = '';
     const formElement = document.getElementById('thumbnail');
@@ -374,21 +366,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
             return this.notBlogContentToast();
           }
           // For each picture that is added, get a link for that photo
-          if(this.pictureOneDataURL) {
-            this.getPictureOneS3URL();
-          }
-          if(this.pictureTwoDataURL) {
-            this.getPictureTwoS3URL();
-          }
-          if(this.pictureThreeDataURL) {
-            this.getPictureThreeS3URL();
-          }
-          if(this.pictureFourDataURL) {
-            this.getPictureFourS3URL();
-          }
-          if(this.pictureFiveDataURL) {
-            this.getPictureFiveS3URL();
-          }
+          
 
           let formattedHashtags = [
             this.editBlogForm.value.hashtag_1,

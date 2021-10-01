@@ -6,10 +6,10 @@ import { Observable, of } from 'rxjs';
 
 export interface Project {
   title: string,
+  url: string,
   visible: boolean,
   thumbnail: string,
-  message: string,
-  date: string,
+  description: string,
 }
 
 @Injectable({

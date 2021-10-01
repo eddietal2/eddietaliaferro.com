@@ -13,7 +13,7 @@
       </ion-col>
     </ion-row>
 
-    <!-- Donate Illustration -->
+    <!-- Project Illustration -->
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
         <app-projects-illustration></app-projects-illustration>
@@ -24,50 +24,21 @@
       <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6">
         <!-- Delete 2 "blog-post" after back-end intergration. -->
         <!-- Render the most recent 3 last blog post dynamically. -->
-        <ion-row class="blog-post">
-          <ion-col size-xs="2" size-sm="2" size-lg="2">
-            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
-          </ion-col>
-          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h5 class="blog-date">Date</h5>
-            <h1 class="blog-title">Title</h1>
-            <p>This is info about the project</p>
-          </ion-col>
-          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
-            <ion-button class="purple-button" (click)="viewProject()">
-              View Project
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="blog-post">
-          <ion-col size-xs="2" size-sm="2" size-lg="2">
-            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
-          </ion-col>
-          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h5 class="blog-date">Date</h5>
-            <h1 class="blog-title">Title</h1>
-            <p>This is info about the project</p>
-          </ion-col>
-          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
-            <ion-button class="purple-button" (click)="viewProject()">
-              View Project
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="blog-post">
-          <ion-col size-xs="2" size-sm="2" size-lg="2">
-            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
-          </ion-col>
-          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h5 class="blog-date">Date</h5>
-            <h1 class="blog-title">Title</h1>
-            <p>This is info about the project</p>
-          </ion-col>
-          <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
-            <ion-button class="purple-button" (click)="viewProject()">
-              View Project
-            </ion-button>
-          </ion-col>
+        <ion-row *ngFor="let project of allProjects">
+          <ion-row class="blog-post" *ngIf="project.visible">
+            <ion-col size-xs="2" size-sm="2" size-lg="2">
+              <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="blog-thumbnail">
+            </ion-col>
+            <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
+              <h1 class="blog-title">{{project.title}}</h1>
+              <p>{{project.description}}</p>
+            </ion-col>
+            <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+              <ion-button class="purple-button" (click)="viewProject(project.url)">
+                View Project
+              </ion-button>
+            </ion-col>
+          </ion-row>
         </ion-row>
       </ion-col>
     </ion-row>

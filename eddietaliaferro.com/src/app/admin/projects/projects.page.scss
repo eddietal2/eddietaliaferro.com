@@ -12,6 +12,21 @@ ion-grid {
     background-repeat: no-repeat;
   }
 }
+.picture-preview {
+  display: block;
+  margin-top: 3em;
+  animation: preview-slide-in 0.5s ease-in forwards;
+}
+@keyframes preview-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 #header-button {
   margin-top: 40px;
   border-bottom: #333 solid 2px;

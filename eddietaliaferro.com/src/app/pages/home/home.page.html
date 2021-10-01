@@ -114,12 +114,11 @@
             <img src="{{blog.thumbnail}}" alt="Project Post Thumbnail" class="project-thumbnail">
           </ion-col>
           <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h5 class="project-date">{{blog.date}}</h5>
-            <h1 class="project-title">{{blog.time}}</h1>
-            <p>{{blog.message}}</p>
+            <h1 class="project-title">{{blog.title}}</h1>
+            <p>{{blog.description}}</p>
           </ion-col>
           <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button">
-            <ion-button class="purple-button" (click)="viewProjectPage()">
+            <ion-button class="purple-button" (click)="viewProjectPage(blog.url)">
               View Project
             </ion-button>
           </ion-col>

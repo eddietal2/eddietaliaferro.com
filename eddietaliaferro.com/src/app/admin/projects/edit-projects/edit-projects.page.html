@@ -21,17 +21,19 @@
 
           <!-- Project Link -->
           <h4>Link</h4>
-          <ion-input placeholder="Link URL" formControlName="link" type="text"></ion-input>
+          <ion-input placeholder="Link URL" formControlName="url" type="text"></ion-input>
 
           <!-- Thumbnail -->
           <h4>Thumbnail</h4>
-          <ion-input placeholder="Thumbnail" formControlName="thumbnail" type="file"></ion-input>
+          <input id="thumbnail" (change)="getThumbnailFile($event)" placeholder="Thumbnail" formControlName="thumbnail" type="file" />
+          <img height="200" class="picture-preview" *ngIf="this.thumbnailDataURL" src="{{this.thumbnailDataURL}}">
+          <img height="200" class="picture-preview" *ngIf="this.editProjectForm.value.thumbnail" src="{{this.editProjectForm.value.thumbnail}}">
 
           <!-- Project Description -->
           <h4>Description</h4>
           <ion-textarea rows="10" placeholder="Description of project" formControlName="description"></ion-textarea>
 
-          <ion-button style="margin: 5em auto 10em auto;" class="green-button" type="submit" [disabled]="editProjectForm.invalid">
+          <ion-button style="margin: 5em auto 10em auto;" class="green-button" type="submit">
               Submit
           </ion-button>
         </form>

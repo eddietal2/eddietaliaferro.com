@@ -10,23 +10,24 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="8">
-        <ion-row class="blog-post">
+        <ion-row *ngFor="let project of allProjects" class="blog-post">
           <ion-col size-xs="2" size-sm="2" size-lg="2">
-            <img src="../../../assets/gold-logo.svg" alt="Blog Post Thumbnail" class="blog-thumbnail">
+            <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="blog-thumbnail">
           </ion-col>
           <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h1 class="blog-title">Title</h1>
+            <h1 class="blog-title">{{project.title}}</h1>
+            <h3 class="blog-title">{{project.description}}</h3>
             <p style="display: inline;">Visible</p>
-            <ion-toggle (ionChange)="visibleToggle($event)"></ion-toggle>
+            <ion-toggle checked="{{project.visible}}" (ionChange)="visibleToggle($event, project._id, project.title, project.visible)"></ion-toggle>
           </ion-col>
           <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
             <!-- <ion-button class="purple-button" (click)="viewProject()">
               View
             </ion-button> -->
-            <ion-button class="gold-button" (click)="editProject()">
+            <ion-button class="gold-button" (click)="editProject(project._id)">
               Edit
             </ion-button>
-            <ion-button class="red-button" (click)="deleteAlert()">
+            <ion-button class="red-button" (click)="deleteAlert(project._id)">
               Delete
             </ion-button>
           </ion-col>

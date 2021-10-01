@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./add-projects/add-projects.module').then( m => m.AddProjectsPageModule)
   },
   {
-    path: 'edit-projects',
+    path: 'edit-projects/:id',
     loadChildren: () => import('./edit-projects/edit-projects.module').then( m => m.EditProjectsPageModule)
   }
 ];

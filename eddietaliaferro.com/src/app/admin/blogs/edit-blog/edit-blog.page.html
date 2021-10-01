@@ -23,7 +23,6 @@
           <input id="thumbnail" (change)="getThumbnailFile($event)" name="blog-thumbnail" placeholder="Title"  type="file"/><br>
           <!-- ThumbnailDataURL is the updated picture -->
           <img height="200" class="picture-preview" *ngIf="this.thumbnailDataURL" src="{{this.thumbnailDataURL}}">
-          <img height="200" class="picture-preview" *ngIf="this.formattedThumbailToDataURL" src="{{this.formattedThumbailToDataURL}}">
           <img height="200" class="picture-preview" *ngIf="this.editBlogForm.value.thumbnail" src="{{this.editBlogForm.value.thumbnail}}">
 
 
