@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1050px" height="1050px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Contact-Illustration</title>
+    <defs>
+        <polygon id="path-1" points="78 316.07732 525 525.5 972 316.07732 972 735 78 735"></polygon>
+        <filter x="-8.7%" y="-18.0%" width="117.3%" height="137.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="25.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Contact-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Envelope-Part-2" fill="#FEA5A5" x="78" y="316" width="894" height="419"></rect>
+        <polyline id="Envelope-Part-3" fill="#4FDD32" points="78 316.07732 525 77 972 316.07732"></polyline>
+        <rect id="Letter" fill="#006D87" x="78" y="380" width="894" height="355"></rect>
+        <g id="Envelope-Part-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

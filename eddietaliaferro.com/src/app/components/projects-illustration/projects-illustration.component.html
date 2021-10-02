@@ -1,3 +1,66 @@
-<p>
-  projects-illustration works!
-</p>
+<svg width="505px" height="500px" viewBox="0 0 1072 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    #Crane-Arm {
+        animation: rotateOnY 3s ease infinite;
+    }
+    @-webkit-keyframes rotateOnY {
+    to {
+        -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+                perspective-origin: left;
+    }
+    }
+
+    @keyframes rotateOnY {
+    to {
+        -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+                perspective-origin: left;
+    }
+    }
+
+</style>
+  <title>Projects-Illustration</title>
+  <defs>
+      <polygon id="path-1" points="201.242496 1050 201.242496 644.75982 354 644.75982 354 1050"></polygon>
+      <filter x="-328.0%" y="-123.1%" width="755.9%" height="347.3%" filterUnits="objectBoundingBox" id="filter-2">
+          <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+          <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+          <feGaussianBlur stdDeviation="166.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+          <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+          <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+      </filter>
+      <polygon id="path-3" points="718.242496 1050 718.242496 644.75982 871 644.75982 871 1050"></polygon>
+      <filter x="-33.4%" y="-12.1%" width="166.8%" height="125.2%" filterUnits="objectBoundingBox" id="filter-4">
+          <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+          <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+          <feGaussianBlur stdDeviation="16.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+          <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+          <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+      </filter>
+      <polyline id="path-5" points="354 1050.18984 354 414.189838 718.242496 414.189838 718.242496 1050.18984"></polyline>
+      <filter x="-16.3%" y="-9.0%" width="132.7%" height="118.7%" filterUnits="objectBoundingBox" id="filter-6">
+          <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+          <feGaussianBlur stdDeviation="19.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+          <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+      </filter>
+  </defs>
+  <g id="Projects-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="Left-Building-2">
+          <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+          <use stroke="#979797" stroke-width="1" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+      </g>
+      <g id="Right-Building-2" transform="translate(794.621248, 847.379910) scale(-1, 1) translate(-794.621248, -847.379910) ">
+          <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+          <use stroke="#979797" stroke-width="1" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-3"></use>
+      </g>
+      <g id="Main-Building">
+          <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+          <use fill="#846EFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+      </g>
+      <polyline id="Right-Building-1" fill="#A2A2A2" points="871 781.664757 1068 781.664757 1068 1050 871 1050"></polyline>
+      <polyline id="Left-Building-1" fill="#A2A2A2" points="4 781.664757 201 781.664757 201 1050 4 1050"></polyline>
+      <polygon id="Crane-Bottom" fill="#0D634E" points="606.053157 414.189838 606.053157 353.611012 687.445194 353.611012 687.445194 414.189838"></polygon>
+      <polyline id="Crane-Arm" stroke="#E8B923" stroke-width="11" points="646.749176 353.611012 646.749176 191.188648 409.12892 100.201215 409.12892 383.900425"></polyline>
+  </g>
+</svg>
