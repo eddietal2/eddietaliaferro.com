@@ -72,9 +72,15 @@ export class BlogService {
     return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/toggle-visibility`, {id: blogID, visible, title})
   }
 
-  public comment(blogID) {
+  public comment(blogID, name, picture, comment) {
     console.log('Commenting on Blog ...');
-    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-comment`, {id: blogID})
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-comment`, {id: blogID, name, picture, comment})
+  }
+
+
+  public deleteComment(blogID, commentID, userFullName, title) {
+    console.log('Deleting Comment ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/delete-comment`, {blogID: blogID, commentID: commentID, userFullName, title})
   }
 
   public reply(blogID, commentID) {

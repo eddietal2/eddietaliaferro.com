@@ -25,12 +25,12 @@
   <!-- Comments -->
   <ion-row class="ion-justify-content-center" style="margin-bottom: 6em;">
     <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
-      <h3 style="color: #00ff00;">Comments (3)</h3>
+      <h3 style="color: #00ff00;">Comments ({{this.commentsLength}})</h3>
       <hr class="line">
       <div class="comment-wrapper" *ngFor="let comment of comments">
         <h5>
-          <img class="comment-pic" src="../../../../assets/logo-2.svg">{{comment.name}}
-          <span class="commented-when">commented {{comment.date}} ago</span>
+          <img class="comment-pic" src="{{comment.picture}}">{{comment.name}}
+          <span class="commented-when">{{comment.date}} ago</span>
         </h5>
         <p class="comment">{{comment.comment}}</p>
         <div id="replies">
@@ -53,6 +53,9 @@
             <ion-button class="green-button" (click)="reply(this.id, comment._id)">
               Reply
             </ion-button>
+            <ion-button class="green-button" (click)="deleteComment(id, comment._id, this.userFullName, title)">
+              Delete
+            </ion-button>
           </ion-buttons>
           <ion-buttons slot="end">
             <ion-button id="replies-button" class="grey-button" (click)="viewReplies(comment)">
@@ -63,17 +66,17 @@
       </div>
 
       <!-- Comment Textarea -->
-      <ion-textarea
+      <ion-textarea #enterComment
         class="enter-comment"
         rows="6" cols="20"
         placeholder="Please enter comment here">
       </ion-textarea>
       <ion-toolbar>
         <ion-buttons *ngIf="this.userType === 'none'" slot="start">
-          <ion-button class="login-button">
+          <ion-button routerLink="/login" class="login-button">
             Login
           </ion-button>
-          <ion-button class="register-button">
+          <ion-button routerLink="/register" class="register-button">
             Register
           </ion-button>
         </ion-buttons>
@@ -82,11 +85,11 @@
           <img src="{{this.userPicture}}" alt="">
         </ion-buttons>
         <ion-buttons *ngIf="this.userType === 'admin'" slot="start">
-          <!-- <h1>{{this.userFullName}}</h1> -->
-          <img src="{{this.userFullName}}" alt="">
+          <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="Admin Profile Picture">
+          <h6>{{this.userFullName}}</h6>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button (click)="comment(this.id)" style="width: 100px; position: relative; right: 10px;" class="purple-button">
+          <ion-button (click)="comment(this.id, this.userFullName, this.userPicture, this.enterComment.value)" style="width: 100px; position: relative; right: 10px;" class="purple-button">
             Post
           </ion-button>
         </ion-buttons>

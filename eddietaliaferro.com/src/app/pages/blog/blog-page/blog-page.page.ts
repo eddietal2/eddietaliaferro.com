@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BlogService, Blog } from 'src/app/services/blog/blog.service';
-import { format, parseISO } from 'date-fns';
+import { format, formatDistance, parseISO } from 'date-fns';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -22,9 +23,15 @@ export class BlogPagePage implements OnInit {
   picture_4: string;
   picture_5: string;
   comments: Array<object>;
+  commentsLength: number;
   userType = 'none'
   userPicture;
   userFullName;
+  userTypeSub: Subscription;
+  userFullNameSub: Subscription;
+  userPictureSub: Subscription;
+  blogInfoSub: Subscription;
+
 
   constructor(
     private router: Router,
@@ -36,23 +43,39 @@ export class BlogPagePage implements OnInit {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
       console.log(id);
       this.id = id;
-      this.userPicture = this.auth.userInfo.fullName;
-      this.userFullName = this.auth.userInfo.picture;
 
-      this.auth.userType.subscribe(
+      this.userTypeSub = this.auth.userType.subscribe(
         data => {
           console.log('Usertype: ' + data);
           this.userType = data;
         }
       )
+      this.userFullNameSub = this.auth.userFullName.subscribe(
+        data => {
+          console.log('userFullName: ' + data);
+          this.userFullName = data;
+        }
+      )
+      this.userPictureSub = this.auth.userPicture.subscribe(
+        data => {
+          console.log('userPicture: ' + data);
+          this.userPicture = data;
+        }
+      )
 
-      this.blogService.getBlogInfo(id).subscribe(
+      this.blogInfoSub = this.blogService.getBlogInfo(id).subscribe(
         info => {
           // console.log(info);
           this.title = info['title'];
-          this.date = format(parseISO(info['date']), 'MMMM Lo, uu');
+          this.date = format(parseISO(info['date']), 'MMMM do, uu');
           this.hashtags = info['hashtags'];
           this.comments = info['comments'];
+          this.commentsLength = this.comments.length;
+          console.log(this.comments)
+
+          for (let i = 0; i < this.comments.length; i++) {
+            this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+          }
 
 
           let postContent = info['post'];
@@ -92,10 +115,27 @@ export class BlogPagePage implements OnInit {
         }
       )
     }
-    comment(blogID) {
-      this.blogService.comment(blogID).subscribe(
+    comment(blogID, userName, userPicture, comment) {
+      this.blogService.comment(blogID, userName, userPicture, comment).subscribe(
+        data => {
+          this.comments = data['comments'];
+          this.commentsLength = this.comments.length;
+          for (let i = 0; i < this.comments.length; i++) {
+            this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+          }
+          console.log(data);
+          return;
+        });
+    }
+    deleteComment(blogID, commentID, userFullName, title) {
+      this.blogService.deleteComment(blogID, commentID, userFullName, title).subscribe(
         data => {
           console.log(data);
+          this.comments = data['comments'];
+          this.commentsLength = this.comments.length;
+          for (let i = 0; i < this.comments.length; i++) {
+            this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+          }
           return;
         });
     }
@@ -133,5 +173,14 @@ export class BlogPagePage implements OnInit {
     contactPage() {
       this.router.navigateByUrl('/contact');
     }
+
+    @HostListener('unloaded')
+    ngOnDestroy() {
+    console.log('Blog Page destroyed');
+    this.userTypeSub.unsubscribe();
+    this.userFullNameSub.unsubscribe();
+    this.userPictureSub.unsubscribe();
+    this.blogInfoSub.unsubscribe();
+  }
 
 }

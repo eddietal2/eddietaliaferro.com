@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="4">
+        <ion-row>
+          <ion-col style="margin-top: 5em;" class="ion-text-center" size="12">
+            <img width="200" style="border-radius: 200px;" src="{{picture}}" alt="User Profile Picture">
+            <input type="file" (change)="getPictureFile($event)"  name="user-profile-picture" id="user-profile-picture" class="purple-button" style="margin: 3em auto;">
+          </ion-col>
+          <ion-col size="12">
+            <form [formGroup]="userProfileForm" (ngSubmit)="editProfile()">
+              <ion-item lines="none">
+                <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+              </ion-item>
+              <!-- Alert or Modal popus up with Password Change. -->
+              <!-- Have the user log back in with their new password -->
+              <ion-button class="green-button" color="primary" type="submit" style="width: 200px; margin: 3em auto;">
+                Change Passowrd
+              </ion-button>
+              <ion-button class="green-button" color="primary" type="submit" style="margin: 3em auto;">
+                Edit Profile
+              </ion-button>
+            </form>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

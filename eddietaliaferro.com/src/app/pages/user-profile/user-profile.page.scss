@@ -1,0 +1,28 @@
+ion-grid {
+  background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  --color: white;
+}
+@media only screen and (max-width: 600px) {
+  ion-grid {
+    background-image: url('../../../assets/illustrations/Matrix-Background.svg');
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+  }
+}
+#user-profile-picture {
+
+}
+ion-item {
+  margin: 1em auto;
+  --highlight-color-focused: #00c400;
+}
+ion-item:focus {
+  margin: 1em auto;
+}
+ion-input {
+  border-radius: 10px;
+}

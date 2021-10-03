@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { format, parseISO } from 'date-fns';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import { ProjectService } from 'src/app/services/project/project.service';
 
@@ -23,6 +24,10 @@ export class HomePage implements OnInit {
       data => {
         console.log(data);
         this.latestBlogs = data;
+        for (let i = 0; i < this.latestBlogs.length; i++) {
+          this.latestBlogs[i].date = format(parseISO(this.latestBlogs[i].date), 'MMMM do, uu');
+        }
+        return;
       }
     );
     this.projectService.getLatestProjectPosts().subscribe(

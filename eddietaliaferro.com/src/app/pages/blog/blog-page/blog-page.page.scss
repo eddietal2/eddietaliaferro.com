@@ -102,8 +102,9 @@ ion-toolbar:first-child {
   .comment-pic {
     position: relative;
     top: 12px;
-    margin-right: 1em;
+    margin-right: 0.5em;
     height: 40px;
+    border-radius: 40px;
   }
 
   .comment {

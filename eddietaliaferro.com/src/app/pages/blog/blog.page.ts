@@ -22,7 +22,7 @@ export class BlogPage implements OnInit, OnDestroy {
       this.allBlogs = blogs;
       console.log(blogs);
       for (let i = 0; i < this.allBlogs.length; i++) {
-        this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM Lo, uu');
+        this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM do, uu');
       }
       return;
     });

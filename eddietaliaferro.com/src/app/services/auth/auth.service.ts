@@ -21,13 +21,8 @@ export class AuthService {
 
   authenticationState = new BehaviorSubject(false);
   userType = new BehaviorSubject('none');
-
-  userInfo = {
-    fullName: '',
-    picture: '',
-    email: '',
-    password: ''
-  };
+  userFullName = new BehaviorSubject('none');
+  userPicture = new BehaviorSubject('none');
 
   constructor(
     private http: HttpClient,
@@ -42,7 +37,7 @@ export class AuthService {
     // Inside the constructor we always check for an existing token so we can automatically log in a user
     this.plt.ready().then(() => {
       this.checkToken();
-      this.getEmailFromToken();
+      this.geDetailsFromToken();
     });
     console.log('Authentication State');
     this.authenticationState.subscribe(console.log); }
@@ -58,6 +53,7 @@ export class AuthService {
           }
           this.storage.set(this.TOKEN_KEY, res['token']);
           this.user = this.helper.decodeToken( res['token']);
+          console.log(this.user)
           this.userType.next('admin');
           this.authenticationState.next(true);
           console.log('Active User: ' + this.user.email);
@@ -78,9 +74,8 @@ export class AuthService {
       )
       .subscribe(
         data => {
-          console.log(data);
-          this.userInfo.fullName = data['fullName'];
-          this.userInfo.picture = data['picture'];
+          this.userFullName.next(data['fullName']);
+          this.userPicture.next(data['picture']);
         }
       );
     } else {
@@ -113,8 +108,8 @@ export class AuthService {
         .subscribe(
           data => {
             console.log(data);
-            this.userInfo.fullName = data['fullName'];
-            this.userInfo.picture = data['picture'];
+            this.userFullName.next(data['fullName']);
+            this.userPicture.next(data['picture']);
           }
         );
     }
@@ -123,15 +118,11 @@ export class AuthService {
     this.storage.remove(this.TOKEN_KEY).then((token) => {
       console.log('Logging out...');
       this.user = null;
-      this.userInfo = {
-        fullName: '',
-        picture: '',
-        email: '',
-        password: ''
-      },
       this.authenticationState.next(false);
       this.userType.next('none');
-      // window.location.reload();
+      this.userFullName.next('');
+      this.userPicture.next('');
+      window.location.reload();
     });
   }
   register(fullName, picture, email, password) {
@@ -150,8 +141,12 @@ export class AuthService {
           // Check to see if the Token is for an admin or user
           if(decoded.email === 'eddielacrosse2@gmail.com') {
             this.userType.next('admin');
+            this.userPicture.next(decoded.picture);
+            this.userFullName.next(decoded.fullName);
           } else {
             this.userType.next('user');
+            this.userPicture.next(decoded.picture);
+            this.userFullName.next(decoded.fullName);
           }
           console.log('Decoded Token: ' + JSON.stringify(decoded));
           this.authenticationState.next(true);
@@ -163,10 +158,11 @@ export class AuthService {
     });
   }
 
-  getEmailFromToken() {
+  geDetailsFromToken() {
     this.storage.get(this.TOKEN_KEY).then(token => {
       if (token) {
         const decoded = this.helper.decodeToken(token);
+        console.log(decoded)
         console.log('Token Email: ' + decoded.email);
         this.activeEmail = decoded.email;
       }
