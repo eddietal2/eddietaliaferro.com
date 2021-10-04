@@ -11,6 +11,14 @@ export class HomeIllustrationTwoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    window.onscroll = function () {
+      this.scrollRotate();
+    };
+  }
+  scrollRotate() {
+    console.log(window.scrollY);
+    let yin = document.getElementById("yin");
+    yin.style.transform = "translateX(" + window.pageYOffset/2 + "px)";
   }
 
 }

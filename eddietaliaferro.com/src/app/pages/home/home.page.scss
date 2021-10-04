@@ -6,7 +6,7 @@ ion-grid {
 }
 @media only screen and (max-width: 600px) {
   ion-grid {
-    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
+    background-image: url('../../../assets/illustrations/Matrix-Background.svg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -211,6 +211,9 @@ ion-grid {
     font-size: 1em;
     line-height: 1.2em;
   }
+}
+#yin-yang {
+  margin: 15em auto;
 }
 
 // Latest Blogs
