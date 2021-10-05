@@ -1,15 +1,7 @@
-#illustration-wrapper {
-  background-image: url('../../../assets/illustrations/home-illustration-2.svg');
-  background-repeat: no-repeat;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-}
-#controls {
-  background: #333;
-  height: 100px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  top: -100px;
+@media only screen and (max-width: 450px) {
+  svg {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+  }
 }

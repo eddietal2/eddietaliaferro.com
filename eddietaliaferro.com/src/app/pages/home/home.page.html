@@ -1,29 +1,38 @@
 <ion-content scrollEvents="true" (ionScroll)="scrollRotate($event)">
   <ion-grid>
     <!-- Landing Page Header -->
-    <ion-row id="landing-page-header" class="ion-justify-content-right" style="margin-top: 55px">
-          <ion-col class="ion-hide-lg-down ion-text-center" size-xs="12" size-sm="11" size-md="10" size-lg="8">
-            <app-header-illustration></app-header-illustration>
-          </ion-col>
-          <ion-col size-xs="12" size-sm="11" size-md="7" size-lg="4">
-           <div id="header-info-wrapper">
-            <div id="headshot-picture"></div>
-            <h3 id="header-name">Eddie Taliaferro II</h3>
-            <h3>Designer.</h3>
-            <h3>Engineer.</h3>
-            <h3>Instructor.</h3>
-           <div id="header-buttons">
-            <ion-buttons slot="end">
-              <ion-button class="red-button" (click)="donatePage()">
+    <ion-row id="landing-page-header" class="ion-justify-content-center" style="margin-top: 55px">
+      <!-- Header Info -->
+      <ion-col size-xs="12" size-sm="11" size-md="8" size-lg="4.5">
+       <ion-row class="ion-justify-content-center" id="header-info-wrapper">
+         <!-- Photo -->
+        <ion-col class="ion-text-center" size-xs="11" size-sm="6" size-md="6" size-lg="12"  size-xl="4.9">
+          <div id="headshot-picture"></div>
+        </ion-col>
+        <!-- Info -->
+        <ion-col class="ion-text-center"  size-xs="11" size-sm="6" size-md="6" size-lg="12" size-xl="7.1">
+          <h3 id="header-name">Eddie Taliaferro II</h3>
+          <h3>Designer.</h3>
+          <h3>Engineer.</h3>
+          <h3>Instructor.</h3>
+        </ion-col>
+        <!-- Buttons -->
+        <ion-col class="ion-text-center"  size-xs="11" size-sm="11" size-md="6" size-lg="12">
+          <div id="header-buttons">
+              <ion-button id="donate-header-button" (click)="donatePage()">
                 Donate
               </ion-button>
-              <ion-button class="green-button" (click)="contactPage()">
+              <ion-button id="contact-header-button" (click)="contactPage()">
                 Contact
               </ion-button>
-            </ion-buttons>
-           </div>
-           </div>
-          </ion-col>
+          </div>
+        </ion-col>
+       </ion-row>
+      </ion-col>
+      <!-- Red Pill / Blue Pill Illustration -->
+      <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="8" size-lg="6">
+        <app-header-illustration></app-header-illustration>
+      </ion-col>
     </ion-row>
 
     <!-- Services -->
@@ -58,14 +67,9 @@
     <!-- Latest Blog Posts -->
     <ion-row class="latest-blogs ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="7">
-        <ion-toolbar>
-          <h1 class="section-header" slot="start">Latest Blog Posts</h1>
-          <ion-buttons slot="end">
-            <ion-button class="grey-button" routerlink="/blog">
-              View All
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
+        <ion-col class="ion-text-center" size="10">
+          <h1 class="page-header">Latests Blogs</h1>
+        </ion-col>
         <!-- Delete 2 "blog-post" after back-end intergration. -->
         <!-- Render the most recent 3 last blog post dynamically. -->
         <ion-row *ngFor="let blog of latestBlogs" class="blog-post">
@@ -89,16 +93,9 @@
      <!-- Latest Projects -->
      <ion-row class="latest-projects ion-justify-content-center" style="margin-top: 10em; padding-bottom: 14em;">
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="7">
-        <ion-toolbar>
-          <h1 class="section-header" slot="start">Latest Projects</h1>
-          <ion-buttons slot="end">
-            <ion-button class="grey-button" routerlink="/blog">
-              View All
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-        <!-- Delete 2 "blog-post" after back-end intergration. -->
-        <!-- Render the most recent 3 last blog post dynamically. -->
+        <ion-col class="ion-text-center" size="10">
+          <h1 class="page-header">Latest Projects</h1>
+        </ion-col>
         <ion-row *ngFor="let blog of latestProjects" class="project-post">
           <ion-col size-xs="2" size-sm="2" size-lg="2">
             <img src="{{blog.thumbnail}}" alt="Project Post Thumbnail" class="project-thumbnail">
@@ -108,9 +105,9 @@
             <p>{{blog.description}}</p>
           </ion-col>
           <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button">
-            <!-- <ion-button class="purple-button" (click)="viewProjectPage(blog.url)">
+            <ion-button class="purple-button" (click)="viewProjectPage(blog.url)">
               View Project
-            </ion-button> -->
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-col>

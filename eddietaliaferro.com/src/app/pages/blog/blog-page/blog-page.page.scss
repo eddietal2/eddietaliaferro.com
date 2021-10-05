@@ -4,16 +4,8 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
-@media only screen and (max-width: 600px) {
-  ion-grid {
-    background-image: url('../../../../assets/illustrations/Matrix-Background-Mobile.svg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-}
 #footer {
-  background: #0b4f3b73;
+  background: #000000d1;
   height: 600px;
   margin-top: 4em;
   padding: 6em 0em 3em 0em;
@@ -39,7 +31,7 @@ ion-grid {
   --border-radius: 50px;
 }
 .purple-button {
-  width: 150px;
+  width: 90px;
   display: block;
   margin: 30px 0;
   --background: linear-gradient(360deg, #BC3790 -2%, #87005a, #BC3790);

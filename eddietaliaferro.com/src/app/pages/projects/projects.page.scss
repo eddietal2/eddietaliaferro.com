@@ -4,13 +4,6 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
-@media only screen and (max-width: 600px) {
-  ion-grid {
-    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
 .project {
   height: 200px;
   margin: 1em;

@@ -51,6 +51,7 @@ ion-slides {
     background-size: 100% auto;
   }
 }
+
 @media only screen and (max-width: 750px) {
   .picture {
     width: 100%;
@@ -84,7 +85,7 @@ ion-slides {
   color: #BC3790;
   font-size: 1.6em;
 }
-#about-me, #about-me-2 {
+#about-me {
   background: white;
   font-size: 21px;
   line-height: 32px;
@@ -116,3 +117,12 @@ p {
   height: 80vh;
 }
 
+@media only screen and (max-width: 550px) {
+  #about-me{
+    padding: 1em;
+  }
+  p {
+    font-size: 1em;
+    line-height: 1.3em;
+  }
+}

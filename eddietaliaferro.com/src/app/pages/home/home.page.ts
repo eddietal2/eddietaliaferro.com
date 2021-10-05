@@ -77,8 +77,8 @@ export class HomePage implements OnInit {
   viewBlogPage() {
 
   }
-  viewProjectPage() {
-
+  viewProjectPage(url) {
+    console.log(url);
   }
 
 }

@@ -1,6 +1,9 @@
 text {
   fill: #777;
 }
+svg {
+    box-shadow: 1px 1px 5px #000;
+}
 /* Pills */
 #pill-wrapper {
 fill: #999;
@@ -163,3 +166,33 @@ animation: number-up 1s ease 1s forwards;
     opacity: 1;
 }
 }
+
+
+@media only screen and (max-width: 400px) {
+    svg {
+      height: 300px;
+      width: 300px;
+      margin: 10em auto;
+    }
+  }
+@media only screen and (min-width: 400px) {
+    svg {
+      height: 330px;
+      width: 330px;
+      margin: 10em auto;
+    }
+  }
+@media only screen and (min-width: 500px) {
+    svg {
+      height: 450px;
+      width: 450px;
+      margin: 0 auto;
+    }
+  }
+@media only screen and (min-width: 1000px) {
+    svg {
+      height: 500px;
+      width: 500px;
+      margin: 0 auto;
+    }
+  }

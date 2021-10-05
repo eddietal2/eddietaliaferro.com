@@ -1,0 +1,26 @@
+@media only screen and (max-width: 400px) {
+  svg {
+    height: 200px;
+    width:  200px;
+  }
+}
+@media only screen and (min-width: 400px) {
+  svg {
+    height: 200px;
+    width:  200px;
+  }
+}
+@media only screen and (min-width: 500px) {
+  svg {
+    height: 300px;
+    width:  300px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  svg {
+    height: 350px;
+    width:  350px;
+    margin: 0 auto;
+  }
+}

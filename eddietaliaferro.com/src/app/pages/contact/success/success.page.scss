@@ -5,10 +5,3 @@ ion-grid {
   height: 100vh;
   --color: white;
 }
-@media only screen and (max-width: 600px) {
-  ion-grid {
-    background-image: url('../../../../assets/illustrations/Matrix-Background.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}

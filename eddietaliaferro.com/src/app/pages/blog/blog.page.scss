@@ -4,13 +4,6 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
-@media only screen and (max-width: 600px) {
-  ion-grid {
-    background-image: url('../../../assets/illustrations/Matrix-Background-Mobile.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
 #footer {
   background: #000000d1;
   height: 600px;
@@ -73,7 +66,7 @@ ion-grid {
     display: inline-block;
   }
   .blog-thumbnail {
-    height: 100px;
+    width: 100%;
     border-radius: 100px;
     margin-right: 2.5em;
   }
@@ -118,16 +111,16 @@ ion-grid {
 .purple-button {
   width: 150px;
   display: block;
-  margin: 30px 0;
+  margin: 5em 0 0 0;
+
   --background: linear-gradient(360deg, #BC3790 -2%, #87005a, #BC3790);
   --color: white;
   --border-radius: 50px;
   --box-shadow: none;
 }
 
-@media only screen and (min-width: 700px) {
-  .blog-search{
-    width: 350px;
-    margin: 3em auto;
+@media only screen and (max-width: 500px) {
+  .purple-button{
+    margin: 5em auto 0 auto;
   }
 }
