@@ -77,15 +77,14 @@ export class BlogService {
     return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-comment`, {id: blogID, name, picture, comment})
   }
 
-
   public deleteComment(blogID, commentID, userFullName, title) {
     console.log('Deleting Comment ...');
     return this.http.post(`${this.BLOG_BACKEND_URL}/blog/delete-comment`, {blogID: blogID, commentID: commentID, userFullName, title})
   }
 
-  public reply(blogID, commentID) {
+  public reply(blogID, commentID, fullName, picture, reply, email) {
     console.log('Replying to Comment ...');
-    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-reply`, {blogID: blogID, commentID: commentID})
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-reply`, {blogID, commentID, fullName, picture, reply, email})
   }
 
 }

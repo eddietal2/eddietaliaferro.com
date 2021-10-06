@@ -49,20 +49,20 @@ export class HomePage implements OnInit {
     let yin = document.getElementById("yin");
     let wrapper = document.getElementById("wrapper");
     let scrollTop = e.detail.scrollTop;
-    if(scrollTop < 1350) {
+    if(scrollTop < 1175) {
       // 0 to 150
       yang.style.transform = "translate(0px, 167px)";
       // 612 to 462
       yin.style.transform = "translate(612px, 167px)";
     }
-    if(scrollTop > 1600 && scrollTop < 1800) {
-      yang.style.transform = "translate(" + -(1600 - scrollTop)/1.33 + "px, 167px)";
-      console.log('Yang position: ' + -(1600 - scrollTop)/1.33)
+    if(scrollTop > 1175 && scrollTop < 1375) {
+      yang.style.transform = "translate(" + -(1175 - scrollTop)/1.33 + "px, 167px)";
+      console.log('Yang position: ' + -(1175 - scrollTop)/1.33)
 
-      yin.style.transform = "translate(" + (1600 - scrollTop + 812)/1.33 + "px, 167px)";
+      yin.style.transform = "translate(" + (1175 - scrollTop + 812)/1.33 + "px, 167px)";
 
 
-      console.log('Yin position: ' + (1600 - scrollTop + 812)/1.33)
+      console.log('Yin position: ' + (1175 - scrollTop + 812)/1.33)
       // yin.style.transform = "translateX(" + scrollTop/10 + "px)";
       // yin.style.transform = "translateY(167px)";
     }

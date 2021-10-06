@@ -22,6 +22,7 @@ export class AuthService {
   authenticationState = new BehaviorSubject(false);
   userType = new BehaviorSubject('none');
   userFullName = new BehaviorSubject('none');
+  userEmail = new BehaviorSubject('none');
   userPicture = new BehaviorSubject('none');
 
   constructor(
@@ -37,7 +38,6 @@ export class AuthService {
     // Inside the constructor we always check for an existing token so we can automatically log in a user
     this.plt.ready().then(() => {
       this.checkToken();
-      this.geDetailsFromToken();
     });
     console.log('Authentication State');
     this.authenticationState.subscribe(console.log); }
@@ -142,10 +142,12 @@ export class AuthService {
           if(decoded.email === 'eddielacrosse2@gmail.com') {
             this.userType.next('admin');
             this.userPicture.next(decoded.picture);
+            this.userEmail.next(decoded.email);
             this.userFullName.next(decoded.fullName);
           } else {
             this.userType.next('user');
             this.userPicture.next(decoded.picture);
+            this.userEmail.next(decoded.email);
             this.userFullName.next(decoded.fullName);
           }
           console.log('Decoded Token: ' + JSON.stringify(decoded));
@@ -158,16 +160,6 @@ export class AuthService {
     });
   }
 
-  geDetailsFromToken() {
-    this.storage.get(this.TOKEN_KEY).then(token => {
-      if (token) {
-        const decoded = this.helper.decodeToken(token);
-        console.log(decoded)
-        console.log('Token Email: ' + decoded.email);
-        this.activeEmail = decoded.email;
-      }
-    });
-  }
   async presentAlert(header: string, msg: string) {
     const alert = await this.alertController.create({
       cssClass: 'danger-alert',

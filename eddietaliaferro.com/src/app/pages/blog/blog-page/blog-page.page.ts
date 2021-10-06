@@ -4,6 +4,8 @@ import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { format, formatDistance, parseISO } from 'date-fns';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Subscription } from 'rxjs';
+import { IonContent } from '@ionic/angular';
+
 
 
 @Component({
@@ -24,13 +26,17 @@ export class BlogPagePage implements OnInit {
   picture_5: string;
   comments: Array<object>;
   commentsLength: number;
+  replyContent: string;
   userType = 'none'
   userPicture;
   userFullName;
+  userEmail;
   userTypeSub: Subscription;
   userFullNameSub: Subscription;
   userPictureSub: Subscription;
+  userEmailSub: Subscription;
   blogInfoSub: Subscription;
+  @ViewChild('content') ionContent: IonContent;
 
 
   constructor(
@@ -62,6 +68,12 @@ export class BlogPagePage implements OnInit {
           this.userPicture = data;
         }
       )
+      this.userEmailSub = this.auth.userEmail.subscribe(
+        data => {
+          console.log('userEmail: ' + data);
+          this.userEmail = data;
+        }
+      )
 
       this.blogInfoSub = this.blogService.getBlogInfo(id).subscribe(
         info => {
@@ -75,6 +87,10 @@ export class BlogPagePage implements OnInit {
 
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+            let replies = this.comments[i]['replies'];
+            for (let i = 0; i < replies.length; i++) {
+              replies[i]['date'] = formatDistance(replies[i]['date'], Date.now())
+            }
           }
 
 
@@ -139,33 +155,56 @@ export class BlogPagePage implements OnInit {
           return;
         });
     }
-    reply(blodID, commentID) {
-      this.blogService.reply(blodID, commentID).subscribe(
+    reply(blodID, commentID, fullName, picture, reply, email) {
+      this.blogService.reply(blodID, commentID, fullName, picture, reply, email).subscribe(
         data => {
-          console.log(data);
-          return;
+          console.log(data['replies']);
+          this.comments = data['replies'];
+          for (let i = 0; i < this.comments.length; i++) {
+            this.comments[i]['replies'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+          }
+          // Get comment ID or Index #
+          // Replace that comment's replies
+          return this.replyContent = '';
         }
       )
     }
-    viewReplies(comment) {
-      let replies = document.getElementById('replies');
-      let repliesButton = document.getElementById('replies-button');
+    getReplyContent(e) {
+      console.log(e)
+      if(this.replyContent) {
+        console.log('There was already a reply field on the page that was populated. Refreshing Reply content');
+        this.replyContent = '';
+        this.replyContent = e.detail.value;
+      }
+      else if(!this.replyContent)
+      this.replyContent = e.detail.value;
+    }
+    viewReplies(comment, id, e) {
+      console.log(e);
+      window.scrollTo()
+      let replies = document.getElementById(id+'-replies');
+      console.log(replies)
+      let repliesButton = document.getElementById(id+'-reply-button');
+      console.log(repliesButton)
       replies.style.display = 'block';
       repliesButton.className = 'red-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
       repliesButton.innerHTML = 'Close Replies';
       repliesButton.addEventListener('click', () => {
-        this.closeReplies(comment);
+        this.closeReplies(comment, id, e);
       });
     }
-    closeReplies(comment) {
-      let replies = document.getElementById('replies');
-      let repliesButton = document.getElementById('replies-button');
+    closeReplies(comment, id, e) {
+      let replies = document.getElementById(id+'-replies');
+      console.log(replies)
+      let repliesButton = document.getElementById(id+'-reply-button');
+      console.log(repliesButton)
       replies.style.display = 'none';
       repliesButton.className = 'grey-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
       repliesButton.innerHTML = 'View Replies (0)';
       repliesButton.addEventListener('click', () => {
-        this.viewReplies(comment);
+        this.viewReplies(comment, id, e);
       });
+      this.ionContent.scrollToPoint(0, e.clientY);
     }
     donatePage() {
       this.router.navigateByUrl('/donate');

@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'blog',
+    redirectTo: 'blog/blog-page/6157dccbf9748f074f13a864',
     pathMatch: 'full'
   },
   {
