@@ -4,7 +4,7 @@ import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { format, formatDistance, parseISO } from 'date-fns';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Subscription } from 'rxjs';
-import { IonContent } from '@ionic/angular';
+import { IonContent, IonTextarea } from '@ionic/angular';
 
 
 
@@ -37,6 +37,8 @@ export class BlogPagePage implements OnInit {
   userEmailSub: Subscription;
   blogInfoSub: Subscription;
   @ViewChild('content') ionContent: IonContent;
+  @ViewChild('commentInput') commentInput: IonTextarea;
+  scrollTop;
 
 
   constructor(
@@ -83,7 +85,6 @@ export class BlogPagePage implements OnInit {
           this.hashtags = info['hashtags'];
           this.comments = info['comments'];
           this.commentsLength = this.comments.length;
-          console.log(this.comments)
 
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
@@ -131,8 +132,8 @@ export class BlogPagePage implements OnInit {
         }
       )
     }
-    comment(blogID, userName, userPicture, comment) {
-      this.blogService.comment(blogID, userName, userPicture, comment).subscribe(
+    comment(blogID, userName, userPicture, comment, userEmail) {
+      this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
         data => {
           this.comments = data['comments'];
           this.commentsLength = this.comments.length;
@@ -140,6 +141,7 @@ export class BlogPagePage implements OnInit {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
           console.log(data);
+          this.commentInput.value = '';
           return;
         });
     }
@@ -179,32 +181,32 @@ export class BlogPagePage implements OnInit {
       else if(!this.replyContent)
       this.replyContent = e.detail.value;
     }
-    viewReplies(comment, id, e) {
-      console.log(e);
-      window.scrollTo()
+    getScrollPosition(e) {
+      this.scrollTop = e.scrollTop;
+    }
+    viewReplies(comment, id, e, repliesLength) {
+      var repliesLength = repliesLength;
       let replies = document.getElementById(id+'-replies');
-      console.log(replies)
       let repliesButton = document.getElementById(id+'-reply-button');
-      console.log(repliesButton)
       replies.style.display = 'block';
-      repliesButton.className = 'red-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
+      repliesButton.className = 'close-replies-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
       repliesButton.innerHTML = 'Close Replies';
       repliesButton.addEventListener('click', () => {
-        this.closeReplies(comment, id, e);
+        this.closeReplies(comment, id, e, repliesLength);
       });
     }
-    closeReplies(comment, id, e) {
+    closeReplies(comment, id, e, repliesLength) {
       let replies = document.getElementById(id+'-replies');
-      console.log(replies)
       let repliesButton = document.getElementById(id+'-reply-button');
-      console.log(repliesButton)
       replies.style.display = 'none';
       repliesButton.className = 'grey-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
-      repliesButton.innerHTML = 'View Replies (0)';
+      repliesButton.innerHTML = 'View Replies - ' + repliesLength;
       repliesButton.addEventListener('click', () => {
-        this.viewReplies(comment, id, e);
+        this.viewReplies(comment, id, e, repliesLength);
       });
-      this.ionContent.scrollToPoint(0, e.clientY);
+      console.log('Y position: ');
+      console.log(e);
+      this.ionContent.scrollToPoint(0, this.scrollTop);
     }
     donatePage() {
       this.router.navigateByUrl('/donate');
@@ -217,6 +219,7 @@ export class BlogPagePage implements OnInit {
     ngOnDestroy() {
     console.log('Blog Page destroyed');
     this.userTypeSub.unsubscribe();
+    this.userEmailSub.unsubscribe();
     this.userFullNameSub.unsubscribe();
     this.userPictureSub.unsubscribe();
     this.blogInfoSub.unsubscribe();
