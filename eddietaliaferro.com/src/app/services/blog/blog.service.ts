@@ -44,7 +44,6 @@ export class BlogService {
   }
 
   public getBlogInfo(blogID): Observable<Blog[]> {
-    console.log(blogID)
     return this.http.post<Blog[]>(`${this.BLOG_BACKEND_URL}/blog/get-blog-info`, {id: blogID}).pipe(catchError(error => {
       console.log(error);
       return of<Blog[]>([]);
@@ -78,6 +77,11 @@ export class BlogService {
     return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-comment`, {id: blogID, name, picture, comment, userEmail})
   }
 
+  public editComment(blogID, commentID, comment) {
+    console.log('Editting a Comment ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/edit-comment`, {blogID, commentID, comment})
+  }
+
   public deleteComment(blogID, commentID, userFullName, title) {
     console.log('Deleting Comment ...');
     return this.http.post(`${this.BLOG_BACKEND_URL}/blog/delete-comment`, {blogID: blogID, commentID: commentID, userFullName, title})
@@ -86,6 +90,16 @@ export class BlogService {
   public reply(blogID, commentID, fullName, picture, reply, email) {
     console.log('Replying to Comment ...');
     return this.http.post(`${this.BLOG_BACKEND_URL}/blog/add-reply`, {blogID, commentID, fullName, picture, reply, email})
+  }
+
+  public deleteReply(blogID, commentID, replyID) {
+    console.log('Deleting Reply ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/delete-reply`, {blogID, commentID, replyID})
+  }
+
+  public editReply(blogID, commentID, replyID, reply) {
+    console.log('Edit Reply ...');
+    return this.http.post(`${this.BLOG_BACKEND_URL}/blog/edit-reply`, {blogID, commentID, replyID, reply})
   }
 
 }

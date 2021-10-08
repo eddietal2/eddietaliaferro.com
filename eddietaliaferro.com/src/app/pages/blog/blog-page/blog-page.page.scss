@@ -118,6 +118,7 @@ ion-toolbar:first-child {
     font-size: 21px;
     line-height: 32px;
     margin-top: 1em;
+    white-space: pre-wrap;
   }
   .comment-admin {
     background: #bc379047;
@@ -213,10 +214,11 @@ ion-toolbar:first-child {
     --background: none
   }
   .reply-textarea {
-    background: #e1e9ee;
-    color: #333;
+    background: #333;
+    color: white;
+    border: 2px solid #00c400;
     border-radius: 5px;
-    --placeholder-color: #333;
+    --placeholder-color: white;
     display: block;
     margin-top: 4em;
     animation: slide-up 0.5s ease-in forwards;
@@ -240,7 +242,7 @@ ion-toolbar:first-child {
     }
     .replies-upper-toolbar{
       background: rgb(146 146 146 / 47%);
-      padding: 1.3em 0.7em 1.6em 0.7em;
+      padding: 1.3em 1em 1.6em 1em;
       box-shadow: 1px 8px 8px #00000066;
       border-radius: 14px;
       margin-top: 9em;
@@ -263,15 +265,36 @@ ion-toolbar:first-child {
       margin: 5em 0 0 0;
       min-height: 180px;
       width: 91%;
+      white-space: pre-wrap;
+      transition: 500ms;
       background: #00000047;
       padding: 1.4em 1em 1em 2em;
       float: right;
       border-radius: 5px;
       box-shadow: 1px 1px 9px #080808;
-
-
       
+      ion-toolbar {
+        --background: none;
+      }
     }
+  }
+  .danger-toast {
+    font-weight: 600;
+    font-size: 21px;
+    width: 100%;
+    --background: #FF443B;
+    position: relative;
+    top: 150px;
+    color: white;
+  }
+  .success-toast {
+    font-weight: 600;
+    font-size: 21px;
+    width: 100%;
+    --background: #00c400;
+    position: relative;
+    top: 150px;
+    color: white;
   }
   @keyframes slide-in-right {
     0% {
@@ -291,6 +314,19 @@ ion-toolbar:first-child {
     100% {
       opacity: 1;
       transform: translateY(0px);
+    }
+  }
+  @keyframes slide-out {
+    0% {
+      opacity: 0;
+      transform: translateX(0px);
+    }
+    99% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      display: none;
     }
   }
 }

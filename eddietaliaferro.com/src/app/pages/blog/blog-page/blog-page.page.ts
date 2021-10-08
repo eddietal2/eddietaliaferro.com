@@ -4,8 +4,8 @@ import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { format, formatDistance, parseISO } from 'date-fns';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Subscription } from 'rxjs';
-import { IonContent, IonTextarea } from '@ionic/angular';
-
+import { IonContent, IonTextarea, ToastController, AlertController } from '@ionic/angular';
+import { catchError, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -36,6 +36,11 @@ export class BlogPagePage implements OnInit {
   userPictureSub: Subscription;
   userEmailSub: Subscription;
   blogInfoSub: Subscription;
+  editCommentSub: Subscription;
+  editReplySub: Subscription;
+  replySub: Subscription;
+  deleteReplySub: Subscription;
+  commentSub: Subscription;
   @ViewChild('content') ionContent: IonContent;
   @ViewChild('commentInput') commentInput: IonTextarea;
   scrollTop;
@@ -44,12 +49,13 @@ export class BlogPagePage implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private toastController: ToastController,
+    private alertController: AlertController,
     private auth: AuthService,
     private blogService: BlogService,) { }
 
     ngOnInit() {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
-      console.log(id);
       this.id = id;
 
       this.userTypeSub = this.auth.userType.subscribe(
@@ -84,13 +90,15 @@ export class BlogPagePage implements OnInit {
           this.date = format(parseISO(info['date']), 'MMMM do, uu');
           this.hashtags = info['hashtags'];
           this.comments = info['comments'];
+          console.log(this.comments)
           this.commentsLength = this.comments.length;
 
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
             let replies = this.comments[i]['replies'];
             for (let i = 0; i < replies.length; i++) {
-              replies[i]['date'] = formatDistance(replies[i]['date'], Date.now())
+              console.log(replies[i]['date'])
+              replies[i]['date'] = formatDistance(parseISO(replies[i]['date']), Date.now())
             }
           }
 
@@ -133,7 +141,7 @@ export class BlogPagePage implements OnInit {
       )
     }
     comment(blogID, userName, userPicture, comment, userEmail) {
-      this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
+      this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
         data => {
           this.comments = data['comments'];
           this.commentsLength = this.comments.length;
@@ -142,8 +150,107 @@ export class BlogPagePage implements OnInit {
           }
           console.log(data);
           this.commentInput.value = '';
-          return;
+          return this.addCommentToast();
         });
+    }
+    editComment(blogID, commentID) {
+      // get commentID
+      // Turn comment p element to a textarea element
+      // When finished, turn back into a p element
+      let comment = document.getElementById(commentID + '-comment');
+      let replyInput = document.getElementById(commentID + '-reply-input');
+      let replyInputButton = document.getElementById(commentID + '-reply-input-button');
+      let commentEditButton = document.getElementById(commentID + '-comment-edit-button');
+
+      commentEditButton.style.display = 'none';
+      let commentValue = comment.innerHTML;
+
+      // Edit Text Area Element
+      let editTextarea = document.createElement('textarea');
+      editTextarea.setAttribute('rows', '10');
+      editTextarea.style.fontSize = '21px';
+      editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+      editTextarea.style.width = '100%';
+      editTextarea.style.border = '4px solid #BC3790';
+      editTextarea.style.borderRadius = '10px';
+      editTextarea.style.backgroundColor = '#fff9';
+      editTextarea.style.color = '#333';
+      editTextarea.style.padding = '1em';
+      editTextarea.style.marginBottom = '1em';
+      editTextarea.innerHTML = commentValue;
+
+      // Complete Edit & Cancel Edit Buttons
+      let completeEditButton = document.createElement('button');
+      completeEditButton.addEventListener('click', () => {
+        console.log('Completing Edit');
+        cancelEditButton.remove();
+        completeEditButton.remove();
+        replyInput.style.display = 'block';
+        replyInputButton.style.display = 'block';commentEditButton.style.display = 'block';
+        // HTTP Request
+        this.editCommentSub = this.blogService.editComment(blogID, commentID, editTextarea.value)
+        .pipe(
+          tap(res => {
+            if (!res) {
+              console.log('There was no response.');
+            }
+          }),
+          catchError(e => {
+            console.error(e);
+            if (e) {
+              this.presentAlert('Error ', 'There was an error editting your comment');
+            }
+            editTextarea.replaceWith(comment)
+            throw new Error(e);
+          })
+        )
+        .subscribe(
+          data => {
+            console.log(data);
+            // Only update Comment if there was a successful network request.
+            comment.innerHTML = editTextarea.value;
+            editTextarea.replaceWith(comment)
+          }
+        )
+      });
+      completeEditButton.innerHTML = 'Edit';
+      editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+      completeEditButton.style.width = '100px';
+      completeEditButton.style.padding = '0.3em';
+      completeEditButton.style.margin = '0.3em 0.5em';
+      completeEditButton.style.borderRadius = '100px';
+      completeEditButton.style.color = '#00c400';
+
+      let cancelEditButton = document.createElement('button');
+      cancelEditButton.addEventListener('click', () => {
+        console.log('Cancelling Edit');
+        cancelEditButton.remove();
+        completeEditButton.remove();
+        replyInput.style.display = 'block';
+        replyInputButton.style.display = 'block';commentEditButton.style.display = 'block';
+        editTextarea.replaceWith(comment);
+      });
+      cancelEditButton.innerHTML = 'Cancel';
+      editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+      cancelEditButton.style.width = '100px';
+      cancelEditButton.style.padding = '0.3em';
+      cancelEditButton.style.margin = '0.3m 0';
+      cancelEditButton.style.borderRadius = '100px';
+      cancelEditButton.style.color = 'red';
+
+
+
+      // Adding elements to interface.
+      comment.replaceWith(editTextarea);
+      replyInput.style.display = 'none';
+      replyInputButton.style.display = 'none';
+      insertAfter(editTextarea, completeEditButton)
+      insertAfter(completeEditButton, cancelEditButton)
+
+      // Inserting buttons after edit textarea
+      function insertAfter(referenceNode, newNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+      }
     }
     deleteComment(blogID, commentID, userFullName, title) {
       this.blogService.deleteComment(blogID, commentID, userFullName, title).subscribe(
@@ -154,27 +261,264 @@ export class BlogPagePage implements OnInit {
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
-          return;
         });
+        this.deleteCommentToast();
+        return;
     }
-    reply(blodID, commentID, fullName, picture, reply, email) {
-      this.blogService.reply(blodID, commentID, fullName, picture, reply, email).subscribe(
-        data => {
-          console.log(data['replies']);
-          this.comments = data['replies'];
-          for (let i = 0; i < this.comments.length; i++) {
-            this.comments[i]['replies'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+    async addCommentToast() {
+      const toast = await this.toastController.create({
+        message: 'You have successfully added a Comment!',
+        cssClass: 'success-toast',
+        duration: 2000
+      });
+      toast.present();
+    }
+    async editCommentToast() {
+      const toast = await this.toastController.create({
+        message: 'You have successfully editted a Comment!',
+        cssClass: 'edit-toast',
+        duration: 2000
+      });
+      toast.present();
+    }
+    async deleteCommentAlert(blogID, commentID, userFullName, title) {
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        message: 'Are you sure you want to Delete this comment?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Delete',
+            handler: () => {
+              this.deleteComment(blogID, commentID, userFullName, title);
+            }
           }
-          // Get comment ID or Index #
-          // Replace that comment's replies
-          return this.replyContent = '';
+        ]
+      });
+      await alert.present();
+    }
+    async deleteCommentToast() {
+      const toast = await this.toastController.create({
+        message: 'You have successfully deleted a Comment!',
+        cssClass: 'danger-toast',
+        duration: 2000
+      });
+      toast.present();
+    }
+    reply(blogID, commentID, fullName, picture, reply, email) {
+      console.log(blogID, commentID, fullName, picture, reply, email)
+      this.replySub = this.blogService.reply(blogID, commentID, fullName, picture, reply, email).subscribe(
+        data => {
+          console.log(data);
+          for (let i = 0; i < this.comments.length; i++) {
+            // Update all the dates in the replies
+            // Find the comment ID, then update its replies
+
+            if(this.comments[i]['_id'] == commentID) {
+              this.comments[i]['replies'] = data['replies'];
+              for (let i = 0; i < data['replies'].length; i++) {
+                data['replies'][i].date = formatDistance(parseISO(data['replies'][i].date), Date.now())
+              }
+              // Clear Reply Input
+              let replyInput = (<IonTextarea><unknown>document.getElementById(commentID + '-reply-input'));
+              replyInput.value = '';
+              // View All Replies after user has successfully added a Reply
+              this.viewReplies(undefined, commentID, undefined, undefined);
+              return this.addReplyToast();
+            }
+          }
         }
       )
     }
+    editReply(blogID, commentID, replyID) {
+      console.log('Editting Reply');
+      let reply = document.getElementById('reply-' + replyID);
+      let replyDeleteButton = document.getElementById('reply-' + replyID + '-delete-button');
+      let replyEditButton = document.getElementById('reply-' + replyID + '-edit-button');
+      let replyValue = reply.innerHTML;
+
+      let editReplyTextarea = document.createElement('textarea');
+      editReplyTextarea.setAttribute('rows', '5');
+      editReplyTextarea.style.fontSize = '21px';
+      editReplyTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+      editReplyTextarea.style.width = '100%';
+      editReplyTextarea.style.border = '4px solid #BC3790';
+      editReplyTextarea.style.borderRadius = '10px';
+      editReplyTextarea.style.backgroundColor = '#fff9';
+      editReplyTextarea.style.color = '#333';
+      editReplyTextarea.style.padding = '1em';
+      editReplyTextarea.style.marginBottom = '1em';
+      editReplyTextarea.innerHTML = replyValue;
+
+      // Complete Edit & Cancel Edit Buttons
+      let completeEditButton = document.createElement('button');
+      completeEditButton.addEventListener('click', () => {
+        console.log('Completing Edit');
+        cancelEditButton.remove();
+        completeEditButton.remove();
+        replyEditButton.style.display = 'block';replyDeleteButton.style.display = 'block';
+        // HTTP Request
+        console.log(editReplyTextarea)
+        console.log(editReplyTextarea.value)
+        this.editReplySub = this.blogService.editReply(blogID, commentID, replyID, editReplyTextarea.value)
+        .pipe(
+          tap(res => {
+            if (!res) {
+              console.log('There was no response.');
+            }
+          }),
+          catchError(e => {
+            console.error(e);
+            if (e) {
+              this.presentAlert('Error ', 'There was an error editting your comment');
+            }
+            editReplyTextarea.replaceWith(reply)
+            throw new Error(e);
+          })
+        )
+        .subscribe(
+          data => {
+            console.log(data);
+            // Only update Comment if there was a successful network request.
+            reply.innerHTML = editReplyTextarea.value;
+            editReplyTextarea.replaceWith(reply)
+          }
+        )
+      });
+      completeEditButton.innerHTML = 'Edit';
+      editReplyTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+      completeEditButton.style.width = '100px';
+      completeEditButton.style.padding = '0.3em';
+      completeEditButton.style.margin = '0.3em 0.5em';
+      completeEditButton.style.borderRadius = '100px';
+      completeEditButton.style.color = '#00c400';
+      completeEditButton.style.backgroundColor = '#222';
+
+      let cancelEditButton = document.createElement('button');
+      cancelEditButton.addEventListener('click', () => {
+        console.log('Cancelling Edit');
+        cancelEditButton.remove();
+        completeEditButton.remove();
+        replyEditButton.style.display = 'block';replyDeleteButton.style.display = 'block';
+        editReplyTextarea.replaceWith(reply);
+      });
+      cancelEditButton.innerHTML = 'Cancel';
+      editReplyTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+      cancelEditButton.style.width = '100px';
+      cancelEditButton.style.padding = '0.3em';
+      cancelEditButton.style.margin = '0.3m 0';
+      cancelEditButton.style.borderRadius = '100px';
+      cancelEditButton.style.color = 'red';
+      cancelEditButton.style.backgroundColor = '#222';
+
+      reply.replaceWith(editReplyTextarea);
+      replyDeleteButton.style.display = 'none';
+      replyEditButton.style.display = 'none';
+      insertAfter(editReplyTextarea, completeEditButton)
+      insertAfter(completeEditButton, cancelEditButton)
+
+      // Inserting buttons after edit textarea
+      function insertAfter(referenceNode, newNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+      }
+    }
+    deleteReply(blogID, commentID, replyID) {
+      console.log('Deleting Reply')
+      console.log(blogID, commentID, replyID)
+      this.deleteReplySub = this.blogService.deleteReply(blogID, commentID, replyID).subscribe(
+        data => {
+
+          // Slide Out Animation for Reply.
+          let reply = document.getElementById('reply-' + replyID + '-wrapper');
+          let start = Date.now();
+          let timer = setInterval(function() {
+            // how much time passed from the start?
+            let timePassed = Date.now() - start;
+            if (timePassed >= 200) {
+              reply.style.transform = 'translateX(-50px)';
+            }
+            if (timePassed >= 500) {
+              reply.style.opacity = '0';
+            }
+            if (timePassed >= 1000) {
+              reply.style.height = '0px';
+              reply.style.display = 'none';
+              reply.remove();
+              clearInterval(timer); // finish the animation after 2 seconds
+              return;
+            }
+          }, 20);
+
+          // Allow for the animation to finish first before updating the reply data
+          setTimeout(() => {
+            for (let i = 0; i < this.comments.length; i++) {
+              if(this.comments[i]['_id'] === commentID) {
+                this.comments[i]['replies'] = data['replies']
+                for (let i = 0; i < data['replies'].length; i++) {
+                  data['replies'][i].date = formatDistance(parseISO(data['replies'][i].date), Date.now())
+                }
+              }
+            }
+          }, 1000);
+        });
+        return;
+    }
+    async addReplyToast() {
+      const toast = await this.toastController.create({
+        message: 'You have successfully added a Reply!',
+        cssClass: 'success-toast',
+        duration: 2000
+      });
+      toast.present();
+    }
+    async editReplyToast() {
+      const toast = await this.toastController.create({
+        message: 'You have successfully editted a Reply!',
+        cssClass: 'edit-toast',
+        duration: 2000
+      });
+      toast.present();
+    }
+    async deleteReplyAlert(blogID, commentID, replyID) {
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        message: 'Are you sure you want to Delete this Reply?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Delete',
+            handler: () => {
+              this.deleteReply(blogID, commentID, replyID);
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
+    async deleteReplyToast() {
+      const toast = await this.toastController.create({
+        message: 'You have successfully deleted a Reply!',
+        cssClass: 'danger-toast',
+        duration: 2000
+      });
+      toast.present();
+    }
     getReplyContent(e) {
-      console.log(e)
+      // console.log(e)
       if(this.replyContent) {
-        console.log('There was already a reply field on the page that was populated. Refreshing Reply content');
+        // console.log('There was already a reply field on the page that was populated. Refreshing Reply content');
         this.replyContent = '';
         this.replyContent = e.detail.value;
       }
@@ -214,15 +558,32 @@ export class BlogPagePage implements OnInit {
     contactPage() {
       this.router.navigateByUrl('/contact');
     }
+    async presentAlert(header: string, msg: string) {
+      const alert = await this.alertController.create({
+        cssClass: 'danger-alert',
+        header,
+        message: msg,
+        buttons: [{
+          text: 'OK'
+        }]
+      });
+  
+      await alert.present();
+    }
 
     @HostListener('unloaded')
     ngOnDestroy() {
-    console.log('Blog Page destroyed');
     this.userTypeSub.unsubscribe();
     this.userEmailSub.unsubscribe();
     this.userFullNameSub.unsubscribe();
     this.userPictureSub.unsubscribe();
     this.blogInfoSub.unsubscribe();
+    this.editCommentSub.unsubscribe();
+    this.replySub.unsubscribe();
+    this.editReplySub.unsubscribe();
+    this.deleteReplySub.unsubscribe();
+    this.commentSub.unsubscribe();
+    console.log('Blog Page destroyed');
   }
 
 }

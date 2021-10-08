@@ -76,6 +76,7 @@ export class AuthService {
         data => {
           this.userFullName.next(data['fullName']);
           this.userPicture.next(data['picture']);
+          this.userEmail.next(data['email']);
         }
       );
     } else {
@@ -110,6 +111,7 @@ export class AuthService {
             console.log(data);
             this.userFullName.next(data['fullName']);
             this.userPicture.next(data['picture']);
+            this.userEmail.next(data['email']);
           }
         );
     }
@@ -120,8 +122,9 @@ export class AuthService {
       this.user = null;
       this.authenticationState.next(false);
       this.userType.next('none');
-      this.userFullName.next('');
-      this.userPicture.next('');
+      this.userFullName.next('none');
+      this.userPicture.next('none');
+      this.userEmail.next('none');
       window.location.reload();
     });
   }
@@ -138,20 +141,22 @@ export class AuthService {
 
         if (!isExpired) {
           this.user = decoded;
+          console.log('Decoded Token: ' + JSON.stringify(decoded));
+          this.authenticationState.next(true);
+          console.log(decoded);
           // Check to see if the Token is for an admin or user
           if(decoded.email === 'eddielacrosse2@gmail.com') {
             this.userType.next('admin');
             this.userPicture.next(decoded.picture);
             this.userEmail.next(decoded.email);
             this.userFullName.next(decoded.fullName);
-          } else {
+          } 
+          else if((decoded.email !== 'eddielacrosse2@gmail.com' && decoded.email !== '')) {
             this.userType.next('user');
             this.userPicture.next(decoded.picture);
             this.userEmail.next(decoded.email);
             this.userFullName.next(decoded.fullName);
           }
-          console.log('Decoded Token: ' + JSON.stringify(decoded));
-          this.authenticationState.next(true);
         } else {
           console.log('Token Removed from Storage');
           this.storage.remove(this.TOKEN_KEY);
