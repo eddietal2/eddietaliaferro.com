@@ -27,7 +27,8 @@
     <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
       <h3 style="color: #00ff00;">Comments ({{this.commentsLength}})</h3>
       <hr class="line">
-      <div class="comment-wrapper" *ngFor=" let ci = index; let comment of comments">
+      <div id="comments-wrapper">
+        <div [attr.id]="comment._id + '-comment-wrapper'" class="comment-wrapper" *ngFor=" let ci = index; let comment of comments">
         <h5>
           <img class="comment-pic" src="{{comment.picture}}">
           <span [ngClass]="comment.email == 'eddielacrosse2@gmail.com'  ? 'comment-admin' : 'comment-name'">
@@ -67,10 +68,11 @@
             <p [attr.id]="'reply-'+reply._id" class="comment">{{reply.reply}}</p>
             <ion-toolbar>
               <ion-buttons [attr.id]="'reply-'+reply._id+'-delete-button'" slot="end">
-                <ion-button style="color: red;" class="delete-reply" (click)="deleteReplyAlert(this.id, comment._id, reply._id)">
+                <ion-button style="color: red;"
+                *ngIf="this.userEmail === reply.email && this.userType === 'user' || this.userType === 'admin'"  class="delete-reply" (click)="deleteReplyAlert(this.id, comment._id, reply._id)">
                   Delete
                 </ion-button>
-                <ion-button [attr.id]="'reply-'+reply._id+'-edit-button'" style="color: #BC3790;" class="delete-reply" (click)="editReply(this.id, comment._id, reply._id)">
+                <ion-button [attr.id]="'reply-'+reply._id+'-edit-button'" *ngIf="this.userEmail === reply.email"  style="color: #BC3790;" class="delete-reply" (click)="editReply(this.id, comment._id, reply._id)">
                   Edit
                 </ion-button>
               </ion-buttons>
@@ -94,8 +96,13 @@
             <ion-button *ngIf="comment.replies.length > 0" [attr.id]="comment._id+'-reply-button'" class="grey-button" (click)="viewReplies(comment, comment._id, $event, comment.replies)">
               View Replies - {{comment.replies.length}}
             </ion-button>
+            <ion-button [attr.id]="comment._id+'-replies-close-button'" style="display: none;" class="grey-button" (click)="closeReplies(comment, comment._id, $event, comment.replies)">
+              Close Replies
+            </ion-button>
+            
           </ion-buttons>
         </ion-toolbar>
+        </div>
       </div>
 
       <div *ngIf="this.commentsLength === 0" style="background: #98989882;
@@ -110,8 +117,18 @@
       <ion-textarea #commentInput
         class="enter-comment"
         rows="6" cols="20"
+        *ngIf="this.userType == 'admin' || this.userType === 'user'"
         placeholder="Please enter comment here">
       </ion-textarea>
+      <div *ngIf="this.userType == 'none'"
+      style="background: #ff8f8f82;
+      margin: 2em auto;
+      text-align: center;
+      padding: 1em;
+      font-size: 1.5em;
+      border-radius: 5px;">
+        Please log in to post a comment or reply.
+      </div>
       <ion-toolbar class="comment-toolbar">
         <ion-buttons *ngIf="this.userType === 'none'" slot="start">
           <ion-button routerLink="/login" class="login-button">
@@ -140,27 +157,27 @@
 
   <!-- Info Footer -->
   <ion-row class="info-footer-wrapper ion-justify-content-center">
-    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="6">
+    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7">
       <div class="info-footer">
         <img class="picture" src="../../../../assets/photo.png" alt="picture">
-        <h3>Eddie Taliaferro II</h3>
-        <p class="info-footer-text">This website is my blah blah blah. Make up text for this later. And this when you are done with that, make more text later. You can look at my blog posts, guides, projects, or contact me if you have a question or would like to do business. </p>
+        <h3 style="color: #00c400;">Eddie Taliaferro II</h3>
+        <p class="info-footer-text">Web Developer, Designer, Entrepreneur, Artist, and JavaScript enthusiast proudly out of Detroit, MI.</p>
       </div>
     </ion-col>
   </ion-row>
   <!-- Prev & Next -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size-xs="12" size-sm="9" size-lg="8" class="ion-text-center">
-      <h1 style="margin-bottom: 30px;">Read More</h1>
+  <ion-row style="background: #000000d1; margin-bottom: 0; padding: 3em 0;" class="ion-justify-content-center">
+    <ion-col style="background: none;" size-xs="12" size-sm="9" size-lg="8" class="ion-text-center">
+      <h1 id="read-more-header">Read More</h1>
       <div class="prev-next">
         <ion-row class="ion-justify-content-center">
-          <ion-col class="prev ion-text-right" size="6">
-           <p>Prev</p>
-           <h4>Title of prev page</h4>
+          <ion-col id="next" (click)="nextBlog()" class="ion-text-right" size="6">
+            <p>Next Blog</p>
+            <h4>{{this.nextBlogTitle}}</h4>
           </ion-col>
-          <ion-col class="next ion-text-left" size="6">
-            <p>Next</p>
-            <h4>Title of next page</h4>
+          <ion-col id="prev" (click)="prevBlog()" class="ion-text-left" size="6">
+           <p>Prev Blog</p>
+           <h4>{{this.prevBlogTitle}}</h4>
           </ion-col>
         </ion-row>
       </div>

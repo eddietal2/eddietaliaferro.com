@@ -36,6 +36,7 @@ export class BlogPagePage implements OnInit {
   userPictureSub: Subscription;
   userEmailSub: Subscription;
   blogInfoSub: Subscription;
+  blogServiceSub: Subscription;
   editCommentSub: Subscription;
   editReplySub: Subscription;
   replySub: Subscription;
@@ -44,6 +45,10 @@ export class BlogPagePage implements OnInit {
   @ViewChild('content') ionContent: IonContent;
   @ViewChild('commentInput') commentInput: IonTextarea;
   scrollTop;
+  allBlogs: Blog[];
+  prevBlogTitle;
+  nextBlogTitle;
+  currentBlogPosition: number;
 
 
   constructor(
@@ -82,7 +87,6 @@ export class BlogPagePage implements OnInit {
           this.userEmail = data;
         }
       )
-
       this.blogInfoSub = this.blogService.getBlogInfo(id).subscribe(
         info => {
           // console.log(info);
@@ -90,7 +94,6 @@ export class BlogPagePage implements OnInit {
           this.date = format(parseISO(info['date']), 'MMMM do, uu');
           this.hashtags = info['hashtags'];
           this.comments = info['comments'];
-          console.log(this.comments)
           this.commentsLength = this.comments.length;
 
           for (let i = 0; i < this.comments.length; i++) {
@@ -139,6 +142,7 @@ export class BlogPagePage implements OnInit {
 
         }
       )
+      this.getBlogsForNextPrev();
     }
     comment(blogID, userName, userPicture, comment, userEmail) {
       this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
@@ -148,7 +152,6 @@ export class BlogPagePage implements OnInit {
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
-          console.log(data);
           this.commentInput.value = '';
           return this.addCommentToast();
         });
@@ -261,6 +264,26 @@ export class BlogPagePage implements OnInit {
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
+          // Slide Out Animation for Reply.
+          let commentWrapper = document.getElementById(commentID + '-comment-wrapper');
+          let start = Date.now();
+          let timer = setInterval(function() {
+            // how much time passed from the start?
+            let timePassed = Date.now() - start;
+            if (timePassed >= 200) {
+              commentWrapper.style.transform = 'translateX(-50px)';
+            }
+            if (timePassed >= 500) {
+              commentWrapper.style.opacity = '0';
+            }
+            if (timePassed >= 1000) {
+              commentWrapper.style.height = '0px';
+              commentWrapper.style.display = 'none';
+              commentWrapper.remove();
+              clearInterval(timer); // finish the animation after 2 seconds
+              return;
+            }
+          }, 20);
         });
         this.deleteCommentToast();
         return;
@@ -433,7 +456,6 @@ export class BlogPagePage implements OnInit {
       console.log(blogID, commentID, replyID)
       this.deleteReplySub = this.blogService.deleteReply(blogID, commentID, replyID).subscribe(
         data => {
-
           // Slide Out Animation for Reply.
           let reply = document.getElementById('reply-' + replyID + '-wrapper');
           let start = Date.now();
@@ -532,24 +554,18 @@ export class BlogPagePage implements OnInit {
       var repliesLength = repliesLength;
       let replies = document.getElementById(id+'-replies');
       let repliesButton = document.getElementById(id+'-reply-button');
+      let repliesCloseButton = document.getElementById(id+'-replies-close-button');
       replies.style.display = 'block';
-      repliesButton.className = 'close-replies-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
-      repliesButton.innerHTML = 'Close Replies';
-      repliesButton.addEventListener('click', () => {
-        this.closeReplies(comment, id, e, repliesLength);
-      });
+      repliesButton.style.display = 'none';
+      repliesCloseButton.style.display = 'block';
     }
     closeReplies(comment, id, e, repliesLength) {
       let replies = document.getElementById(id+'-replies');
       let repliesButton = document.getElementById(id+'-reply-button');
+      let repliesCloseButton = document.getElementById(id+'-replies-close-button');
       replies.style.display = 'none';
-      repliesButton.className = 'grey-button md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated';
-      repliesButton.innerHTML = 'View Replies - ' + repliesLength;
-      repliesButton.addEventListener('click', () => {
-        this.viewReplies(comment, id, e, repliesLength);
-      });
-      console.log('Y position: ');
-      console.log(e);
+      repliesButton.style.display = 'block';
+      repliesCloseButton.style.display = 'none';
       this.ionContent.scrollToPoint(0, this.scrollTop);
     }
     donatePage() {
@@ -570,19 +586,71 @@ export class BlogPagePage implements OnInit {
   
       await alert.present();
     }
+    getBlogsForNextPrev () {
+      this.blogServiceSub = this.blogService.getBlogs().subscribe(
+        data => {
+          console.log(data);
+           this.allBlogs = data;
+
+           for (let i = 0; i < this.allBlogs.length; i++) {
+             if(this.allBlogs[i]['_id'] === this.id) {
+              this.currentBlogPosition = i;
+
+              let prevBlogWrapper = document.getElementById('prev');
+              let nextBlogWrapper = document.getElementById('next');
+
+              // First Blog
+              if(this.currentBlogPosition == 0) {
+                console.log('This is the first blog')
+                // Next
+                this.nextBlogTitle = '---';
+
+                // Prev
+                this.prevBlogTitle = this.allBlogs[this.currentBlogPosition+1].title;
+              }
+
+              // Last Blog
+              if(this.currentBlogPosition == (this.allBlogs.length - 1)) {
+                console.log('This is the last blog')
+                // Next
+                this.nextBlogTitle = this.allBlogs[this.currentBlogPosition-1].title;
+
+                // Prev
+                this.prevBlogTitle = '---';
+              }
+
+              // Every blog in between
+              else {
+                this.nextBlogTitle = this.allBlogs[this.currentBlogPosition-1].title;
+                this.prevBlogTitle = this.allBlogs[this.currentBlogPosition+1].title;
+              }
+             }
+           }
+        }
+      )
+    }
+    nextBlog() {
+      console.log('Wassup')
+      this.router.navigate(['blog/blog-page/', this.allBlogs[this.currentBlogPosition-1]['_id']])
+    }
+    prevBlog() {
+      console.log('Wassup')
+      this.router.navigate(['blog/blog-page/', this.allBlogs[this.currentBlogPosition+1]['_id']])
+    }
 
     @HostListener('unloaded')
     ngOnDestroy() {
-    this.userTypeSub.unsubscribe();
-    this.userEmailSub.unsubscribe();
-    this.userFullNameSub.unsubscribe();
-    this.userPictureSub.unsubscribe();
-    this.blogInfoSub.unsubscribe();
-    this.editCommentSub.unsubscribe();
-    this.replySub.unsubscribe();
-    this.editReplySub.unsubscribe();
-    this.deleteReplySub.unsubscribe();
-    this.commentSub.unsubscribe();
+    // this.userTypeSub.unsubscribe();
+    // this.userEmailSub.unsubscribe();
+    // this.userFullNameSub.unsubscribe();
+    // this.userPictureSub.unsubscribe();
+    // this.blogInfoSub.unsubscribe();
+    // this.blogServiceSub.unsubscribe();
+    // this.editCommentSub.unsubscribe();
+    // this.replySub.unsubscribe();
+    // this.editReplySub.unsubscribe();
+    // this.deleteReplySub.unsubscribe();
+    // this.commentSub.unsubscribe();
     console.log('Blog Page destroyed');
   }
 

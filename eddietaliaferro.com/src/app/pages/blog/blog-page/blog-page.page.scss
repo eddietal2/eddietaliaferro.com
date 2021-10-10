@@ -7,7 +7,6 @@ ion-grid {
 #footer {
   background: #000000d1;
   height: 600px;
-  margin-top: 4em;
   padding: 6em 0em 3em 0em;
 
   #footer-logo {
@@ -98,6 +97,7 @@ ion-toolbar:first-child {
   padding: 2em;
   margin: 2em auto;
   border-radius: 5px;
+  transition: 0.5s;
 
   h5 {
     position: relative;
@@ -213,6 +213,13 @@ ion-toolbar:first-child {
     right: -4px;
     --background: none
   }
+  .replies-close-button {
+    display: none;
+    --color: white;
+    --background: #222;
+    width: 150px;
+    --border-radius: 50px;
+  }
   .reply-textarea {
     background: #333;
     color: white;
@@ -272,7 +279,7 @@ ion-toolbar:first-child {
       float: right;
       border-radius: 5px;
       box-shadow: 1px 1px 9px #080808;
-      
+
       ion-toolbar {
         --background: none;
       }
@@ -337,7 +344,8 @@ ion-toolbar:first-child {
 }
 
 .info-footer-wrapper{
-  background: #0000006b;
+  background: #000000d1;
+  margin-bottom: 0;
 }
 
 .info-footer{
@@ -371,15 +379,63 @@ ion-toolbar:first-child {
   height: 100px; width: 100px;
   border-radius: 50px;
 }
-
-.prev-next{
-  background: lavenderblush;
+#read-more-header {
+  background: #D4AF37;
+  width: 200px;
+  margin: 2em auto;
+  padding: 0.4em;
+  border-radius: 5px;
+}
+#prev{
+  border-right: 17px solid #00c400;
+  padding-left: 2em;
+  border-radius: 0 10px 10px 0;
+}
+#next{
+  border-left: 17px solid #00c400;
+  padding-right: 2em;
+  border-radius: 10px 0 0 10px;
 }
 
-.prev, .next {
-  background: #fbfbfb24;
-  height: 150px; width: 100px;
-  padding: 20px;
+#prev:hover, #next:hover {
+  transition: 0.5s;
+  // background: #00ff00;
+
+  p {
+    color: #000;
+  }
+
+  h4 {
+    color: white;
+  }
+}
+
+#prev:hover {
+  border-right: 17px solid #D4AF37;
+
+  p {
+    color: #000;
+  }
+
+  h4 {
+    color: #BC3790;
+  }
+}
+
+#next:hover {
+  border-left: 17px solid #D4AF37;
+
+  p {
+    color: #000;
+  }
+
+  h4 {
+    color: #BC3790;
+  }
+}
+
+#prev, #next {
+  background: #a6ffa6;
   transition: 0.5s;
 
   h4 {
@@ -391,24 +447,6 @@ ion-toolbar:first-child {
     font-weight: 800;
   }
 }
-
-.next {
-  border-left: 1px solid rgb(230, 230, 230);
-}
-
-.prev:hover, .next:hover {
-  background: #E8E6E6;
-
-  p {
-    color: #000;
-  }
-
-  h4 {
-    color: #BC3790;
-  }
-}
-
-
 
 .enter-comment {
   background: #212521;
