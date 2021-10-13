@@ -19,7 +19,7 @@ export class BlogPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.blogs.getBlogs().subscribe(blogs => {
-      this.allBlogs = blogs;
+      this.allBlogs = blogs.reverse();
       console.log(blogs);
       for (let i = 0; i < this.allBlogs.length; i++) {
         this.allBlogs[i].date = format(parseISO(this.allBlogs[i].date), 'MMMM do, uu');

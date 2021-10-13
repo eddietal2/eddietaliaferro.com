@@ -5,17 +5,10 @@ ion-grid {
   --color: white;
 }
 #landing-page-header {
-  // background: linear-gradient(#F6FFFC, #EAFFF9);
-  // background: linear-gradient(73.54497825384362deg, #F6FFFC 8.871497304413253%, #EAFFF9 89.69365126629889%);
   color: #0B4F3B;
-  background: #0000006b;
-  background-attachment: fixed;
-  // background-image: url('');
-  // background-attachment: fixed;
-  // background-size: auto 840px;
-  // box-shadow: inset -10px 10px 20px #000;
+  background: #ffffffe5;
   height: auto;
-  padding: 5em 2em;
+  padding: 7em;
   span {
     font-weight: 800;
   }
@@ -23,7 +16,7 @@ ion-grid {
     margin: 0em 0em;
     font-size: 1.5em;
     text-align: justify;
-    color: #3df63d;
+    color: #1d071f;
     width: 230px;
   }
   #header-info-wrapper {
@@ -50,8 +43,12 @@ ion-grid {
     color: white;
     font-size: 1.7em;
     margin-top: 1em;
-    border-bottom: #cabd06 4px solid;
-    padding-bottom: 10px;
+    // background: linear-gradient(195deg, #847145, #d8cca8, #847145);
+    padding: 6px;
+    transition: 500ms;
+    border-radius: 7px;
+    margin-bottom: 0.5em;
+    box-shadow: 1px 1px 3px #0000006e;
   }
   #header-buttons {
     margin: 3em auto;
@@ -71,7 +68,7 @@ ion-grid {
       height: 40px;
       display: block;
       margin: 2em auto;
-      --background: linear-gradient(360deg, #0B4F3B -2%, #041e18, #0B4F3B);
+      --background: linear-gradient(360deg, #3df63d -2%, #00b400, #3df63d);
       --color: white;
       --border-radius: 50px;
       --box-shadow: none;
@@ -89,19 +86,34 @@ ion-grid {
   align-items: center;
   padding: 3em 0;
 
+  #services-trigger-line {
+    height: 3px;
+    width: 100%;
+    background-color: red;
+    z-index: 9999;
+  }
+
   .page-header {
     position: relative;
     top: -50px;
   }
-  h3 {
-    color: #3df63d;
-  }
+  
   .service-card {
-    background: #ffffff17;
+    background: #180518e0;
+    min-height: 660px;
     margin: 2em auto;
     box-shadow: 1px 1px 10px #0003;
     border-radius: 5px;
-    padding: 3em 1em;
+    padding: 1em 1em;
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+    h3 {
+      color: #3df63d;
+      margin: 0 auto;
+    }
   }
 }
 #design-icon, #development-icon, #instructing-icon {

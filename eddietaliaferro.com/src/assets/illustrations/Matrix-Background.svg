@@ -3,8 +3,8 @@
     <title>Matrix-Background</title>
     <defs>
         <linearGradient x1="50%" y1="53.5835293%" x2="80.896476%" y2="101.388429%" id="linearGradient-1">
-            <stop stop-color="#222" offset="0%"></stop>
-            <stop stop-color="#006003" offset="100%"></stop>
+            <stop stop-color="#000" offset="0%"></stop>
+            <stop stop-color="rgba(29,7,31,0.75)" offset="100%"></stop>
         </linearGradient>
     </defs>
     <g id="Matrix-Background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -44,7 +44,7 @@
               fill: white;
             }
             50% {
-              fill: #00C400;
+              fill: #D4AF37;
             }
             75% {
               fill: white;

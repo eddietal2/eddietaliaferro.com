@@ -3,9 +3,9 @@
     <title>Path</title>
     <defs>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#D3B900" offset="0%"></stop>
-            <stop stop-color="#D7A900" offset="47.157901%"></stop>
-            <stop stop-color="#F4BE12" offset="100%"></stop>
+            <stop stop-color="#d8cca8" offset="0%"></stop>
+            <stop stop-color="#e4ba55" offset="47.157901%"></stop>
+            <stop stop-color="#d8cca8" offset="100%"></stop>
         </linearGradient>
     </defs>
     <g id="Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

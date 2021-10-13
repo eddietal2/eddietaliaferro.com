@@ -9,6 +9,10 @@ import { DonateIllustrationComponent } from './donate-illustration/donate-illust
 import { ContactIllustrationComponent } from './contact-illustration/contact-illustration.component';
 import { BlogIllustrationComponent } from './blog-illustration/blog-illustration.component';
 import { ProjectsIllustrationComponent } from './projects-illustration/projects-illustration.component';
+import { DesignIconComponent } from './design-icon/design-icon.component';
+import { DevelopmentIconComponent } from './development-icon/development-icon.component';
+import { InstructingIconComponent } from './instructing-icon/instructing-icon.component';
+
 
 
 @NgModule({
@@ -24,7 +28,10 @@ import { ProjectsIllustrationComponent } from './projects-illustration/projects-
         DonateIllustrationComponent,
         ContactIllustrationComponent,
         BlogIllustrationComponent,
-        ProjectsIllustrationComponent
+        ProjectsIllustrationComponent,
+        DesignIconComponent,
+        DevelopmentIconComponent,
+        InstructingIconComponent
     ],
     exports: [
         NavbarComponent,
@@ -33,7 +40,10 @@ import { ProjectsIllustrationComponent } from './projects-illustration/projects-
         DonateIllustrationComponent,
         ContactIllustrationComponent,
         BlogIllustrationComponent,
-        ProjectsIllustrationComponent
+        ProjectsIllustrationComponent,
+        DesignIconComponent,
+        DevelopmentIconComponent,
+        InstructingIconComponent
     ]
 })
 export class CustomComponentsModule {}

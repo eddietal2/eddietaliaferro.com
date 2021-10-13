@@ -1,15 +1,16 @@
 #logo {
-  width: 20px;
+  width: 25px;
 }
 #side-menu-button {
-  --background: #002a00;
+  // --background: linear-gradient(117deg, #847145, #d8cca8, #847145);
+  color: white;
   padding: 0.3em;
   height: 45px;
+  font-size: 2em;
 }
 .navbar {
-  --background: linear-gradient(73.54497825384362deg, #0B4F3B, 8.871497304413253%,#3dad62 89.69365126629889%,#3ead63 89.69365126629889%);
-  // --background: white;
-  box-shadow: 1px 1px 30px #6f6f6f9e;
+  --background: linear-gradient(73.54497825384362deg, #000000, 8.871497304413253%,#1d071f);
+  box-shadow: 1px 1px 9px #000000e8;
   padding: 0px 30px;
 
     a {
@@ -27,15 +28,15 @@
 }
 ion-buttons {
   .active-link {
-    background: #D4AF37;
-    background: linear-gradient(to bottom, #D4AF37 0%, #C5A028 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #D4AF37), color-stop(100%, #C5A028));
-    background: -webkit-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    background: -moz-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    background: -o-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    background: -ms-linear-gradient(top, #D4AF37 0%, #C5A028 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4AF37', endColorstr='#C5A028', GradientType=0);
-    border: 1px solid #B69119;
+    background: #847145;
+    background: linear-gradient(to bottom, #84714500 0%, #847145 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #847145), color-stop(100%, #847145));
+    background: -webkit-linear-gradient(top, #847145 0%, #847145 100%);
+    background: -moz-linear-gradient(top, #847145 0%, #847145 100%);
+    background: -o-linear-gradient(top, #847145 0%, #847145 100%);
+    background: -ms-linear-gradient(top, #847145 0%, #847145 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#847145', endColorstr='#847145', GradientType=0);
+    border: 2px solid #B69119;
     box-shadow: inset 0 1px 0 #E3BE46;
     -webkit-box-shadow: inset 0 1px 0 #E3BE46;
     -moz-box-shadow: inset 0 1px 0 #E3BE46;

@@ -1,4 +1,4 @@
-<ion-content scrollEvents="true" (ionScroll)="scrollRotate($event)">
+<ion-content scrollEvents="true" (ionScroll)="scrollAnimations($event)">
   <ion-grid>
     <!-- Landing Page Header -->
     <ion-row id="landing-page-header" class="ion-justify-content-center" style="margin-top: 55px">
@@ -35,32 +35,50 @@
       </ion-col>
     </ion-row>
 
+  <!-- Curve Under Header-->
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 40" class="bottom-curve" style="position: relative;
+  top: -50px;"><path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#000"></path></svg>
+
     <!-- Services -->
     <ion-row id="services" class="ion-justify-content-center">
       <ion-col class="ion-text-center" size="10">
         <h1 class="page-header">What do I do?</h1>
       </ion-col>
-      <ion-col class="ion-text-center service-card" size-xs="11" size-sm="10" size-md="8" size-lg="3">
-            <div id="design-icon"></div>
-            <h3>UI / UX / Graphic Design</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ut dolor iste rerum quos amet odit ad omnis voluptatibus totam? Laudantium autem repudiandae dolore ipsum similique aut mollitia eius eligendi.</p>
+      <ion-col class="service-card" size-xs="11" size-sm="10" size-md="8" size-lg="3">
+            <div id="design-icon-wrapper" class="ion-text-center">
+              <app-design-icon></app-design-icon>
+            </div>
+            <div class="ion-text-center">
+              <h3>UI / UX / Graphic Design</h3>
+            </div>
+            <p>My skillset involves minimalist style design. I believe you should nail (most) design down to its simplist form, unless the design's functionality is to waste or stall time. From simple icons and logos, focusing on overall experience of the user, and cool 'lil SVG - Javascript animation illustrations... I'm your guy. #DesignVibez</p>
       </ion-col>
-      <ion-col class="ion-text-center service-card" size-xs="11" size-sm="10" size-md="8" size-lg="3">
-            <div id="development-icon"></div>
-            <h3>Web Development</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ut dolor iste rerum quos amet odit ad omnis voluptatibus totam? Laudantium autem repudiandae dolore ipsum similique aut mollitia eius eligendi.</p>
+      <ion-col class="service-card" size-xs="11" size-sm="10" size-md="8" size-lg="3">
+            <div id="development-icon-wrapper" class="ion-text-center">
+              <app-development-icon></app-development-icon>
+            </div>
+            <div class="ion-text-center">
+              <h3>Web Development</h3>
+            </div>
+            <p>I am proficient with Front-End and Back-End Web Technologies. I am a JavaScript and Progressive Web App enthusiast! The stack that I have the most experience with, and prefer as of 2021, the MEAN Stack - MongoDB, Express, Angular(2+), and Node.js. I love working with Ionic as well. To top it all off, I can work with Amazon Web Services (AWS), dealing with EC2 Instances and S3 specifically, with NGINX.</p>
       </ion-col>
-      <ion-col class="ion-text-center service-card" size-xs="11" size-sm="10" size-md="8" size-lg="3">
-            <div id="instructing-icon"></div>
-            <h3>Instructing</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ut dolor iste rerum quos amet odit ad omnis voluptatibus totam? Laudantium autem repudiandae dolore ipsum similique aut mollitia eius eligendi.</p>
+      <ion-col class="service-card" size-xs="11" size-sm="10" size-md="8" size-lg="3">
+            <div id="instructing-icon-wrapper" class="ion-text-center">
+              <app-instructing-icon></app-instructing-icon>
+            </div>
+            <div class="ion-text-center">
+              <h3>Instructor</h3>
+            </div>
+            <p>Another passion that I have Teaching. Most of my experience comes from working with a Non-profit named Journi of out Detroit. I teach HTML, CSS, Design Principles, Design Thinking, and Entrepruership with many programs with have with different schools in the Detroit Area. I also offer consultation, and will generally teach anyone I know how to code.</p>
       </ion-col>
     </ion-row>
 
     <!-- Yin-Yang Illustration -->
-    <ion-row id="yin-yang" class="ion-justify-content-center">
+    <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size="10">
-        <app-home-illustration-two></app-home-illustration-two>
+        <div>
+          <app-home-illustration-two></app-home-illustration-two>
+        </div>
       </ion-col>
     </ion-row>
 
