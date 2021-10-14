@@ -4,11 +4,16 @@
       <ion-col size="4">
         <ion-row>
           <ion-col style="margin-top: 5em;" class="ion-text-center" size="12">
-            <img width="200" style="border-radius: 200px;" src="{{picture}}" alt="User Profile Picture">
             <input type="file" (change)="getPictureFile($event)"  name="user-profile-picture" id="user-profile-picture" class="purple-button" style="margin: 3em auto;">
+            <img id="user-current-picture" *ngIf="userPicture" width="200" style="border-radius: 200px;" src="{{userPicture}}" alt="User Profile Picture">
+            <img id="user-new-picture" *ngIf="pictureDataURL" width="200" style="border-radius: 200px;" src="{{pictureDataURL}}" alt="User Profile Picture">
+            <label for="user-profile-picture">Change Profile Picture</label>
           </ion-col>
-          <ion-col size="12">
-            <form [formGroup]="userProfileForm" (ngSubmit)="editProfile()">
+          <ion-col class="ion-text-center" size="12">
+            <div id="profile-message">
+              <p>You can update your profile here! Make sure all your information is correct before making any changes.</p>
+            </div>
+            <form [formGroup]="userProfileForm" (ngSubmit)="editProfile(this.pictureDataURL)">
               <ion-item lines="none">
                 <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
               </ion-item>
@@ -23,10 +28,10 @@
               </ion-item>
               <!-- Alert or Modal popus up with Password Change. -->
               <!-- Have the user log back in with their new password -->
-              <ion-button class="green-button" color="primary" type="submit" style="width: 200px; margin: 3em auto;">
-                Change Passowrd
+              <ion-button class="red-button" style="width: 200px; margin: 3em auto;" (click)="changePassword()">
+                Change Password
               </ion-button>
-              <ion-button class="green-button" color="primary" type="submit" style="margin: 3em auto;">
+              <ion-button class="green-button" type="submit" style="margin: 3em auto;">
                 Edit Profile
               </ion-button>
             </form>
