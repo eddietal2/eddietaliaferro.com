@@ -8,18 +8,34 @@ ion-grid {
   color: #0B4F3B;
   background: #ffffffe5;
   height: auto;
-  padding: 7em;
+  padding: 10em 0;
+  position: relative;
+  margin-bottom: 5em;
+
   span {
     font-weight: 800;
   }
-  h3 {
+  .caption {
     margin: 0em 0em;
     font-size: 1.5em;
     text-align: justify;
     color: #1d071f;
     width: 230px;
+    opacity: 0;
+    animation: slide-in 1s cubic-bezier(0.95, 0.05, 0.795, 0.035) forwards;
   }
-  #header-info-wrapper {
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-150px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  .header-info-wrapper {
     // background: #0000006b;
     border-radius: 10px;
     height: auto;
@@ -33,17 +49,11 @@ ion-grid {
     background-image: url('..//../../assets/photo.png');
     background-size: contain;
   }
-  @media only screen and (min-width: 1200px) {
-    #headshot-picture {
-      height: 150px;
-      width: 150px;
-    }
-  }
+
   #header-name {
     color: white;
     font-size: 1.7em;
-    margin-top: 1em;
-    // background: linear-gradient(195deg, #847145, #d8cca8, #847145);
+    margin: 1em auto;
     padding: 6px;
     transition: 500ms;
     border-radius: 7px;
@@ -74,8 +84,17 @@ ion-grid {
       --box-shadow: none;
     }
   }
-    
+  @media only screen and (min-width: 1100px) {
+    #header-illustration {
+      height: 500px;
+      width: 500px;
+    }
   }
+}
+#bottom-curve {
+  position: absolute;
+  bottom: 0px;
+}
 
 #services {
   height: auto;
@@ -86,34 +105,36 @@ ion-grid {
   align-items: center;
   padding: 3em 0;
 
-  #services-trigger-line {
-    height: 3px;
-    width: 100%;
-    background-color: red;
-    z-index: 9999;
-  }
+}
+.service-card {
+  background: #000000e0;
+  min-height: 660px;
+  margin: 2em auto;
+  box-shadow: 1px 1px 10px #0003;
+  border-radius: 5px;
+  padding: 1em 1em;
 
-  .page-header {
-    position: relative;
-    top: -50px;
+  p {
+    font-size: 1.1em;
+    line-height: 1.5em;
   }
-  
-  .service-card {
-    background: #180518e0;
-    min-height: 660px;
-    margin: 2em auto;
-    box-shadow: 1px 1px 10px #0003;
-    border-radius: 5px;
-    padding: 1em 1em;
-
+  h3 {
+    color: #3df63d;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .service-card{
+    min-height: 400px;
     p {
-      font-size: 1.2em;
-      line-height: 1.5em;
+      font-size: 1em;
+      line-height: 1.3em;
     }
-    h3 {
-      color: #3df63d;
-      margin: 0 auto;
-    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .service-card{
+    min-height: 500px;
   }
 }
 #design-icon, #development-icon, #instructing-icon {
@@ -171,23 +192,7 @@ ion-grid {
     }
   }
 }
-@media only screen and (min-width: 1100px) {
-  #header-illustration {
-    height: 500px;
-    width: 500px;
-  }
-  .page-header {
-    width: 500px;
-    margin: 8em auto 0em auto;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  #header-picture {
-    height: 150px;
-    width: 150px;
-    margin: 0 auto;
-  }
-}
+
 #illustration-1 {
   background-image: url('../../../assets/illustrations/home-illustration-2.svg');
   height: 300px;
@@ -217,7 +222,7 @@ ion-grid {
   ion-toolbar {
     font-size:  1.4em;
     font-weight: 800;
-    background: #BC3790;
+    background: #1d071f;
     border-radius: 10px;
 
     .section-header {
@@ -244,14 +249,14 @@ ion-grid {
   transition: 0.5s;
   margin: 2em 0;
   border-radius: 10px;
-  border-left: 16px solid #00c400;
+  border-left: 16px solid #1d071f;
   display: flex;
   align-items: center;
 
   ion-toolbar {
     font-size:  1.4em;
     font-weight: 800;
-    background: #BC3790;
+    background: #1d071f;
     border-radius: 10px;
 
     .section-header {
@@ -269,7 +274,7 @@ ion-grid {
     display: inline-block;
   }
   .blog-thumbnail {
-    height: 100px;
+    height: 100%;
     border-radius: 100px;
     margin-right: 2.5em;
   }
@@ -281,31 +286,24 @@ ion-grid {
   .blog-title {
     margin: 0 0;
     color: white;
+    font-size: 1.2em;
+
+  }
+  @media only screen and (max-width: 645px) {
+    .blog-title {
+      font-size: 1em;
+    }
   }
   .blog-hashtags {
     margin: 0 0;
     color: #3df63d;
-  }
-  .view-page-button {
-
-  }
-}
-@media only screen and (max-width: 600px) {
-  .blog-post {
-    .blog-thumbnail {
-      height: 60px;
-      margin-right: 0.75em;
-    }
-    .green-button {
-      margin-top: 3em;
-    }
   }
 }
 
 .blog-post:hover {
   margin: 2.3em 0;
   background: #404040;
-  border-left: 16px solid #BC3790;
+  border-left: 16px solid #3df63d;
 }
 
 // Latest Project
@@ -318,7 +316,7 @@ ion-grid {
   ion-toolbar {
     font-size:  1.4em;
     font-weight: 800;
-    background: #BC3790;
+    background: #1d071f;
     border-radius: 10px;
 
     .section-header {
@@ -340,7 +338,7 @@ ion-grid {
 
   .project-post:hover {
     margin: 2.3em 0;
-    border-left: 16px solid #BC3790;
+    border-left: 16px solid #3df63d;
   }
 
   h2 {
@@ -369,53 +367,36 @@ ion-grid {
   transition: 0.5s;
   margin: 2em 0;
   border-radius: 10px;
-  border-left: 16px solid #00c400;
+  border-left: 16px solid #1d071f;
   display: flex;
   align-items: center;
 
-  .green-button {
-    margin: 0;
-  }
-
-  .project-info {
-    display: inline-block;
-  }
   .project-thumbnail {
-    height: 100px;
+    height: 100%;
     border-radius: 100px;
     margin-right: 2.5em;
   }
-  .project-date {
-    color: #999;
-    margin: 0 0;
-    opacity: 0.6;
-  }
   .project-title {
+    margin: 0 0 0.5em 0;
+    color: #3df63d;
+    font-size: 1.6em;
+
+  }
+  .project-description {
     margin: 0 0;
     color: white;
+    font-size: 1.2em;
   }
-  .project-hashtags {
-    margin: 0 0;
-    color: #3df63d;
-  }
-  .view-project-button {
-
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .project-post {
-    .project-thumbnail {
-      height: 60px;
-      margin-right: 0.75em;
+  @media only screen and (max-width: 645px) {
+    .project-title {
+      font-size: 1.2em;
     }
-    .green-button {
-      margin-top: 3em;
+    .project-description {
+      font-size: 1em;
     }
   }
-}
 
-// Footer Game
+}
 
 #footer {
   background: #000000d1;

@@ -1,18 +1,16 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
 import { AdminProjectEmitterService } from 'src/app/services/emitters/admin-project-emitter/admin-project-emitter.service';
 import { ProjectService, Project } from 'src/app/services/project/project.service';
-
-
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.page.html',
   styleUrls: ['./projects.page.scss'],
 })
-export class ProjectsPage implements OnInit {
-  allProjects: Project[];
+export class ProjectsPage implements OnInit, OnDestroy {
+  allProjects;
 
   constructor(
     private router: Router,
@@ -28,7 +26,6 @@ export class ProjectsPage implements OnInit {
       this.adminProjectEmitterService.subsVar = this.adminProjectEmitterService.invokeAdminProjectsPageRefresh.subscribe(() => {
         this.getProjects();
       });
-
       this.getProjects();
     }
   }
@@ -36,12 +33,9 @@ export class ProjectsPage implements OnInit {
     this.projectService.getProjects().subscribe(
       projects => {
         console.log(projects);
-        this.allProjects = projects;
+        return this.allProjects = projects;
       }
     )
-  }
-  viewProject() {
-    
   }
   addProject() {
     this.router.navigateByUrl('/admin/projects/add-projects');
@@ -102,9 +96,6 @@ export class ProjectsPage implements OnInit {
   editProject(id) {
     this.router.navigate(['/admin/projects/edit-projects', id]);
   }
-  blogComments() {
-
-  }
   visibleToggle(event, blogID, title, visible) {
     console.log(event)
     let checked = event.detail.checked;
@@ -128,7 +119,7 @@ export class ProjectsPage implements OnInit {
   }
   @HostListener('unloaded')
   ngOnDestroy() {
-    console.log('Admin Blogs Page destroyed');
+    console.log('Admin Projects Page destroyed');
   }
 
 }

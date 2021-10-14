@@ -5,7 +5,6 @@ import { format, parseISO } from 'date-fns';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
 
-
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.page.html',
@@ -13,7 +12,6 @@ import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-em
 })
 export class BlogsPage implements OnInit, OnDestroy {
   allBlogs;
-  @ViewChild('visibilityToggle') visibilityToggle: IonToggle;
 
   constructor(
     private router: Router,
@@ -33,9 +31,6 @@ export class BlogsPage implements OnInit, OnDestroy {
     }
 
     this.getBlogs();
-  }
-  viewBlog() {
-
   }
   getBlogs() {
     this.blogService.getBlogs().subscribe(
@@ -112,11 +107,6 @@ export class BlogsPage implements OnInit, OnDestroy {
   editBlog(id) {
     this.router.navigate(['/admin/blogs/edit-blog', id])
   }
-
-  blogComments() {
-
-  }
-
   visibleToggle(event, blogID, title, visible) {
     console.log(event)
     let checked = event.detail.checked;

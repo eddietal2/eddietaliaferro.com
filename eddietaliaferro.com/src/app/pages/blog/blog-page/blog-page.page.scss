@@ -40,7 +40,7 @@ ion-grid {
 }
 .register-button {
   width: 100px;
-  --background: linear-gradient(360deg, #00c400 -2%, #005c47, #00c400);
+  --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
   --color: white;
   --border-radius: 50px;
   --box-shadow: none;
@@ -75,14 +75,20 @@ ion-toolbar:first-child {
 }
 .blog-hashtags {
   margin: 5px 0;
-  color: #00c400;
+  color: #3df63d;
 }
 .blog-post-wrapper {
   background: #ffffffe5;
   margin: 3em auto 6em auto;
-  padding-bottom: 20em;
+  padding-bottom: 9em;
   padding-top: 3em;
+  position: relative;
 }
+#bottom-curve {
+  position: absolute;
+  bottom: 0px;
+}
+
 #blog-post {
   line-height: 32px;
   white-space: pre-wrap;
@@ -115,8 +121,8 @@ ion-toolbar:first-child {
     border-radius: 40px;
   }
   .comment {
-    font-size: 21px;
-    line-height: 32px;
+    font-size: 1.2em;
+    line-height: 1.4em;
     margin-top: 1em;
     white-space: pre-wrap;
   }
@@ -130,7 +136,7 @@ ion-toolbar:first-child {
 
     .green-button {
       width: 100px;
-      --background: linear-gradient(360deg, #00c400 -2%, #005c47, #00c400);
+      --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
       --color: white;
       --border-radius: 50px;
       --box-shadow: none;
@@ -145,13 +151,13 @@ ion-toolbar:first-child {
   }
   .reply-toolbar {
     --background: none;
-    margin-top: 6em;
+    margin-top: 2em;
     padding-top: 4em;
     height: 140px;
 
     .green-button {
       width: 100px;
-      --background: linear-gradient(360deg, #00c400 -2%, #005c47, #00c400);
+      --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
       --color: white;
       --border-radius: 50px;
       --box-shadow: none;
@@ -164,7 +170,8 @@ ion-toolbar:first-child {
       --box-shadow: none;
     }
     .delete-button {
-      width: 100px;
+      width: 75px;
+      font-size: 0.7em;
       --background: linear-gradient(360deg, #D01801 -2%, #810b00, #D01801);
       --color: white;
       --border-radius: 50px;
@@ -185,9 +192,10 @@ ion-toolbar:first-child {
     opacity: 1;
     color: #D3B900;
     font-size: 0.7em;
+    display: block;
     position: relative;
-    top: 14px;
-    float: right;
+    left: 57px;
+    top: -14px;
   }
   .comment-name, .comment-admin {
     position: relative;
@@ -207,6 +215,16 @@ ion-toolbar:first-child {
     border-radius: 5px;
     padding: 0.2em 0.5em;
   }
+
+  @media only screen and (max-width: 975px) {
+    .comment-pic {
+      height: 35px;
+    }
+    .comment {
+      font-size: 1em;
+      line-height: 1.3em;
+    }
+  }
   .close-reply-button {
     position: absolute;
     bottom: -60px;
@@ -223,7 +241,7 @@ ion-toolbar:first-child {
   .reply-textarea {
     background: #333;
     color: white;
-    border: 2px solid #00c400;
+    border: 2px solid #3df63d;
     border-radius: 5px;
     --placeholder-color: white;
     display: block;
@@ -298,7 +316,7 @@ ion-toolbar:first-child {
     font-weight: 600;
     font-size: 21px;
     width: 100%;
-    --background: #00c400;
+    --background: #3df63d;
     position: relative;
     top: 150px;
     color: white;
@@ -336,6 +354,15 @@ ion-toolbar:first-child {
       display: none;
     }
   }
+}
+
+#mobile-comment-input {
+  position: fixed;
+  bottom: 0px;
+  height: 80px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #1d071f;
 }
 
 .post-button{
@@ -387,12 +414,12 @@ ion-toolbar:first-child {
   border-radius: 5px;
 }
 #prev{
-  border-right: 17px solid #00c400;
+  border-right: 17px solid #3df63d;
   padding-left: 2em;
   border-radius: 0 10px 10px 0;
 }
 #next{
-  border-left: 17px solid #00c400;
+  border-left: 17px solid #3df63d;
   padding-right: 2em;
   border-radius: 10px 0 0 10px;
 }

@@ -1,212 +1,286 @@
 <ion-content #content scrollEvents="true" (ionScroll)="getScrollPosition($event)">
   <ion-grid>
-  <!-- Blog Header and Search Bar -->
-  <ion-row class="ion-justify-content-center blog-post-wrapper">
-    <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="7">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button routerLink="/blog" class="purple-button">
-            Back
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-      <div class="blog-info">
-        <h1 class="blog-header">{{title}}</h1>
-        <h4 class="blog-date">{{date}}</h4>
-        <h6 class="blog-hashtags">{{hashtags}}</h6>
-      </div>
-      <!-- <img style="margin: 0 auto; width: 500px; display: block;" src="../../../../assets/logo.svg"> -->
-      <p id="blog-post">
-        {{post}}
-      </p>
-    </ion-col>
-  </ion-row>
-  <!-- Curve Under Header-->
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 40" class="bottom-curve" style="position: relative;
-    top: -128px;"><path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#000"></path></svg>
-
-  <!-- Comments -->
-  <ion-row class="ion-justify-content-center" style="margin-bottom: 6em;">
-    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
-      <h3 style="color: #00ff00;">Comments ({{this.commentsLength}})</h3>
-      <hr class="line">
-      <div id="comments-wrapper">
-        <div [attr.id]="comment._id + '-comment-wrapper'" class="comment-wrapper" *ngFor=" let ci = index; let comment of comments">
-        <h5>
-          <img class="comment-pic" src="{{comment.picture}}">
-          <span [ngClass]="comment.email == 'eddielacrosse2@gmail.com'  ? 'comment-admin' : 'comment-name'">
-            <span *ngIf="comment.email === 'eddielacrosse2@gmail.com'" style="color: #ff51ff; margin-right: 0.4em;">Admin</span>
-              {{comment.name}}</span>
-          <span class="commented-when">{{comment.date}} ago</span>
-        </h5>
-        <p [attr.id]="comment._id + '-comment'" class="comment">{{comment.comment}}</p>
-
-        <!-- Reply Input -->
-        <ion-textarea [attr.id]="comment._id + '-reply-input'" *ngIf="this.userType === 'user' || this.userType === 'admin'" (ionChange)="getReplyContent($event)" class="reply-textarea" rows="5" placeholder="Add reply here">
-          <ion-button [attr.id]="comment._id + '-reply-input-button'" style="margin-right: 1em;" *ngIf="this.userType === 'user' || this.userType === 'admin'" class="green-button reply-button-position" (click)="reply(this.id, comment._id, this.userFullName, this.userPicture, this.replyContent, this.userEmail)">
-            Reply
-          </ion-button>
-        </ion-textarea>
-
-        <!-- Replies Wrapper -->
-        <div class="replies" [attr.id]="comment._id + '-replies'">
-
-          <!-- Replies Upper Toolbar -->
-          <div class="replies-upper-toolbar">
-            <span [attr.id]="comment._id + '-replies-counter'" class="replies-title">Replies - {{comment.replies.length}}</span>
-            <span class="upper-close-reply-button" (click)="closeReplies(comment, comment._id, $event, comment.replies.length)">
-              <ion-icon name="close"></ion-icon>
-            </span>
-          </div>
-
-          <!-- Reply -->
-          <div [attr.id]="'reply-'+reply._id+'-wrapper'" class="reply" *ngFor="let reply of comment.replies;">
-            <h5>
-              <img class="comment-pic" src="{{reply.picture}}">
-              <span [ngClass]="reply.email == 'eddielacrosse2@gmail.com'  ? 'comment-admin' : 'comment-name'">
-              <span *ngIf="reply.email === 'eddielacrosse2@gmail.com'" style="color: #ff51ff;">Admin</span>
-                {{reply.fullName}}</span>
-              <span class="commented-when">replied {{reply.date}} ago</span>
-            </h5>
-            <p [attr.id]="'reply-'+reply._id" class="comment">{{reply.reply}}</p>
-            <ion-toolbar>
-              <ion-buttons [attr.id]="'reply-'+reply._id+'-delete-button'" slot="end">
-                <ion-button style="color: red;"
-                *ngIf="this.userEmail === reply.email && this.userType === 'user' || this.userType === 'admin'"  class="delete-reply" (click)="deleteReplyAlert(this.id, comment._id, reply._id)">
-                  Delete
-                </ion-button>
-                <ion-button [attr.id]="'reply-'+reply._id+'-edit-button'" *ngIf="this.userEmail === reply.email"  style="color: #BC3790;" class="delete-reply" (click)="editReply(this.id, comment._id, reply._id)">
-                  Edit
-                </ion-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </div>
-        </div>
-        <!-- End Replies Wrapper -->
-
-
-        <ion-toolbar class="reply-toolbar">
+    <!-- Blog Header and Search Bar -->
+    <ion-row class="ion-justify-content-center blog-post-wrapper">
+      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="7">
+        <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button *ngIf="this.userEmail === comment.email && this.userType === 'user' || this.userType === 'admin'" class="delete-button" (click)="deleteCommentAlert(id, comment._id, this.userFullName, title)">
-              Delete
+            <ion-button routerLink="/blog" class="purple-button">
+              Back
             </ion-button>
-            <ion-button [attr.id]="comment._id + '-comment-edit-button'" style="width: 100px; --border-radius: 50px; margin-left: 1em;" *ngIf="this.userEmail === comment.email" class="purple-button" (click)="editComment(id, comment._id)">
-              Edit
-            </ion-button>
-          </ion-buttons>
-          <p *ngIf="this.userType === 'none'" class="login-message">Login to Reply!</p>
-          <ion-buttons slot="end">
-            <ion-button *ngIf="comment.replies.length > 0" [attr.id]="comment._id+'-reply-button'" class="grey-button" (click)="viewReplies(comment, comment._id, $event, comment.replies)">
-              View Replies - {{comment.replies.length}}
-            </ion-button>
-            <ion-button [attr.id]="comment._id+'-replies-close-button'" style="display: none;" class="grey-button" (click)="closeReplies(comment, comment._id, $event, comment.replies)">
-              Close Replies
-            </ion-button>
-            
           </ion-buttons>
         </ion-toolbar>
+        <div class="blog-info">
+          <h1 class="blog-header">{{title}}</h1>
+          <h4 class="blog-date">{{date}}</h4>
+          <h6 class="blog-hashtags">{{hashtags}}</h6>
         </div>
-      </div>
+        <!-- <img style="margin: 0 auto; width: 500px; display: block;" src="../../../../assets/logo.svg"> -->
+        <p id="blog-post">
+          {{post}}
+        </p>
+      </ion-col>
+        <!-- Curve Under Header-->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 40" id="bottom-curve" ><path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#000"></path></svg>
+    </ion-row>
 
-      <div *ngIf="this.commentsLength === 0" style="background: #98989882;
-      text-align: center;
-      padding: 1em;
-      font-size: 1.5em;
-      border-radius: 5px;">
-        There are no comments
-      </div>
+    <!-- Please log in to Comment or Reply -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
+        <div *ngIf="this.userType === 'none'" style="background: #847145;
+        text-align: center;
+        padding: 0.3em;
+        font-size: 1em;
+        border-radius: 5px;">
+          <p>Please login in to make a comment or reply.</p>
+        </div>
+      </ion-col>
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
+        <ion-toolbar>
+          <ion-buttons *ngIf="this.userType === 'none'" slot="start">
+            <ion-button routerLink="/login" class="login-button">
+              Login
+            </ion-button>
+            <ion-button routerLink="/register" class="register-button" style="--border-radius: 50px;">
+              Register
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
 
-      <!-- Comment Textarea -->
-      <ion-textarea #commentInput
-        class="enter-comment"
-        rows="6" cols="20"
-        *ngIf="this.userType == 'admin' || this.userType === 'user'"
-        placeholder="Please enter comment here">
-      </ion-textarea>
-      <div *ngIf="this.userType == 'none'"
-      style="background: #ff8f8f82;
-      margin: 2em auto;
-      text-align: center;
-      padding: 1em;
-      font-size: 1.5em;
-      border-radius: 5px;">
-        Please log in to post a comment or reply.
-      </div>
-      <ion-toolbar class="comment-toolbar">
-        <ion-buttons *ngIf="this.userType === 'none'" slot="start">
-          <ion-button routerLink="/login" class="login-button">
-            Login
+    <!-- Comment Input -->
+    <ion-row id="desktop-comment-input" class="ion-justify-content-center ion-hide-lg-down">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
+        <div *ngIf="this.commentsLength === 0" style="background: #98989882;
+        text-align: center;
+        padding: 1em;
+        font-size: 1.5em;
+        border-radius: 5px;">
+          There are no comments
+        </div>
+
+        <!-- Comment Textarea -->
+        <ion-textarea #commentInput
+          class="enter-comment"
+          rows="6" cols="20"
+          *ngIf="this.userType == 'admin' || this.userType === 'user'"
+          placeholder="Please enter comment here">
+        </ion-textarea>
+        <ion-toolbar class="comment-toolbar">
+          <ion-buttons *ngIf="this.userType === 'user'" slot="start">
+            <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="User Profile Picture">
+            <h6>{{this.userFullName}}</h6>
+          </ion-buttons>
+          <ion-buttons *ngIf="this.userType === 'admin'" slot="start">
+            <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="Admin Profile Picture">
+            <h6>{{this.userFullName}}</h6>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button *ngIf="this.userType === 'user' || this.userType === 'admin'" (click)="comment(this.id, this.userFullName, this.userPicture, this.commentInput.value, this.userEmail)" style="width: 100px; position: relative; right: 10px;" class="green-button">
+              Post
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+
+    <!-- Comments -->
+    <ion-row class="ion-justify-content-center" style="margin-bottom: 6em;">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
+        <h3 style="color: #00ff00;">Comments ({{this.commentsLength}})</h3>
+        <hr class="line">
+        <div id="comments-wrapper">
+          <div [attr.id]="comment._id + '-comment-wrapper'" class="comment-wrapper" *ngFor=" let ci = index; let comment of comments">
+          <h5>
+            <img class="comment-pic" src="{{comment.picture}}">
+            <span [ngClass]="comment.email == 'eddielacrosse2@gmail.com'  ? 'comment-admin' : 'comment-name'">
+            <span *ngIf="comment.email === 'eddielacrosse2@gmail.com'" style="color: #ff51ff; margin-right: 0.4em;">Admin</span>
+                {{comment.name}}</span>
+            <span class="commented-when">{{comment.date}} ago</span>
+            <span *ngIf="this.userType !== 'none'" style="float: right; position: relative; top: -55px; left: 18px; font-size: 1.5em;">
+              <ion-button style="--background: none;" (click)="commentOptionsPopover($event, id, comment._id, this.userFullName, title)">
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+              </ion-button>
+            </span>
+          </h5>
+          <p [attr.id]="comment._id + '-comment'" class="comment">{{comment.comment}}</p>
+
+          <!-- Reply Input -->
+          <ion-textarea [attr.id]="comment._id + '-reply-input'" *ngIf="this.userType === 'user' || this.userType === 'admin'" (ionChange)="getReplyContent($event)" class="reply-textarea" rows="5" placeholder="Add reply here">
+            <ion-button [attr.id]="comment._id + '-reply-input-button'" style="margin-right: 1em;" *ngIf="this.userType === 'user' || this.userType === 'admin'" class="gold-button reply-button-position" (click)="reply(this.id, comment._id, this.userFullName, this.userPicture, this.replyContent, this.userEmail)">
+              Reply
+            </ion-button>
+          </ion-textarea>
+
+          <!-- Replies Wrapper -->
+          <div class="replies" [attr.id]="comment._id + '-replies'">
+
+            <!-- Replies Upper Toolbar -->
+            <div class="replies-upper-toolbar">
+              <span [attr.id]="comment._id + '-replies-counter'" class="replies-title">Replies - {{comment.replies.length}}</span>
+              <span class="upper-close-reply-button" (click)="closeReplies(comment, comment._id, $event, comment.replies.length)">
+                <ion-icon name="close"></ion-icon>
+              </span>
+            </div>
+
+            <!-- Reply -->
+            <div [attr.id]="'reply-'+reply._id+'-wrapper'" class="reply" *ngFor="let reply of comment.replies;">
+              <h5>
+                <img class="comment-pic" src="{{reply.picture}}">
+                <span [ngClass]="reply.email == 'eddielacrosse2@gmail.com'  ? 'comment-admin' : 'comment-name'">
+                <span *ngIf="reply.email === 'eddielacrosse2@gmail.com'" style="color: #ff51ff;">Admin</span>
+                  {{reply.fullName}}</span>
+                <span class="commented-when">replied {{reply.date}} ago</span>
+              </h5>
+              <p [attr.id]="'reply-'+reply._id" class="comment">{{reply.reply}}</p>
+              <ion-toolbar>
+                <ion-buttons [attr.id]="'reply-'+reply._id+'-delete-button'" slot="end">
+                  <ion-button style="color: red;"
+                  *ngIf="this.userEmail === reply.email && this.userType === 'user' || this.userType === 'admin'"  class="delete-reply" (click)="deleteReplyAlert(this.id, comment._id, reply._id)">
+                    Delete
+                  </ion-button>
+                  <ion-button [attr.id]="'reply-'+reply._id+'-edit-button'" *ngIf="this.userEmail === reply.email"  style="color: #BC3790;" class="delete-reply" (click)="editReply(this.id, comment._id, reply._id)">
+                    Edit
+                  </ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </div>
+          </div>
+          <!-- End Replies Wrapper -->
+
+          <ion-toolbar *ngIf="this.userType !== 'none'" class="reply-toolbar">
+            <!-- <ion-buttons slot="start">
+              <ion-button *ngIf="this.userEmail === comment.email && this.userType === 'user' || this.userType === 'admin'" class="delete-button" (click)="deleteCommentAlert(id, comment._id, this.userFullName, title)">
+                Delete
+              </ion-button>
+              <ion-button [attr.id]="comment._id + '-comment-edit-button'" style="width: 75px; font-size: 0.7em; --border-radius: 50px; margin-left: 1em;" *ngIf="this.userEmail === comment.email" class="purple-button" (click)="editComment(id, comment._id)">
+                Edit
+              </ion-button>
+            </ion-buttons> -->
+            <ion-buttons slot="end">
+              <ion-button *ngIf="comment.replies.length > 0" [attr.id]="comment._id+'-reply-button'" class="grey-button" (click)="viewReplies(comment, comment._id, $event, comment.replies)">
+                View Replies - {{comment.replies.length}}
+              </ion-button>
+              <ion-button [attr.id]="comment._id+'-replies-close-button'" style="display: none;" class="grey-button" (click)="closeReplies(comment, comment._id, $event, comment.replies)">
+                Close Replies
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Comment Input -->
+    <ion-row id="desktop-comment-input" class="ion-justify-content-center ion-hide-lg-down">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7" size-xl="6">
+        <div *ngIf="this.commentsLength === 0" style="background: #98989882;
+        text-align: center;
+        padding: 1em;
+        font-size: 1.5em;
+        border-radius: 5px;">
+          There are no comments
+        </div>
+
+        <!-- Comment Textarea -->
+        <ion-textarea #commentInput
+          class="enter-comment"
+          rows="6" cols="20"
+          *ngIf="this.userType == 'admin' || this.userType === 'user'"
+          placeholder="Please enter comment here">
+        </ion-textarea>
+        <ion-toolbar class="comment-toolbar">
+          <ion-buttons *ngIf="this.userType === 'user'" slot="start">
+            <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="User Profile Picture">
+            <h6>{{this.userFullName}}</h6>
+          </ion-buttons>
+          <ion-buttons *ngIf="this.userType === 'admin'" slot="start">
+            <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="Admin Profile Picture">
+            <h6>{{this.userFullName}}</h6>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button *ngIf="this.userType === 'user' || this.userType === 'admin'" (click)="comment(this.id, this.userFullName, this.userPicture, this.commentInput.value, this.userEmail)" style="width: 100px; position: relative; right: 10px;" class="purple-button">
+              Post
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+
+    <!-- Info Footer -->
+    <ion-row class="info-footer-wrapper ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7">
+        <div class="info-footer">
+          <img class="picture" src="../../../../assets/photo.png" alt="picture">
+          <h3 style="color: #00c400;">Eddie Taliaferro II</h3>
+          <p class="info-footer-text">Web Developer, Designer, Entrepreneur, Artist, and JavaScript enthusiast proudly out of Detroit, MI.</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Prev & Next -->
+    <ion-row style="background: #000000d1; margin-bottom: 0; padding: 3em 0;" class="ion-justify-content-center">
+      <ion-col style="background: none;" size-xs="12" size-sm="9" size-lg="8" class="ion-text-center">
+        <h1 id="read-more-header">Read More</h1>
+        <div class="prev-next">
+          <ion-row class="ion-justify-content-center">
+            <ion-col id="next" (click)="nextBlog()" class="ion-text-right" size="6">
+              <p>Next Blog</p>
+              <h4>{{this.nextBlogTitle}}</h4>
+            </ion-col>
+            <ion-col id="prev" (click)="prevBlog()" class="ion-text-left" size="6">
+            <p>Prev Blog</p>
+            <h4>{{this.prevBlogTitle}}</h4>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Footer Illustration -->
+    <ion-row id="footer" class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size="11">
+        <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
+      </ion-col>
+      <ion-col class="ion-text-center" size="11">
+        <div id="footer-buttons">
+          <hr class="footer-hr">
+          <ion-button class="gold-button" (click)="donatePage()">
+            Donate
           </ion-button>
-          <ion-button routerLink="/register" class="register-button" style="--border-radius: 50px;">
-            Register
+          <ion-button class="red-button" (click)="contactPage()">
+            Contact
           </ion-button>
-        </ion-buttons>
-        <ion-buttons *ngIf="this.userType === 'user'" slot="start">
-          <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="User Profile Picture">
-          <h6>{{this.userFullName}}</h6>
-        </ion-buttons>
-        <ion-buttons *ngIf="this.userType === 'admin'" slot="start">
-          <img style="margin: 1em; border-radius: 60px;" height="60" src="{{this.userPicture}}" alt="Admin Profile Picture">
-          <h6>{{this.userFullName}}</h6>
-        </ion-buttons>
-        <ion-buttons slot="end">
-          <ion-button *ngIf="this.userType === 'user' || this.userType === 'admin'" (click)="comment(this.id, this.userFullName, this.userPicture, this.commentInput.value, this.userEmail)" style="width: 100px; position: relative; right: 10px;" class="purple-button">
-            Post
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-col>
-  </ion-row>
-
-  <!-- Info Footer -->
-  <ion-row class="info-footer-wrapper ion-justify-content-center">
-    <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7">
-      <div class="info-footer">
-        <img class="picture" src="../../../../assets/photo.png" alt="picture">
-        <h3 style="color: #00c400;">Eddie Taliaferro II</h3>
-        <p class="info-footer-text">Web Developer, Designer, Entrepreneur, Artist, and JavaScript enthusiast proudly out of Detroit, MI.</p>
-      </div>
-    </ion-col>
-  </ion-row>
-  <!-- Prev & Next -->
-  <ion-row style="background: #000000d1; margin-bottom: 0; padding: 3em 0;" class="ion-justify-content-center">
-    <ion-col style="background: none;" size-xs="12" size-sm="9" size-lg="8" class="ion-text-center">
-      <h1 id="read-more-header">Read More</h1>
-      <div class="prev-next">
-        <ion-row class="ion-justify-content-center">
-          <ion-col id="next" (click)="nextBlog()" class="ion-text-right" size="6">
-            <p>Next Blog</p>
-            <h4>{{this.nextBlogTitle}}</h4>
-          </ion-col>
-          <ion-col id="prev" (click)="prevBlog()" class="ion-text-left" size="6">
-           <p>Prev Blog</p>
-           <h4>{{this.prevBlogTitle}}</h4>
-          </ion-col>
-        </ion-row>
-      </div>
-    </ion-col>
-  </ion-row>
-
-  <!-- Footer Illustration -->
-  <ion-row id="footer" class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size="11">
-      <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
-    </ion-col>
-    <ion-col class="ion-text-center" size="11">
-      <div id="footer-buttons">
+        </div>
+      <div id="social-media">
         <hr class="footer-hr">
-        <ion-button class="gold-button" (click)="donatePage()">
-          Donate
-        </ion-button>
-        <ion-button class="red-button" (click)="contactPage()">
-          Contact
-        </ion-button>
+        <ion-icon size="large" name="logo-linkedin"></ion-icon>
       </div>
-    <div id="social-media">
-      <hr class="footer-hr">
-      <ion-icon size="large" name="logo-linkedin"></ion-icon>
-    </div>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <!-- Mobile Comment Input -->
+    <ion-footer *ngIf="this.userType !== 'none'" id="mobile-comment-input" class="ion-hide-lg-up">
+      <ion-row class="ion-justify-content-center">
+        <ion-col style="display: inline-block; height: 40px;" size="10">
+          <ion-textarea
+          #mobileCommentInput
+          style="display: inline;"
+          autocapitalize="true"
+          rows="1"
+          spellcheck="true"
+          wrap="soft"
+          type="text"
+          placeholder="Add a Comment"
+          >
+        </ion-textarea>
+        </ion-col>
+        <ion-col style="display: inline-block; height: 50px;" size="1">
+          <ion-button (click)="mobileComment(this.id, this.userFullName, this.userPicture, this.mobileCommentInput.value, this.userEmail)" style="--background: none; --box-shadow: none">
+          <ion-icon style="font-size: 1.8em; color: #1d071f;" slot="start" name="send"></ion-icon>
+        </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
   </ion-grid>
 </ion-content>

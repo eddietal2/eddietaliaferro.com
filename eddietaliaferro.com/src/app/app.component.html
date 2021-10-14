@@ -13,26 +13,36 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>
-          <a routerLink="/home" routerLinkActive="active-link">Home</a>
+        <ion-item (click)=closeMenu() routerLink="/home">
+          <p routerLinkActive="active-link">Home</p>
         </ion-item>
-        <ion-item>
-          <a routerLink="/about" routerLinkActive="active-link">About</a>
+        <ion-item (click)=closeMenu() routerLink="/about">
+          <p routerLinkActive="active-link">About</p>
         </ion-item>
-        <ion-item>
-          <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
+        <ion-item (click)=closeMenu() routerLink="/projects">
+          <p routerLinkActive="active-link">Projects</p>
         </ion-item>
-        <ion-item>
-          <a routerLink="/blog" routerLinkActive="active-link">Blog</a>
+        <ion-item (click)=closeMenu() routerLink="/blog">
+          <p routerLinkActive="active-link">Blog</p>
         </ion-item>
-        <ion-item>
-          <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
+        <ion-item (click)=closeMenu() routerLink="/contact">
+          <p routerLinkActive="active-link">Contact</p>
         </ion-item>
-        <ion-item>
-          <a routerLink="/donate" routerLinkActive="active-link">Donate</a>
+        <ion-item (click)=closeMenu() routerLink="/donate" >
+          <p routerLinkActive="active-link">Donate</p>
         </ion-item>
-        <ion-item>
-          <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
+        <ion-item *ngIf="this.userType === 'admin'"  (click)=closeMenu() routerLink="/admin">
+          <p routerLinkActive="active-link">Admin</p>
+        </ion-item>
+        <ion-item *ngIf="this.userType === 'user'"  (click)=closeMenu() routerLink="/profile">
+          <p routerLinkActive="active-link">Profile</p>
+          <img style="margin-left: 1em; border-radius: 100px;" src="{{this.userPicture}}" height="40" alt="User Profile Picture">
+        </ion-item>
+        <ion-item *ngIf="this.userType === 'none'" (click)=closeMenu() routerLink="/login">
+          <p routerLinkActive="active-link">Login</p>
+        </ion-item>
+        <ion-item *ngIf="this.userType === 'admin' || this.userType === 'user'" (click)=logoutConfirm()>
+          <p>Logout</p>
         </ion-item>
       </ion-list>
 

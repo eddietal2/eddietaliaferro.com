@@ -3,7 +3,7 @@ import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { MenuController } from '@ionic/angular';
+import { MenuController, AlertController } from '@ionic/angular';
 import { AuthService } from './services/auth/auth.service';
 import { Storage } from '@ionic/storage';
 
@@ -13,6 +13,9 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  userType;
+  userPicture;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -20,11 +23,26 @@ export class AppComponent {
     private auth: AuthService,
     private storage: Storage,
     private router: Router,
-    private menu: MenuController
+    private menu: MenuController,
+    private alertController: AlertController
   ) {
     this.initializeApp();
   }
   ngOnInit() {
+    this.auth.userType.subscribe(
+      data => {
+        console.log(data);
+        this.userType = data;
+        return;
+      }
+    )
+    this.auth.userPicture.subscribe(
+      data => {
+        console.log(data);
+        this.userPicture = data;
+        return;
+      }
+    )
 
   }
   initializeApp() {
@@ -51,6 +69,29 @@ export class AppComponent {
   }
   closeMenu() {
     this.menu.close();
+  }
+  async logoutConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      message: 'Are you sure you want to Logout?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            this.auth.logout();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
   @HostListener('unloaded')
   ngOnDestroy() {

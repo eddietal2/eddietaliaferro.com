@@ -37,7 +37,7 @@ export class AddProjectsPage implements OnInit {
     });
   }
   back() {
-    this.router.navigateByUrl('/admin/blogs')
+    this.router.navigateByUrl('/admin/projects')
   }
   getThumbnailFile(event) {
     const formElement = document.getElementById('thumbnail');
@@ -167,7 +167,7 @@ export class AddProjectsPage implements OnInit {
               console.log(data);
               await this.adminProjectEmitterService.resetAdminProjects()
               await this.successfullProjectSubmit()
-              await this.router.navigateByUrl('admin/blogs');
+              await this.router.navigateByUrl('admin/projects');
               return;
             }
           )

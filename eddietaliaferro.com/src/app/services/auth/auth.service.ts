@@ -137,6 +137,9 @@ export class AuthService {
   updateProfile(updatedProfile) {
     return this.http.post(`${this.BACKEND_URL}/user/update-profile-user`, updatedProfile)
   }
+  changePassword(email, password, newPassword) {
+    return this.http.post(`${this.BACKEND_URL}/user/change-password-user`, {email, oldPassword: password, newPassword})
+  }
 
   // looks up our storage for a valid JWT and if found, changes our authenticationState
   async checkToken() {

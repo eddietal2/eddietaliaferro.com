@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, HostListener, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { format, formatDistance, parseISO } from 'date-fns';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Subscription } from 'rxjs';
-import { IonContent, IonTextarea, ToastController, AlertController } from '@ionic/angular';
+import { IonContent, IonTextarea, ToastController, AlertController, PopoverController } from '@ionic/angular';
 import { catchError, tap } from 'rxjs/operators';
+import { CommentOptionsComponent } from 'src/app/components/comment-options/comment-options.component';
 
 
 @Component({
@@ -44,6 +45,7 @@ export class BlogPagePage implements OnInit {
   commentSub: Subscription;
   @ViewChild('content') ionContent: IonContent;
   @ViewChild('commentInput') commentInput: IonTextarea;
+  @ViewChild('mobileCommentInput') mobileCommentInput: IonTextarea;
   scrollTop;
   allBlogs: Blog[];
   prevBlogTitle;
@@ -55,6 +57,7 @@ export class BlogPagePage implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private toastController: ToastController,
+    private popoverController: PopoverController,
     private alertController: AlertController,
     private auth: AuthService,
     private blogService: BlogService,) { }
@@ -156,180 +159,46 @@ export class BlogPagePage implements OnInit {
           return this.addCommentToast();
         });
     }
-    editComment(blogID, commentID) {
-      // get commentID
-      // Turn comment p element to a textarea element
-      // When finished, turn back into a p element
-      let comment = document.getElementById(commentID + '-comment');
-      let replyInput = document.getElementById(commentID + '-reply-input');
-      let replyInputButton = document.getElementById(commentID + '-reply-input-button');
-      let commentEditButton = document.getElementById(commentID + '-comment-edit-button');
-
-      commentEditButton.style.display = 'none';
-      let commentValue = comment.innerHTML;
-
-      // Edit Text Area Element
-      let editTextarea = document.createElement('textarea');
-      editTextarea.setAttribute('rows', '10');
-      editTextarea.style.fontSize = '21px';
-      editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
-      editTextarea.style.width = '100%';
-      editTextarea.style.border = '4px solid #BC3790';
-      editTextarea.style.borderRadius = '10px';
-      editTextarea.style.backgroundColor = '#fff9';
-      editTextarea.style.color = '#333';
-      editTextarea.style.padding = '1em';
-      editTextarea.style.marginBottom = '1em';
-      editTextarea.innerHTML = commentValue;
-
-      // Complete Edit & Cancel Edit Buttons
-      let completeEditButton = document.createElement('button');
-      completeEditButton.addEventListener('click', () => {
-        console.log('Completing Edit');
-        cancelEditButton.remove();
-        completeEditButton.remove();
-        replyInput.style.display = 'block';
-        replyInputButton.style.display = 'block';commentEditButton.style.display = 'block';
-        // HTTP Request
-        this.editCommentSub = this.blogService.editComment(blogID, commentID, editTextarea.value)
-        .pipe(
-          tap(res => {
-            if (!res) {
-              console.log('There was no response.');
-            }
-          }),
-          catchError(e => {
-            console.error(e);
-            if (e) {
-              this.presentAlert('Error ', 'There was an error editting your comment');
-            }
-            editTextarea.replaceWith(comment)
-            throw new Error(e);
-          })
-        )
-        .subscribe(
-          data => {
-            console.log(data);
-            // Only update Comment if there was a successful network request.
-            comment.innerHTML = editTextarea.value;
-            editTextarea.replaceWith(comment)
-          }
-        )
-      });
-      completeEditButton.innerHTML = 'Edit';
-      editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
-      completeEditButton.style.width = '100px';
-      completeEditButton.style.padding = '0.3em';
-      completeEditButton.style.margin = '0.3em 0.5em';
-      completeEditButton.style.borderRadius = '100px';
-      completeEditButton.style.color = '#00c400';
-
-      let cancelEditButton = document.createElement('button');
-      cancelEditButton.addEventListener('click', () => {
-        console.log('Cancelling Edit');
-        cancelEditButton.remove();
-        completeEditButton.remove();
-        replyInput.style.display = 'block';
-        replyInputButton.style.display = 'block';commentEditButton.style.display = 'block';
-        editTextarea.replaceWith(comment);
-      });
-      cancelEditButton.innerHTML = 'Cancel';
-      editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
-      cancelEditButton.style.width = '100px';
-      cancelEditButton.style.padding = '0.3em';
-      cancelEditButton.style.margin = '0.3m 0';
-      cancelEditButton.style.borderRadius = '100px';
-      cancelEditButton.style.color = 'red';
-
-
-
-      // Adding elements to interface.
-      comment.replaceWith(editTextarea);
-      replyInput.style.display = 'none';
-      replyInputButton.style.display = 'none';
-      insertAfter(editTextarea, completeEditButton)
-      insertAfter(completeEditButton, cancelEditButton)
-
-      // Inserting buttons after edit textarea
-      function insertAfter(referenceNode, newNode) {
-        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-      }
-    }
-    deleteComment(blogID, commentID, userFullName, title) {
-      this.blogService.deleteComment(blogID, commentID, userFullName, title).subscribe(
+    mobileComment(blogID, userName, userPicture, comment, userEmail) {
+      this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
         data => {
-          console.log(data);
           this.comments = data['comments'];
           this.commentsLength = this.comments.length;
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
-          // Slide Out Animation for Reply.
-          let commentWrapper = document.getElementById(commentID + '-comment-wrapper');
-          let start = Date.now();
-          let timer = setInterval(function() {
-            // how much time passed from the start?
-            let timePassed = Date.now() - start;
-            if (timePassed >= 200) {
-              commentWrapper.style.transform = 'translateX(-50px)';
-            }
-            if (timePassed >= 500) {
-              commentWrapper.style.opacity = '0';
-            }
-            if (timePassed >= 1000) {
-              commentWrapper.style.height = '0px';
-              commentWrapper.style.display = 'none';
-              commentWrapper.remove();
-              clearInterval(timer); // finish the animation after 2 seconds
-              return;
-            }
-          }, 20);
+          this.mobileCommentInput.value = '';
+          return this.addCommentToast();
         });
-        this.deleteCommentToast();
-        return;
+    }
+    async commentOptionsPopover(ev: any, blogID, commentID, userFullName, title) {
+      const popover = await this.popoverController.create({
+        component: CommentOptionsComponent,
+        componentProps: {
+          blogID,
+          commentID,
+          userFullName,
+          title,
+          comments: this.comments,
+          comment: document.getElementById(commentID + '-comment'),
+          replyInput: document.getElementById(commentID + '-reply-input'),
+          replyInputButton: document.getElementById(commentID + '-reply-input-button'),
+          commentEditButton: document.getElementById(commentID + '-comment-edit-button')
+
+        },
+        cssClass: 'my-custom-class',
+        event: ev,
+        translucent: true
+      });
+      await popover.present();
+
+      const { role } = await popover.onDidDismiss();
+      console.log('onDidDismiss resolved with role', role);
     }
     async addCommentToast() {
       const toast = await this.toastController.create({
         message: 'You have successfully added a Comment!',
         cssClass: 'success-toast',
-        duration: 2000
-      });
-      toast.present();
-    }
-    async editCommentToast() {
-      const toast = await this.toastController.create({
-        message: 'You have successfully editted a Comment!',
-        cssClass: 'edit-toast',
-        duration: 2000
-      });
-      toast.present();
-    }
-    async deleteCommentAlert(blogID, commentID, userFullName, title) {
-      const alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Are you sure you want to Delete this comment?',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: (blah) => {
-              console.log('Confirm Cancel: blah');
-            }
-          }, {
-            text: 'Delete',
-            handler: () => {
-              this.deleteComment(blogID, commentID, userFullName, title);
-            }
-          }
-        ]
-      });
-      await alert.present();
-    }
-    async deleteCommentToast() {
-      const toast = await this.toastController.create({
-        message: 'You have successfully deleted a Comment!',
-        cssClass: 'danger-toast',
         duration: 2000
       });
       toast.present();

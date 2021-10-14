@@ -44,7 +44,7 @@ export class HomePage implements OnInit {
       // console.log('Rotating Gradient');
       // console.log(degrees);
       headerName.style.backgroundImage = "linear-gradient(" + degrees + "deg, #847145, #d8cca8, #847145)";
-    },  200)
+    },  50)
   }
   scrollAnimations(e) {
     let scrollTop = e.detail.scrollTop;

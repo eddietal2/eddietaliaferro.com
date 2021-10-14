@@ -20,21 +20,19 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="latest-blogs ion-justify-content-center">
-      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6">
-        <!-- Delete 2 "blog-post" after back-end intergration. -->
-        <!-- Render the most recent 3 last blog post dynamically. -->
+    <ion-row class="latest-projects ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="6">
         <ion-row *ngFor="let project of allProjects">
-          <ion-row class="blog-post" *ngIf="project.visible">
+          <ion-row class="project-post" *ngIf="project.visible">
             <ion-col size-xs="2" size-sm="2" size-lg="2">
-              <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="blog-thumbnail">
+              <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="project-thumbnail">
             </ion-col>
-            <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-              <h1 class="blog-title">{{project.title}}</h1>
-              <p>{{project.description}}</p>
+            <ion-col size-xs="10" size-sm="10" size-lg="7" class="project-info">
+              <h1 class="project-title">{{project.title}}</h1>
+              <p class="project-description">{{project.description}}</p>
             </ion-col>
             <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
-              <ion-button class="purple-button" (click)="viewProject(project.url)">
+              <ion-button class="gold-button" (click)="viewProject(project.url)">
                 View Project
               </ion-button>
             </ion-col>

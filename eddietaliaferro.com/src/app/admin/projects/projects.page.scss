@@ -32,7 +32,7 @@ ion-grid {
   border-bottom: #333 solid 2px;
 }
 
-.blog-post {
+.project-post {
   height: auto;
   background: #404040;
   padding: 8px 25px;
@@ -53,27 +53,27 @@ ion-grid {
     margin: 0;
   }
 
-  .blog-info {
+  .project-info {
     display: inline-block;
   }
-  .blog-thumbnail {
-    height: 100px;
+  .project-thumbnail {
+    height: 100%;
+    border-radius: 100px;
     margin-right: 2.5em;
   }
-  .blog-date {
+  .project-date {
     color: #999;
     margin: 0 0;
     opacity: 0.6;
   }
-  .blog-title {
-    margin: 0 0;
-    color: white;
-  }
-  .blog-hashtags {
+  .project-title {
     margin: 0 0;
     color: #3df63d;
-    padding: 0em 1em 1em 0;
-    border-bottom: 1px solid #777;
+    font-size: 1.2em;
+  }
+  .project-description {
+    margin: 0 0;
+    color: white;
   }
   ion-toggle {
     position: relative;
@@ -85,8 +85,8 @@ ion-grid {
   }
 }
 @media only screen and (max-width: 600px) {
-  .blog-post {
-    .blog-thumbnail {
+  .project-post {
+    .project-thumbnail {
       height: 60px;
       margin-right: 0.75em;
     }
@@ -96,7 +96,7 @@ ion-grid {
   }
 }
 
-.blog-post:hover {
+.project-post:hover {
   margin: 2.3em 0;
   background: #404040;
   border-left: 16px solid #BC3790;

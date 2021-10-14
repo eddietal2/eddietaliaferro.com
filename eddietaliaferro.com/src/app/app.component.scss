@@ -6,26 +6,28 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  --background: #333;
-  --color: #ffa4a4;
+  --background: #1d071f;
+  --color: #d8cca8;
 }
 ion-header {
   box-shadow: 1px 1px 15px #0000009e;
 }
 ion-toolbar {
-  --background: #002a00;
+  --background: #1d071f;
 }
-a {
-  color: #ffffffad;
-  font-size: 1.3em;
-}
+
 ion-item {
-  padding: 0.5em 0em;
-}
-.active-link {
-  color: #3df63d;
-  border-left: 4px solid #3df63d;
-  padding-left: 0.3em;
-  font-weight: 600;
-  transition: 0.5s;
+  height: 50px;
+
+  p {
+    color: #d8cca8;
+    font-size: 1em;
+  }
+  .active-link {
+    color: #3df63d;
+    border-left: 4px solid #3df63d;
+    padding-left: 0.3em;
+    font-weight: 600;
+    transition: 0.5s;
+  }
 }

@@ -28,7 +28,7 @@
               </ion-item>
               <!-- Alert or Modal popus up with Password Change. -->
               <!-- Have the user log back in with their new password -->
-              <ion-button class="red-button" style="width: 200px; margin: 3em auto;" (click)="changePassword()">
+              <ion-button class="red-button" style="width: 200px; margin: 3em auto;" (click)="presentAlertPrompt(this.userEmail)">
                 Change Password
               </ion-button>
               <ion-button class="green-button" type="submit" style="margin: 3em auto;">

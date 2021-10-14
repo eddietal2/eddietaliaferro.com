@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PicturesService } from 'src/app/services/pictures/pictures.service';
 import { Storage } from '@ionic/storage';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AlertController, ToastController } from '@ionic/angular';
+
 
 
 @Component({
@@ -30,6 +32,8 @@ export class UserProfilePage implements OnInit {
     private storage: Storage,
     private pictureService: PicturesService,
     private formBuilder: FormBuilder,
+    private alertController: AlertController,
+    private toastController: ToastController,
     private helper: JwtHelperService,
   ) { }
 
@@ -228,5 +232,102 @@ export class UserProfilePage implements OnInit {
   changePassword() {
     
   }
+  async presentAlertPrompt(email) {
+    const alert = await this.alertController.create({
+      cssClass: 'change-password-alert',
+      header: 'Change Password',
+      inputs: [
+        {
+          name: 'current-password',
+          id: 'current-password',
+          type: 'password',
+          placeholder: 'Password'
+        },
+        {
+          name: 'new-password',
+          id: 'new-password',
+          type: 'password',
+          placeholder: 'New Password'
+        },
+        {
+          name: 'retype-new-password',
+          id: 'retype-new-password',
+          type: 'password',
+          placeholder: 'Re-Type New Password'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          
+          handler: (e) => {
+            console.log(e);
+            let currentPassword = e['current-password'];
+            let newPassword = e['new-password'];
+            let reTypeNewPassword = e['retype-new-password'];
+
+            if(currentPassword == newPassword) {
+              console.log('New password cannot be the same as old password');
+              return false;
+            }
+            else if (newPassword != reTypeNewPassword) {
+              console.log('New Passwords do not match!');
+              
+              this.wrongPasswordAlert('New passwords do not match. Please double check both entries.');;
+              return false ;
+            }
+              this.auth.changePassword(email, currentPassword, newPassword).subscribe(
+                data => {
+                  if(!data) {
+                    console.log(data);
+                    this.wrongPasswordAlert('The password was wrong. Please end your current password again.');
+                    return;
+                  }
+                  if(data) {
+                    this.successToast('You have successfully changed your password');
+                    this.alertController.dismiss()
+                    return;
+                  }
+                  
+                }
+              )
+            return false;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async wrongPasswordAlert(msg) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Wrong Password!',
+      message: msg,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+  async successToast(msg) {
+    const toast = await this.toastController.create({
+      message: msg,
+      cssClass: 'success-toast',
+      duration: 2000
+    });
+    toast.present();
+  }
+
 
 }

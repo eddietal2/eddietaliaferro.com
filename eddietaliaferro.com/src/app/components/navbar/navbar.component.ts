@@ -27,7 +27,6 @@ export class NavbarComponent implements OnInit {
       }
     )
   }
-
   async logoutConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -51,8 +50,4 @@ export class NavbarComponent implements OnInit {
 
     await alert.present();
   }
-  openMenu () {
-    console.log('Opening side menu ..')
-  }
-
 }

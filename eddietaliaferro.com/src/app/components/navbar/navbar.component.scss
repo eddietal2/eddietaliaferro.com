@@ -5,8 +5,10 @@
   // --background: linear-gradient(117deg, #847145, #d8cca8, #847145);
   color: white;
   padding: 0.3em;
-  height: 45px;
-  font-size: 2em;
+  height: 65px;
+  font-size: 3em;
+  position: relative;
+  left: 24px;
 }
 .navbar {
   --background: linear-gradient(73.54497825384362deg, #000000, 8.871497304413253%,#1d071f);
@@ -15,7 +17,7 @@
 
     a {
       font-weight: 900;
-      font-size: 1em;
+      font-size: 0.8em;
       color: white;
       margin: 0px 10px;
     }

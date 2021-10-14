@@ -10,13 +10,13 @@
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="8">
-        <ion-row *ngFor="let project of allProjects" class="blog-post">
+        <ion-row *ngFor="let project of allProjects" class="project-post">
           <ion-col size-xs="2" size-sm="2" size-lg="2">
-            <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="blog-thumbnail">
+            <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="project-thumbnail">
           </ion-col>
-          <ion-col size-xs="10" size-sm="10" size-lg="7" class="blog-info">
-            <h1 class="blog-title">{{project.title}}</h1>
-            <h3 class="blog-title">{{project.description}}</h3>
+          <ion-col size-xs="10" size-sm="10" size-lg="7" class="project-info">
+            <h1 class="project-title">{{project.title}}</h1>
+            <h3 class="project-descrtion">{{project.description}}</h3>
             <p style="display: inline;">Visible</p>
             <ion-toggle checked="{{project.visible}}" (ionChange)="visibleToggle($event, project._id, project.title, project.visible)"></ion-toggle>
           </ion-col>
@@ -38,7 +38,7 @@
     <!-- Mobile Admin Tabbar -->
     <ion-row class="admin-mobile-tab ion-hide-lg-up">
       <ion-col class="ion-text-center" size="3">
-        <a routerLink="/admin/blogs" routerLinkActive="active-link">Blogs</a>
+        <a routerLink="/admin/projects" routerLinkActive="active-link">projects</a>
       </ion-col>
       <ion-col class="ion-text-center" size="3">
         <a routerLink="/admin/projects" routerLinkActive="active-link">Projects</a>
