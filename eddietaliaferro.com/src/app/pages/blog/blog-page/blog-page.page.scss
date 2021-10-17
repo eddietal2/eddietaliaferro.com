@@ -4,30 +4,11 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
-#footer {
-  background: #000000d1;
-  height: 600px;
-  padding: 6em 0em 3em 0em;
-
-  #footer-logo {
-    width: 100px;
-  }
-  #footer-buttons {
-    width: 150px;
-    display: inline-block;
-  }
-  .footer-hr {
-    border-top: 5px solid #D3B900;
-    opacity: 0.4;
-    padding: 0;
-    width: 150px;
-  }
-  #social-media {
-    margin-bottom: 1em;
-  }
-}
 .sc-ion-buttons-md-s ion-button:not(.button-round):nth-child(1) {
   --border-radius: 50px;
+}
+.sc-ion-popover-md-h {
+  --width: 180px;
 }
 .purple-button {
   width: 90px;
@@ -134,26 +115,26 @@ ion-toolbar:first-child {
     margin-top: 6em;
     padding-top: 1em;
 
-    .green-button {
-      width: 100px;
-      --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
-      --color: white;
-      --border-radius: 50px;
-      --box-shadow: none;
-    }
-    .grey-button {
-      width: 170px;
-      --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
-      --color: white;
-      --border-radius: 50px;
-      --box-shadow: none;
+    ion-buttons {
+      .green-button {
+        width: 100px;
+        --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
+        --color: white;
+        --border-radius: 50px;
+        --box-shadow: none;
+      }
+      .grey-button {
+        width: 170px;
+        --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
+        --color: white;
+        --border-radius: 50px;
+        --box-shadow: none;
+      }
     }
   }
   .reply-toolbar {
     --background: none;
     margin-top: 2em;
-    padding-top: 4em;
-    height: 140px;
 
     .green-button {
       width: 100px;
@@ -163,7 +144,12 @@ ion-toolbar:first-child {
       --box-shadow: none;
     }
     .grey-button {
-      width: 170px;
+      --width: 150px;
+      height: 36px;
+      font-size: 0.8em;
+      position: relative;
+      left: 7px;
+      --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
       --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
       --color: white;
       --border-radius: 50px;
@@ -205,7 +191,7 @@ ion-toolbar:first-child {
   }
   .comment-admin {
     color: white;
-    background: #bc379047;
+    background: #1d071f66;
     border-radius: 5px;
     padding: 0.2em 0.5em;
   }
@@ -361,8 +347,9 @@ ion-toolbar:first-child {
   bottom: 0px;
   height: 80px;
   width: 100%;
-  background-color: #ffffff;
-  color: #1d071f;
+  background-color: #1d071f;
+  color: white;
+  box-shadow: 1px -3px 13px #000000b8;
 }
 
 .post-button{
@@ -373,6 +360,8 @@ ion-toolbar:first-child {
 .info-footer-wrapper{
   background: #000000d1;
   margin-bottom: 0;
+  margin-top: 10em;
+
 }
 
 .info-footer{
@@ -386,7 +375,7 @@ ion-toolbar:first-child {
     text-align: center;
 
     .info-footer-text {
-      font-size: 1em;
+      font-size: 1.2em;
       margin: 55px 0px;
     }
 
@@ -407,21 +396,45 @@ ion-toolbar:first-child {
   border-radius: 50px;
 }
 #read-more-header {
-  background: #D4AF37;
+  background: #847145;
   width: 200px;
   margin: 2em auto;
   padding: 0.4em;
   border-radius: 5px;
 }
+#prev, #next {
+  background: #c4ffc4;
+  transition: 0.5s;
+  margin-top: 2em;
+
+  h4 {
+    color: #2B50C8;
+  }
+
+  p {
+    color: #333;
+    font-weight: 800;
+  }
+}
 #prev{
-  border-right: 17px solid #3df63d;
+  border-left: 17px solid #3df63d;
   padding-left: 2em;
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px 0 0 10px;
 }
 #next{
-  border-left: 17px solid #3df63d;
+  border-right: 17px solid #3df63d;
   padding-right: 2em;
-  border-radius: 10px 0 0 10px;
+  border-radius: 0 10px 10px 0;
+}
+@media only screen and (max-width: 450px) {
+  #prev, #next {
+    font-size: 1.1em;
+  }
+  #prev {
+  }
+  #next {
+
+  }
 }
 
 #prev:hover, #next:hover {
@@ -461,24 +474,12 @@ ion-toolbar:first-child {
   }
 }
 
-#prev, #next {
-  background: #a6ffa6;
-  transition: 0.5s;
 
-  h4 {
-    color: #2B50C8;
-  }
-
-  p {
-    color: #333;
-    font-weight: 800;
-  }
-}
 
 .enter-comment {
   background: #212521;
   border: 2px solid #00ff00;
-  margin-top: 80px;
+  margin-top: 1em;
   margin-bottom: 1em;
   padding: 8px;
 }
@@ -486,4 +487,27 @@ ion-toolbar:first-child {
 .blog-page-illustration{
   background: lightgoldenrodyellow;
   height: 80vh;
+}
+
+#footer {
+  background: #000000d1;
+  height: 600px;
+  padding: 6em 0em 3em 0em;
+
+  #footer-logo {
+    width: 100px;
+  }
+  #footer-buttons {
+    width: 150px;
+    display: inline-block;
+  }
+  .footer-hr {
+    border-top: 5px solid #D3B900;
+    opacity: 0.4;
+    padding: 0;
+    width: 150px;
+  }
+  #social-media {
+    margin-bottom: 1em;
+  }
 }

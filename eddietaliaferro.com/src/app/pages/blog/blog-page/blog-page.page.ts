@@ -45,6 +45,7 @@ export class BlogPagePage implements OnInit {
   commentSub: Subscription;
   @ViewChild('content') ionContent: IonContent;
   @ViewChild('commentInput') commentInput: IonTextarea;
+  @ViewChild('commentInputBottom') commentInputBottom: IonTextarea;
   @ViewChild('mobileCommentInput') mobileCommentInput: IonTextarea;
   scrollTop;
   allBlogs: Blog[];
@@ -174,6 +175,7 @@ export class BlogPagePage implements OnInit {
     async commentOptionsPopover(ev: any, blogID, commentID, userFullName, title) {
       const popover = await this.popoverController.create({
         component: CommentOptionsComponent,
+        cssClass: 'comment-popover',
         componentProps: {
           blogID,
           commentID,
@@ -186,7 +188,6 @@ export class BlogPagePage implements OnInit {
           commentEditButton: document.getElementById(commentID + '-comment-edit-button')
 
         },
-        cssClass: 'my-custom-class',
         event: ev,
         translucent: true
       });

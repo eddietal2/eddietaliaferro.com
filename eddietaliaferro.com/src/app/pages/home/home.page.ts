@@ -29,7 +29,6 @@ export class HomePage implements OnInit {
   }
   ngAfterViewInit(){
     window.onscroll = function () {
-      this.yinYangScrollRotate();
     };
   }
   headerNameBackgroundAnimation() {
@@ -161,48 +160,47 @@ export class HomePage implements OnInit {
 
   // Development Icon
   developmentIconAnimationRelease(developmentIconWrapperOffsetTop, scrollTop) {
-    let developmentIconAnimationLength = -(developmentIconWrapperOffsetTop - scrollTop)/1.3;
-    // console.log(developmentIconAnimationLength)
+    let openingBracket = document.getElementById('opening-bracket');
+    let closingBracket = document.getElementById('closing-bracket');
+    let forwardSlash = document.getElementById('forward-slash');
+    let developmentIconAnimationLengthOpacity = -(developmentIconWrapperOffsetTop - scrollTop)/100;
 
-    // I need to calculate the distance from the SVGs to the top of the services element.
+    openingBracket.style.opacity = developmentIconAnimationLengthOpacity.toString();
+    closingBracket.style.opacity = developmentIconAnimationLengthOpacity.toString();
+    forwardSlash.style.opacity = developmentIconAnimationLengthOpacity.toString();
+
+
   }
   developmentIconAnimationTrigger(developmentIconWrapperOffsetTop, scrollTop) {
-    let developmentIconAnimationLength = -(developmentIconWrapperOffsetTop - scrollTop)/1.3;
-    // console.log(developmentIconAnimationLength);
+    let developmentIconAnimationLengthOpacity = -(developmentIconWrapperOffsetTop - scrollTop)/100;
 
     let openingBracket = document.getElementById('opening-bracket');
     let closingBracket = document.getElementById('closing-bracket');
     let forwardSlash = document.getElementById('forward-slash');
-    openingBracket.style.fill = '#D8CCA8';
-    closingBracket.style.fill = '#D8CCA8';
-    forwardSlash.style.fill = '#D8CCA8';
-    
+    openingBracket.style.fill = '#49bde5';
+    closingBracket.style.fill = '#49bde5';
+    forwardSlash.style.fill = '#49bde5';
+    openingBracket.style.opacity = developmentIconAnimationLengthOpacity.toString();
+    closingBracket.style.opacity = developmentIconAnimationLengthOpacity.toString();
+    forwardSlash.style.opacity = developmentIconAnimationLengthOpacity.toString();
 
-    if(developmentIconAnimationLength > 0) {
-      openingBracket.style.fill = '#49bde5';
-      closingBracket.style.fill = '#49bde5';
-      forwardSlash.style.fill = '#49bde5';
-
-    }
-    else {
-      openingBracket.style.fill = '#D8CCA8';
-      closingBracket.style.fill = '#D8CCA8';
-      forwardSlash.style.fill = '#D8CCA8';
-      
-    }
   }
 
   // Instructing Icon
   instructinIconAnimationRelease(instructingIconWrapperOffsetTop, scrollTop) {
-    let setSquare =  document.getElementById('set-square');
-    let setSquareAnimationLength = -(instructingIconWrapperOffsetTop - scrollTop)/1.3;
+    let instructor =  document.getElementById('instructor');
+    let instructorAnimationLength = -(instructingIconWrapperOffsetTop - scrollTop)/1.3;
+    instructor.style.fill = "#D8CCA8";
+    instructor.style.opacity = instructorAnimationLength.toString();
 
     // I need to calculate the distance from the SVGs to the top of the services element.
 
   }
   instructinIconAnimationTrigger(instructingIconWrapperOffsetTop, scrollTop) {
-    let setSquare =  document.getElementById('set-square');
-    let setSquareAnimationLength = -(instructingIconWrapperOffsetTop - scrollTop)/100;
+    let instructor =  document.getElementById('instructor');
+    let instructorAnimationLength = -(instructingIconWrapperOffsetTop - scrollTop)/100;
+    instructor.style.fill = "#49bde5";
+    instructor.style.opacity = instructorAnimationLength.toString();
   }
 
   // Yin-Yang Icon

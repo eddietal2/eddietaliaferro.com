@@ -2,20 +2,29 @@
 <svg width="1050px" height="1050px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Contact-Illustration</title>
     <defs>
-        <polygon id="path-1" points="78 316.07732 525 525.5 972 316.07732 972 735 78 735"></polygon>
-        <filter x="-8.7%" y="-18.0%" width="117.3%" height="137.0%" filterUnits="objectBoundingBox" id="filter-2">
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#D3B900" offset="0%"></stop>
+            <stop stop-color="#A58100" offset="47.157901%"></stop>
+            <stop stop-color="#F4BE12" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-2" points="78 316.07732 525 525.5 972 316.07732 972 735 78 735"></polygon>
+        <filter x="-8.7%" y="-18.0%" width="117.3%" height="137.0%" filterUnits="objectBoundingBox" id="filter-3">
             <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="25.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#EEEEEE" offset="0%"></stop>
+            <stop stop-color="#3F3F3F" offset="100%"></stop>
+        </linearGradient>
     </defs>
     <g id="Contact-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Envelope-Part-2" fill="#FEA5A5" x="78" y="316" width="894" height="419"></rect>
-        <polyline id="Envelope-Part-3" fill="#4FDD32" points="78 316.07732 525 77 972 316.07732"></polyline>
-        <rect id="Letter" fill="#006D87" x="78" y="380" width="894" height="355"></rect>
-        <g id="Envelope-Part-1">
-            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+        <rect id="Envelope-Back" fill="#D8D8D8" x="78" y="316" width="894" height="419"></rect>
+        <rect id="Letter" fill="url(#linearGradient-1)" x="78" y="380" width="894" height="355"></rect>
+        <g id="Envelope-Bottom">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
         </g>
-    </g>
+        <polyline id="Envelope-Top" fill="#AEAEAE" points="78 316.07732 525 77 972 316.07732"></polyline>
+        </g>
 </svg>

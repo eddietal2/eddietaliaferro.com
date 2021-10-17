@@ -1,75 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="500px" height="500px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="px" height="500px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Donate-Illustration</title>
     <defs>
-        <circle id="path-1" cx="44.5" cy="44.5" r="44.5"></circle>
-        <filter x="-6.2%" y="-6.2%" width="112.4%" height="112.4%" filterUnits="objectBoundingBox" id="filter-2">
+        <linearGradient x1="58.9078553%" y1="92.9204589%" x2="49.2022161%" y2="9.57518352%" id="linearGradient-1">
+            <stop stop-color="#EEEEEE" stop-opacity="0.061954525" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" stop-opacity="0.281176587" offset="100%"></stop>
+        </linearGradient>
+        <path d="M373.793,403.016072 L373.690936,402.975564 C441.533595,429.265079 491.435783,442.409837 523.397499,442.409837 C554.923536,442.409837 606.018325,430.088038 676.681866,405.44444 L714,436 L714,868 C714,892.852814 693.852814,913 669,913 L381,913 C356.147186,913 336,892.852814 336,868 L336,436 L373.793,403.016072 Z" id="path-2"></path>
+        <linearGradient x1="39.9029414%" y1="43.6058724%" x2="50%" y2="52.9937078%" id="linearGradient-4">
+            <stop stop-color="#D8CCA8" offset="0%"></stop>
+            <stop stop-color="#847145" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-5" cx="657.5" cy="146.5" r="36.5"></circle>
+        <filter x="-13.0%" y="-13.0%" width="126.0%" height="126.0%" filterUnits="objectBoundingBox" id="filter-6">
             <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
             <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-        <circle id="path-3" cx="44.5" cy="44.5" r="44.5"></circle>
-        <filter x="-6.2%" y="-6.2%" width="112.4%" height="112.4%" filterUnits="objectBoundingBox" id="filter-4">
-            <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-        <circle id="path-5" cx="44.5" cy="44.5" r="44.5"></circle>
-        <filter x="-6.2%" y="-6.2%" width="112.4%" height="112.4%" filterUnits="objectBoundingBox" id="filter-6">
-            <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-        <circle id="path-7" cx="44.5" cy="44.5" r="44.5"></circle>
-        <filter x="-6.2%" y="-6.2%" width="112.4%" height="112.4%" filterUnits="objectBoundingBox" id="filter-8">
-            <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
         </filter>
     </defs>
     <g id="Donate-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M336,443 L714,443 L714,875 C714,899.852814 693.852814,920 669,920 L381,920 C356.147186,920 336,899.852814 336,875 L336,443 L336,443 Z" id="Rectangle" fill-opacity="0.244981459" fill="#D8D8D8"></path>
-        <path d="M336,442.850696 C343.807712,429.730999 351.849733,420.240495 360.126064,414.379185 C368.402394,408.517874 383.803376,401.406006 406.329009,393.043581 L520.893462,393.043581 L635.457915,393.043581 C657.905992,398.966131 675.675205,406.077999 688.765552,414.379185 C701.8559,422.680371 710.267382,432.170875 714,442.850696 L336,442.850696 Z" id="Path-3" fill-opacity="0.244981459" fill="#D8D8D8"></path>
-        <polyline id="Path-4" stroke="#979797" points="406.329009 393.043581 406.329009 367.294097 632.946718 367.294097 632.946718 393.043581"></polyline>
-        <g id="Group" transform="translate(625.000000, 831.000000)">
-            <g id="Oval">
-                <use fill="#FFC200" fill-rule="evenodd" xlink:href="#path-1"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-            </g>
-            <text id="$" font-family="Avenir-Heavy, Avenir" font-size="40" font-weight="600" fill="#066A65">
-                <tspan x="32.66" y="57">$</tspan>
-            </text>
-        </g>
-        <g id="Group-Copy" transform="translate(336.000000, 831.000000)">
-            <g id="Oval">
-                <use fill="#FFC200" fill-rule="evenodd" xlink:href="#path-3"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
-            </g>
-            <text id="$" font-family="Avenir-Heavy, Avenir" font-size="40" font-weight="600" fill="#066A65">
-                <tspan x="32.66" y="57">$</tspan>
-            </text>
-        </g>
-        <g id="Group-Copy-2" transform="translate(488.000000, 831.000000)">
-            <g id="Oval">
-                <use fill="#FFC200" fill-rule="evenodd" xlink:href="#path-5"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
-            </g>
-            <text id="$" font-family="Avenir-Heavy, Avenir" font-size="40" font-weight="600" fill="#066A65">
-                <tspan x="32.66" y="57">$</tspan>
-            </text>
-        </g>
-        <g id="Group-Copy-3" transform="translate(459.000000, 181.000000)">
-            <g id="Oval">
-                <use fill="#FFC200" fill-rule="evenodd" xlink:href="#path-7"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
-            </g>
-            <text id="$" font-family="Avenir-Heavy, Avenir" font-size="40" font-weight="600" fill="#066A65">
-                <tspan x="32.66" y="57">$</tspan>
-            </text>
+        <mask id="mask-3" fill="white">
+            <use xlink:href="#path-2"></use>
+        </mask>
+        <use id="Combined-Shape" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+        <path d="M340,840.217906 C330.919311,854.893117 330.919311,881.487148 340,920 L718,920 L718,833.195936 C737.867689,837.87725 727.538635,840.217906 687.01284,840.217906 C674.899041,840.217906 661.79253,833.195936 645.643959,833.195936 C643.616052,833.195936 610.091409,840.296016 608.225782,840.217906 C584.833809,839.238531 603.263451,825.39571 536.920803,823.461277 C513.075841,822.766001 509.649306,840.217906 444.520381,840.217906 C407.859224,840.217906 414.976394,868.784143 378.302252,858.100115 C371.541732,856.130619 353.621034,818.205091 340,840.217906 Z" id="coins-in-jar" fill="url(#linearGradient-4)" mask="url(#mask-3)"></path>
+        <g id="coin">
+            <use fill="#D8CCA8" fill-rule="evenodd" xlink:href="#path-5"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+            <use stroke="#847145" stroke-width="8" xlink:href="#path-5"></use>
         </g>
     </g>
 </svg>

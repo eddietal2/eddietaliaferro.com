@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="30px" height="36px" viewBox="0 0 30 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Path</title>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>gold-logo</title>
     <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#d8cca8" offset="0%"></stop>
-            <stop stop-color="#e4ba55" offset="47.157901%"></stop>
-            <stop stop-color="#d8cca8" offset="100%"></stop>
+        <linearGradient x1="10.3787739%" y1="50%" x2="78.588024%" y2="32.5610689%" id="linearGradient-1">
+            <stop stop-color="#EEE8D3" offset="0%"></stop>
+            <stop stop-color="#847145" offset="39.7114216%"></stop>
+            <stop stop-color="#B2A482" offset="100%"></stop>
         </linearGradient>
     </defs>
-    <g id="Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Landing-Page" transform="translate(-66.000000, -12.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
-            <g id="logo-2-copy-2" transform="translate(66.000000, 12.000000)">
-                <polygon id="Path" transform="translate(15.000000, 18.000000) scale(-1, 1) translate(-15.000000, -18.000000) " points="0 36 30 36 24.2857143 29.1150607 6.27026661 29.1150607 6.27026661 20.7009888 21.0714286 20.7009888 21.0714286 17.2571263 21.0714286 14.6134269 6.27026661 14.6134269 6.27026661 7.14470148 24.2857143 7.14470148 30 0 0 2.39808173e-16"></polygon>
-            </g>
+    <g id="gold-logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo-2-copy" transform="translate(33.000000, 25.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero" stroke="#847145" stroke-width="3">
+            <polygon id="Path" transform="translate(42.000000, 50.000000) scale(-1, 1) translate(-42.000000, -50.000000) " points="0 100 84 100 68 80.8751687 17.5567465 80.8751687 17.5567465 57.5027468 59 57.5027468 59 47.9364619 59 40.5928526 17.5567465 40.5928526 17.5567465 19.846393 68 19.846393 84 0 0 6.66133815e-16"></polygon>
         </g>
     </g>
 </svg>

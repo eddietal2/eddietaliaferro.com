@@ -24,3 +24,175 @@
     margin: 0 auto;
   }
 }
+
+#Main-Crane {
+  transform-origin: 263px, 46px;
+  animation: rotateOnY 10s ease infinite;
+}
+  @keyframes rotateOnY {
+  0% {
+    transform: translate(422px, 46px) rotateY(0turn);
+  }
+  10% {
+    transform: translate(422px, 46px) rotateY(0.5turn);
+  }
+  20% {
+    transform: translate(422px, 46px) rotateY(0.5turn);
+  }
+  30% {
+    transform: translate(422px, 46px) rotateY(0.5turn);
+  }
+  40% {
+    transform: translate(422px, 46px) rotateY(0.5turn);
+  }
+  50% {
+    transform: translate(422px, 46px) rotateY(0.5turn);
+  }
+  60% {
+    transform: translate(422px, 46px) rotateY(0);
+  }
+  70% {
+    transform: translate(422px, 46px) rotateY(0);
+  }
+  80% {
+    transform: translate(422px, 46px) rotateY(0);
+  }
+  90% {
+    transform: translate(422px, 46px) rotateY(0);
+  }
+  100% {
+    transform: translate(422px, 46px) rotateY(0);
+  }
+}
+
+#Crane-Grabber{
+  animation: crane-grab 10s ease-in infinite;
+}
+@keyframes crane-grab {
+  0%{
+    transform: translate(122px, 110px);
+  }
+  10%{
+    transform: translate(122px, 110px);
+  }
+  30%{
+    transform: translate(122px, 320px);
+  }
+  40%{
+    transform: translate(122px, 110px);
+  }
+  50%{
+    transform: translate(122px, 110px);
+  }
+  60%{
+    transform: translate(122px, 110px);
+  }
+  70%{
+    transform: translate(122px, 110px);
+  }
+  80%{
+    transform: translate(122px, 270px);
+  }
+  90%{
+    transform: translate(122px, 110px);
+  }
+  100%{
+    transform: translate(122px, 110px);
+  }
+}
+
+#Grab-Object-1{
+  animation: grab-object-1-up 10s ease-in infinite;
+}
+@keyframes grab-object-1-up {
+  0%{
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  10%{
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  20%{
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  30%{
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  40%{
+    opacity: 1;
+    transform: translate(0px, -206px);
+  }
+  50%{
+    opacity: 0;
+    transform: translate(0px, -206px);
+  }
+  60%{
+    opacity: 0;
+    transform: translate(0px, 0px);
+  }
+  70%{
+    opacity: 0;
+    transform: translate(0px, 0px);
+  }
+  80%{
+    opacity: 0;
+    transform: translate(0px, 50px);
+  }
+  90%{
+    opacity: 0;
+    transform: translate(0px, 50px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+#Grab-Object-2{
+  animation: grab-object-2-up 10s ease-in infinite;
+}
+@keyframes grab-object-2-up {
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 1;
+  }
+  80%{
+    opacity: 1;
+  }
+  81%{
+    opacity: 0;
+  }
+  90%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+
+
+

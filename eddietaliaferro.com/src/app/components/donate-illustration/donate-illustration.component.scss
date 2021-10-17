@@ -24,3 +24,24 @@
     margin: 0 auto;
   }
 }
+#coin {
+  animation: coin-drop 4s ease-out infinite;
+}
+@keyframes coin-drop {
+  0% {
+    opacity: 0;
+    transform: translate(-0px,0px)
+  }
+  10% {
+    opacity: 0.2;
+    transform: translate(-10px,300px)
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-20px,700px)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-30px,700px)
+  }
+}

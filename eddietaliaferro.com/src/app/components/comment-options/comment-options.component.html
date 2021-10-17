@@ -1,6 +1,9 @@
 <div id="delete-comment-popover-button" (click)="deleteCommentAlert(blogID, commentID, userFullName, title)">
   Delete Comment
 </div>
-<div (click)="editComment(blogID, commentID, comment, replyInput, replyInputButton, commentEditButton)" id="edit-comment-popover-button">
+<div (click)="editComment()" id="edit-comment-popover-button">
   Edit Comment
+</div>
+<div (click)="close()" id="edit-comment-popover-button">
+  Cancel
 </div>

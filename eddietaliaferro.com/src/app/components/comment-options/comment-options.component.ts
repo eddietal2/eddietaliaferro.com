@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, PopoverController, ToastController } from '@ionic/angular';
 import { formatDistance, parseISO } from 'date-fns';
 import { catchError, tap } from 'rxjs/operators';
 import { BlogService } from 'src/app/services/blog/blog.service';
@@ -18,18 +18,21 @@ export class CommentOptionsComponent implements OnInit {
   @Input("comment") comment;
   @Input("replyInput") replyInput;
   @Input("replyInputButton") replyInputButton;
-  @Input("commentEditButton") commentEditButton;
   commentsLength: any;
   editCommentSub: any;
 
   constructor(
     private blogService: BlogService,
+    private popoverController: PopoverController,
     private alertController: AlertController,
     private toastController: ToastController,
   ) { }
 
   ngOnInit() {
     console.log(this.blogID, this.commentID, this.userFullName, this.title, this.comments)
+  }
+  close() {
+    this.popoverController.dismiss();
   }
 
   deleteComment(blogID, commentID, userFullName, title) {
@@ -81,6 +84,7 @@ export class CommentOptionsComponent implements OnInit {
           text: 'Delete',
           handler: () => {
             this.deleteComment(blogID, commentID, userFullName, title);
+            this.popoverController.dismiss();
           }
         }
       ]
@@ -95,25 +99,18 @@ export class CommentOptionsComponent implements OnInit {
     });
     toast.present();
   }
-  editComment(blogID, commentID, comment, replyInput, replyInputButton, commentEditButton) {
-    // get commentID
-    // Turn comment p element to a textarea element
-    // When finished, turn back into a p element
-    // let comment = document.getElementById(commentID + '-comment');
-    // let replyInput = document.getElementById(commentID + '-reply-input');
-    // let replyInputButton = document.getElementById(commentID + '-reply-input-button');
-    // let commentEditButton = document.getElementById(commentID + '-comment-edit-button');
+  editComment() {
+    this.popoverController.dismiss();
     console.log(this.comment)
     console.log(this.replyInput)
     console.log(this.replyInputButton)
-    console.log(this.commentEditButton)
 
-    // this.commentEditButton.style.display = 'none';
-    let commentValue = comment.innerHTML;
+    let commentValue = this.comment.innerHTML;
 
     // Edit Text Area Element
     let editTextarea = document.createElement('textarea');
     editTextarea.setAttribute('rows', '10');
+    editTextarea.setAttribute('id', this.comment);
     editTextarea.style.fontSize = '1em';
     editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
     editTextarea.style.width = '100%';
@@ -132,9 +129,9 @@ export class CommentOptionsComponent implements OnInit {
       cancelEditButton.remove();
       completeEditButton.remove();
       this.replyInput.style.display = 'block';
-      this.replyInputButton.style.display = 'block';commentEditButton.style.display = 'block';
+      this.replyInputButton.style.display = 'block';
       // HTTP Request
-      this.editCommentSub = this.blogService.editComment(blogID, commentID, editTextarea.value)
+      this.editCommentSub = this.blogService.editComment(this.blogID, this.commentID, editTextarea.value)
       .pipe(
         tap(res => {
           if (!res) {
@@ -146,7 +143,7 @@ export class CommentOptionsComponent implements OnInit {
           if (e) {
             this.presentAlert('Error ', 'There was an error editting your comment');
           }
-          editTextarea.replaceWith(comment)
+          editTextarea.replaceWith(this.comment)
           throw new Error(e);
         })
       )
@@ -154,8 +151,8 @@ export class CommentOptionsComponent implements OnInit {
         data => {
           console.log(data);
           // Only update Comment if there was a successful network request.
-          comment.innerHTML = editTextarea.value;
-          editTextarea.replaceWith(comment)
+          this.comment.innerHTML = editTextarea.value;
+          editTextarea.replaceWith(this.comment)
         }
       )
     });
@@ -173,8 +170,8 @@ export class CommentOptionsComponent implements OnInit {
       cancelEditButton.remove();
       completeEditButton.remove();
       this.replyInput.style.display = 'block';
-      this.replyInputButton.style.display = 'block';commentEditButton.style.display = 'block';
-      editTextarea.replaceWith(comment);
+      this.replyInputButton.style.display = 'block';
+      editTextarea.replaceWith(this.comment);
     });
     cancelEditButton.innerHTML = 'Cancel';
     editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
@@ -187,7 +184,7 @@ export class CommentOptionsComponent implements OnInit {
 
 
     // Adding elements to interface.
-    comment.replaceWith(editTextarea);
+    this.comment.replaceWith(editTextarea);
     this.replyInput.style.display = 'none';
     this.replyInputButton.style.display = 'none';
     insertAfter(editTextarea, completeEditButton)

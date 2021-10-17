@@ -1,6 +1,4 @@
-#delete-comment-popover-button {
-  width: 125px;
-}
-#edit-comment-popover-button {
-  width: 125px;
+#delete-comment-popover-button, #edit-comment-popover-button {
+  width: auto;
+  padding: 1em;
 }
