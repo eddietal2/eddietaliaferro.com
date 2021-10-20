@@ -41,26 +41,16 @@ export class UserProfilePage implements OnInit {
     this.storage.get(this.TOKEN_KEY).then(
       token => {
         const decoded = this.helper.decodeToken(token);
+        console.clear();
         console.log(decoded);
       }
     );
-    this.storage.remove(this.TOKEN_KEY);
-    this.storage.set(this.TOKEN_KEY, {
-      name: 'Eddie'
-    })
-    this.storage.get(this.TOKEN_KEY).then(
-      token => {
-        const decoded = this.helper.decodeToken(token);
-        console.log(decoded);
-      }
-    );
-
-
     this.userFullName = this.auth.userFullName.subscribe(
       data => {
-        console.log(data);
         this.userFirstName = data.split(" ")[0];
         this.userLastName = data.split(" ")[1];
+        console.log(this.userFirstName)
+        console.log(this.userLastName )
     });
     this.auth.userPicture.subscribe(
       data => {
@@ -86,76 +76,92 @@ export class UserProfilePage implements OnInit {
       email: this.userEmail,
     })
   }
-  editProfile(picture) {
-    console.log('checking email')
-    if(this.userProfileForm.value.email === this.userProfileForm.value.oldEmail) {
+  editProfile() {
+
+    // If Password Input is Empty
+    if(this.userProfileForm.value.password === '') {
+      return this.wrongPasswordAlert('You forgot to enter a password!')
+    }
+
+    // If currenty Email is remaining the same.
+    if(this.userProfileForm.value.email === this.userEmail) {
       console.log('There emails were the same!');
       if(!this.pictureDataURL) {
         let updatedProfile = {
           fullName: this.userProfileForm.value.firstName + ' ' + this.userProfileForm.value.lastName,
-          email: this.userProfileForm.value.email,
+          oldEmail: this.userEmail,
+          newEmail: this.userProfileForm.value.email,
           password: this.userProfileForm.value.password,
-          picture: this.userPicture
+          picture: this.userPicture,
         }
         this.auth.updateProfile(updatedProfile).subscribe(
           data => {
-            console.log(data);
+            // console.clear()
+            console.log('Change Picture Update Profile Data: ')
+            console.log(data)
             if(data['isMatch'] === true) {
                 this.storage.remove(this.TOKEN_KEY);
                 this.auth.userFullName.next(data['fullName']);
-                this.auth.userEmail.next(data['email']);
+                this.auth.userEmail.next(data['newEmail']);
                 this.auth.userPicture.next(data['picture']);
+                this.successToast('You have successfully updated your profile!')
+                this.userProfileForm.patchValue({
+                  password: ''
+                })
             }
         })
-      } else {
+      }
       console.log('Getting Thumbnail S3 URL');
       const formData = new FormData();
       let pictureFile = new File([this.dataURLtoBlob(this.pictureDataURL)], 'user-profile-picture.png');
       formData.append('user-profile-picture', pictureFile);
         this.pictureService.userProfilePictureUpload(formData).subscribe(
-          pictureURL => {
-            this.userProfileForm.value.picture = pictureURL['objectUrl'];
+            pictureURL => {
+              this.userProfileForm.value.picture = pictureURL['objectUrl'];
+              console.clear();
+              console.log('USER EMAIL');
+              console.log(this.userEmail);
 
-            let updatedProfile = {
-              fullName: this.userProfileForm.value.firstName + ' ' + this.userProfileForm.value.lastName,
-              email: this.userProfileForm.value.email,
-              password: this.userProfileForm.value.password,
-              picture: this.userProfileForm.value.picture,
-            }
-            this.auth.updateProfile(updatedProfile).subscribe(
-              data => {
-                console.log(data);
-                if(data['isMatch'] === true) {
-                  this.storage.remove(this.TOKEN_KEY);
-                  this.storage.set(this.TOKEN_KEY, {
-                    picture: data['picture'],
-                    email: data['email'],
-                    fullName: data['fullName'],
-                  }).then( data => {
+              let updatedProfile = {
+                fullName: this.userProfileForm.value.firstName + ' ' + this.userProfileForm.value.lastName,
+                oldEmail: this.userEmail,
+                newEmail: this.userProfileForm.value.email,
+                password: this.userProfileForm.value.password,
+                picture: this.userProfileForm.value.picture,
+              }
+              this.auth.updateProfile(updatedProfile).subscribe(
+                data => {
+                  console.log(data);
+                  if(data['isMatch'] === true) {
+                    this.storage.remove(this.TOKEN_KEY);
                     this.auth.userFullName.next(data['fullName']);
-                    this.auth.userEmail.next(data['email']);
+                    this.auth.userEmail.next(data['newEmail']);
                     this.auth.userPicture.next(data['picture']);
-                    const decoded = this.helper.decodeToken(data);
-                    const isExpired = this.helper.isTokenExpired(data);
-                    console.log(decoded)
-                  })
-                }
-            })
-      })
+                    this.successToast('You have successfully updated your profile!')
+                    this.userProfileForm.patchValue({
+                      password: ''
+                    })
+                  }
+              })
+        })
       }
-    } else {
+    // If current email is being changed via the email input
+    else {
       console.log('The emails were not the same');
       this.auth.checkEmail(this.userProfileForm.value.email).subscribe(
         data => {
           if(!data['isEmail']) {
             console.log('No one else has this email!')
+            // If the user does NOT change their profile picture
             if(!this.pictureDataURL) {
               let updatedProfile = {
                 fullName: this.userProfileForm.value.firstName + ' ' + this.userProfileForm.value.lastName,
-                email: this.userProfileForm.value.email,
+                oldEmail: this.userEmail,
+                newEmail: this.userProfileForm.value.email,
                 password: this.userProfileForm.value.password,
                 picture: this.userPicture
               }
+              console.log(updatedProfile)
               this.auth.updateProfile(updatedProfile).subscribe(
                 data => {
                   console.log(data);
@@ -163,9 +169,12 @@ export class UserProfilePage implements OnInit {
                     this.auth.userFullName.next(data['fullName']);
                     this.auth.userEmail.next(data['email']);
                     this.auth.userPicture.next(data['picture']);
+                    this.successToast('You have successfully updated your profile!')
+                    this.userProfileForm.value.password = '';
                   }
               })
             }
+            // If user uploads a new Profile Picture
             else {
             console.log('Getting Thumbnail S3 URL');
             const formData = new FormData();
@@ -177,7 +186,8 @@ export class UserProfilePage implements OnInit {
 
                   let updatedProfile = {
                     fullName: this.userProfileForm.value.firstName + ' ' + this.userProfileForm.value.lastName,
-                    email: this.userProfileForm.value.email,
+                    oldEmail: this.userEmail,
+                    newEmail: this.userProfileForm.value.email,
                     password: this.userProfileForm.value.password,
                     picture: this.userProfileForm.value.picture,
                   }
@@ -188,11 +198,12 @@ export class UserProfilePage implements OnInit {
                         this.auth.userFullName.next(data['fullName']);
                         this.auth.userEmail.next(data['email']);
                         this.auth.userPicture.next(data['picture']);
+                        this.successToast('You have successfully updated your profile!')
+                        this.userProfileForm.value.password = '';
                       }
                   })
             })
             }
-
           } else {
             console.log('SOMEONE HAS THIS EMAIL! Retry')
           }
@@ -266,7 +277,7 @@ export class UserProfilePage implements OnInit {
           }
         }, {
           text: 'Ok',
-          
+
           handler: (e) => {
             console.log(e);
             let currentPassword = e['current-password'];
@@ -279,7 +290,6 @@ export class UserProfilePage implements OnInit {
             }
             else if (newPassword != reTypeNewPassword) {
               console.log('New Passwords do not match!');
-              
               this.wrongPasswordAlert('New passwords do not match. Please double check both entries.');;
               return false ;
             }
@@ -295,7 +305,6 @@ export class UserProfilePage implements OnInit {
                     this.alertController.dismiss()
                     return;
                   }
-                  
                 }
               )
             return false;
@@ -306,7 +315,6 @@ export class UserProfilePage implements OnInit {
 
     await alert.present();
   }
-
   async wrongPasswordAlert(msg) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -323,7 +331,7 @@ export class UserProfilePage implements OnInit {
   async successToast(msg) {
     const toast = await this.toastController.create({
       message: msg,
-      cssClass: 'success-toast',
+      // cssClass: 'success-toast',
       duration: 2000
     });
     toast.present();

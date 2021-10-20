@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="1072px" height="1050px" viewBox="0 0 1072 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Projects-Illustration</title>
     <defs>
@@ -52,59 +51,54 @@
                 <ellipse id="Crane-Claw" fill="#847145" cx="20.5" cy="247.5" rx="14.5" ry="13.5"></ellipse>
             </g>
         </g>
-        <g id="Combined-Shape">
+        <g id="Main-Building-Mask">
             <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
             <use fill="#2B215F" fill-rule="evenodd" xlink:href="#path-5"></use>
         </g>
-        <rect id="Rectangle" fill="url(#linearGradient-7)" x="373" y="554" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy" fill-opacity="0.435416268" fill="#000000" x="463" y="554" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-3" fill-opacity="0.435416268" fill="#000000" x="553" y="554" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-2" fill-opacity="0.435416268" fill="#000000" x="643" y="554" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-25" fill-opacity="0.435416268" fill="#000000" x="732" y="660.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-24" fill-opacity="0.435416268" fill="#000000" x="809.054795" y="660.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-27" fill-opacity="0.435416268" fill="#000000" x="732" y="720.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-26" fill-opacity="0.435416268" fill="#000000" x="809.054795" y="720.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-29" fill-opacity="0.435416268" fill="#000000" x="732" y="780.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-28" fill-opacity="0.435416268" fill="#000000" x="809.054795" y="780.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-31" fill-opacity="0.435416268" fill="#000000" x="733" y="840.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-30" fill-opacity="0.435416268" fill="#000000" x="810.054795" y="840.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-34" fill-opacity="0.435416268" fill="#000000" x="733" y="900.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-33" fill-opacity="0.435416268" fill="#000000" x="810.054795" y="900.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-46" fill-opacity="0.435416268" fill="#000000" x="218" y="664.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-45" fill-opacity="0.435416268" fill="#000000" x="295.054795" y="664.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-44" fill-opacity="0.435416268" fill="#000000" x="218" y="724.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-43" fill-opacity="0.435416268" fill="#000000" x="295.054795" y="724.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-42" fill-opacity="0.435416268" fill="#000000" x="218" y="784.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-41" fill-opacity="0.435416268" fill="#000000" x="295.054795" y="784.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-40" fill-opacity="0.435416268" fill="#000000" x="219" y="844.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-39" fill-opacity="0.435416268" fill="#000000" x="296.054795" y="844.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-38" fill-opacity="0.435416268" fill="#000000" x="219" y="904.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-37" fill-opacity="0.435416268" fill="#000000" x="296.054795" y="904.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
-        <rect id="Rectangle-Copy-7" fill-opacity="0.435416268" fill="#000000" x="373" y="621" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-6" fill-opacity="0.435416268" fill="#000000" x="463" y="621" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-5" fill-opacity="0.435416268" fill="#000000" x="553" y="621" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-4" fill-opacity="0.435416268" fill="#000000" x="643" y="621" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-11" fill-opacity="0.435416268" fill="#000000" x="373" y="688" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-10" fill-opacity="0.435416268" fill="#000000" x="463" y="688" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-9" fill-opacity="0.435416268" fill="#000000" x="553" y="688" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-8" fill-opacity="0.435416268" fill="#000000" x="643" y="688" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-15" fill-opacity="0.435416268" fill="#000000" x="373" y="755" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-14" fill-opacity="0.435416268" fill="#000000" x="463" y="755" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-13" fill-opacity="0.435416268" fill="#000000" x="553" y="755" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-12" fill-opacity="0.435416268" fill="#000000" x="643" y="755" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-19" fill-opacity="0.435416268" fill="#000000" x="373" y="822" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-18" fill-opacity="0.435416268" fill="#000000" x="463" y="822" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-17" fill-opacity="0.435416268" fill="#000000" x="553" y="822" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-16" fill-opacity="0.435416268" fill="#000000" x="643" y="822" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-23" fill-opacity="0.435416268" fill="#000000" x="373" y="889" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-22" fill-opacity="0.435416268" fill="#000000" x="463" y="889" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-21" fill-opacity="0.435416268" fill="#000000" x="553" y="889" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-20" fill-opacity="0.435416268" fill="#000000" x="643" y="889" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-35" fill-opacity="0.435416268" fill="#000000" x="373" y="956" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle-Copy-32" fill-opacity="0.435416268" fill="#000000" x="643" y="956" width="56" height="48" rx="2"></rect>
-        <rect id="Rectangle" fill="#D8A468" x="468" y="990" width="141" height="57" rx="3"></rect>
-        <rect id="Rectangle-Copy-36" fill="#D8A468" x="767" y="993" width="56" height="57" rx="3"></rect>
-        <rect id="Rectangle-Copy-47" fill="#D8A468" x="249" y="993" width="56" height="57" rx="3"></rect>
-        <path d="" id="Path-4" stroke="#979797"></path>
+        <rect id="Window" fill="url(#linearGradient-7)" x="373" y="554" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="463" y="554" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="553" y="554" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="809.054795" y="720.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="732" y="780.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="809.054795" y="780.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="733" y="840.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="810.054795" y="840.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="733" y="900.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="810.054795" y="900.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="218" y="664.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="295.054795" y="664.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="218" y="724.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="295.054795" y="724.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="218" y="784.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="295.054795" y="784.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="219" y="844.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="296.054795" y="844.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="219" y="904.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="296.054795" y="904.452055" width="47.9452055" height="41.0958904" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="373" y="621" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="463" y="621" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="553" y="621" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="643" y="621" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="373" y="688" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="463" y="688" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="553" y="688" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="643" y="688" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="373" y="755" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="463" y="755" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="553" y="755" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="643" y="755" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="373" y="822" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="463" y="822" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="553" y="822" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="643" y="822" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="373" y="889" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="463" y="889" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="553" y="889" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="643" y="889" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="373" y="956" width="56" height="48" rx="2"></rect>
+        <rect id="Window" fill-opacity="0.435416268" fill="#000000" x="643" y="956" width="56" height="48" rx="2"></rect>
+        <rect id="Big-Door" fill="#D8A468" x="468" y="990" width="141" height="57" rx="3"></rect>
+        <rect id="Small-Door" fill="#D8A468" x="767" y="993" width="56" height="57" rx="3"></rect>
+        <rect id="Small-Door" fill="#D8A468" x="249" y="993" width="56" height="57" rx="3"></rect>
     </g>
 </svg>

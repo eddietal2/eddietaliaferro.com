@@ -52,7 +52,7 @@ export class BlogPagePage implements OnInit {
   prevBlogTitle;
   nextBlogTitle;
   currentBlogPosition: number;
-
+  commentMoreButtonActive = false;
 
   constructor(
     private router: Router,
@@ -160,6 +160,30 @@ export class BlogPagePage implements OnInit {
           return this.addCommentToast();
         });
     }
+    commentFromTop(blogID, userName, userPicture, comment, userEmail) {
+      this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
+        data => {
+          this.comments = data['comments'];
+          this.commentsLength = this.comments.length;
+          for (let i = 0; i < this.comments.length; i++) {
+            this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+          }
+          this.commentInput.value = '';
+          this.addCommentToast();
+
+          // Find most recent comment, then scroll to that comment + the height of its wrapper
+          let lastCommentID = this.comments[this.comments.length - 2]['_id'];
+          let lastCommentScrollTop = document.getElementById(lastCommentID + '-comment-wrapper');
+          let newCommentScrolltop = lastCommentScrollTop.offsetTop;
+
+          console.clear();
+          console.log('Scrolltop: ');
+          console.log(lastCommentScrollTop.offsetTop);
+          console.log(lastCommentScrollTop.scrollHeight);
+          console.log(newCommentScrolltop);
+          this.ionContent.scrollToPoint(0, (newCommentScrolltop))
+        });
+    }
     mobileComment(blogID, userName, userPicture, comment, userEmail) {
       this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
         data => {
@@ -185,7 +209,8 @@ export class BlogPagePage implements OnInit {
           comment: document.getElementById(commentID + '-comment'),
           replyInput: document.getElementById(commentID + '-reply-input'),
           replyInputButton: document.getElementById(commentID + '-reply-input-button'),
-          commentEditButton: document.getElementById(commentID + '-comment-edit-button')
+          commentEditButton: document.getElementById(commentID + '-comment-edit-button'),
+          commentMoreButton: document.getElementById(commentID + '-comment-more-button')
 
         },
         event: ev,
@@ -418,7 +443,8 @@ export class BlogPagePage implements OnInit {
       this.replyContent = e.detail.value;
     }
     getScrollPosition(e) {
-      this.scrollTop = e.scrollTop;
+      this.scrollTop = e.detail.scrollTop;
+      console.log(this.scrollTop)
     }
     viewReplies(comment, id, e, repliesLength) {
       var repliesLength = repliesLength;

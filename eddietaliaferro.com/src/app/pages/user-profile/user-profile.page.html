@@ -1,19 +1,20 @@
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="4">
-        <ion-row>
-          <ion-col style="margin-top: 5em;" class="ion-text-center" size="12">
+      <ion-col class="page-wrapper ion-text-center" size-xs="11" size-sm="9" size-md="8" size-lg="6" size-xl="5">
             <input type="file" (change)="getPictureFile($event)"  name="user-profile-picture" id="user-profile-picture" class="purple-button" style="margin: 3em auto;">
             <img id="user-current-picture" *ngIf="userPicture" width="200" style="border-radius: 200px;" src="{{userPicture}}" alt="User Profile Picture">
             <img id="user-new-picture" *ngIf="pictureDataURL" width="200" style="border-radius: 200px;" src="{{pictureDataURL}}" alt="User Profile Picture">
             <label for="user-profile-picture">Change Profile Picture</label>
-          </ion-col>
-          <ion-col class="ion-text-center" size="12">
-            <div id="profile-message">
-              <p>You can update your profile here! Make sure all your information is correct before making any changes.</p>
-            </div>
-            <form [formGroup]="userProfileForm" (ngSubmit)="editProfile(this.pictureDataURL)">
+            <ion-button class="red-button" style="width: 200px; margin: 3em auto;" (click)="presentAlertPrompt(this.userEmail)">
+              Change Password
+            </ion-button>
+      </ion-col>
+      <ion-col class="page-wrapper ion-text-center" size-xs="11" size-sm="9" size-md="8" size-lg="5" size-xl="4">
+            <form [formGroup]="userProfileForm" (ngSubmit)="editProfile()">
+              <div id="profile-message">
+                <p>You can update your profile here! Make sure all your information is correct before making any changes.</p>
+              </div>
               <ion-item lines="none">
                 <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
               </ion-item>
@@ -28,15 +29,10 @@
               </ion-item>
               <!-- Alert or Modal popus up with Password Change. -->
               <!-- Have the user log back in with their new password -->
-              <ion-button class="red-button" style="width: 200px; margin: 3em auto;" (click)="presentAlertPrompt(this.userEmail)">
-                Change Password
-              </ion-button>
               <ion-button class="green-button" type="submit" style="margin: 3em auto;">
                 Edit Profile
               </ion-button>
             </form>
-          </ion-col>
-        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

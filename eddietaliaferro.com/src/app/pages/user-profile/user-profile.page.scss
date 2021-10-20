@@ -5,6 +5,24 @@ ion-grid {
   min-height: 100vh;
   --color: white;
 }
+.danger-toast {
+  font-weight: 600;
+  font-size: 21px;
+  width: 100%;
+  --background: #FF443B;
+  position: relative;
+  top: 150px;
+  color: white;
+}
+.success-toast {
+  font-weight: 600;
+  font-size: 21px;
+  width: 100%;
+  --background: #3df63d;
+  position: relative;
+  top: 150px;
+  color: white;
+}
 label {
   cursor: pointer;
   display: block;
@@ -19,7 +37,20 @@ label {
   font-weight: 500;
   text-transform: uppercase;
 }
-
+.page-wrapper {
+  padding-top: 6em;
+}
+@media only screen and (max-width: 800px) {
+  .page-wrapper {
+    padding-top: 0em;
+  }
+}
+form {
+  background: #1805199e;
+  padding: 2em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #000;
+}
 #user-profile-picture {
   opacity: 0;
   position: absolute;

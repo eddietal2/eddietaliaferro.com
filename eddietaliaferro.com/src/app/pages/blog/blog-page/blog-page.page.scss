@@ -80,7 +80,7 @@ ion-toolbar:first-child {
   border-radius: 5px;
 }
 .comment-wrapper {
-  background: #525252;
+  background: #1805199e;
   padding: 2em;
   margin: 2em auto;
   border-radius: 5px;
@@ -144,13 +144,13 @@ ion-toolbar:first-child {
       --box-shadow: none;
     }
     .grey-button {
+      margin-top: 1em;
       --width: 150px;
       height: 36px;
       font-size: 0.8em;
       position: relative;
       left: 7px;
-      --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
-      --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
+      // --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
       --color: white;
       --border-radius: 50px;
       --box-shadow: none;
@@ -180,7 +180,7 @@ ion-toolbar:first-child {
     font-size: 0.7em;
     display: block;
     position: relative;
-    left: 57px;
+    left: 68px;
     top: -14px;
   }
   .comment-name, .comment-admin {

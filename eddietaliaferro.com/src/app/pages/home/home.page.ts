@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { format, parseISO } from 'date-fns';
 import { Subscription } from 'rxjs';
@@ -215,7 +215,7 @@ export class HomePage implements OnInit {
     //  yang.style.transform = "translate(0px, 167px)";
     //  // 612 to 462
     //  yin.style.transform = "translate(612px, 167px)";
-     yinYangWrapper.style.transformOrigin = "525px 525px"
+     yinYangWrapper.style.transformOrigin = "center"
 
   }
   yinYangRotateAnimationTrigger(yinYangWrapperOffsetTop, scrollTop) {
@@ -256,11 +256,13 @@ export class HomePage implements OnInit {
   contactPage() {
     this.router.navigateByUrl('/contact');
   }
-  viewBlogPage() {
-
+  viewBlogPage(blogID) {
+    console.log(blogID)
+    this.router.navigateByUrl('/blog/blog-page/' + blogID);
   }
-  viewProjectPage(url) {
-    console.log(url);
+  viewProjectPage(projectID) {
+    console.log(projectID);
+    // this.router.navigateByUrl('/projects/' + projectID);
   }
 
 

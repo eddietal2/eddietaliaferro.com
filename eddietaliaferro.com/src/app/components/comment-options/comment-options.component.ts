@@ -18,6 +18,7 @@ export class CommentOptionsComponent implements OnInit {
   @Input("comment") comment;
   @Input("replyInput") replyInput;
   @Input("replyInputButton") replyInputButton;
+  @Input("commentMoreButton") commentMoreButton;
   commentsLength: any;
   editCommentSub: any;
 
@@ -105,6 +106,7 @@ export class CommentOptionsComponent implements OnInit {
     console.log(this.replyInput)
     console.log(this.replyInputButton)
 
+    this.commentMoreButton.style.opacity = 0;
     let commentValue = this.comment.innerHTML;
 
     // Edit Text Area Element
@@ -122,8 +124,16 @@ export class CommentOptionsComponent implements OnInit {
     editTextarea.style.marginBottom = '1em';
     editTextarea.innerHTML = commentValue;
 
-    // Complete Edit & Cancel Edit Buttons
+    // Complete Edit Button
     let completeEditButton = document.createElement('button');
+    completeEditButton.innerHTML = 'Edit';
+    editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+    completeEditButton.style.width = '100px';
+    completeEditButton.style.padding = '0.3em';
+    completeEditButton.style.margin = '0.3em 0.5em';
+    completeEditButton.style.borderRadius = '100px';
+    completeEditButton.style.color = 'white';
+    completeEditButton.style.background = '#ff00006e';
     completeEditButton.addEventListener('click', () => {
       console.log('Completing Edit');
       cancelEditButton.remove();
@@ -136,6 +146,7 @@ export class CommentOptionsComponent implements OnInit {
         tap(res => {
           if (!res) {
             console.log('There was no response.');
+            this.commentMoreButton.style.opacity = 1;
           }
         }),
         catchError(e => {
@@ -144,6 +155,7 @@ export class CommentOptionsComponent implements OnInit {
             this.presentAlert('Error ', 'There was an error editting your comment');
           }
           editTextarea.replaceWith(this.comment)
+          this.commentMoreButton.style.opacity = 1;
           throw new Error(e);
         })
       )
@@ -152,19 +164,22 @@ export class CommentOptionsComponent implements OnInit {
           console.log(data);
           // Only update Comment if there was a successful network request.
           this.comment.innerHTML = editTextarea.value;
+          this.commentMoreButton.style.opacity = 1;
           editTextarea.replaceWith(this.comment)
         }
       )
     });
-    completeEditButton.innerHTML = 'Edit';
-    editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
-    completeEditButton.style.width = '100px';
-    completeEditButton.style.padding = '0.3em';
-    completeEditButton.style.margin = '0.3em 0.5em';
-    completeEditButton.style.borderRadius = '100px';
-    completeEditButton.style.color = '#00c400';
 
+    // Cancel Edit Button
     let cancelEditButton = document.createElement('button');
+    cancelEditButton.innerHTML = 'Cancel';
+    editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
+    cancelEditButton.style.width = '100px';
+    cancelEditButton.style.padding = '0.3em';
+    cancelEditButton.style.margin = '0.3m 0';
+    cancelEditButton.style.borderRadius = '100px';
+    cancelEditButton.style.color = 'white';
+    completeEditButton.style.background = '#3cf63c5e';
     cancelEditButton.addEventListener('click', () => {
       console.log('Cancelling Edit');
       cancelEditButton.remove();
@@ -172,16 +187,8 @@ export class CommentOptionsComponent implements OnInit {
       this.replyInput.style.display = 'block';
       this.replyInputButton.style.display = 'block';
       editTextarea.replaceWith(this.comment);
+      this.commentMoreButton.style.opacity = 1;
     });
-    cancelEditButton.innerHTML = 'Cancel';
-    editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
-    cancelEditButton.style.width = '100px';
-    cancelEditButton.style.padding = '0.3em';
-    cancelEditButton.style.margin = '0.3m 0';
-    cancelEditButton.style.borderRadius = '100px';
-    cancelEditButton.style.color = 'red';
-
-
 
     // Adding elements to interface.
     this.comment.replaceWith(editTextarea);

@@ -1,34 +1,18 @@
-<link rel="stylesheet" href="./donate-illustration.component.scss">
 <svg width="500px" height="500px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Donate-Illustration</title>
     <defs>
-        <linearGradient x1="58.9078553%" y1="92.9204589%" x2="49.2022161%" y2="9.57518352%" id="linearGradient-1">
-            <stop stop-color="#EEEEEE" stop-opacity="0.061954525" offset="0%"></stop>
-            <stop stop-color="#D8D8D8" stop-opacity="0.281176587" offset="100%"></stop>
-        </linearGradient>
-        <path d="M373.793,403.016072 L373.690936,402.975564 C441.533595,429.265079 491.435783,442.409837 523.397499,442.409837 C554.923536,442.409837 606.018325,430.088038 676.681866,405.44444 L714,436 L714,868 C714,892.852814 693.852814,913 669,913 L381,913 C356.147186,913 336,892.852814 336,868 L336,436 L373.793,403.016072 Z" id="path-2"></path>
-        <linearGradient x1="39.9029414%" y1="43.6058724%" x2="50%" y2="52.9937078%" id="linearGradient-4">
-            <stop stop-color="#D8CCA8" offset="0%"></stop>
-            <stop stop-color="#847145" offset="100%"></stop>
-        </linearGradient>
-        <circle id="path-5" cx="657.5" cy="146.5" r="36.5"></circle>
-        <filter x="-13.0%" y="-13.0%" width="126.0%" height="126.0%" filterUnits="objectBoundingBox" id="filter-6">
-            <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
     </defs>
     <g id="Donate-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <mask id="mask-3" fill="white">
-            <use xlink:href="#path-2"></use>
-        </mask>
-        <use id="Combined-Shape" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
-        <path d="M340,840.217906 C330.919311,854.893117 330.919311,881.487148 340,920 L718,920 L718,833.195936 C737.867689,837.87725 727.538635,840.217906 687.01284,840.217906 C674.899041,840.217906 661.79253,833.195936 645.643959,833.195936 C643.616052,833.195936 610.091409,840.296016 608.225782,840.217906 C584.833809,839.238531 603.263451,825.39571 536.920803,823.461277 C513.075841,822.766001 509.649306,840.217906 444.520381,840.217906 C407.859224,840.217906 414.976394,868.784143 378.302252,858.100115 C371.541732,856.130619 353.621034,818.205091 340,840.217906 Z" id="coins-in-jar" fill="url(#linearGradient-4)" mask="url(#mask-3)"></path>
+        <path d="M333,393 C397.333333,403.637388 461.666667,408.956081 526,408.956081 C590.333333,408.956081 654.666667,403.637388 719,393 L719,920 L333,920 L333,393 Z" id="jar-shape" fill-opacity="0.167798022" fill="#D8D8D8"></path>
+        <path d="M340,840.217906 C330.919311,854.893117 328.585978,881.487148 333,920 L718,920 C723.090804,866.811938 712.761751,840.217906 687.01284,840.217906 C674.899041,840.217906 661.79253,833.195936 645.643959,833.195936 C643.616052,833.195936 610.091409,840.296016 608.225782,840.217906 C584.833809,839.238531 603.263451,825.39571 536.920803,823.461277 C513.075841,822.766001 509.649306,840.217906 444.520381,840.217906 C407.859224,840.217906 414.976394,868.784143 378.302252,858.100115 C371.541732,856.130619 353.621034,818.205091 340,840.217906 Z" id="coins-in-jar"></path>
         <g id="coin">
-            <use fill="#D8CCA8" fill-rule="evenodd" xlink:href="#path-5"></use>
-            <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
-            <use stroke="#847145" stroke-width="8" xlink:href="#path-5"></use>
+            <use fill="#D8CCA8" fill-rule="evenodd" xlink:href="#path-2"></use>
+            <use fill="black" fill-opacity="1"  xlink:href="#path-2"></use>
+            <use stroke="#847145" stroke-width="8" xlink:href="#path-2"></use>
         </g>
+        <rect id="tip-text-wrapper" fill="#100511" x="391" y="472" width="259" height="185" rx="17"></rect>
+        <text id="TIPS" font-family="Trattatello" font-size="86" font-weight="normal" fill="#08FF34">
+            <tspan x="438.397" y="602">TIPS</tspan>
+        </text>
     </g>
 </svg>

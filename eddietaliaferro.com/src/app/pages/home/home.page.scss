@@ -12,6 +12,7 @@ ion-grid {
   position: relative;
   margin-bottom: 5em;
 
+
   span {
     font-weight: 800;
   }
@@ -91,6 +92,11 @@ ion-grid {
     }
   }
 }
+@media only screen and (max-width: 500px) {
+  #landing-page-header {
+    padding: 5em 0;
+  }
+}
 #bottom-curve {
   position: absolute;
   bottom: 0px;
@@ -108,11 +114,11 @@ ion-grid {
 }
 .service-card {
   background: #000000e0;
-  min-height: 660px;
+  min-height: 600px;
   margin: 2em auto;
   box-shadow: 1px 1px 10px #0003;
   border-radius: 5px;
-  padding: 1em 1em;
+  padding: 2em;
 
   p {
     font-size: 1.1em;
@@ -207,6 +213,9 @@ ion-grid {
     line-height: 1.2em;
   }
 }
+#yin-yang-wrapper {
+  transform-origin: center;
+}
 #yin-yang {
   margin: 0em auto 5em auto;
 }
@@ -244,7 +253,7 @@ ion-grid {
 }
 .blog-post {
   height: auto;
-  background: #404040;
+  background: #1805199e;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
@@ -302,7 +311,7 @@ ion-grid {
 
 .blog-post:hover {
   margin: 2.3em 0;
-  background: #404040;
+  background: #1805199e;
   border-left: 16px solid #3df63d;
 }
 
@@ -362,7 +371,7 @@ ion-grid {
 }
 .project-post {
   height: auto;
-  background: #404040;
+  background: #1805199e;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;

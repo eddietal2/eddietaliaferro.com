@@ -13,9 +13,12 @@
          <!-- Info -->
          <ion-col class="ion-text-center" size-xs="11" size-sm="6" size-md="6" size-lg="12" push-xl="1" size-xl="7.1">
            <h3 id="header-name">Eddie Taliaferro II</h3>
+           <h4 class="caption" style="animation-delay: 0.5s;">Extraordinary</h4>
+           <h4 class="caption" style="animation-delay: 0.5s;">Dude,</h4>
            <h4 class="caption" style="animation-delay: 0.5s;">Designer.</h4>
-           <h4 class="caption" style="animation-delay: 1s;">Engineer.</h4>
-           <h4 class="caption" style="animation-delay: 1.5s;">Instructor.</h4>
+           <h4 class="caption" style="animation-delay: 1s;">
+            Instructor.</h4>
+           <h4 class="caption" style="animation-delay: 1.5s;">Engineer.</h4>
          </ion-col>
         </ion-row>
       </ion-col>
@@ -31,7 +34,7 @@
     <!-- Services -->
     <ion-row id="services" class="ion-justify-content-center">
       <ion-col class="ion-text-center" size="10">
-        <h1 class="page-header">What do I do?</h1>
+        <h1 style="width: 40%; margin: 10em auto 0 auto;" class="page-header">What do I do?</h1>
       </ion-col>
       <ion-col class="service-card" size-xs="11" size-sm="10" size-md="8" size-lg="4" size-xl="3.8">
             <div id="design-icon-wrapper" class="ion-text-center">
@@ -87,7 +90,7 @@
             <h6 class="blog-hashtags">{{blog.hashtags}}</h6>
           </ion-col>
           <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
-            <ion-button class="gold-button" (click)="viewBlogPage()">
+            <ion-button class="gold-button" (click)="viewBlogPage(blog._id)">
               View Blog
             </ion-button>
           </ion-col>

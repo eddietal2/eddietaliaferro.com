@@ -135,12 +135,12 @@ export class AuthService {
     return this.http.post(`${this.BACKEND_URL}/user/check-email`, email)
   }
   updateProfile(updatedProfile) {
+    console.log(updatedProfile)
     return this.http.post(`${this.BACKEND_URL}/user/update-profile-user`, updatedProfile)
   }
   changePassword(email, password, newPassword) {
     return this.http.post(`${this.BACKEND_URL}/user/change-password-user`, {email, oldPassword: password, newPassword})
   }
-
   // looks up our storage for a valid JWT and if found, changes our authenticationState
   async checkToken() {
     this.storage.get(this.TOKEN_KEY).then(token => {
@@ -173,7 +173,6 @@ export class AuthService {
       }
     });
   }
-
   async presentAlert(header: string, msg: string) {
     const alert = await this.alertController.create({
       cssClass: 'danger-alert',

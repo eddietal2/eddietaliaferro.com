@@ -38,7 +38,6 @@ export class AppComponent {
     )
     this.auth.userPicture.subscribe(
       data => {
-        console.log(data);
         this.userPicture = data;
         return;
       }

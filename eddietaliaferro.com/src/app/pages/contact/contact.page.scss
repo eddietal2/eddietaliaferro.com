@@ -4,6 +4,40 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
+#Smoke-cloud-1, #Smoke-cloud-2 {
+  opacity: 0;
+  animation: clouds-fade-in 5s ease-in infinite;
+}
+@keyframes clouds-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  25% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  55% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
 #footer {
   background: #000000d1;
   height: 600px;

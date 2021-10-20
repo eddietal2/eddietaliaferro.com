@@ -20,12 +20,12 @@ ion-grid {
 
 .blog-post {
   height: auto;
-  background: #404040;
+  background: #1805199e;
   padding: 30px;
   transition: 0.5s;
   margin: 2em 0;
   border-radius: 10px;
-  border-left: 16px solid #00c400;
+  border-left: 16px solid #1d071f;
   display: flex;
   align-items: center;
 
@@ -87,8 +87,8 @@ ion-grid {
 
 .blog-post:hover {
   margin: 2.3em 0;
-  background: #404040;
-  border-left: 16px solid #BC3790;
+  background: #1805199e;
+  border-left: 16px solid #3df63d;
 }
 .active-link {
   color: #3df63d;

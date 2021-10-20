@@ -6,8 +6,8 @@
 }
 @media only screen and (min-width: 400px) {
   svg {
-    height: 30000px;
-    width:  30000px;
+    height: 300px;
+    width:  300px;
   }
 }
 @media only screen and (min-width: 500px) {
@@ -61,7 +61,7 @@
 }
 #Contact-Illustration {
   opacity: 0;
-  animation: whole-envelope-animation 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  animation: whole-envelope-animation 5s cubic-bezier(0.68, -0.25, 0.265, 1.55) infinite;
 }
 @keyframes whole-envelope-animation {
   0% {
@@ -136,6 +136,7 @@
 
 }
 #Letter {
+  fill: #3cf63c;
   animation: letter-animation 5s ease-in infinite;
 }
 @keyframes letter-animation {

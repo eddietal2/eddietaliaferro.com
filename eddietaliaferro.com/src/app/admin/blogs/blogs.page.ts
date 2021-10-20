@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController, LoadingController, AlertController, IonToggle } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
