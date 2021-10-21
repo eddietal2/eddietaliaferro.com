@@ -1,0 +1,61 @@
+ion-grid {
+  background-image: url('../../../../assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  --color: white;
+  width: 100%;
+}
+#mobile-toolbar {
+  position: relative;
+  top: -50px;
+  --background: none;
+}
+#project-thumbnail {
+  width: 100px;
+  border-radius: 100px;
+}
+.project-wrapper{
+  padding: 9em 0;
+}
+ion-title {
+  color: #3cf63c;
+}
+h1 {
+  color: #d8cca8;
+}
+#description {
+  background: #1805199e;
+  padding: 30px;
+}
+ion-footer {
+  text-align: center;
+  background: #3cf63c;
+  position: fixed;
+  bottom: 0px;
+
+  p {
+    color: #1b061c;
+    font-size: 1.5em;
+  }
+}
+ion-toolbar {
+  ion-buttons {
+    .gold-button {
+      width: 80px;
+      display: block;
+      --background: linear-gradient(360deg, #d8cca8 -2%, #847145, #d8cca8);
+      --color: white;
+      --border-radius: 50px;
+      --box-shadow: none;
+    }
+    .grey-button {
+      width: 80px;
+      display: block;
+      margin-right: 1em;
+      --background: linear-gradient(360deg, #777777 -2%, #333, #777777);
+      --color: white;
+      --border-radius: 50px;
+      --box-shadow: none;
+    }
+  }
+}

@@ -10,6 +10,10 @@
   position: relative;
   left: 24px;
 }
+ion-toolbar ion-menu-button {
+  color: white;
+  font-size: 2em;
+}
 .navbar {
   --background: linear-gradient(73.54497825384362deg, #000000, 8.871497304413253%,#1d071f);
   box-shadow: 1px 1px 9px #000000e8;

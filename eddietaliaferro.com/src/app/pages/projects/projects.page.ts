@@ -33,8 +33,8 @@ export class ProjectsPage implements OnInit {
   contactPage() {
     this.router.navigateByUrl('/contact');
   }
-  viewProject(url) {
-    console.log(url);
+  viewProject(id) {
+    this.router.navigate(['/projects/project-page/', id]);
   }
 
 }

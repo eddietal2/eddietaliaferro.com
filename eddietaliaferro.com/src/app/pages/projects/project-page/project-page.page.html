@@ -1,0 +1,44 @@
+<ion-grid>
+  <ion-row *ngIf="!skeletonData" class="ion-justify-content-center">
+    <ion-col class="project-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="6" size-xl="5">
+      <!-- Mobile Toolbar -->
+      <ion-toolbar id="mobile-toolbar" class="ion-hide-lg-up">
+        <ion-title>Project</ion-title>
+        <ion-buttons slot="end">
+          <ion-button class="grey-button" (click)="back()">
+            Back
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img id="project-thumbnail" src="{{this.thumbnail}}" alt="Project Thumbnail">
+      <h1>{{this.title}}</h1>
+
+      <!-- Desktop Toolbar -->
+      <ion-toolbar class="ion-hide-lg-down">
+        <ion-buttons slot="start">
+          <ion-button class="grey-button" (click)="back()">
+            Back
+          </ion-button>
+          <ion-button class="gold-button" (click)="projectUrl(this.url)">
+            Link
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <p id="description">{{this.description}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-footer class="ion-hide-lg-up" *ngIf="!skeletonData" (click)="projectUrl(this.url)">
+    <p>Link</p>
+  </ion-footer>
+
+  <!-- Skeleton -->
+  <div *ngIf="skeletonData">
+    <div style="margin-top: 7em;" class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+  </div>
+</ion-grid>
