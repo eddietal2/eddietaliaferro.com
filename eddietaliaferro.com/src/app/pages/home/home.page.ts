@@ -261,8 +261,7 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl('/blog/blog-page/' + blogID);
   }
   viewProjectPage(projectID) {
-    console.log(projectID);
-    // this.router.navigateByUrl('/projects/' + projectID);
+    this.router.navigate(['/projects/project-page', projectID]);
   }
 
 

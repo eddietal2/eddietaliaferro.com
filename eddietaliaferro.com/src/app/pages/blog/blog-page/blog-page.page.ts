@@ -197,6 +197,7 @@ export class BlogPagePage implements OnInit {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
           this.commentInput.value = '';
+          this.commentInputBottom.value = '';
           return this.addCommentToast();
         });
     }
@@ -209,6 +210,7 @@ export class BlogPagePage implements OnInit {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
           this.commentInput.value = '';
+          this.commentInputBottom.value = '';
           this.addCommentToast();
 
           // Find most recent comment, then scroll to that comment + the height of its wrapper
