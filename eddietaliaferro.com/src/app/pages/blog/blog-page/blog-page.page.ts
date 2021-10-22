@@ -109,9 +109,44 @@ export class BlogPagePage implements OnInit {
             }
           }
 
-
           let postContent = info['post'];
           let postHTML = document.getElementById('blog-post');
+
+          // Convert Code to Pre tags
+          let codeSourceOne: string = info['code_1'];
+          let codeSourceTwo: string = info['code_2'];
+          let codeSourceThree: string = info['code_3'];
+          let codeSourceFour: string = info['code_4'];
+          let codeSourceFive: string = info['code_5'];
+
+          // For HTML Tags, include excape characters so
+          // browsers doesn't read tags as actual HTML tags
+          codeSourceOne = codeSourceOne.replace(/</g, '&lt');
+          codeSourceOne = codeSourceOne.replace(/>/g, '&gt');
+          codeSourceTwo = codeSourceTwo.replace(/</g, '&lt');
+          codeSourceTwo = codeSourceTwo.replace(/>/g, '&gt');
+          codeSourceThree = codeSourceThree.replace(/</g, '&lt');
+          codeSourceThree = codeSourceThree.replace(/>/g, '&gt');
+          codeSourceFour = codeSourceFour.replace(/</g, '&lt');
+          codeSourceFour = codeSourceFour.replace(/>/g, '&gt');
+          codeSourceFive = codeSourceFive.replace(/</g, '&lt');
+          codeSourceFive = codeSourceFive.replace(/>/g, '&gt');
+
+
+          let convertedCodeOne = `<div style="background: #333;padding: 1em;"><pre><code style="background: #333; color: white; padding: 0.5em; border-radius: 10px;">${codeSourceOne}</code></pre></div>`;
+          let convertedCodeTwo = `<div style="background: #333;padding: 1em;"><pre><code style="background: #333; color: white; padding: 0.5em; border-radius: 10px;">${codeSourceTwo}</code></pre></div>`;
+          let convertedCodeThree = `<div style="background: #333;padding: 1em;"><pre><code style="background: #333; color: white; padding: 0.5em; border-radius: 10px;">${codeSourceThree}</code></pre></div>`;
+          let convertedCodeFour = `<div style="background: #333;padding: 1em;"><pre><code style="background: #333; color: white; padding: 0.5em; border-radius: 10px;">${codeSourceFour}</code></pre></div>`;
+          let convertedCodeFive = `<div style="background: #333;padding: 1em;"><pre><code style="background: #333; color: white; padding: 0.5em; border-radius: 10px;">${codeSourceFive}</code></pre></div>`;
+
+          // Create Object to put in replace
+          var codeInserts = {
+            '<< code-1 >>': convertedCodeOne,
+            '<< code-2 >>': convertedCodeTwo,
+            '<< code-3 >>': convertedCodeThree,
+            '<< code-4 >>': convertedCodeFour,
+            '<< code-5 >>': convertedCodeFive,
+         };
 
           // Grab photo links from Blogs Object
           let pictureSourceOne = info['picture_1'];
@@ -138,9 +173,14 @@ export class BlogPagePage implements OnInit {
 
           // Insert elements into the blog's HTML
           // Find all the picture tags and replace them with images.
-          let regex = /<< picture-1 >>|<< picture-2 >>|<< picture-3 >>|<< picture-4 >>|<< picture-5 >>/gi;
-          postHTML.innerHTML = postContent.replace(regex, function(matched){
+          let picRegex = /<< picture-1 >>|<< picture-2 >>|<< picture-3 >>|<< picture-4 >>|<< picture-5 >>/gi;
+          postHTML.innerHTML = postContent.replace(picRegex, function(matched){
             return pictureInserts[matched];
+          });
+
+          let codeRegex = /<< code-1 >>|<< code-2 >>|<< code-3 >>|<< code-4 >>|<< code-5 >>/gi;
+          postHTML.innerHTML = postContent.replace(codeRegex, function(matched){
+            return codeInserts[matched];
           });
 
 
@@ -444,7 +484,7 @@ export class BlogPagePage implements OnInit {
     }
     getScrollPosition(e) {
       this.scrollTop = e.detail.scrollTop;
-      console.log(this.scrollTop)
+      // console.log(this.scrollTop)
     }
     viewReplies(comment, id, e, repliesLength) {
       var repliesLength = repliesLength;

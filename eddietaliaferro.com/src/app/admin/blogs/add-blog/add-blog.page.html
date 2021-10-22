@@ -54,10 +54,34 @@
           <input id="picture-5" (change)="getPictureFiveFile($event)" name="blog-picture"  type="file" placeholder="Picture-5" />
           <img class="picture-preview" *ngIf="this.pictureFiveDataURL" src="{{this.pictureFiveDataURL}}">
 
+          <!-- Code Snippets -->
+          <h4>Code Snippet 1</h4>
+          <ion-textarea rows="20" autoGrow="true" formControlName="code_1" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 2</h4>
+          <ion-textarea rows="20" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 3</h4>
+          <ion-textarea rows="20" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 4</h4>
+          <ion-textarea rows="20" autoGrow="true" formControlName="code_4" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 5</h4>
+          <ion-textarea rows="20" autoGrow="true" formControlName="code_5" placeholder="Put code here:"></ion-textarea>
+
           <!-- Blog Post -->
           <div style="margin-top: 5em;"></div>
           <h4>Post Content</h4>
-          <ion-textarea rows="30" placeholder="Post" required formControlName="post"></ion-textarea>
+          <div class="alert">
+            <p>Add up to 5 pictures with the &lt;&lt;picture-n &gt;&gt; tag </p>
+          </div>
+          <div class="alert">
+            <p>Add up to 5 code snippets with the &lt;&lt;code-n &gt;&gt; tag </p>
+          </div>
+          <div style="margin-top: 2em;"></div>
+
+          <ion-textarea rows="30" autoGrow="true" placeholder="Post" required formControlName="post"></ion-textarea>
 
           <ion-button style="margin: 5em auto 10em auto;" class="green-button" id="submit-blog-button" type="submit">
             Submit

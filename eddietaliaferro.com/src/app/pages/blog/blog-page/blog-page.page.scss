@@ -4,6 +4,12 @@ ion-grid {
   background-size: cover;
   --color: white;
 }
+code {
+  background: #333;
+  color: white;
+  padding: 0.5em;
+  border-radius: 10px;
+}
 .sc-ion-buttons-md-s ion-button:not(.button-round):nth-child(1) {
   --border-radius: 50px;
 }

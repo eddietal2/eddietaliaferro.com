@@ -52,6 +52,11 @@ export class AddBlogPage implements OnInit, OnDestroy {
       hashtag_3: [''],
       hashtag_4: [''],
       hashtag_5: [''],
+      code_1: [''],
+      code_2: [''],
+      code_3: [''],
+      code_4: [''],
+      code_5: [''],
       picture_1: [''],
       picture_2: [''],
       picture_3: [''],
@@ -88,12 +93,15 @@ export class AddBlogPage implements OnInit, OnDestroy {
       }, false);
   }
   getPictureOneS3URL() {
+    console.clear();
+    console.log('Converting picture 1 to s3 link')
     const formData = new FormData();
     let pictureOneFile = new File([this.dataURLtoBlob(this.pictureOneDataURL)], 'picture-1.png');
     formData.append('blog-picture', pictureOneFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.addBlogForm.value.picture_1 = pictureURL['objectUrl'];
+          console.log(pictureURL);
+          return this.addBlogForm.value.picture_1 = pictureURL['objectUrl'];
         });
   }
 
@@ -116,7 +124,7 @@ export class AddBlogPage implements OnInit, OnDestroy {
     formData.append('blog-picture', pictureTwoFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.addBlogForm.value.picture_2 = pictureURL['objectUrl'];
+          return this.addBlogForm.value.picture_2 = pictureURL['objectUrl'];
         });
   }
 
@@ -139,7 +147,7 @@ export class AddBlogPage implements OnInit, OnDestroy {
     formData.append('blog-picture', pictureThreeFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.addBlogForm.value.picture_3 = pictureURL['objectUrl'];
+          return this.addBlogForm.value.picture_3 = pictureURL['objectUrl'];
         });
   }
 
@@ -162,7 +170,7 @@ export class AddBlogPage implements OnInit, OnDestroy {
     formData.append('blog-picture', pictureFourFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.addBlogForm.value.picture_4 = pictureURL['objectUrl'];
+          return this.addBlogForm.value.picture_4 = pictureURL['objectUrl'];
         });
   }
 
@@ -185,7 +193,7 @@ export class AddBlogPage implements OnInit, OnDestroy {
     formData.append('blog-picture', pictureFiveFile);
     this.picturesService.blogPictureUpload(formData)
         .subscribe(pictureURL => {
-          this.addBlogForm.value.picture_5 = pictureURL['objectUrl'];
+          return this.addBlogForm.value.picture_5 = pictureURL['objectUrl'];
         });
   }
 
@@ -215,6 +223,9 @@ export class AddBlogPage implements OnInit, OnDestroy {
     }
     return new Blob([u8arr], {type: mime});
   }
+
+  // Code Conversion
+
 
   // Toasts
   async notTitleToast() {
@@ -264,10 +275,28 @@ export class AddBlogPage implements OnInit, OnDestroy {
   }
 
   submitBlogPost() {
+    // For each picture that is added, get a link for that photo
+    if(this.pictureOneDataURL) {
+      this.getPictureOneS3URL();
+    }
+    if(this.pictureTwoDataURL) {
+      this.getPictureTwoS3URL();
+    }
+    if(this.pictureThreeDataURL) {
+      this.getPictureThreeS3URL();
+    }
+    if(this.pictureFourDataURL) {
+      this.getPictureFourS3URL();
+    }
+    if(this.pictureFiveDataURL) {
+      this.getPictureFiveS3URL();
+    }
+
     console.log('Getting Thumbnail S3 URL');
     const formData = new FormData();
     let thumbnailFile = new File([this.dataURLtoBlob(this.thumbnailDataURL)], 'thumbnail.png');
     formData.append('blog-thumbnail', thumbnailFile);
+
     this.picturesService.blogThumbnailUpload(formData)
       .subscribe(pictureURL => {
           this.addBlogForm.value.thumbnail = pictureURL['objectUrl'];
@@ -284,22 +313,6 @@ export class AddBlogPage implements OnInit, OnDestroy {
             console.log('There was no Blog Content');
             return this.notBlogContentToast();
           }
-          // For each picture that is added, get a link for that photo
-          if(this.pictureOneDataURL) {
-            this.getPictureOneS3URL();
-          }
-          if(this.pictureTwoDataURL) {
-            this.getPictureTwoS3URL();
-          }
-          if(this.pictureThreeDataURL) {
-            this.getPictureThreeS3URL();
-          }
-          if(this.pictureFourDataURL) {
-            this.getPictureFourS3URL();
-          }
-          if(this.pictureFiveDataURL) {
-            this.getPictureFiveS3URL();
-          }
 
           let formattedHashtags = [
             this.addBlogForm.value.hashtag_1,
@@ -315,6 +328,11 @@ export class AddBlogPage implements OnInit, OnDestroy {
             visible: false,
             hashtags: formattedHashtags.filter(item => item),
             post: this.addBlogForm.value.post,
+            code_1: this.addBlogForm.value.code_1,
+            code_2: this.addBlogForm.value.code_2,
+            code_3: this.addBlogForm.value.code_3,
+            code_4: this.addBlogForm.value.code_4,
+            code_5: this.addBlogForm.value.code_5,
             picture_1: this.addBlogForm.value.picture_1,
             picture_2: this.addBlogForm.value.picture_2,
             picture_3: this.addBlogForm.value.picture_3,
