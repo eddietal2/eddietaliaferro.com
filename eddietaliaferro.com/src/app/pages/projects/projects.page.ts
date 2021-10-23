@@ -23,7 +23,8 @@ export class ProjectsPage implements OnInit {
     this.projectService.getProjects().subscribe(
       projects => {
         console.log(projects);
-        return this.allProjects = projects;
+        this.allProjects = projects;
+        return;
       }
     )
   }

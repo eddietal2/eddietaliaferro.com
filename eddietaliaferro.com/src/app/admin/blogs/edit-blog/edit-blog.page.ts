@@ -59,6 +59,11 @@ export class EditBlogPage implements OnInit, OnDestroy {
       hashtag_3: [''],
       hashtag_4: [''],
       hashtag_5: [''],
+      code_1: [''],
+      code_2: [''],
+      code_3: [''],
+      code_4: [''],
+      code_5: [''],
       picture_1: [''],
       picture_2: [''],
       picture_3: [''],
@@ -90,7 +95,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
         });
 
         xhr.then( data => {
-          console.log(data);
+          // console.log(data);
           this.thumbnailDataURL = data;
         })
 
@@ -138,6 +143,11 @@ export class EditBlogPage implements OnInit, OnDestroy {
           hashtag_3: this.hashtagThree.substring(2),
           hashtag_4: this.hashtagFour.substring(2),
           hashtag_5: this.hashtagFive.substring(2),
+          code_1: blogInfo['code_1'],
+          code_2: blogInfo['code_2'],
+          code_3: blogInfo['code_3'],
+          code_4: blogInfo['code_4'],
+          code_5: blogInfo['code_5'],
           picture_1: blogInfo['picture_1'],
           picture_2: blogInfo['picture_2'],
           picture_3: blogInfo['picture_3'],
@@ -150,6 +160,9 @@ export class EditBlogPage implements OnInit, OnDestroy {
 
   back() {
     this.router.navigateByUrl('/admin/blogs')
+  }
+  viewBlog() {
+    this.router.navigate(['/blog/blog-page', this.id])
   }
 
   // Pictures
@@ -168,7 +181,6 @@ export class EditBlogPage implements OnInit, OnDestroy {
     reader.addEventListener('load', () => {
       // Convert image file ot base64 string
       this.pictureOneDataURL = reader.result;
-      console.log(this.pictureOneDataURL);
 
 
     const formData = new FormData();
@@ -383,6 +395,11 @@ export class EditBlogPage implements OnInit, OnDestroy {
             visible: false,
             hashtags: formattedHashtags.filter(item => item),
             post: this.editBlogForm.value.post,
+            code_1: this.editBlogForm.value.code_1,
+            code_2: this.editBlogForm.value.code_2,
+            code_3: this.editBlogForm.value.code_3,
+            code_4: this.editBlogForm.value.code_4,
+            code_5: this.editBlogForm.value.code_5,
             picture_1: this.editBlogForm.value.picture_1,
             picture_2: this.editBlogForm.value.picture_2,
             picture_3: this.editBlogForm.value.picture_3,
@@ -401,7 +418,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
               console.log(data);
               await this.adminBlogEmitterService.resetAdminBlogs()
               await this.successfulBlogSubmit()
-              await this.router.navigateByUrl('admin/blogs');
+              await this.router.navigate(['/blog/blog-page', this.id]);
               return;
             }
           )

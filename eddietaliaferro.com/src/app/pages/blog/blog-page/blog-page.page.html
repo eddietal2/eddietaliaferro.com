@@ -5,15 +5,25 @@
       <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="7">
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button routerLink="/blog" class="purple-button">
+            <ion-button routerLink="/blog" class="grey-button">
               Back
+            </ion-button>
+            <ion-button *ngIf="this.userType === 'admin'" (click)="editBlog()" class="gold-button">
+              Edit
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
         <div class="blog-info">
-          <h1 class="blog-header">{{title}}</h1>
-          <h4 class="blog-date">{{date}}</h4>
-          <h6 class="blog-hashtags">{{hashtags}}</h6>
+          <ion-row>
+            <ion-col size="2">
+              <img class="blog-thumbnail" src="{{thumbnail}}">
+            </ion-col>
+            <ion-col size="10">
+              <h1 class="blog-header">{{title}}</h1>
+              <h4 class="blog-date">{{date}}</h4>
+              <h6 class="blog-hashtags">{{hashtags}}</h6>
+            </ion-col>
+          </ion-row>
         </div>
         <!-- <img style="margin: 0 auto; width: 500px; display: block;" src="../../../../assets/logo.svg"> -->
         <p id="blog-post">

@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { IonContent, IonTextarea, ToastController, AlertController, PopoverController } from '@ionic/angular';
 import { catchError, tap } from 'rxjs/operators';
 import { CommentOptionsComponent } from 'src/app/components/comment-options/comment-options.component';
+import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { CommentOptionsComponent } from 'src/app/components/comment-options/comm
 export class BlogPagePage implements OnInit {
   id: string;
   title: string;
+  thumbnail: string;
   date: string;
   post: string;
   hashtags: string;
@@ -60,41 +62,23 @@ export class BlogPagePage implements OnInit {
     private toastController: ToastController,
     private popoverController: PopoverController,
     private alertController: AlertController,
+    private adminBlogEmitterService: AdminBlogEmitterService,
     private auth: AuthService,
     private blogService: BlogService,) { }
 
     ngOnInit() {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
       this.id = id;
-
-      this.userTypeSub = this.auth.userType.subscribe(
-        data => {
-          console.log('Usertype: ' + data);
-          this.userType = data;
-        }
-      )
-      this.userFullNameSub = this.auth.userFullName.subscribe(
-        data => {
-          console.log('userFullName: ' + data);
-          this.userFullName = data;
-        }
-      )
-      this.userPictureSub = this.auth.userPicture.subscribe(
-        data => {
-          console.log('userPicture: ' + data);
-          this.userPicture = data;
-        }
-      )
-      this.userEmailSub = this.auth.userEmail.subscribe(
-        data => {
-          console.log('userEmail: ' + data);
-          this.userEmail = data;
-        }
-      )
-      this.blogInfoSub = this.blogService.getBlogInfo(id).subscribe(
+      this.getBlogInfo();
+      this.getUserDetails();
+      this.getBlogsForNextPrev();
+    }
+    getBlogInfo() {
+      this.blogInfoSub = this.blogService.getBlogInfo(this.id).subscribe(
         info => {
           // console.log(info);
           this.title = info['title'];
+          this.thumbnail = info['thumbnail'];
           this.date = format(parseISO(info['date']), 'MMMM do, uu');
           this.hashtags = info['hashtags'];
           this.comments = info['comments'];
@@ -108,9 +92,6 @@ export class BlogPagePage implements OnInit {
               replies[i]['date'] = formatDistance(parseISO(replies[i]['date']), Date.now())
             }
           }
-
-          let postContent = info['post'];
-          let postHTML = document.getElementById('blog-post');
 
           // Convert Code to Pre tags
           let codeSourceOne: string = info['code_1'];
@@ -174,19 +155,56 @@ export class BlogPagePage implements OnInit {
           // Insert elements into the blog's HTML
           // Find all the picture tags and replace them with images.
           let picRegex = /<< picture-1 >>|<< picture-2 >>|<< picture-3 >>|<< picture-4 >>|<< picture-5 >>/gi;
-          postHTML.innerHTML = postContent.replace(picRegex, function(matched){
-            return pictureInserts[matched];
-          });
 
           let codeRegex = /<< code-1 >>|<< code-2 >>|<< code-3 >>|<< code-4 >>|<< code-5 >>/gi;
-          postHTML.innerHTML = postContent.replace(codeRegex, function(matched){
+
+          let postContent: string = info['post'];
+          let postHTML = document.getElementById('blog-post');
+
+          postHTML.innerHTML = postContent.replace(picRegex, function(matched){
+
+            return pictureInserts[matched];
+          }).replace(codeRegex, function(matched){
             return codeInserts[matched];
           });
 
 
+          // postHTML.innerHTML = postContent.replace(codeRegex, function(matched){
+          //   return codeInserts[matched];
+          // });
+
+
         }
       )
-      this.getBlogsForNextPrev();
+    }
+    getUserDetails() {
+      this.userTypeSub = this.auth.userType.subscribe(
+        data => {
+          console.log('Usertype: ' + data);
+          this.userType = data;
+        }
+      )
+      this.userFullNameSub = this.auth.userFullName.subscribe(
+        data => {
+          console.log('userFullName: ' + data);
+          this.userFullName = data;
+        }
+      )
+      this.userPictureSub = this.auth.userPicture.subscribe(
+        data => {
+          console.log('userPicture: ' + data);
+          this.userPicture = data;
+        }
+      )
+      this.userEmailSub = this.auth.userEmail.subscribe(
+        data => {
+          console.log('userEmail: ' + data);
+          this.userEmail = data;
+        }
+      )
+    }
+    editBlog() {
+      this.router.navigate(['/admin/blogs/edit-blog/', this.id])
     }
     comment(blogID, userName, userPicture, comment, userEmail) {
       this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
@@ -214,11 +232,11 @@ export class BlogPagePage implements OnInit {
           this.addCommentToast();
 
           // Find most recent comment, then scroll to that comment + the height of its wrapper
-          let lastCommentID = this.comments[this.comments.length - 2]['_id'];
+          let lastCommentID = this.comments[this.comments.length + 1]['_id'];
+          console.log(lastCommentID)
           let lastCommentScrollTop = document.getElementById(lastCommentID + '-comment-wrapper');
           let newCommentScrolltop = lastCommentScrollTop.offsetTop;
 
-          console.clear();
           console.log('Scrolltop: ');
           console.log(lastCommentScrollTop.offsetTop);
           console.log(lastCommentScrollTop.scrollHeight);

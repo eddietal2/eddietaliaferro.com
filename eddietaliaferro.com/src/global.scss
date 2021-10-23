@@ -30,9 +30,18 @@
   font-family: Ayuthaya;
   src: url(./assets/fonts/ayuthaya-1.ttf);
 }
-
 ion-grid {
   --ion-grid-padding: 0px;
+  background-image: url('./assets/illustrations/Matrix-Background.svg');
+  background-attachment: fixed;
+  min-height: 100vh;
+  background-size: cover;
+  --color: white;
+}
+ion-input:focus {
+  --border-width: 2px;
+  --border-color: #3cf63c;
+  --border-style: solid;
 }
 
 // Toasts, Error Messages, Alerts

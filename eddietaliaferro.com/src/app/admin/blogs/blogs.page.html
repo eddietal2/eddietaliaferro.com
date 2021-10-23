@@ -1,15 +1,20 @@
 <ion-content>
   <ion-grid>
     <ion-row style="margin-top: 3em;" class="ion-justify-content-center">
-      <ion-col id="header-button" size-xs="11" size-sm="9" size-md="8" size-lg="8">
-        <ion-button class="green-button" (click)="addBlog()">
-          <ion-icon slot="start" name="add"></ion-icon>
-          Add Blog
-        </ion-button>
+      <ion-col id="header-button" size-xs="11" size-sm="9" size-md="9" size-lg="9" size-xl="7">
+        <ion-toolbar>
+          <ion-title>Blogs</ion-title>
+          <ion-buttons slot="end">
+            <ion-button class="green-button" (click)="addBlog()">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Add Blog
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="8">
+      <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="9" size-xl="7">
         <ion-row *ngFor="let blog of allBlogs" class="blog-post">
           <ion-col size-xs="2" size-sm="2" size-lg="2">
             <img src="{{blog.thumbnail}}" alt="Blog Post Thumbnail" class="blog-thumbnail">

@@ -1,28 +1,28 @@
-ion-grid {
-  background-image: url('../../../../assets/illustrations/Matrix-Background.svg');
-  background-attachment: fixed;
-  background-size: cover;
-  --color: white;
-}
-code {
-  background: #333;
-  color: white;
-  padding: 0.5em;
-  border-radius: 10px;
-}
 .sc-ion-buttons-md-s ion-button:not(.button-round):nth-child(1) {
+  --border-radius: 50px;
+}
+.sc-ion-buttons-md-s ion-button:not(.button-round) {
   --border-radius: 50px;
 }
 .sc-ion-popover-md-h {
   --width: 180px;
 }
-.purple-button {
+.grey-button {
   width: 90px;
   display: block;
   margin: 30px 0;
-  --background: linear-gradient(360deg, #1a0043 -2%, #1a0043, #000000);
+  --background: linear-gradient(360deg, #777777 -2%, #333, #777777);
   --color: white;
   border-radius: 50px;
+  --box-shadow: none;
+}
+.gold-button {
+  width: 90px;
+  display: block;
+  margin-left: 1em;
+  --background: linear-gradient(360deg, #d8cca8 -2%, #847145, #d8cca8);
+  --color: white;
+  --border-radius: 50px;
   --box-shadow: none;
 }
 .register-button {
@@ -48,7 +48,13 @@ ion-toolbar:first-child {
 .blog-info {
   background-color: #1d071f;
   padding: 0.5em 0.5em 1em 1em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 5px;
+}
+.blog-thumbnail {
+  width: 80%;
+  margin: 1em auto;
+  border-radius: 100px;
 }
 .blog-header {
   font-family: Ayuthaya;
@@ -56,7 +62,7 @@ ion-toolbar:first-child {
   font-weight: 800;
 }
 .blog-date {
-  color: #D3B900;
+  color: #847145;
   margin: 5px 0;
   font-size: 0.9em;
 }

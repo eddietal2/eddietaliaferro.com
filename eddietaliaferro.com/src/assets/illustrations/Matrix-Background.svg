@@ -4,6 +4,9 @@
     <style>
           text {
             transform: scale(1.4);
+            -webkit-transform: scale(1.4);
+            -moz-transform: scale(1.4);
+            -ms-transform: scale(1.4);
           }
           tspan {
             fill: black;
@@ -12,33 +15,53 @@
           tspan:nth-child(odd) {
             animation: number-color-animation-1 1s linear infinite forwards;
             -webkit-animation: number-color-animation-1 1s linear infinite forwards;
+            -moz-animation: number-color-animation-1 1s linear infinite forwards;
+            -ms-animation: number-color-animation-1 1s linear infinite forwards;
           }
           tspan:nth-child(even) {
             animation: number-color-animation-2 1s linear  infinite forwards;
             -webkit-animation: number-color-animation-2 1s linear  infinite forwards;
+            -moz-animation: number-color-animation-2 1s linear  infinite forwards;
+            -ms-animation: number-color-animation-2 1s linear  infinite forwards;
           }
           text:nth-child(odd) {
             animation: number-line-maxtrix-animation-up 10s linear infinite forwards;
             -webkit-animation: number-line-maxtrix-animation-up 10s linear infinite forwards;
+            -moz-animation: number-line-maxtrix-animation-up 10s linear infinite forwards;
+            -ms-animation: number-line-maxtrix-animation-up 10s linear infinite forwards;
           }
           text:nth-child(even) {
             animation: number-line-maxtrix-animation-down 5s linear infinite forwards;
             -webkit-animation: number-line-maxtrix-animation-down 5s linear infinite forwards;
+            -moz-animation: number-line-maxtrix-animation-down 5s linear infinite forwards;
+            -ms-animation: number-line-maxtrix-animation-down 5s linear infinite forwards;
           }
           @keyframes number-line-maxtrix-animation-up {
             0% {
                 transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
             }
             100% {
                 transform: translateY(-1000px);
+                -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
             }
           }
           @keyframes number-line-maxtrix-animation-down {
             0% {
                 transform: translateY(-1000px);
+                -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
             }
             100% {
                 transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
             }
           }
           @keyframes number-color-animation-1 {
@@ -71,22 +94,30 @@
           }
           @-webkit-keyframes number-line-maxtrix-animation-up {
             0% {
-                -webkit-transform: translateY(1000px);
                 transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
             }
             100% {
                 transform: translateY(-1000px);
                 -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
             }
           }
           @-webkit-keyframes number-line-maxtrix-animation-down {
             0% {
                 transform: translateY(-1000px);
                 -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
             }
             100% {
                 transform: translateY(1000px);
                 -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
             }
           }
           @-webkit-keyframes number-color-animation-1 {
@@ -117,6 +148,118 @@
               fill: white;
             }
           }
+          @-moz-keyframes number-line-maxtrix-animation-up {
+            0% {
+                transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
+            }
+            100% {
+                transform: translateY(-1000px);
+                -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
+            }
+          }
+          @-moz-keyframes number-line-maxtrix-animation-down {
+            0% {
+                transform: translateY(-1000px);
+                -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
+            }
+            100% {
+                transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
+            }
+          }
+          @-moz-keyframes number-color-animation-1 {
+            0% {
+              fill: black;
+            }
+            25% {
+              fill: white;
+            }
+            50% {
+              fill: #D4AF37;
+            }
+            75% {
+              fill: white;
+            }
+            100% {
+              fill: black;
+            }
+          }
+          @-moz-keyframes number-color-animation-2 {
+            0% {
+              fill: white;
+            }
+            50% {
+              fill: black;
+            }
+            100% {
+              fill: white;
+            }
+          }
+          @-ms-keyframes number-line-maxtrix-animation-up {
+            0% {
+                transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
+            }
+            100% {
+                transform: translateY(-1000px);
+                -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
+            }
+          }
+          @-ms-keyframes number-line-maxtrix-animation-down {
+            0% {
+                transform: translateY(-1000px);
+                -webkit-transform: translateY(-1000px);
+                -moz-transform: translateY(-1000px);
+                -ms-transform: translateY(-1000px);
+            }
+            100% {
+                transform: translateY(1000px);
+                -webkit-transform: translateY(1000px);
+                -moz-transform: translateY(1000px);
+                -ms-transform: translateY(1000px);
+            }
+          }
+          @-ms-keyframes number-color-animation-1 {
+            0% {
+              fill: black;
+            }
+            25% {
+              fill: white;
+            }
+            50% {
+              fill: #D4AF37;
+            }
+            75% {
+              fill: white;
+            }
+            100% {
+              fill: black;
+            }
+          }
+          @-ms-keyframes number-color-animation-2 {
+            0% {
+              fill: white;
+            }
+            50% {
+              fill: black;
+            }
+            100% {
+              fill: white;
+            }
+          }
         </style>
     <defs>
         <linearGradient x1="50%" y1="53.5835293%" x2="80.896476%" y2="101.388429%" id="linearGradient-1">
@@ -125,7 +268,6 @@
         </linearGradient>
     </defs>
     <g id="Matrix-Background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        
         <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="1500" height="844"></rect>
         <text id="number-line-copy-3" font-family="Helvetica" font-size="10" font-weight="normal" fill="#FFFFFF">
             <tspan x="280.219238" y="516">0</tspan>

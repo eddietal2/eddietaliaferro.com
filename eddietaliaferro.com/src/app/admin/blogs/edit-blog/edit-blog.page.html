@@ -6,7 +6,10 @@
         <ion-toolbar>
           <ion-title>Edit Blog</ion-title>
           <ion-buttons slot="end">
-            <ion-button id="back-button" style="--border-radius: 50px;" class="purple-button" (click)="back()">
+            <ion-button class="gold-button" (click)="viewBlog()">
+              View Blog
+            </ion-button>
+            <ion-button id="back-button" style="--border-radius: 50px;" class="grey-button" (click)="back()">
               Back
             </ion-button>
           </ion-buttons>
@@ -28,11 +31,11 @@
 
           <!-- Hashtags -->
           <h4>Hashtags</h4>
-          <ion-input placeholder="Hashtag 1" formControlName="hashtag_1" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 2" formControlName="hashtag_2" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 3" formControlName="hashtag_3" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 4" formControlName="hashtag_4" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 5" formControlName="hashtag_5" type="text"></ion-input>
+          <ion-input style="width: 250px;" placeholder="Hashtag 1" formControlName="hashtag_1" type="text"></ion-input>
+          <ion-input style="width: 250px;" placeholder="Hashtag 2" formControlName="hashtag_2" type="text"></ion-input>
+          <ion-input style="width: 250px;" placeholder="Hashtag 3" formControlName="hashtag_3" type="text"></ion-input>
+          <ion-input style="width: 250px;" placeholder="Hashtag 4" formControlName="hashtag_4" type="text"></ion-input>
+          <ion-input style="width: 250px;" placeholder="Hashtag 5" formControlName="hashtag_5" type="text"></ion-input>
 
           <!-- Pictures -->
           <div style="margin-top: 5em;"></div>
@@ -61,9 +64,32 @@
           <img class="picture-preview" *ngIf="this.pictureFiveDataURL" src="{{this.pictureFiveDataURL}}">
           <img class="picture-preview" *ngIf="this.editBlogForm.value.picture_5" src="{{this.editBlogForm.value.picture_5}}">
 
+          <!-- Code Snippets -->
+          <h4>Code Snippet 1</h4>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_1" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 2</h4>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 3</h4>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_3" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 4</h4>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_4" placeholder="Put code here:"></ion-textarea>
+
+          <h4>Code Snippet 5</h4>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_5" placeholder="Put code here:"></ion-textarea>
+
           <!-- Blog Post -->
           <div style="margin-top: 5em;"></div>
           <h4>Post Content</h4>
+          <div class="alert">
+            <p>Add up to 5 pictures with the &lt;&lt;picture-n &gt;&gt; tag </p>
+          </div>
+          <div class="alert">
+            <p>Add up to 5 code snippets with the &lt;&lt;code-n &gt;&gt; tag </p>
+          </div>
+          <div style="margin-top: 2em;"></div>
           <ion-textarea rows="30" placeholder="Post" required formControlName="post"></ion-textarea>
 
           <ion-button style="margin: 5em auto 10em auto;" class="green-button" id="submit-blog-button" type="submit">

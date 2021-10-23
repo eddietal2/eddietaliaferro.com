@@ -20,17 +20,17 @@
 
           <!-- Thumbnail -->
           <h4>Thumbnail</h4>
-          <input id="thumbnail" (change)="getThumbnailFile($event)" name="blog-thumbnail" placeholder="Title"  type="file"/><br>
+          <input *ngIf="!this.thumbnailDataURL" id="thumbnail" (change)="getThumbnailFile($event)" name="blog-thumbnail" placeholder="Title"  type="file"/><br>
           <img height="200" class="picture-preview" *ngIf="this.thumbnailDataURL" src="{{this.thumbnailDataURL}}">
 
 
           <!-- Hashtags -->
           <h4>Hashtags</h4>
-          <ion-input placeholder="Hashtag 1" formControlName="hashtag_1" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 2" formControlName="hashtag_2" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 3" formControlName="hashtag_3" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 4" formControlName="hashtag_4" type="text"></ion-input>
-          <ion-input placeholder="Hashtag 5" formControlName="hashtag_5" type="text"></ion-input>
+          <ion-input style="width: 250px;"  placeholder="Hashtag 1" formControlName="hashtag_1" type="text"></ion-input>
+          <ion-input style="width: 250px;"  placeholder="Hashtag 2" formControlName="hashtag_2" type="text"></ion-input>
+          <ion-input style="width: 250px;"  placeholder="Hashtag 3" formControlName="hashtag_3" type="text"></ion-input>
+          <ion-input style="width: 250px;"  placeholder="Hashtag 4" formControlName="hashtag_4" type="text"></ion-input>
+          <ion-input style="width: 250px;"  placeholder="Hashtag 5" formControlName="hashtag_5" type="text"></ion-input>
 
           <!-- Pictures -->
           <div style="margin-top: 5em;"></div>
@@ -56,19 +56,19 @@
 
           <!-- Code Snippets -->
           <h4>Code Snippet 1</h4>
-          <ion-textarea rows="20" autoGrow="true" formControlName="code_1" placeholder="Put code here:"></ion-textarea>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_1" placeholder="Put code here:"></ion-textarea>
 
           <h4>Code Snippet 2</h4>
-          <ion-textarea rows="20" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
 
           <h4>Code Snippet 3</h4>
-          <ion-textarea rows="20" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_3" placeholder="Put code here:"></ion-textarea>
 
           <h4>Code Snippet 4</h4>
-          <ion-textarea rows="20" autoGrow="true" formControlName="code_4" placeholder="Put code here:"></ion-textarea>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_4" placeholder="Put code here:"></ion-textarea>
 
           <h4>Code Snippet 5</h4>
-          <ion-textarea rows="20" autoGrow="true" formControlName="code_5" placeholder="Put code here:"></ion-textarea>
+          <ion-textarea rows="10" autoGrow="true" formControlName="code_5" placeholder="Put code here:"></ion-textarea>
 
           <!-- Blog Post -->
           <div style="margin-top: 5em;"></div>
