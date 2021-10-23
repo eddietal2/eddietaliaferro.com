@@ -206,6 +206,12 @@ export class BlogPagePage implements OnInit {
     editBlog() {
       this.router.navigate(['/admin/blogs/edit-blog/', this.id])
     }
+    viewComments() {
+      let commentsWrapper = document.getElementById('all-comments');
+      // commentsWrapper.scrollIntoView()
+      console.log(commentsWrapper.offsetTop);
+      this.ionContent.scrollToPoint(0,(commentsWrapper.offsetTop - 400))
+    }
     comment(blogID, userName, userPicture, comment, userEmail) {
       this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
         data => {
@@ -224,24 +230,27 @@ export class BlogPagePage implements OnInit {
         data => {
           this.comments = data['comments'];
           this.commentsLength = this.comments.length;
+          console.clear();
           for (let i = 0; i < this.comments.length; i++) {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+            console.log(this.comments[i]['_id'])
           }
           this.commentInput.value = '';
           this.commentInputBottom.value = '';
           this.addCommentToast();
 
           // Find most recent comment, then scroll to that comment + the height of its wrapper
-          let lastCommentID = this.comments[this.comments.length + 1]['_id'];
+          let lastCommentID = this.comments[this.comments.length-2]['_id'];
           console.log(lastCommentID)
           let lastCommentScrollTop = document.getElementById(lastCommentID + '-comment-wrapper');
-          let newCommentScrolltop = lastCommentScrollTop.offsetTop;
+          let newCommentScrolltop = lastCommentScrollTop;
 
           console.log('Scrolltop: ');
-          console.log(lastCommentScrollTop.offsetTop);
-          console.log(lastCommentScrollTop.scrollHeight);
-          console.log(newCommentScrolltop);
-          this.ionContent.scrollToPoint(0, (newCommentScrolltop))
+          // console.log(lastCommentScrollTop.offsetTop);
+          // console.log(lastCommentScrollTop.scrollHeight);
+          // console.log(newCommentScrolltop);
+          console.log(lastCommentScrollTop);
+          // this.ionContent.scrollToPoint(0, (newCommentScrolltop))
         });
     }
     mobileComment(blogID, userName, userPicture, comment, userEmail) {
@@ -562,7 +571,8 @@ export class BlogPagePage implements OnInit {
                 this.nextBlogTitle = '---';
 
                 // Prev
-                this.prevBlogTitle = this.allBlogs[this.currentBlogPosition+1].title;
+                this.prevBlogTitle = this.allBlogs[this.currentBlogPosition +1 ].title;
+                return;
               }
 
               // Last Blog
@@ -573,12 +583,13 @@ export class BlogPagePage implements OnInit {
 
                 // Prev
                 this.prevBlogTitle = '---';
+                return;
               }
 
               // Every blog in between
               else {
-                this.nextBlogTitle = this.allBlogs[this.currentBlogPosition-1].title;
-                this.prevBlogTitle = this.allBlogs[this.currentBlogPosition+1].title;
+                this.nextBlogTitle = this.allBlogs[this.currentBlogPosition - 1].title;
+                this.prevBlogTitle = this.allBlogs[this.currentBlogPosition + 1 ].title;
               }
              }
            }
