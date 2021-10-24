@@ -16,43 +16,61 @@
 
   <ion-row class="ion-justify-content-center">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <p id="cash-app-message" style="font-size: 21px;">You can donate on <img id="cash-app-logo" height="60" src="../../../assets/cash-app-logo.png" alt="Cashapp logo" /> (CashApp) to <span style="color: #00c400; font-weight: 600;">$EddieTaliaferro</span> </p>
+      <div id="cash-app-message">
+        <img id="cash-app-logo" height="60" src="../../../assets/cash-app-logo.png" alt="Cashapp logo" />
+        <p style="font-size: 21px; font-weight: 600;margin-top: 1.5em;">CashApp</p>
+        <p style="color: white; font-weight: 400;">$EddieTaliaferro</p>
+      </div>
     </ion-col>
-  </ion-row>
-  <ion-row class="ion-justify-content-center">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <p id="paypal-message" style="font-size: 21px;">You can donate on <img id="paypal-logo" height="60" src="../../../assets/paypal-logo.png" alt="Cashapp logo" /> (PayPal) to <span style="color: #2d97fa; font-weight: 600;">eddielacrosse2@gmail.com</span> </p>
+      <div id="paypal-message">
+        <img id="paypal-logo" height="60" src="../../../assets/paypal-logo.png" alt="Cashapp logo" />
+        <p style="font-size: 21px; font-weight: 600;margin-top: 1.5em;">PayPal </p>
+        <p style="color: white; font-weight: 400;">eddielacrosse2@gmail.com</p>
+      </div>
     </ion-col>
   </ion-row>
 
   <ion-row class="ion-justify-content-center">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
       <h1 id="or">OR</h1>
+      <div class="alert">
+        You can donate directly to me. Online donations are powered and secured by Stripe.
+      </div>
     </ion-col>
   </ion-row>
 
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
-    <ion-col size-xs="11" size-sm="8" size-lg="6">
+    <ion-col size-xs="12" size-sm="8" size-lg="6" size-xl="4">
       <form [formGroup]="donateForm" (ngSubmit)="makePayment(this.donateForm.value)">
         <ion-item lines="none">
+          <ion-input (ionFocus)="inputFocus($event, 'name')" (ionBlur)="inputBlur($event)" id="name-input" formControlName="name" type="text" placeholder="First & Last name" style="background: #fbfbfb47;"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input formControlName="name" class="contact-input" type="text" placeholder="First & Last name"></ion-input>
+        <ion-item lines="none">
+          <ion-input (ionFocus)="inputFocus($event, 'email')" (ionBlur)="inputBlur($event)" id="email-input" formControlName="email" type="email" placeholder="Email" style="background: #fbfbfb47;"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input formControlName="dollar_amount" class="contact-input" type="number" placeholder="Dollar Amount"></ion-input>
+        <ion-item lines="none">
+          <ion-input (ionFocus)="inputFocus($event, 'amount')" (ionBlur)="inputBlur($event)" id="amount-input" formControlName="dollar_amount" type="number" placeholder="Dollar Amount" style="background: #fbfbfb47;"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-textarea formControlName="message"
+        <ion-item lines="none">
+          <ion-textarea (ionFocus)="inputFocus($event, 'message')" (ionBlur)="inputBlur($event)" id="message-input" formControlName="message"
           class="contact-message"
           rows="15" cols="20"
-          placeholder="Please enter your message here"></ion-textarea>
+          placeholder="Please enter your message here" style="background: #fbfbfb47;"></ion-textarea>
         </ion-item>
-        <ion-button type="submit" class="green-button" style="margin: 0 auto">
+        <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 0 auto">
           Send
         </ion-button>
       </form>
     </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-xs="10" size-sm="10" size-md="6" size-lg="4" size-xl="4">
+      <!-- Mobile Submit -->
+      <ion-button [disabled]="!this.donateForm.valid" expand="full" (click)="makePayment(this.donateForm.value)" class="green-mobile-button ion-hide-lg-up" style="margin: 0 auto">
+       Send
+     </ion-button>
+   </ion-col>
   </ion-row>
 
   <!-- Footer Illustration -->

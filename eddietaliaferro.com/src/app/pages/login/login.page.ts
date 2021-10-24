@@ -32,5 +32,26 @@ export class LoginPage implements OnInit {
   register() {
     this.router.navigateByUrl('register');
   }
+  inputFocus(e, input) {
+    console.clear()
+    console.log(e);
+    console.log(input);
+    let emailInput = document.getElementById('email-input');
+    let passwordInput = document.getElementById('password-input');
+    if(input === 'email') {
+      emailInput.style.border = '2px solid #3cf63c';
+    }
+    if(input === 'password') {
+      passwordInput.style.border = '2px solid #3cf63c';
+    }
+  }
+  inputBlur(e) {
+    console.clear()
+    console.log(e);
+    let emailInput = document.getElementById('email-input');
+    let passwordInput = document.getElementById('password-input');
+    passwordInput.style.border = '2px solid white';
+    emailInput.style.border = '2px solid white';
+  }
 
 }

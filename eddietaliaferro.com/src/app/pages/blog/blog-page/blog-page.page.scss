@@ -116,7 +116,7 @@ ion-toolbar:first-child {
     }
   }
 }
-ion-fab-button {
+ion-fab {
   --background: #00c400;
   --color: white;
   position: relative;
@@ -144,6 +144,7 @@ ion-fab-button {
   border: 1px solid #3df63d;
   width: 200px;
   padding: 0.5em;
+  margin-top: 5em;
   border-radius: 5px;
 }
 .comment-wrapper {
@@ -413,9 +414,9 @@ ion-fab-button {
 #mobile-comment-input {
   position: fixed;
   bottom: 0px;
-  height: 80px;
+  height: 64px;
   width: 100%;
-  border-top: 4px solid #3cf63c;
+  border-top: 5px solid #3cf63c;
   background-color: #dadada;
   font-size: 1.2em;
   color: #1a0043;

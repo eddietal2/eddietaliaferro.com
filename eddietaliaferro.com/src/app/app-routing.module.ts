@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'donate',
     // redirectTo: 'projects/project-page/616729f4558945605c6ef638',
     // redirectTo: 'blog/blog-page/61676b1b52f0b66507eaa77b',
     pathMatch: 'full'

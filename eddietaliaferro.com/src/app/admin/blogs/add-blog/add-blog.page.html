@@ -33,42 +33,54 @@
           <ion-input style="width: 250px;"  placeholder="Hashtag 5" formControlName="hashtag_5" type="text"></ion-input>
 
           <!-- Pictures -->
-          <div style="margin-top: 5em;"></div>
-          <h4>Picture 1</h4>
-          <input id="picture-1" (change)="getPictureOneFile($event)" name="blog-picture" type="file" placeholder="Picture-1" />
-          <img class="picture-preview" *ngIf="this.pictureOneDataURL" src="{{this.pictureOneDataURL}}">
+          <h2 id="pictures-checkbox">
+            Pictures
+            <ion-checkbox style="float: right; position: relative; top: 6px;" (ionChange)="picturesSectionChange($event)"></ion-checkbox>
+          </h2>
+          <div *ngIf="this.picturesSection" id="pictures-section">
+            <h4 style="margin-top: 1em;">Picture 1</h4>
+            <input id="picture-1" (change)="getPictureOneFile($event)" name="blog-picture" type="file" placeholder="Picture-1" />
+            <img class="picture-preview" *ngIf="this.pictureOneDataURL" src="{{this.pictureOneDataURL}}">
 
-          <h4>Picture 2</h4>
-          <input id="picture-2" (change)="getPictureTwoFile($event)" name="blog-picture" type="file" placeholder="Picture-2" />
-          <img class="picture-preview" *ngIf="this.pictureTwoDataURL" src="{{this.pictureTwoDataURL}}">
+            <h4>Picture 2</h4>
+            <input id="picture-2" (change)="getPictureTwoFile($event)" name="blog-picture" type="file" placeholder="Picture-2" />
+            <img class="picture-preview" *ngIf="this.pictureTwoDataURL" src="{{this.pictureTwoDataURL}}">
 
-          <h4>Picture 3</h4>
-          <input id="picture-3" (change)="getPictureThreeFile($event)" name="blog-picture" type="file" placeholder="Picture-3" />
-          <img class="picture-preview" *ngIf="this.pictureThreeDataURL" src="{{this.pictureThreeDataURL}}">
+            <h4>Picture 3</h4>
+            <input id="picture-3" (change)="getPictureThreeFile($event)" name="blog-picture" type="file" placeholder="Picture-3" />
+            <img class="picture-preview" *ngIf="this.pictureThreeDataURL" src="{{this.pictureThreeDataURL}}">
 
-          <h4>Picture 4</h4>
-          <input id="picture-4" (change)="getPictureFourFile($event)" name="blog-picture" type="file" placeholder="Picture-4" />
-          <img class="picture-preview" *ngIf="this.pictureFourDataURL" src="{{this.pictureFourDataURL}}">
+            <h4>Picture 4</h4>
+            <input id="picture-4" (change)="getPictureFourFile($event)" name="blog-picture" type="file" placeholder="Picture-4" />
+            <img class="picture-preview" *ngIf="this.pictureFourDataURL" src="{{this.pictureFourDataURL}}">
 
-          <h4>Picture 5</h4>
-          <input id="picture-5" (change)="getPictureFiveFile($event)" name="blog-picture"  type="file" placeholder="Picture-5" />
-          <img class="picture-preview" *ngIf="this.pictureFiveDataURL" src="{{this.pictureFiveDataURL}}">
+            <h4>Picture 5</h4>
+            <input id="picture-5" (change)="getPictureFiveFile($event)" name="blog-picture"  type="file" placeholder="Picture-5" />
+            <img class="picture-preview" *ngIf="this.pictureFiveDataURL" src="{{this.pictureFiveDataURL}}">
+
+          </div>
 
           <!-- Code Snippets -->
-          <h4>Code Snippet 1</h4>
-          <ion-textarea rows="10" autoGrow="true" formControlName="code_1" placeholder="Put code here:"></ion-textarea>
+          <h2 id="code-checkbox">
+            Code
+            <ion-checkbox style="float: right; position: relative; top: 6px;"  (ionChange)="codeSectionChange($event)"></ion-checkbox>
+          </h2>
+          <div *ngIf="this.codeSection" id="code-section">
+            <h4 style="margin-top: 1em;">Code Snippet 1</h4>
+            <ion-textarea rows="10" autoGrow="true" formControlName="code_1" placeholder="Put code here:"></ion-textarea>
 
-          <h4>Code Snippet 2</h4>
-          <ion-textarea rows="10" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
+            <h4>Code Snippet 2</h4>
+            <ion-textarea rows="10" autoGrow="true" formControlName="code_2" placeholder="Put code here:"></ion-textarea>
 
-          <h4>Code Snippet 3</h4>
-          <ion-textarea rows="10" autoGrow="true" formControlName="code_3" placeholder="Put code here:"></ion-textarea>
+            <h4>Code Snippet 3</h4>
+            <ion-textarea rows="10" autoGrow="true" formControlName="code_3" placeholder="Put code here:"></ion-textarea>
 
-          <h4>Code Snippet 4</h4>
-          <ion-textarea rows="10" autoGrow="true" formControlName="code_4" placeholder="Put code here:"></ion-textarea>
+            <h4>Code Snippet 4</h4>
+            <ion-textarea rows="10" autoGrow="true" formControlName="code_4" placeholder="Put code here:"></ion-textarea>
 
-          <h4>Code Snippet 5</h4>
-          <ion-textarea rows="10" autoGrow="true" formControlName="code_5" placeholder="Put code here:"></ion-textarea>
+            <h4>Code Snippet 5</h4>
+            <ion-textarea rows="10" autoGrow="true" formControlName="code_5" placeholder="Put code here:"></ion-textarea>
+          </div>
 
           <!-- Blog Post -->
           <div style="margin-top: 5em;"></div>

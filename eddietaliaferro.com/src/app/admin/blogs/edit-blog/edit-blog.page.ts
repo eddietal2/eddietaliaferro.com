@@ -31,6 +31,9 @@ export class EditBlogPage implements OnInit, OnDestroy {
   pictureFourDataURL;
   pictureFiveDataURL;
 
+  picturesSection = false;
+  codeSection = false;
+
   pictureOne    =  '<< picture-1 >>';
   pictureTwo    =  '<< picture-2 >>';
   pictureThree  =  '<< picture-3 >>';
@@ -160,6 +163,27 @@ export class EditBlogPage implements OnInit, OnDestroy {
 
   back() {
     this.router.navigateByUrl('/admin/blogs')
+  }
+
+  picturesSectionChange(e) {
+    console.log(e.detail);
+    if(e.detail.checked) {
+      this.picturesSection = true;
+    }
+    else {
+      this.picturesSection = false;
+
+    }
+  }
+  codeSectionChange(e) {
+    console.log(e.detail);
+    if(e.detail.checked) {
+      this.codeSection = true;
+    }
+    else {
+      this.codeSection = false;
+
+    }
   }
   viewBlog() {
     this.router.navigate(['/blog/blog-page', this.id])

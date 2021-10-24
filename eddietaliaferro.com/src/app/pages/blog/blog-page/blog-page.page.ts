@@ -550,7 +550,7 @@ export class BlogPagePage implements OnInit {
       let mobileCommentInput = document.getElementById('mobile-comment-input');
       console.log(replyInput);
       console.log(mobileCommentInput);
-      replyInput.style.border = "1px white solid";
+      replyInput.style.border = "1px #3cf63c solid";
       mobileCommentInput.style.transition = '0.5s';
       mobileCommentInput.style.height = '0px';
     }

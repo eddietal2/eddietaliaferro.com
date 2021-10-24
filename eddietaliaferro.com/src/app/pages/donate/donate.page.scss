@@ -1,8 +1,12 @@
 #cash-app-message {
-  font-size: 21px;
+  font-size: 1em;
   background: #40ff7f3b;
+  border: 2px solid #3cf63c;
   padding: 1em 0 2.5em 0;
   border-radius: 10px;
+  width: 320px;
+  min-height: 230px;
+  float: right;
 }
 
 #cash-app-logo {
@@ -12,10 +16,14 @@
 
 }
 #paypal-message {
-  font-size: 21px;
+  font-size: 1em;
   background: #0055a542;
+  border: 2px solid #0ec6fe;
   padding: 1em 0 2.5em 0;
   border-radius: 10px;
+  width: 320px;
+  min-height: 230px;
+  float: left;
 }
 
 #paypal-logo {
@@ -24,12 +32,26 @@
   margin: 0 18px;
 
 }
+
+@media only screen and (max-width: 993px) {
+  #cash-app-message, #paypal-message {
+    float: none;
+    margin: 1em auto;
+  }
+}
 #or {
-  border: 3px solid #00c400;
+  border: 3px solid #3cf63c;
   border-radius: 5px;
   width: 100px;
-  margin: 3em auto;
+  margin: 2em auto;
   padding: 0.3em 0.3em;
+}
+.green-mobile-button {
+  height: 56px;
+  margin-top: 63px;
+  --background: #3cf63c;
+  font-size: 1em;
+  color: #1d071f;
 }
 #footer {
   background: #000000d1;
@@ -59,6 +81,13 @@
   margin: 1em 0;
   line-height: 1.3em;
 }
+.alert {
+  background-color: #333;
+  border: solid 2px #0ec6fe;
+  border-radius: 5px;
+  margin: 1em auto;
+  padding: 0.5em;
+}
 form {
   background: #1805199e;
   padding: 2em;
@@ -78,14 +107,6 @@ form {
   margin-bottom: 0.9em;
 }
 
-.contact-input {
-  background: #fbfbfb47;
-  border: 1px solid #fff;
-  width: 100%;
-  transition: 500ms;
-  margin: 0.6em 0;
-  --inner-padding-start: 4px 8px;
-}
 
 ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-md-h {
   --padding-start: 8px;

@@ -33,5 +33,38 @@ export class DonatePage implements OnInit {
   contactPage() {
 
   }
+  inputFocus(e, input) {
+    console.clear()
+    console.log(e);
+    let nameInput = document.getElementById('name-input');
+    let emailInput = document.getElementById('email-input');
+    let amountInput = document.getElementById('amount-input');
+    let messageInput = document.getElementById('message-input');
+    if(input === 'name') {
+      console.log(nameInput)
+      nameInput.style.border = '2px solid #3cf63c';
+    }
+    if(input === 'email') {
+      emailInput.style.border = '2px solid #3cf63c';
+    }
+    if(input === 'amount') {
+      amountInput.style.border = '2px solid #3cf63c';
+    }
+    if(input === 'message') {
+      messageInput.style.border = '2px solid #3cf63c';
+    }
+  }
+  inputBlur(e) {
+    console.clear()
+    console.log(e);
+    let nameInput = document.getElementById('name-input');
+    let emailInput = document.getElementById('email-input');
+    let amountInput = document.getElementById('amount-input');
+    let messageInput = document.getElementById('message-input');
+    nameInput.style.border = '2px solid white';
+    emailInput.style.border = '2px solid white';
+    amountInput.style.border = '2px solid white';
+    messageInput.style.border = '2px solid white';
+  }
 
 }

@@ -16,14 +16,6 @@ form {
   }
 }
 
-ion-input {
-  background: #fbfbfb47;
-  border: 1px solid #fff;
-  width: 100%;
-  transition: 500ms;
-  margin: 0.6em 0;
-  --inner-padding-start: 4px 8px;
-}
 
 ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-md-h {
   --padding-start: 8px;
@@ -31,6 +23,5 @@ ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-i
 
 ion-item {
   margin: 1em;
-  --background: none;
-  --highlight-color-focused: #BC3790;
+  background: white;
 }

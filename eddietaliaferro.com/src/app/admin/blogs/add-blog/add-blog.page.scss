@@ -17,7 +17,7 @@ form {
 }
 .alert {
   background-color: #333;
-  border: solid 1px #3cf63c;
+  border: solid 2px #0ec6fe;
   border-radius: 5px;
   margin: 1em auto;
   padding: 0.5em;
@@ -51,6 +51,18 @@ ion-toolbar {
     left: -20px;
   }
 }
+#pictures-checkbox,  #code-checkbox{
+  border: 2px solid #3cf63c;
+  width: 180px;
+  padding: 0.5em;
+  margin: 2em 0em;
+  border-radius: 5px;
+}
+#pictures-section, #code-section {
+  background: rgba(224, 224, 224, 0.692);
+  padding: 1em;
+  border-radius: 5px;
+}
 .purple-button {
   width: 150px;
   display: block;
@@ -79,7 +91,7 @@ h4 {
   width: 200px;
   padding: 0.6em;
   border-radius: 5px;
-  margin: 10em 0 2em 0;
+  margin: 4em 0 2em 0;
 }
 .green-button {
   margin-top: 3em;

@@ -27,6 +27,9 @@ export class AddBlogPage implements OnInit, OnDestroy {
   pictureFourDataURL;
   pictureFiveDataURL;
 
+  picturesSection = false;
+  codeSection = false;
+
   pictureOneTag    =  '<< picture-1 >>';
   pictureTwoTag    =  '<< picture-2 >>';
   pictureThreeTag  =  '<< picture-3 >>';
@@ -72,6 +75,26 @@ export class AddBlogPage implements OnInit, OnDestroy {
   }
   back() {
     this.router.navigateByUrl('/admin/blogs')
+  }
+  picturesSectionChange(e) {
+    console.log(e.detail);
+    if(e.detail.checked) {
+      this.picturesSection = true;
+    }
+    else {
+      this.picturesSection = false;
+
+    }
+  }
+  codeSectionChange(e) {
+    console.log(e.detail);
+    if(e.detail.checked) {
+      this.codeSection = true;
+    }
+    else {
+      this.codeSection = false;
+
+    }
   }
 
   // Pictures
