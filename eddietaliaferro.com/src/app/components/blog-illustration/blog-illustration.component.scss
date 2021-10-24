@@ -24,3 +24,424 @@
     margin: 0 auto;
   }
 }
+#Pencil {
+  animation: pencil-animation 5s ease-in infinite;
+}
+// Pencil Start
+// 59.000000, 337.000000
+// -176px for initial start
+
+// Blog Line 1
+// 329 337, 412 380, 461 337, 518 371, 717 272
+@keyframes pencil-animation {
+  // 0 Seconds
+  0% {
+    transform: translate(-235px, 337px)
+  }
+  4% {
+    transform: translate(53px, 337px)
+  }
+  8% {
+    transform: translate(136px, 380px)
+  }
+  12% {
+    transform: translate(185px, 337px)
+  }
+  16% {
+    transform: translate(242px, 371px)
+  }
+  20% {
+    transform: translate(441px, 272px)
+  }
+
+  // 1 Seconds
+  // Blog Line 2
+  // 329 404, 412 447, 461 404, 518 438, 717 339
+  24% {
+    transform: translate(-235px, 404px)
+  }
+  28% {
+    transform: translate(53px, 404px)
+  }
+  32% {
+    transform: translate(136px, 447px)
+  }
+  36% {
+    transform: translate(185px, 404px)
+  }
+  40% {
+    transform: translate(242px, 438px)
+  }
+  44% {
+    transform: translate(441px, 339px)
+  }
+
+
+  // 2 Seconds
+  // Blog Line 3
+  // 329 458, 412 501, 461 458, 518 492, 717 393
+  48% {
+    transform: translate(-235px, 458px)
+  }
+  52% {
+    transform: translate(53px, 458px)
+  }
+  56% {
+    transform: translate(136px, 501px)
+  }
+  60% {
+    transform: translate(185px, 482px)
+  }
+  64% {
+    transform: translate(242px, 492px)
+  }
+  68% {
+    transform: translate(441px, 393px)
+  }
+
+
+  // 3 Seconds
+  72% {
+    transform: translate(268px, 650px)
+  }
+  86% {
+    transform: rotate(180deg)
+  }
+  // 268px, -650px = position of bounce effect
+  100% {
+    transform: translate(268px, -650px)
+  }
+}
+#blog-line-1 {
+  animation: blog-line-1-animation 5s ease-in infinite;
+}
+@keyframes blog-line-1-animation {
+  // 0 Seconds
+  0% {
+  }
+  4% {
+    
+  }
+  8% {
+    stroke: white;
+    
+  }
+  12% {
+    
+  }
+  16% {
+    
+  }
+  // 1 Seconds
+  20% {
+    stroke: #3cf63c;
+  }
+
+  
+  24% {
+    
+  }
+  28% {
+    
+  }
+  32% {
+    
+  }
+  36% {
+    
+  }
+  // 2 Seconds
+  40% {
+    
+  }
+  44% {
+    
+  }
+
+  48% {
+    
+  }
+  52% {
+    
+  }
+  56% {
+    
+  }
+
+  // 3 Seconds
+  60% {
+    
+  }
+  64% {
+    
+  }
+  68% {
+    
+  }
+
+  72% {
+    
+  }
+  76% {
+    
+  }
+
+  // 4 Seconds
+  80% {
+    
+  }
+
+  // 5 Seconds
+  100% {
+    
+  }
+}
+#blog-line-2 {
+  animation: blog-line-2-animation 5s ease-in infinite;
+}
+@keyframes blog-line-2-animation {
+  // 0 Seconds
+  0% {
+  }
+  4% {
+    
+  }
+  8% {
+    
+  }
+  12% {
+    
+  }
+  16% {
+    
+  }
+  // 1 Seconds
+  20% {
+  }
+  24% {
+  }
+  28% {
+  }
+  32% {
+    
+  }
+  36% {
+    
+  }
+  // 2 Seconds
+  40% {
+    stroke: white;
+    
+  }
+  44% {
+    stroke: #3cf63c;
+    
+  }
+
+  48% {
+    
+  }
+  52% {
+    
+  }
+  56% {
+    
+  }
+
+  // 3 Seconds
+  60% {
+    
+  }
+  64% {
+    
+  }
+  68% {
+    
+  }
+
+  72% {
+    
+  }
+  76% {
+    
+  }
+
+  // 4 Seconds
+  80% {
+    
+  }
+
+  // 5 Seconds
+  100% {
+    
+  }
+}
+#blog-line-3 {
+  animation: blog-line-3-animation 5s ease-in infinite;
+}
+@keyframes blog-line-3-animation {
+  // 0 Seconds
+  // Blog Line 1
+  0% {
+  }
+  4% {
+    
+  }
+  8% {
+    
+  }
+  12% {
+    
+  }
+  16% {
+    
+  }
+  // 1 Seconds
+  20% {
+  }
+  // Blog Line 2
+  24% {
+    
+  }
+  28% {
+    
+  }
+  32% {
+    
+  }
+  36% {
+    
+  }
+  // 2 Seconds
+  40% {
+    
+  }
+  44% {
+    
+  }
+
+  48% {
+    stroke: white;
+    
+  }
+  52% {
+    
+  }
+  56% {
+    
+  }
+
+  // 3 Seconds
+  // Blog Line 3
+  60% {
+    stroke: #3cf63c;
+    
+  }
+  64% {
+    
+  }
+  68% {
+    
+  }
+
+  72% {
+    
+  }
+  76% {
+    
+  }
+
+  // 4 Seconds
+  80% {
+    
+  }
+
+  // 5 Seconds
+  100% {
+    
+  }
+}
+#bounce-cloud {
+  opacity: 0;
+  animation: bounce-cloud-animation 5s ease-in infinite;
+}
+@keyframes bounce-cloud-animation {
+  // 0 Seconds
+  // Blog Line 1
+  0% {
+  }
+  4% {
+    
+  }
+  8% {
+    
+  }
+  12% {
+    
+  }
+  16% {
+    
+  }
+  // 1 Seconds
+  20% {
+  }
+  // Blog Line 2
+  24% {
+    
+  }
+  28% {
+    
+  }
+  32% {
+    
+  }
+  36% {
+    
+  }
+  // 2 Seconds
+  40% {
+    
+  }
+  44% {
+    
+  }
+
+  48% {
+    
+  }
+  52% {
+    
+  }
+  56% {
+  }
+
+  // 3 Seconds
+  // Blog Line 3
+  60% {
+
+  }
+  64% {
+    
+  }
+  68% {
+    opacity: 0;
+  }
+
+  72% {
+    opacity: 1;
+  }
+  76% {
+    transform: translateX(50px);
+    
+  }
+
+  // 4 Seconds
+  80% {
+    
+  }
+
+  // 5 Seconds
+  100% {
+    
+  }
+}
