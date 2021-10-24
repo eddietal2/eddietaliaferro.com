@@ -8,7 +8,7 @@
   --width: 180px;
 }
 .grey-button {
-  width: 110px;
+  width: 100px;
   display: block;
   margin: 30px 0;
   --background: linear-gradient(360deg, #777777 -2%, #333, #777777);
@@ -16,17 +16,18 @@
   border-radius: 50px;
   --box-shadow: none;
 }
-.gold-button {
-  width: 110px;
+.red-button {
+  width: 100px;
   display: block;
   margin-left: 1em;
-  --background: linear-gradient(360deg, #d8cca8 -2%, #847145, #d8cca8);
+  --background: linear-gradient(360deg, #D01801 -2%, #810b00, #D01801);
   --color: white;
   --border-radius: 50px;
   --box-shadow: none;
 }
 .blue-button {
-  width: 110px;
+  width: 100px;
+  font-size: 0.8em;
   display: block;
   margin-left: 1em;
   --background: linear-gradient(360deg, #1da3f0 -2%, #185477, #1da3f0);

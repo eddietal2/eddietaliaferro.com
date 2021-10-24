@@ -9,7 +9,7 @@ import { ProjectService, Project } from 'src/app/services/project/project.servic
   templateUrl: './projects.page.html',
   styleUrls: ['./projects.page.scss'],
 })
-export class ProjectsPage implements OnInit, OnDestroy {
+export class ProjectsPage implements OnInit {
   allProjects;
 
   constructor(
@@ -117,9 +117,9 @@ export class ProjectsPage implements OnInit, OnDestroy {
       return Error('There was an error with making toggling the Blogs visibility.')
     }
   }
-  @HostListener('unloaded')
-  ngOnDestroy() {
-    console.log('Admin Projects Page destroyed');
-  }
+  // @HostListener('unloaded')
+  // ngOnDestroy() {
+  //   console.log('Admin Projects Page destroyed');
+  // }
 
 }
