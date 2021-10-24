@@ -80,7 +80,7 @@ ion-toolbar:first-child {
   margin: 5px 0;
   color: #3df63d;
 }
-.blog-post-wrapper {
+#blog-post-wrapper {
   background: #ffffffe5;
   margin: 3em auto 6em auto;
   padding-bottom: 9em;
@@ -95,6 +95,7 @@ ion-toolbar:first-child {
 #blog-post {
   line-height: 32px;
   white-space: pre-wrap;
+  overflow: scroll;
   font-size: 21px;
   margin-top: 3em;
   color: #222;
@@ -115,7 +116,36 @@ ion-toolbar:first-child {
     }
   }
 }
-
+ion-fab-button {
+  --background: #00c400;
+  --color: white;
+  position: relative;
+  top: -115px;
+  right: 50px;
+  opacity: 0;
+  transition: 0.5s;
+  animation: fab-slide-in 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+@keyframes fab-slide-in {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+#new-comment-breakpoint {
+  position: relative;
+  top: -100px;
+}
+#comments-header {
+  color: white;
+  border: 1px solid #3df63d;
+  width: 200px;
+  padding: 0.5em;
+  border-radius: 5px;
+}
 .comment-wrapper {
   background: #1805199e;
   padding: 2em;
@@ -181,15 +211,15 @@ ion-toolbar:first-child {
       --box-shadow: none;
     }
     .grey-button {
-      margin-top: 1em;
-      --width: 150px;
-      height: 36px;
+      margin-top: 5em;
+      width: 150px;
+      height: 60px;
+      --background: none;
       font-size: 0.8em;
       position: relative;
-      left: 7px;
-      // --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
+      left: 10px;
+      top: 40px;
       --color: white;
-      --border-radius: 50px;
       --box-shadow: none;
     }
     .delete-button {
@@ -310,19 +340,29 @@ ion-toolbar:first-child {
     animation: slide-in-right 0.5s ease-in forwards;
 
     .reply {
-      margin: 5em 0 0 0;
+      margin: 2em 0 0 0;
+      padding: 1.5em;
       min-height: 180px;
-      width: 91%;
+      width: 100%;
       white-space: pre-wrap;
       transition: 500ms;
-      background: #00000047;
-      padding: 1.4em 1em 1em 2em;
-      float: right;
+      background: #ffefef47;
       border-radius: 5px;
       box-shadow: 1px 1px 9px #080808;
 
       ion-toolbar {
         --background: none;
+      }
+    }
+    @media only screen and (max-width: 550px) {
+      .reply {
+        ion-toolbar {
+          ion-buttons {
+            ion-button{
+              width: 50px;
+            }
+          }
+        }
       }
     }
   }
@@ -331,15 +371,6 @@ ion-toolbar:first-child {
     font-size: 21px;
     width: 100%;
     --background: #FF443B;
-    position: relative;
-    top: 150px;
-    color: white;
-  }
-  .success-toast {
-    font-weight: 600;
-    font-size: 21px;
-    width: 100%;
-    --background: #3df63d;
     position: relative;
     top: 150px;
     color: white;

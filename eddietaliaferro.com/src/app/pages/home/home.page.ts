@@ -256,6 +256,12 @@ export class HomePage implements OnInit {
   contactPage() {
     this.router.navigateByUrl('/contact');
   }
+  viewBlogs() {
+    this.router.navigateByUrl('blog');
+  }
+  viewProjects() {
+    this.router.navigateByUrl('projects');
+  }
   viewBlogPage(blogID) {
     console.log(blogID)
     this.router.navigateByUrl('/blog/blog-page/' + blogID);

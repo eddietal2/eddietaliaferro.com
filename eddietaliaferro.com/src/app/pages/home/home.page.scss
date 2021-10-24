@@ -212,6 +212,14 @@
   margin: 0em auto 5em auto;
 }
 
+.green-mobile-button {
+  height: 56px;
+  margin-top: 63px;
+  --background: #3cf63c;
+  font-size: 1em;
+  color: #1d071f;
+}
+
 // Latest Blogs
 .latest-blogs {
   // background: #f7f7f7;
@@ -270,6 +278,7 @@
   .green-button {
     margin: 0;
   }
+  
 
   .blog-info {
     display: inline-block;
@@ -301,11 +310,6 @@
   }
 }
 
-.blog-post:hover {
-  margin: 2.3em 0;
-  background: #1805199e;
-  border-left: 16px solid #3df63d;
-}
 
 // Latest Project
 .latest-projects {
@@ -338,7 +342,6 @@
 }
 
   .project-post:hover {
-    margin: 2.3em 0;
     border-left: 16px solid #3df63d;
   }
 

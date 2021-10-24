@@ -1,7 +1,15 @@
 <ion-content #content scrollEvents="true" (ionScroll)="getScrollPosition($event)">
+
+  <!-- fab placed to the bottom end -->
+  <ion-fab (click)="scrollToTop()" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon style="color: white; font-size: 2.3em;" name="caret-up-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-grid>
+
     <!-- Blog Header and Search Bar -->
-    <ion-row class="ion-justify-content-center blog-post-wrapper">
+    <ion-row id="blog-post-wrapper" class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="7">
         <ion-toolbar>
           <ion-buttons slot="start">
@@ -106,7 +114,7 @@
     <!-- Comments -->
     <ion-row class="ion-justify-content-center" style="margin-bottom: 6em;">
       <ion-col size-xs="12" size-sm="9" size-md="8" size-lg="7" size-xl="6">
-        <h3 style="color: #3df63d;">Comments ({{this.commentsLength}})</h3>
+        <h3 id="comments-header">Comments ({{this.commentsLength}})</h3>
         <hr class="line">
         <div id="comments-wrapper">
           <!-- Comment Wrapper -->
@@ -137,12 +145,15 @@
           <!-- Comment -->
           <p [attr.id]="comment._id + '-comment'" class="comment">{{comment.comment}}</p>
 
+          <!-- Close reply breakpoint -->
+          <div [attr.id]="comment._id + 'close-replies-breakpoint'"></div>
+
           <!-- Reply Input -->
-          <ion-textarea [attr.id]="comment._id + '-reply-input'" *ngIf="this.userType === 'user' || this.userType === 'admin'" (ionChange)="getReplyContent($event)" class="reply-textarea" rows="5" placeholder="Add reply here">
+          <ion-textarea [attr.id]="comment._id + '-reply-input'" *ngIf="this.userType === 'user' || this.userType === 'admin'" (ionChange)="getReplyContent($event, comment._id)" (ionFocus)="hideMobileInput(comment._id)" (ionBlur)="revealMobileInput(comment._id)" class="reply-textarea" rows="5" placeholder="Add reply here">
           </ion-textarea>
 
           <!-- Reply Button -->
-          <ion-button [attr.id]="comment._id + '-reply-input-button'" style="margin-top: 1em;float: right;" *ngIf="this.userType === 'user' || this.userType === 'admin'" class="gold-button" (click)="reply(this.id, comment._id, this.userFullName, this.userPicture, this.replyContent, this.userEmail)">
+          <ion-button [attr.id]="comment._id + '-reply-input-button'" style="margin-top: 2em; float: right;" *ngIf="this.userType === 'user' || this.userType === 'admin'" class="gold-button" (click)="reply(this.id, comment._id, this.userFullName, this.userPicture, this.replyContent, this.userEmail)">
             Reply
           </ion-button>
 
@@ -151,7 +162,7 @@
             <!-- Replies Upper Toolbar -->
             <div class="replies-upper-toolbar">
               <span [attr.id]="comment._id + '-replies-counter'" class="replies-title">Replies - {{comment.replies.length}}</span>
-              <span class="upper-close-reply-button" (click)="closeReplies(comment, comment._id, $event, comment.replies.length)">
+              <span class="upper-close-reply-button" (click)="closeReplies(comment._id)">
                 <ion-icon name="close"></ion-icon>
               </span>
             </div>
@@ -172,7 +183,7 @@
                   *ngIf="this.userEmail === reply.email && this.userType === 'user' || this.userType === 'admin'"  class="delete-reply" (click)="deleteReplyAlert(this.id, comment._id, reply._id)">
                     Delete
                   </ion-button>
-                  <ion-button [attr.id]="'reply-'+reply._id+'-edit-button'" *ngIf="this.userEmail === reply.email"  style="color: #BC3790;" class="delete-reply" (click)="editReply(this.id, comment._id, reply._id)">
+                  <ion-button [attr.id]="'reply-'+reply._id+'-edit-button'" *ngIf="this.userEmail === reply.email"  style="color: white;" class="delete-reply" (click)="editReply(this.id, comment._id, reply._id)">
                     Edit
                   </ion-button>
                 </ion-buttons>
@@ -180,19 +191,23 @@
             </div>
           </div>
 
+          <!-- Add reply breakpoint -->
+          <div [attr.id]="comment._id + 'add-reply-breakpoint'"></div>
+
           <!-- View/Close Replies Toolbar -->
           <ion-toolbar *ngIf="this.userType !== 'none'" class="reply-toolbar">
             <ion-buttons slot="end">
               <ion-button *ngIf="comment.replies.length > 0" [attr.id]="comment._id+'-reply-button'" class="grey-button" (click)="viewReplies(comment, comment._id, $event, comment.replies)">
                 View Replies - {{comment.replies.length}}
               </ion-button>
-              <ion-button [attr.id]="comment._id+'-replies-close-button'" style="display: none; margin-top: 2em;" class="grey-button" (click)="closeReplies(comment, comment._id, $event, comment.replies)">
+              <ion-button [attr.id]="comment._id+'-replies-close-button'" style="display: none; margin-top: 2em;" class="grey-button" (click)="closeReplies(comment._id)">
                 Close Replies
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
           </div>
         </div>
+        <div id="new-comment-breakpoint"></div>
       </ion-col>
     </ion-row>
 

@@ -93,12 +93,25 @@ export class CommentOptionsComponent implements OnInit {
     await alert.present();
   }
   async deleteCommentToast() {
-    const toast = await this.toastController.create({
-      message: 'You have successfully deleted a Comment!',
-      cssClass: 'danger-toast',
-      duration: 2000
-    });
-    toast.present();
+    console.log(window.innerWidth)
+    if(window.innerWidth > 993) {
+      const toast = await this.toastController.create({
+        message: 'You have successfully deleted a Comment!',
+        position: 'bottom',
+        cssClass: 'danger-toast',
+        duration: 2000
+      });
+      toast.present();
+      return;
+    } else {
+      const toast = await this.toastController.create({
+        message: 'You have successfully deleted a Comment!',
+        cssClass: 'danger-toast-mobile',
+        duration: 2000
+      });
+      toast.present();
+      return;
+    }
   }
   editComment() {
     this.popoverController.dismiss();
@@ -113,10 +126,10 @@ export class CommentOptionsComponent implements OnInit {
     let editTextarea = document.createElement('textarea');
     editTextarea.setAttribute('rows', '10');
     editTextarea.setAttribute('id', this.comment);
-    editTextarea.style.fontSize = '1em';
+    editTextarea.style.fontSize = '18px';
     editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
     editTextarea.style.width = '100%';
-    editTextarea.style.border = '4px solid #BC3790';
+    editTextarea.style.border = '4px solid #1a061b';
     editTextarea.style.borderRadius = '10px';
     editTextarea.style.backgroundColor = '#fff9';
     editTextarea.style.color = '#333';
@@ -124,12 +137,22 @@ export class CommentOptionsComponent implements OnInit {
     editTextarea.style.marginBottom = '1em';
     editTextarea.innerHTML = commentValue;
 
+    let mobileCommentInput = document.getElementById('mobile-comment-input');
+    editTextarea.addEventListener('focus', () => {
+      mobileCommentInput.style.transition = '0.5s';
+      mobileCommentInput.style.height = '0px';
+    })
+    editTextarea.addEventListener('blur', () => {
+      mobileCommentInput.style.transition = '0.5s';
+      mobileCommentInput.style.height = '80px';
+    })
+
     // Complete Edit Button
     let completeEditButton = document.createElement('button');
     completeEditButton.innerHTML = 'Edit';
     editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
     completeEditButton.style.width = '100px';
-    completeEditButton.style.padding = '0.3em';
+    completeEditButton.style.padding = '0.6em 0.3em';
     completeEditButton.style.margin = '0.3em 0.5em';
     completeEditButton.style.borderRadius = '100px';
     completeEditButton.style.color = 'white';
@@ -175,7 +198,7 @@ export class CommentOptionsComponent implements OnInit {
     cancelEditButton.innerHTML = 'Cancel';
     editTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
     cancelEditButton.style.width = '100px';
-    cancelEditButton.style.padding = '0.3em';
+    cancelEditButton.style.padding = '0.6em 0.3em';
     cancelEditButton.style.margin = '0.3m 0';
     cancelEditButton.style.borderRadius = '100px';
     cancelEditButton.style.color = 'white';

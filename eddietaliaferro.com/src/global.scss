@@ -47,20 +47,31 @@ ion-input:focus {
 // Toasts, Error Messages, Alerts
 .danger-toast {
   font-weight: 600;
-  font-size: 21px;
+  font-size: 18px;
   width: 100%;
   --background: #FF443B;
   color: white;
 }
-
+.danger-toast-mobile {
+  font-weight: 600;
+  font-size: 18px;
+  width: 100%;
+  --background: #FF443B;
+  color: white;
+  margin-top: 80px;
+}
 .success-toast {
   font-weight: 600;
-  font-size: 21px;
+  font-size: 18px;
   width: 100%;
   --background: #3df63d;
-  position: relative;
-  top: 150px;
-  color: white;
+}
+.success-toast-mobile {
+  font-weight: 600;
+  font-size: 18px;
+  width: 100%;
+  --background: #3df63d;
+  margin-top: 80px;
 }
 .error-message {
   color: #222;

@@ -9,7 +9,6 @@ import { catchError, tap } from 'rxjs/operators';
 import { CommentOptionsComponent } from 'src/app/components/comment-options/comment-options.component';
 import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
 
-
 @Component({
   selector: 'app-blog-page',
   templateUrl: './blog-page.page.html',
@@ -69,10 +68,12 @@ export class BlogPagePage implements OnInit {
     ngOnInit() {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
       this.id = id;
-      this.getBlogInfo();
       this.getUserDetails();
+      this.getBlogInfo();
       this.getBlogsForNextPrev();
     }
+
+    // Blog
     getBlogInfo() {
       this.blogInfoSub = this.blogService.getBlogInfo(this.id).subscribe(
         info => {
@@ -206,6 +207,24 @@ export class BlogPagePage implements OnInit {
     editBlog() {
       this.router.navigate(['/admin/blogs/edit-blog/', this.id])
     }
+    getScrollPosition(e) {
+      this.scrollTop = e.detail.scrollTop;
+      // console.log(this.scrollTop)
+      let mobileCommentInput = document.getElementById('mobile-comment-input');
+      mobileCommentInput.style.transition = '0.5s';
+      mobileCommentInput.style.height = '80px';
+
+    }
+    scrollToTop() {
+      this.ionContent.scrollToTop();
+    }
+
+    // Comments
+    detectNewComments() {
+      // There is a div that is underneath the most recent comment to scroll to.
+      let newCommentBreakpoint = document.getElementById('new-comment-breakpoint');
+      newCommentBreakpoint.scrollIntoView();
+    }
     viewComments() {
       let commentsWrapper = document.getElementById('all-comments');
       // commentsWrapper.scrollIntoView()
@@ -213,7 +232,7 @@ export class BlogPagePage implements OnInit {
       this.ionContent.scrollToPoint(0,(commentsWrapper.offsetTop - 400))
     }
     comment(blogID, userName, userPicture, comment, userEmail) {
-      this.commentSub =this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
+      this.commentSub = this.blogService.comment(blogID, userName, userPicture, comment, userEmail).subscribe(
         data => {
           this.comments = data['comments'];
           this.commentsLength = this.comments.length;
@@ -222,7 +241,9 @@ export class BlogPagePage implements OnInit {
           }
           this.commentInput.value = '';
           this.commentInputBottom.value = '';
-          return this.addCommentToast();
+          this.addCommentToast();
+          this.detectNewComments();
+          return;
         });
     }
     commentFromTop(blogID, userName, userPicture, comment, userEmail) {
@@ -238,19 +259,8 @@ export class BlogPagePage implements OnInit {
           this.commentInput.value = '';
           this.commentInputBottom.value = '';
           this.addCommentToast();
-
-          // Find most recent comment, then scroll to that comment + the height of its wrapper
-          let lastCommentID = this.comments[this.comments.length-2]['_id'];
-          console.log(lastCommentID)
-          let lastCommentScrollTop = document.getElementById(lastCommentID + '-comment-wrapper');
-          let newCommentScrolltop = lastCommentScrollTop;
-
-          console.log('Scrolltop: ');
-          // console.log(lastCommentScrollTop.offsetTop);
-          // console.log(lastCommentScrollTop.scrollHeight);
-          // console.log(newCommentScrolltop);
-          console.log(lastCommentScrollTop);
-          // this.ionContent.scrollToPoint(0, (newCommentScrolltop))
+          this.detectNewComments();
+          return;
         });
     }
     mobileComment(blogID, userName, userPicture, comment, userEmail) {
@@ -262,7 +272,8 @@ export class BlogPagePage implements OnInit {
             this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
           }
           this.mobileCommentInput.value = '';
-          return this.addCommentToast();
+          this.addCommentToast();
+          this.detectNewComments();
         });
     }
     async commentOptionsPopover(ev: any, blogID, commentID, userFullName, title) {
@@ -291,13 +302,27 @@ export class BlogPagePage implements OnInit {
       console.log('onDidDismiss resolved with role', role);
     }
     async addCommentToast() {
-      const toast = await this.toastController.create({
-        message: 'You have successfully added a Comment!',
-        cssClass: 'success-toast',
-        duration: 2000
-      });
-      toast.present();
+      if(window.innerWidth > 993) {
+        const toast = await this.toastController.create({
+          message: 'You have successfully added a Comment!',
+          position: 'bottom',
+          cssClass: 'success-toast',
+          duration: 2000
+        });
+        toast.present();
+        return;
+      } else {
+        const toast = await this.toastController.create({
+          message: 'You have successfully added a Comment!',
+          cssClass: 'success-toast-mobile',
+          duration: 2000
+        });
+        toast.present();
+        return;
+      }
     }
+
+    // Replies
     reply(blogID, commentID, fullName, picture, reply, email) {
       console.log(blogID, commentID, fullName, picture, reply, email)
       this.replySub = this.blogService.reply(blogID, commentID, fullName, picture, reply, email).subscribe(
@@ -315,9 +340,16 @@ export class BlogPagePage implements OnInit {
               // Clear Reply Input
               let replyInput = (<IonTextarea><unknown>document.getElementById(commentID + '-reply-input'));
               replyInput.value = '';
+
               // View All Replies after user has successfully added a Reply
               this.viewReplies(undefined, commentID, undefined, undefined);
-              return this.addReplyToast();
+              this.addReplyToast();
+
+              // Scroll to new Reply
+              let newReplyBreakpoint = document.getElementById(commentID+'-add-reply-breakpoint');
+              newReplyBreakpoint.scrollIntoView();
+
+              return
             }
           }
         }
@@ -332,10 +364,10 @@ export class BlogPagePage implements OnInit {
 
       let editReplyTextarea = document.createElement('textarea');
       editReplyTextarea.setAttribute('rows', '5');
-      editReplyTextarea.style.fontSize = '21px';
+      editReplyTextarea.style.fontSize = '18px';
       editReplyTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
       editReplyTextarea.style.width = '100%';
-      editReplyTextarea.style.border = '4px solid #BC3790';
+      editReplyTextarea.style.border = '4px solid #1a061b';
       editReplyTextarea.style.borderRadius = '10px';
       editReplyTextarea.style.backgroundColor = '#fff9';
       editReplyTextarea.style.color = '#333';
@@ -349,7 +381,8 @@ export class BlogPagePage implements OnInit {
         console.log('Completing Edit');
         cancelEditButton.remove();
         completeEditButton.remove();
-        replyEditButton.style.display = 'block';replyDeleteButton.style.display = 'block';
+        replyEditButton.style.display = 'block';
+        replyDeleteButton.style.display = 'block';
         // HTTP Request
         console.log(editReplyTextarea)
         console.log(editReplyTextarea.value)
@@ -381,7 +414,7 @@ export class BlogPagePage implements OnInit {
       completeEditButton.innerHTML = 'Edit';
       editReplyTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
       completeEditButton.style.width = '100px';
-      completeEditButton.style.padding = '0.3em';
+      completeEditButton.style.padding = '0.6em 0.3em';
       completeEditButton.style.margin = '0.3em 0.5em';
       completeEditButton.style.borderRadius = '100px';
       completeEditButton.style.color = '#00c400';
@@ -398,7 +431,7 @@ export class BlogPagePage implements OnInit {
       cancelEditButton.innerHTML = 'Cancel';
       editReplyTextarea.style.animation = 'slide-in-right 0.5s ease-in forwards';
       cancelEditButton.style.width = '100px';
-      cancelEditButton.style.padding = '0.3em';
+      cancelEditButton.style.padding = '0.6em 0.3em';
       cancelEditButton.style.margin = '0.3m 0';
       cancelEditButton.style.borderRadius = '100px';
       cancelEditButton.style.color = 'red';
@@ -456,12 +489,23 @@ export class BlogPagePage implements OnInit {
         return;
     }
     async addReplyToast() {
-      const toast = await this.toastController.create({
-        message: 'You have successfully added a Reply!',
-        cssClass: 'success-toast',
-        duration: 2000
-      });
-      toast.present();
+      if(window.innerWidth > 993) {
+        const toast = await this.toastController.create({
+          message: 'You have successfully added a Reply!',
+          position: 'bottom',
+          cssClass: 'success-toast',
+          duration: 2000
+        });
+        toast.present();
+      }
+      else {
+        const toast = await this.toastController.create({
+          message: 'You have successfully added a Reply!',
+          cssClass: 'success-toast-mobile',
+          duration: 2000
+        });
+        toast.present();
+      }
     }
     async editReplyToast() {
       const toast = await this.toastController.create({
@@ -501,8 +545,27 @@ export class BlogPagePage implements OnInit {
       });
       toast.present();
     }
-    getReplyContent(e) {
-      // console.log(e)
+    hideMobileInput(commentID) {
+      let replyInput = document.getElementById(commentID+'-reply-input');
+      let mobileCommentInput = document.getElementById('mobile-comment-input');
+      console.log(replyInput);
+      console.log(mobileCommentInput);
+      replyInput.style.border = "1px white solid";
+      mobileCommentInput.style.transition = '0.5s';
+      mobileCommentInput.style.height = '0px';
+    }
+    revealMobileInput(commentID) {
+      let replyInput = document.getElementById(commentID+'-reply-input');
+      let mobileCommentInput = document.getElementById('mobile-comment-input');
+      console.log(replyInput);
+      console.log(mobileCommentInput);
+      replyInput.style.border = "1px white solid";
+      mobileCommentInput.style.transition = '0.5s';
+      mobileCommentInput.style.height = '80px';
+    }
+    getReplyContent(e, commentID) {
+      console.clear();
+      console.log(e)
       if(this.replyContent) {
         // console.log('There was already a reply field on the page that was populated. Refreshing Reply content');
         this.replyContent = '';
@@ -510,10 +573,7 @@ export class BlogPagePage implements OnInit {
       }
       else if(!this.replyContent)
       this.replyContent = e.detail.value;
-    }
-    getScrollPosition(e) {
-      this.scrollTop = e.detail.scrollTop;
-      // console.log(this.scrollTop)
+      
     }
     viewReplies(comment, id, e, repliesLength) {
       var repliesLength = repliesLength;
@@ -524,32 +584,25 @@ export class BlogPagePage implements OnInit {
       repliesButton.style.display = 'none';
       repliesCloseButton.style.display = 'block';
     }
-    closeReplies(comment, id, e, repliesLength) {
+    closeReplies(id) {
       let replies = document.getElementById(id+'-replies');
+      let repliesInput = document.getElementById(id+'-close-replies-breakpoint');
       let repliesButton = document.getElementById(id+'-reply-button');
       let repliesCloseButton = document.getElementById(id+'-replies-close-button');
       replies.style.display = 'none';
-      repliesButton.style.display = 'block';
       repliesCloseButton.style.display = 'none';
-      this.ionContent.scrollToPoint(0, this.scrollTop);
+      repliesButton.style.display = 'block';
+      repliesInput.style.position = 'relative';
+      repliesInput.style.top = '-100px';
+      repliesInput.scrollIntoView();
     }
+
+    // Footer
     donatePage() {
       this.router.navigateByUrl('/donate');
     }
     contactPage() {
       this.router.navigateByUrl('/contact');
-    }
-    async presentAlert(header: string, msg: string) {
-      const alert = await this.alertController.create({
-        cssClass: 'danger-alert',
-        header,
-        message: msg,
-        buttons: [{
-          text: 'OK'
-        }]
-      });
-  
-      await alert.present();
     }
     getBlogsForNextPrev () {
       this.blogServiceSub = this.blogService.getBlogs().subscribe(
@@ -605,6 +658,21 @@ export class BlogPagePage implements OnInit {
       this.router.navigate(['blog/blog-page/', this.allBlogs[this.currentBlogPosition+1]['_id']])
     }
 
+    // Alerts
+    async presentAlert(header: string, msg: string) {
+      const alert = await this.alertController.create({
+        cssClass: 'danger-alert',
+        header,
+        message: msg,
+        buttons: [{
+          text: 'OK'
+        }]
+      });
+  
+      await alert.present();
+    }
+
+    // When page is Destroyed.
     @HostListener('unloaded')
     ngOnDestroy() {
     // this.userTypeSub.unsubscribe();
