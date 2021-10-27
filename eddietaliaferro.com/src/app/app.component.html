@@ -38,7 +38,7 @@
           <p routerLinkActive="active-link">Profile</p>
           <img style="margin-left: 1em; border-radius: 100px;" src="{{this.userPicture}}" height="40" alt="User Profile Picture">
         </ion-item>
-        <ion-item *ngIf="this.userType === 'none'" (click)=closeMenu() routerLink="/login">
+        <ion-item *ngIf="this.userType === 'none'" (click)="loginDetectFromBlog()">
           <p routerLinkActive="active-link">Login</p>
         </ion-item>
         <ion-item *ngIf="this.userType === 'admin' || this.userType === 'user'" (click)=logoutConfirm()>

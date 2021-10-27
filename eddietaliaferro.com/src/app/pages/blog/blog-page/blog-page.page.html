@@ -60,7 +60,7 @@
       <ion-col size-xs="11" size-sm="9" size-md="8" size-lg="7">
         <ion-toolbar>
           <ion-buttons *ngIf="this.userType === 'none'" slot="start">
-            <ion-button routerLink="/login" class="login-button">
+            <ion-button (click)="loginPageFromBlog()" routerLink="/login" class="login-button">
               Login
             </ion-button>
             <ion-button routerLink="/register" class="register-button" style="--border-radius: 50px;">
@@ -303,7 +303,10 @@
     <!-- Mobile Comment Input -->
     <ion-footer *ngIf="this.userType !== 'none'" id="mobile-comment-input" class="ion-hide-lg-up">
       <ion-row>
-        <ion-col style="display: inline-block; height: 40px;" size="11">
+        <ion-col size="1.5">
+          <img style="width: 100%; border-radius: 100px;" src="{{this.userPicture}}" alt="User Profile Picture">
+        </ion-col>
+        <ion-col style="display: inline-block; height: 40px;" size="8.5">
           <ion-textarea
           #mobileCommentInput
           style="display: inline; border: none;"
@@ -316,7 +319,7 @@
           >
         </ion-textarea>
         </ion-col>
-        <ion-col style="display: inline-block; height: 60px;" size="1">
+        <ion-col style="display: inline-block; height: 60px;" size="2">
           <ion-button (click)="mobileComment(this.id, this.userFullName, this.userPicture, this.mobileCommentInput.value, this.userEmail)" style="--background: none; --box-shadow: none">
           <ion-icon style="font-size: 1.8em; color: #1a0043;" slot="start" name="send"></ion-icon>
         </ion-button>

@@ -25,7 +25,7 @@
       <a routerLink="/donate" routerLinkActive="active-link">Donate</a>
     </ion-buttons>
     <ion-buttons *ngIf="this.userType === 'none'" class="ion-hide-lg-down" slot="primary">
-      <a routerLink="/login" routerLinkActive="active-link">Login</a>
+      <a (click)="loginDetectFromBlog()" routerLinkActive="active-link">Login</a>
     </ion-buttons>
     <ion-buttons *ngIf="this.userType === 'user'" class="ion-hide-lg-down" slot="primary">
       <a routerLink="/profile" routerLinkActive="active-link">Profile</a>

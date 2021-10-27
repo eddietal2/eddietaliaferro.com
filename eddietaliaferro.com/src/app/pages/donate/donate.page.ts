@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { ToastController, LoadingController, IonInput, IonSpinner, AlertController, ModalController } from '@ionic/angular';
 import { DonateService } from 'src/app/services/donate/donate.service';
+import { SuccessModalComponent } from 'src/app/components/success-modal/success-modal.component';
 
 @Component({
   selector: 'app-donate',
@@ -14,6 +15,8 @@ export class DonatePage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    public modalController: ModalController,
+    private router: Router,
     private donateService: DonateService,
     ) { }
 
@@ -65,6 +68,27 @@ export class DonatePage implements OnInit {
     emailInput.style.border = '2px solid white';
     amountInput.style.border = '2px solid white';
     messageInput.style.border = '2px solid white';
+  }
+  async presentSuccessModal() {
+    const modal = await this.modalController.create({
+      component: SuccessModalComponent,
+      componentProps: {
+        'firstName': this.donateForm.value.name,
+        'email': this.donateForm.value.email,
+        'page': 'contact',
+      },
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present()
+      .catch((e) => {
+        throw Error(e);
+      })
+      .then(() => {
+        this.router.navigateByUrl('/login');
+        setTimeout(() => {
+          modal.dismiss();
+        }, 5000);
+      })
   }
 
 }

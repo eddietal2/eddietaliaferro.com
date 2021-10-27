@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'blog',
+    redirectTo: 'home',
     // redirectTo: 'projects/project-page/616729f4558945605c6ef638',
     // redirectTo: 'blog/blog-page/61676b1b52f0b66507eaa77b',
     pathMatch: 'full'
@@ -38,7 +38,7 @@ export const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'login',
+    path: 'login/:id',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -48,7 +48,7 @@ export const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
-  },
+  }
 ];
 
 @NgModule({

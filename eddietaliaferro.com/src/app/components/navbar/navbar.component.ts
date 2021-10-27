@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   userType;
 
   constructor(
+    private router: Router,
     private auth: AuthService,
     private alertController: AlertController,
     ) { }
@@ -26,6 +27,18 @@ export class NavbarComponent implements OnInit {
         return;
       }
     )
+  }
+  loginDetectFromBlog() {
+    console.clear();
+    console.log('Detecting Blog ...')
+    if(this.auth.blogID === null) {
+      console.log('No Blogs to return to ');
+      this.router.navigate(['/login/', 'no-blog-id']);
+    }
+    else {
+      console.log('Blog to return to: ' + this.auth.blogID);
+      this.router.navigate(['/login/', this.auth.blogID]);
+    }
   }
   async logoutConfirm() {
     const alert = await this.alertController.create({

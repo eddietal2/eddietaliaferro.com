@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
@@ -13,6 +13,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 })
 export class AuthService {
   BACKEND_URL = environment.url;
+  blogID = null;
   loginSub: Subscription;
   TOKEN_KEY = 'access_token';
   user = null;
@@ -79,7 +80,11 @@ export class AuthService {
           this.userEmail.next(data['email']);
         }
       );
-    } else {
+    }
+    // else if () {
+
+    // }
+    else {
         this.http.post(`${this.BACKEND_URL}/user/login-user`, {email, password})
         .pipe(
           tap(res => {
@@ -132,7 +137,8 @@ export class AuthService {
     return this.http.post(`${this.BACKEND_URL}/user/register-user`, {fullName, picture, email, password});
   }
   checkEmail(email) {
-    return this.http.post(`${this.BACKEND_URL}/user/check-email`, email)
+    console.log('Checking to see if user exists with that email' + email)
+    return this.http.post(`${this.BACKEND_URL}/user/check-email`, {email: email})
   }
   updateProfile(updatedProfile) {
     console.log(updatedProfile)
@@ -140,6 +146,9 @@ export class AuthService {
   }
   changePassword(email, password, newPassword) {
     return this.http.post(`${this.BACKEND_URL}/user/change-password-user`, {email, oldPassword: password, newPassword})
+  }
+  sendRegistrationCode(email, code) {
+    return this.http.post(`${this.BACKEND_URL}/user/send-code`, {email, code})
   }
   // looks up our storage for a valid JWT and if found, changes our authenticationState
   async checkToken() {

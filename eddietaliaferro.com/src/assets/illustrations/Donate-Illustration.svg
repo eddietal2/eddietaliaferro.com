@@ -1,30 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1050px" height="1050px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="500px" height="500px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Donate-Illustration</title>
     <defs>
-        <linearGradient x1="39.9029414%" y1="43.4005163%" x2="50%" y2="53.0898548%" id="linearGradient-1">
-            <stop stop-color="#D8CCA8" offset="0%"></stop>
-            <stop stop-color="#847145" offset="100%"></stop>
+        <linearGradient x1="2.67870164%" y1="49.7248355%" x2="98.0071754%" y2="50.2645569%" id="linearGradient-401">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#C2B48E" offset="26.8176755%"></stop>
+            <stop stop-color="#000000" offset="56.5617488%"></stop>
+            <stop stop-color="#C7B994" offset="83.3263814%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
         </linearGradient>
-        <circle id="path-2" cx="657.5" cy="146.5" r="36.5"></circle>
-        <filter x="-13.0%" y="-13.0%" width="126.0%" height="126.0%" filterUnits="objectBoundingBox" id="filter-3">
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="100%" id="linearGradient-201">
+            <stop stop-color="#76F173" offset="0%"></stop>
+            <stop stop-color="#6AFF00" stop-opacity="0.131763485" offset="100%"></stop>
+        </radialGradient>
+        <circle id="path-300" cx="43.5" cy="42.5" r="36.5"></circle>
+        <filter x="-13.0%" y="-13.0%" width="126.0%" height="126.0%" filterUnits="objectBoundingBox" id="filter-4">
             <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
             <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
         </filter>
+        <linearGradient x1="23.7159145%" y1="1.2504013%" x2="76.6650482%" y2="96.8702998%" id="linearGradient-501">
+            <stop stop-color="#857246" offset="0%"></stop>
+            <stop stop-color="#C2B48E" offset="26.8176755%"></stop>
+            <stop stop-color="#938156" offset="56.0202594%"></stop>
+            <stop stop-color="#C7B994" offset="83.3263814%"></stop>
+            <stop stop-color="#847145" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="2.67870164%" y1="37.3375023%" x2="98.0071754%" y2="62.1743579%" id="linearGradient-601">
+            <stop stop-color="#857246" offset="0%"></stop>
+            <stop stop-color="#C2B48E" offset="26.8176755%"></stop>
+            <stop stop-color="#938156" offset="56.0202594%"></stop>
+            <stop stop-color="#C7B994" offset="83.3263814%"></stop>
+            <stop stop-color="#847145" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-701" x="399" y="490" width="259" height="132" rx="17"></rect>
+        <filter x="-4.8%" y="-8.0%" width="109.7%" height="118.9%" filterUnits="objectBoundingBox" id="filter-8">
+            <feMorphology radius="2.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.439215686   0 0 0 0 0.376470588   0 0 0 0 0.235294118  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
     </defs>
     <g id="Donate-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M333,393 C397.333333,403.637388 461.666667,408.956081 526,408.956081 C590.333333,408.956081 654.666667,403.637388 719,393 L719,920 L333,920 L333,393 Z" id="jar-shape" fill-opacity="0.167798022" fill="#D8D8D8"></path>
-        <path d="M340,840.217906 C330.919311,854.893117 328.585978,881.487148 333,920 L718,920 C723.090804,866.811938 712.761751,840.217906 687.01284,840.217906 C674.899041,840.217906 661.79253,833.195936 645.643959,833.195936 C643.616052,833.195936 610.091409,840.296016 608.225782,840.217906 C584.833809,839.238531 603.263451,825.39571 536.920803,823.461277 C513.075841,822.766001 509.649306,840.217906 444.520381,840.217906 C407.859224,840.217906 414.976394,868.784143 378.302252,858.100115 C371.541732,856.130619 353.621034,818.205091 340,840.217906 Z" id="coins-in-jar" fill="url(#linearGradient-1)"></path>
+        <path d="M526.130266,403.722656 C592.796932,403.722656 657.086844,413.389323 719,432.722656 L333,432.722656 C395.086844,413.389323 459.463599,403.722656 526.130266,403.722656 Z" id="top-of-jar" fill="url(#linearGradient-401)" transform="translate(526.000000, 418.222656) scale(1, -1) translate(-526.000000, -418.222656) "></path>
         <g id="coin">
-            <use fill="#D8CCA8" fill-rule="evenodd" xlink:href="#path-2"></use>
-            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
-            <use stroke="#847145" stroke-width="8" xlink:href="#path-2"></use>
+            <use fill="url(#linearGradient-201)" fill-rule="evenodd" xlink:href="#path-300"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-300"></use>
+            <use stroke="#847145" stroke-width="8" xlink:href="#path-300"></use>
         </g>
-        <rect id="tip-text-wrapper" fill="#100511" x="391" y="472" width="259" height="185" rx="17"></rect>
-        <text id="TIPS" font-family="Trattatello" font-size="86" font-weight="normal" fill="#08FF34">
-            <tspan x="438.397" y="602">TIPS</tspan>
+        <path d="M333,403.722656 L719.000704,403.722656 L719.242985,887.000004 C719.270218,906.329959 703.608042,922.007847 684.278078,922.017538 C684.272229,922.017541 684.26638,922.017542 684.260531,922 L368,922 C348.670034,922 333,906.329966 333,887 L333,403.722656 L333,403.722656 Z" id="jar-wrapper" stroke="#979797" fill="url(#linearGradient-501)" opacity="0.831255232"></path>
+        <g id="tip-text-wrapper">
+            <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-701"></use>
+            <use stroke="#1D071F" stroke-width="5" fill="url(#linearGradient-601)" fill-rule="evenodd" xlink:href="#path-701"></use>
+        </g>
+        <text id="TIPS" font-family="Trattatello" font-size="65" font-weight="normal" fill="#1D071F">
+            <tspan x="465.5675" y="571">TIPS</tspan>
         </text>
+        <path d="M1171.04575,556 C871.662985,208.485599 685.538419,37.6767673 612.672047,43.573504 C539.805675,49.4702407 490.852272,162.112406 465.811837,381.5 L452.313273,832.017327" id="coin-path"></path>
     </g>
 </svg>

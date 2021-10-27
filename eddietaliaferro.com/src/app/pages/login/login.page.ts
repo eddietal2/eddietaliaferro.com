@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth/auth.service';
-
 
 @Component({
   selector: 'app-login',
@@ -12,22 +10,33 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  blogID
   loginForm: FormGroup;
   BACKEND_URL = environment.url;
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private auth: AuthService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.blogID = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log('From Blog Page: ' + this.blogID);
     this.loginForm = this.formBuilder.group({
       email: ['eddielacrosse2@gmail.com', [Validators.required]],
       password: ['Et061792!', [Validators.required,]]
     });
   }
   login() {
-    this.auth.login(this.loginForm.value.email, this.loginForm.value.password)
+    if(this.blogID === 'no-blog-id') {
+      this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
+    }
+    else if (this.blogID) {
+      console.log(this.blogID + '...!!!')
+      this.auth.login(this.loginForm.value.email, this.loginForm.value.password);
+      this.router.navigate(['/blog/blog-page', this.blogID])
+    }
   }
   register() {
     this.router.navigateByUrl('register');

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SuccessPage } from './success.page';
+import { SuccessModalComponent } from './success-modal.component';
 
-describe('SuccessPage', () => {
-  let component: SuccessPage;
-  let fixture: ComponentFixture<SuccessPage>;
+describe('SuccessModalComponent', () => {
+  let component: SuccessModalComponent;
+  let fixture: ComponentFixture<SuccessModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuccessPage ],
+      declarations: [ SuccessModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SuccessPage);
+    fixture = TestBed.createComponent(SuccessModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

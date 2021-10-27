@@ -17,16 +17,16 @@
   <ion-row class="ion-justify-content-center">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
       <div id="cash-app-message">
-        <img id="cash-app-logo" height="60" src="../../../assets/cash-app-logo.png" alt="Cashapp logo" />
-        <p style="font-size: 21px; font-weight: 600;margin-top: 1.5em;">CashApp</p>
-        <p style="color: white; font-weight: 400;">$EddieTaliaferro</p>
+        <img id="cash-app-logo" height="60" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Square_Cash_app_logo.svg/1200px-Square_Cash_app_logo.svg.png" alt="Cashapp logo" />
+        <p style="color: #369e2b; font-size: 21px; font-weight: 600;margin-top: 1.5em;">CashApp</p>
+        <p style="color: #222; font-weight: 400;">$EddieTaliaferro</p>
       </div>
     </ion-col>
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
       <div id="paypal-message">
-        <img id="paypal-logo" height="60" src="../../../assets/paypal-logo.png" alt="Cashapp logo" />
-        <p style="font-size: 21px; font-weight: 600;margin-top: 1.5em;">PayPal </p>
-        <p style="color: white; font-weight: 400;">eddielacrosse2@gmail.com</p>
+        <img id="paypal-logo" height="60" src="https://seeklogo.com/images/P/paypal-logo-6ED6A5924E-seeklogo.com.png" alt="Cashapp logo" />
+        <p style="color: #0055a5; font-size: 21px; font-weight: 600;margin-top: 1.5em;">PayPal </p>
+        <p style="color: #222; font-weight: 400;">eddielacrosse2@gmail.com</p>
       </div>
     </ion-col>
   </ion-row>
@@ -44,21 +44,20 @@
     <ion-col size-xs="12" size-sm="8" size-lg="6" size-xl="4">
       <form [formGroup]="donateForm" (ngSubmit)="makePayment(this.donateForm.value)">
         <ion-item lines="none">
-          <ion-input (ionFocus)="inputFocus($event, 'name')" (ionBlur)="inputBlur($event)" id="name-input" formControlName="name" type="text" placeholder="First & Last name" style="background: #fbfbfb47;"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'name')" (ionBlur)="inputBlur($event)" id="name-input" formControlName="name" type="text" placeholder="First & Last name"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input (ionFocus)="inputFocus($event, 'email')" (ionBlur)="inputBlur($event)" id="email-input" formControlName="email" type="email" placeholder="Email" style="background: #fbfbfb47;"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'email')" (ionBlur)="inputBlur($event)" id="email-input" formControlName="email" type="email" placeholder="Email"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input (ionFocus)="inputFocus($event, 'amount')" (ionBlur)="inputBlur($event)" id="amount-input" formControlName="dollar_amount" type="number" placeholder="Dollar Amount" style="background: #fbfbfb47;"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'amount')" (ionBlur)="inputBlur($event)" id="amount-input" formControlName="dollar_amount" type="number" placeholder="Dollar Amount"></ion-input>
         </ion-item>
         <ion-item lines="none">
           <ion-textarea (ionFocus)="inputFocus($event, 'message')" (ionBlur)="inputBlur($event)" id="message-input" formControlName="message"
-          class="contact-message"
           rows="15" cols="20"
-          placeholder="Please enter your message here" style="background: #fbfbfb47;"></ion-textarea>
+          placeholder="Please enter your message here"></ion-textarea>
         </ion-item>
-        <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 0 auto">
+        <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 3em auto">
           Send
         </ion-button>
       </form>
@@ -71,25 +70,6 @@
        Send
      </ion-button>
    </ion-col>
-  </ion-row>
-
-  <!-- Footer Illustration -->
-  <ion-row id="footer" class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size="11">
-      <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
-    </ion-col>
-    <ion-col class="ion-text-center" size="11">
-      <div id="footer-buttons">
-        <hr class="footer-hr">
-        <ion-button class="red-button" (click)="contactPage()">
-          Contact
-        </ion-button>
-      </div>
-    <div id="social-media">
-      <hr class="footer-hr">
-      <ion-icon size="large" name="logo-linkedin"></ion-icon>
-    </div>
-    </ion-col>
   </ion-row>
   </ion-grid>
 </ion-content>

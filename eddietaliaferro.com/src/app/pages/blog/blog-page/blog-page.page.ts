@@ -68,6 +68,8 @@ export class BlogPagePage implements OnInit {
     ngOnInit() {
       const id  = this.activatedRoute.snapshot.paramMap.get('id');
       this.id = id;
+      // For returning to this blog after logging in or registering
+      this.auth.blogID = id;
       this.getUserDetails();
       this.getBlogInfo();
       this.getBlogsForNextPrev();
@@ -204,6 +206,11 @@ export class BlogPagePage implements OnInit {
         }
       )
     }
+    loginPageFromBlog(){
+      console.clear();
+      console.log(this.id)
+      this.router.navigate(['/login/', this.id])
+    }
     editBlog() {
       this.router.navigate(['/admin/blogs/edit-blog/', this.id])
     }
@@ -274,6 +281,7 @@ export class BlogPagePage implements OnInit {
           this.mobileCommentInput.value = '';
           this.addCommentToast();
           this.detectNewComments();
+          return;
         });
     }
     async commentOptionsPopover(ev: any, blogID, commentID, userFullName, title) {
@@ -306,15 +314,17 @@ export class BlogPagePage implements OnInit {
         const toast = await this.toastController.create({
           message: 'You have successfully added a Comment!',
           position: 'bottom',
-          cssClass: 'success-toast',
+          // cssClass: 'success-toast',
           duration: 2000
         });
         toast.present();
         return;
-      } else {
+      }
+      else {
         const toast = await this.toastController.create({
           message: 'You have successfully added a Comment!',
-          cssClass: 'success-toast-mobile',
+          position: 'bottom',
+          cssClass: 'success-toast',
           duration: 2000
         });
         toast.present();
@@ -501,7 +511,8 @@ export class BlogPagePage implements OnInit {
       else {
         const toast = await this.toastController.create({
           message: 'You have successfully added a Reply!',
-          cssClass: 'success-toast-mobile',
+          position: 'bottom',
+          cssClass: 'success-toast',
           duration: 2000
         });
         toast.present();

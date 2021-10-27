@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ContactService } from 'src/app/services/contact/contact.service';
 import { catchError, tap } from 'rxjs/operators';
+import { SuccessModalComponent } from 'src/app/components/success-modal/success-modal.component';
 
 @Component({
   selector: 'app-contact',
@@ -21,8 +22,10 @@ export class ContactPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private modalController: ModalController,
     private alertController: AlertController,
     private contact: ContactService,
+    private router: Router,
     ) { }
 
   ngOnInit() {
@@ -82,7 +85,7 @@ export class ContactPage implements OnInit {
           data => {
             console.log(data);
             this.contactForm.reset();
-            this.presentAlert('Thank You!' ,'I will contact you via the email you provided at my earliest convience.')
+            this.presentSuccessModal();
           }
           )
   }
@@ -99,8 +102,57 @@ export class ContactPage implements OnInit {
 
     await alert.present();
   }
+  async presentSuccessModal() {
+    const modal = await this.modalController.create({
+      component: SuccessModalComponent,
+      componentProps: {
+        'fullName': this.contactForm.value.name,
+        'email': this.contactForm.value.email,
+        'page': 'contact',
+      },
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present()
+      .catch((e) => {
+        throw Error(e);
+      })
+      .then(() => {
+        this.router.navigateByUrl('/contact');
+        setTimeout(() => {
+          modal.dismiss();
+        }, 5000);
+      })
+  }
   donatePage() {
 
+  }
+  inputFocus(e, input) {
+    console.clear()
+    console.log(e);
+    console.log(input);
+    let fullnameInput = document.getElementById('full-name-input');
+    let emailInput = document.getElementById('email-input');
+    let messageInput = document.getElementById('message-input');
+    if(input === 'full-name') {
+      fullnameInput.style.border = '2px solid #3cf63c';
+    }
+    if(input === 'email') {
+      emailInput.style.border = '2px solid #3cf63c';
+    }
+    if(input === 'message') {
+      messageInput.style.border = '2px solid #3cf63c';
+    }
+  }
+  inputBlur(e) {
+    console.clear()
+    console.log(e);
+    let fullnameInput = document.getElementById('full-name-input');
+    let emailInput = document.getElementById('email-input');
+    let messageInput = document.getElementById('message-input');
+
+    fullnameInput.style.border = '2px solid white';
+    emailInput.style.border = '2px solid white';
+    messageInput.style.border = '2px solid white';
   }
 
 }

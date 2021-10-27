@@ -1,8 +1,9 @@
-.page-sub-header {
-  color: white;
-  margin: 1em 0;
-  line-height: 1.3em;
-  text-align: center;
+.alert {
+  background-color: #111;
+  border: solid 2px #3cf63c;
+  border-radius: 5px;
+  margin: 1em auto;
+  padding: 0.5em;
 }
 form {
   background: #1805199e;
@@ -15,13 +16,26 @@ form {
     padding: 0.3em;
   }
 }
-
-
 ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-input-md-h {
   --padding-start: 8px;
 }
-
 ion-item {
   margin: 1em;
-  background: white;
+}
+ion-input, ion-textarea {
+  margin-top: 1em;
+}
+ion-footer {
+  text-align: center;
+  background: #3cf63c;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+
+  p {
+    color: #1b061c;
+    font-size: 1.5em;
+    position: relative;
+    top: -6px;
+  }
 }

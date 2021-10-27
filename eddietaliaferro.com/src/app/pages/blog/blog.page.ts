@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import { format, parseISO } from 'date-fns';
 import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
-
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-blog',
@@ -15,6 +15,7 @@ export class BlogPage implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
+    private auth: AuthService,
     private adminBlogEmitterService: AdminBlogEmitterService,
     private blogs: BlogService,
   ) { }
@@ -50,6 +51,7 @@ export class BlogPage implements OnInit, OnDestroy {
   }
   @HostListener('unloaded')
   ngOnDestroy() {
+    this.auth.blogID = null;
     console.log('Blogs Page destroyed');
   }
 

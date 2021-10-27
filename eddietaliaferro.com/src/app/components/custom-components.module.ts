@@ -12,8 +12,7 @@ import { ProjectsIllustrationComponent } from './projects-illustration/projects-
 import { DesignIconComponent } from './design-icon/design-icon.component';
 import { DevelopmentIconComponent } from './development-icon/development-icon.component';
 import { InstructingIconComponent } from './instructing-icon/instructing-icon.component';
-
-
+import { SuccessModalComponent } from './success-modal/success-modal.component';
 
 @NgModule({
     imports: [
@@ -31,7 +30,8 @@ import { InstructingIconComponent } from './instructing-icon/instructing-icon.co
         ProjectsIllustrationComponent,
         DesignIconComponent,
         DevelopmentIconComponent,
-        InstructingIconComponent
+        InstructingIconComponent,
+        SuccessModalComponent
     ],
     exports: [
         NavbarComponent,
@@ -43,7 +43,8 @@ import { InstructingIconComponent } from './instructing-icon/instructing-icon.co
         ProjectsIllustrationComponent,
         DesignIconComponent,
         DevelopmentIconComponent,
-        InstructingIconComponent
+        InstructingIconComponent,
+        SuccessModalComponent
     ]
 })
 export class CustomComponentsModule {}

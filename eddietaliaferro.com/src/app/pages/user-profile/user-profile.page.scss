@@ -35,7 +35,7 @@ label {
 }
 @media only screen and (max-width: 800px) {
   .page-wrapper {
-    padding-top: 0em;
+    padding-top: 8em;
   }
 }
 form {
@@ -49,12 +49,15 @@ form {
   position: absolute;
   z-index: -1;
 }
-#profile-message {
-  padding: 0.5em;
-  margin: 2em auto;
-  background: #ffffff24;
-  border: 1px solid #d8cca8;
+.alert {
+  background-color: #333;
+  border: solid 2px #3cf63c;
   border-radius: 5px;
+  margin: 1em auto;
+  padding: 0.5em;
+  p {
+    font-size: 1em;
+  }
 }
 .green-button {
   --background: linear-gradient(360deg, #3df63d -2%, #00b400, #3df63d);

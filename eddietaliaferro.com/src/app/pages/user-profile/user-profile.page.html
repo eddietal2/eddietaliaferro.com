@@ -10,11 +10,11 @@
               Change Password
             </ion-button>
       </ion-col>
-      <ion-col class="page-wrapper ion-text-center" size-xs="11" size-sm="9" size-md="8" size-lg="5" size-xl="4">
-            <form [formGroup]="userProfileForm" (ngSubmit)="editProfile()">
-              <div id="profile-message">
-                <p>You can update your profile here! Make sure all your information is correct before making any changes.</p>
-              </div>
+      <ion-col class="ion-text-center" size-xs="11" size-sm="9" size-md="8" size-lg="5" size-xl="4">
+        <div class="alert">
+          <p>You can update your profile here! Make sure all your information is correct before making any changes.</p>
+        </div>
+        <form [formGroup]="userProfileForm" (ngSubmit)="editProfile()">
               <ion-item lines="none">
                 <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
               </ion-item>
@@ -32,7 +32,7 @@
               <ion-button class="green-button" type="submit" style="margin: 3em auto;">
                 Edit Profile
               </ion-button>
-            </form>
+        </form>
       </ion-col>
     </ion-row>
   </ion-grid>

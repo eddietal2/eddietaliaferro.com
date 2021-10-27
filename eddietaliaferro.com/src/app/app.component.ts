@@ -54,10 +54,13 @@ export class AppComponent {
 
     // State for the User. If Authentication State == False, the app reverts back to the landing page
     this.auth.authenticationState.subscribe(async state => {
-      if (state) {
+      if (state && this.auth.blogID) {
+        this.router.navigate(['/blog/blog-page', this.auth.blogID]);
+      }
+      else if(state) {
         this.router.navigate(['home']);
-
-      } else {
+      }
+      else {
         this.router.navigate(['']);
       }
     });
@@ -68,6 +71,22 @@ export class AppComponent {
   }
   closeMenu() {
     this.menu.close();
+  }
+  loginDetectFromBlog() {
+    console.clear();
+    console.log('Detecting Blog ...')
+    if(this.auth.blogID === null) {
+      console.log('No Blogs to return to ');
+      this.router.navigate(['/login/', 'no-blog-id']);
+      this.closeMenu();
+      return;
+    }
+    else {
+      console.log('Blog to return to: ' + this.auth.blogID);
+      this.router.navigate(['/login/', this.auth.blogID]);
+      this.closeMenu();
+      return;
+    }
   }
   async logoutConfirm() {
     const alert = await this.alertController.create({

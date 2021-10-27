@@ -1,39 +1,82 @@
 <ion-content>
+  <!-- ion input focus styling is in contact.page.ts via inputFocus & inputBlur -->
   <ion-grid>
     <!-- Blog Header and Search Bar -->
   <ion-row class="ion-justify-content-center" style="margin-bottom: 20px;">
-    <ion-col style="margin-top: 5em;" class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <ion-button class="purple-button" (click)="back()">
+    <ion-col style="margin-top: 5em;" class="ion-text-center" size-xs="12" size-sm="8" size-lg="5" size-xl="5">
+      <ion-button style="width: 100px;" class="grey-button" (click)="back()">
         Back
       </ion-button>
       <h1 style="margin-top: 2em;"  class="page-header">Register</h1>
+      <div class="alert">
+        <p style="font-size: 1em;">You will need to fill out the entire form to be able to register. You do not need a profile picture.</p>
+      </div>
     </ion-col>
   </ion-row>
 
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
-    <ion-col size-xs="11" size-sm="8" size-lg="6">
-      <form [formGroup]="registerForm" (ngSubmit)="getPictureS3URL()">
-        <ion-item lines="none">
-          <input id="picture" name="user-profile-picture" (change)="getPictureFile($event)" formControlName="picture" type="file" placeholder="Picture" />
-          <img width="200" *ngIf="pictureDataURL" src="{{pictureDataURL}}" alt="" srcset="">
+    <ion-col size-xs="12" size-sm="8" size-lg="5" size-xl="5">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <ion-item *ngIf="!this.pictureDataURL" lines="none">
+          <img  id="default-profile-picture" height="120px" src="../../../assets/Default-Profile-Picture.svg" alt="Default Profile Picture">
+        </ion-item>
+        <ion-item *ngIf="this.pictureDataURL"  lines="none">
+          <img id="default-profile-picture" height="120px" src="{{this.pictureDataURL}}" alt="Uploaded Profile Picture">
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
+          <label for="user-profile-picture">Profile Picture</label>
+          <input id="picture-input" name="user-profile-picture" (change)="getPictureFile($event)" type="file" placeholder="Picture" />
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'firstName')" (ionBlur)="inputBlur($event)" id="first-name-input" formControlName="firstName" type="text" placeholder="First Name"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'lastName')" (ionBlur)="inputBlur($event)" id="last-name-input" formControlName="lastName" type="text" placeholder="Last Name"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'email')" (ionBlur)="inputBlur($event)" id="email-input" formControlName="email" type="email" placeholder="Email"></ion-input>
         </ion-item>
-        <ion-button type="submit" class="green-button" style="margin: 3em auto">
+        <!-- Email Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.email">
+            <div class="error-message"
+              *ngIf="registerForm
+                .get('email')
+                .hasError(validation.type) && (registerForm.get('email')
+                .dirty || registerForm.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-item lines="none">
+          <ion-input (ionFocus)="inputFocus($event, 'password')" (ionBlur)="inputBlur($event)" id="password-input" formControlName="password" type="password" placeholder="Password" minlength="6">
+          </ion-input>
+          <ion-button id="show-icon-button" (click)="passwordShowToggle()">
+            <ion-icon slot="end" name="eye"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <!-- Password Validation-->
+        <div class="validation-errors">
+         <ng-container *ngFor="let validation of validationMessasges.password">
+           <div class="error-message"
+             *ngIf="registerForm
+               .get('password')
+               .hasError('pattern') && (registerForm.get('password')
+               .dirty || registerForm.get('password').touched)">
+             {{ validation.message }}
+           </div>
+         </ng-container>
+        </div>
+        <ion-button type="submit" class="ion-hide-lg-down green-button" style="margin: 3em auto">
             Register
         </ion-button>
       </form>
     </ion-col>
+  </ion-row>
+  <ion-row>
+    <div [ngClass]="this.registerForm.valid ? 'footer-button ion-hide-lg-up' : 'footer-button-inactive ion-hide-lg-up'"(click)="register()">
+      <p>Register</p>
+    </div>
   </ion-row>
   </ion-grid>
 </ion-content>

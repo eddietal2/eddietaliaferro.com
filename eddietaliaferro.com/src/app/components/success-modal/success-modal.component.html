@@ -1,0 +1,10 @@
+<div id="wrapper">
+  <img *ngIf="this.page === 'register'" height="200" src="../../../assets/Default-Profile-Picture.svg" alt="" srcset="">
+  <img *ngIf="this.page === 'contact'" height="200" src="../../../assets/gold-logo.svg" alt="" srcset="">
+  <img *ngIf="this.page === 'donate'" height="200" src="../../../assets/gold-logo.svg" alt="" srcset="">
+  <h5>{{this.message}}
+  </h5>
+  <ion-button expand="full" class="green-mobile-button" (click)="dismiss()">
+    login
+  </ion-button>
+</div>

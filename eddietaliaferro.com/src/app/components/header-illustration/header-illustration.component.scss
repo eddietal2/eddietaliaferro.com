@@ -178,19 +178,20 @@ animation: number-up 1s ease 1s forwards;
     svg {
       height: 330px;
       width: 330px;
+      margin: 5em auto 0 auto;
     }
   }
 @media only screen and (min-width: 500px) {
     svg {
       height: 450px;
       width: 450px;
-      margin: 0 auto;
+      margin: 5em auto 0 auto;
     }
   }
 @media only screen and (min-width: 1000px) {
     svg {
       height: 500px;
       width: 500px;
-      margin: 0 auto;
+      margin: 0;
     }
   }

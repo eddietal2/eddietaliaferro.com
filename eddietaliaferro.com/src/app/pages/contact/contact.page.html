@@ -20,17 +20,17 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
-    <ion-col size-xs="11" size-sm="8" size-lg="6">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-xs="12" size-sm="8" size-lg="6">
       <form [formGroup]="contactForm" (ngSubmit)="sendMessage(this.contactForm.value)">
         <ion-item lines="none">
-          <h5 class="page-sub-header">Have a question? Found a bug? Want to do business? Just have something nice to say? Leave me a message and I will get back to you at my earliest convience.</h5>
+          <p class="alert">Have a question? Found a bug? Want to do business? Just have something nice to say? Leave me a message!</p>
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="name" class="contact-input" type="text" placeholder="First & Last name"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'full-name')" (ionBlur)="inputBlur($event)" id="full-name-input" formControlName="name" type="text" placeholder="First & Last name"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input formControlName="email" class="contact-input"  type="email" placeholder="Email address"></ion-input>
+          <ion-input (ionFocus)="inputFocus($event, 'email')" (ionBlur)="inputBlur($event)" id="email-input" formControlName="email" type="email" placeholder="Email address"></ion-input>
         </ion-item>
         <!-- Email Validation-->
         <div class="validation-errors">
@@ -45,41 +45,23 @@
           </ng-container>
         </div>
         <ion-item lines="none">
-          <ion-textarea
+          <ion-textarea (ionFocus)="inputFocus($event, 'message')" (ionBlur)="inputBlur($event)"
+          id="message-input"
+          style="padding-left: 0.5em;"
           formControlName="message"
           class="contact-message"
           rows="15" cols="20"
           placeholder="Please enter your message here"></ion-textarea>
         </ion-item>
-        <ion-button type="submit" class="green-button" style="margin: 0 auto">
+        <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 3em auto">
           Send
         </ion-button>
       </form>
     </ion-col>
   </ion-row>
 
-  <ion-row class="ion-justify-content-center" style="margin-bottom: 80px">
-    <ion-col size-xs="11" size-sm="8" size-lg="6">
-    </ion-col>
-  </ion-row>
-
-  <!-- Footer Illustration -->
-  <ion-row id="footer" class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size="11">
-      <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
-    </ion-col>
-    <ion-col class="ion-text-center" size="11">
-      <div id="footer-buttons">
-        <hr class="footer-hr">
-        <ion-button class="gold-button" (click)="donatePage()">
-          Donate
-        </ion-button>
-      </div>
-    <div id="social-media">
-      <hr class="footer-hr">
-      <ion-icon size="large" name="logo-linkedin"></ion-icon>
-    </div>
-    </ion-col>
-  </ion-row>
+  <ion-footer class="ion-hide-lg-up" (click)="sendMessage(this.contactForm.value)">
+    <p>Send</p>
+  </ion-footer>
   </ion-grid>
 </ion-content>

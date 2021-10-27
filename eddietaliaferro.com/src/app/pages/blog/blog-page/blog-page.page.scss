@@ -368,6 +368,15 @@ ion-fab {
       }
     }
   }
+  .success-toast {
+    font-weight: 600;
+    font-size: 21px;
+    width: 100%;
+    --background: #028313;
+    position: relative;
+    top: -100px;
+    color: white;
+  }
   .danger-toast {
     font-weight: 600;
     font-size: 21px;

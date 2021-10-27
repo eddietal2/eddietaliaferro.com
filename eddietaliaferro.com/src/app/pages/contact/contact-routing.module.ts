@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: ContactPage
-  },
-  {
-    path: 'success',
-    loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
   }
 ];
 
