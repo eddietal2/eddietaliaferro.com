@@ -232,8 +232,9 @@ export class HomePage implements OnInit {
   getBlogs() {
     this.blogServiceSub = this.blogService.getLatestBlogPosts().subscribe(
       data => {
-        // console.log(data);
-        this.latestBlogs = data.reverse();
+        console.log('Latest Blogs on Homepage')
+        console.log(data);
+        this.latestBlogs = data;
         for (let i = 0; i < this.latestBlogs.length; i++) {
           this.latestBlogs[i].date = format(parseISO(this.latestBlogs[i].date), 'MMMM do, uu');
         }
@@ -244,7 +245,8 @@ export class HomePage implements OnInit {
   getProjects() {
     this.projectServiceSub = this.projectService.getLatestProjectPosts().subscribe(
       data => {
-        // console.log(data);
+        console.log('Latest Projects on Homepage')
+        console.log(data);
         this.latestProjects = data;
       }
     );
