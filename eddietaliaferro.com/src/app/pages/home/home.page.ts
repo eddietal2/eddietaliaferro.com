@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
   latestProjects;
   projectServiceSub: Subscription;
   blogServiceSub: Subscription;
+  bluePill: any;
 
   constructor(
     private router: Router,

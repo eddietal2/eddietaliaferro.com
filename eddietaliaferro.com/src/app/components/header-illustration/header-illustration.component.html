@@ -1,16 +1,23 @@
 <link rel="stylesheet" href="./header-illustration.component.scss">
-<svg viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="pill-svg" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Header-Artwork</title>
     <defs>
         <rect id="h-path-1" x="0" y="0" width="72" height="136" rx="36"></rect>
         <rect id="h-path-3" x="0" y="0" width="72" height="136" rx="36"></rect>
         <rect id="h-path-5" x="0" y="0" width="72" height="136" rx="36"></rect>
         <rect id="h-path-7" x="0" y="0" width="72" height="136" rx="36"></rect>
+        <linearGradient x1="2.67870164%" y1="44.7685478%" x2="98.0071754%" y2="55.0297795%" id="linearGradient-999">
+            <stop stop-color="#857246" offset="0%"></stop>
+            <stop stop-color="#C2B48E" offset="26.8176755%"></stop>
+            <stop stop-color="#938156" offset="56.0202594%"></stop>
+            <stop stop-color="#C7B994" offset="83.3263814%"></stop>
+            <stop stop-color="#847145" offset="100%"></stop>
+        </linearGradient>
     </defs>
     <style>
     </style>
     <g id="Header-Artwork" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle" fill="#000" x="0" y="0" width="500" height="500"></rect>
+        <rect id="background" fill="#000" x="0" y="0" width="500" height="500"></rect>
         <text id="line-1">
             <tspan x="0" y="19">0</tspan>
             <tspan x="16.7" y="19">1</tspan>
@@ -267,34 +274,17 @@
             <tspan x="467.6" y="187">0</tspan>
             <tspan x="484.3" y="187">1</tspan>
         </text>
-        <!-- HOURS LATER PHOTO RIGHT AFTER BUG LINE ELEMENTS -->
-        <text id="bug-line-start">
-            <tspan x="0" y="211">0</tspan>
-            <tspan x="16.7" y="211">1</tspan>
-            <tspan x="33.4" y="211">0</tspan>
-            <tspan x="50.1" y="211">1</tspan>
-            <tspan x="66.8" y="211">0</tspan>
-            <tspan x="83.5" y="211">1</tspan>
-            <tspan x="100.2" y="211">0</tspan>
-            <tspan x="116.9" y="211">1</tspan>
-            <tspan x="132" y="211">0</tspan>
-            <tspan x="150.3" y="211">1</tspan>
-            <tspan x="167" y="211">0</tspan>
-            <tspan x="183.5" y="211">1</tspan>
-            <tspan x="200.4" y="211">0</tspan>
-            <tspan x="217.1" y="211">1</tspan>
-        </text>
         <!-- Bug (Red)-->
-        <text id="bug-line-middle-1">
+        <text id="bug-red-1">
             <tspan x="233.8" y="211">1</tspan>
         </text>
-        <text id="bug-line-middle-2">
+        <text id="bug-red-2">
             <tspan x="250.5" y="211">0</tspan>
         </text>
-        <text id="bug-line-middle-3">
+        <text id="bug-red-3">
             <tspan x="267.2" y="211">1</tspan>
         </text>
-        <text id="bug-line-middle-4">
+        <text id="bug-red-4">
             <tspan x="283.9" y="211">0</tspan>
         </text>
         <!--  -->
@@ -311,7 +301,23 @@
         <text id="bug-fix-middle-4">
             <tspan x="283.9" y="261">1</tspan>
         </text> -->
-        <!--  -->
+        <!-- Beginning and End of line with Bug in the middle; Start and End are two different elements -->
+        <text id="bug-line-start">
+            <tspan x="0" y="211">0</tspan>
+            <tspan x="16.7" y="211">1</tspan>
+            <tspan x="33.4" y="211">0</tspan>
+            <tspan x="50.1" y="211">1</tspan>
+            <tspan x="66.8" y="211">0</tspan>
+            <tspan x="83.5" y="211">1</tspan>
+            <tspan x="100.2" y="211">0</tspan>
+            <tspan x="116.9" y="211">1</tspan>
+            <tspan x="132" y="211">0</tspan>
+            <tspan x="150.3" y="211">1</tspan>
+            <tspan x="167" y="211">0</tspan>
+            <tspan x="183.5" y="211">1</tspan>
+            <tspan x="200.4" y="211">0</tspan>
+            <tspan x="217.1" y="211">1</tspan>
+        </text>
         <text id="bug-line-end">
             <tspan x="300.6" y="211">0</tspan>
             <tspan x="317.3" y="211">1</tspan>
@@ -326,9 +332,6 @@
             <tspan x="467.6" y="211">0</tspan>
             <tspan x="484.3" y="211">1</tspan>
         </text>
-        <!-- Bug Line was LINE 9, so the next
-          ID will be LINE 10
-        -->
         <text id="line-10">
           <tspan x="0" y="235">0</tspan>
               <tspan x="16.7" y="235">1</tspan>
@@ -716,47 +719,45 @@
 
         <!-- Pill Wrapper -->
         <!-- Change IDs to "Red Bill" & "Blue Pill" -->
-        <g id="choice-message" transform="translate(79.000000, 0.000000)">
+        <g id="pill-selection" transform="translate(79.000000, 0.000000)">
             <g id="Group-Copy">
                 <rect id="Rectangle-Copy" x="0" y="0" width="342" height="220" rx="24"></rect>
             </g>
-            <g (click)="bluePill()" style="opacity: 0; transition: 0.5s;" id="blue-bill" transform="translate(75.000000, 15.000000)">
+            <g id="blue-pill" (click)="bluePillSelect()" style="opacity: 0; transition: 0.5s;" transform="translate(75.000000, 15.000000)">
                 <mask id="mask-2" fill="white">
                     <use xlink:href="#h-path-1"></use>
                 </mask>
-                <use id="Mask" fill="#507BFF" xlink:href="#h-path-1"></use>
+                <use fill="#507BFF" xlink:href="#h-path-1"></use>
                 <mask id="mask-4" fill="white">
                     <use xlink:href="#h-path-3"></use>
                 </mask>
-                <use id="Mask-Copy" fill="#507BFF" xlink:href="#h-path-3"></use>
+                <use fill="#507BFF" xlink:href="#h-path-3"></use>
                 <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#0600BD" mask="url(#mask-4)">
                 </path>
-                
                 <!-- Blue Pill Animation -->
                 <animateTransform           attributeName="transform"
                     type="translate"
                     time="12s"
-                    delay="12s"
+                    delay="9s"
                     from="75 90"
                     to="75 15"
-                    begin="12.5s"
+                    begin="0s"
                     dur="1s"
                 />
 
-                <!-- Blue Pill Animation -->
+                <!-- Up & Down Animation -->
                 <animateTransform           attributeName="transform"
                     type="translate"
                     time="12s"
-                    delay="12s"
+                    delay="9s"
                     values="75 15; 75 5; 75 15;"
                     begin="0s"
                     dur="2s"
                     repeatCount="indefinite"
                 />
-                <set attributeName="opacity" to="1" begin="12.5s"/>
+                <set attributeName="opacity" to="1" begin="9s"/>
             </g>
-            <g (click)="redPill()"
-            style="opacity: 0; transition: 0.5s;" id="red-bill" transform="translate(196.000000, 15.000000)">
+            <g id="red-pill" (click)="redPillSelect()" style="opacity: 0; transition: 0.5s;" transform="translate(196.000000, 15.000000)">
                 <mask id="mask-6" fill="white">
                     <use xlink:href="#h-path-5"></use>
                 </mask>
@@ -764,32 +765,34 @@
                 <mask id="mask-8" fill="white">
                     <use xlink:href="#h-path-7"></use>
                 </mask>
-                <use id="Mask-Copy" fill="#FF5050" xlink:href="#h-path-7"></use>
+                <use fill="#FF5050" xlink:href="#h-path-7"></use>
                 <path d="M0.5,41.5 L72,41.5 C79.7800099,31.7014077 78.3300835,21.0074774 67.6502207,9.41820908 C56.9703578,-2.17105923 46.4202843,-7.7657119 36,-7.36574894 C24.6611915,-9.16514272 13.3589778,-4.46688327 2.09335901,6.72902943 C-9.17225979,17.9249421 -9.70337946,29.5152656 0.5,41.5 Z" id="Line" fill="#BD0000" mask="url(#mask-8)"></path>
 
                 <!-- Red Pill Animation -->
                 <animateTransform           attributeName="transform"
                     type="translate"
                     time="12s"
-                    delay="12s"
+                    delay="9.5s"
                     from="196 90"
                     to="196 15"
-                    begin="12.75s"
+                    begin="0s"
                     dur="1s"
                 />
+
+                <!-- Up & Down Animation -->
                 <animateTransform attributeName="transform"
                     type="translate"
                     time="12s"
-                    delay="12s"
+                    delay="9.5s"
                     values="196 15; 196 5; 196 15;"
-                    begin="12.75s"
+                    begin="0s"
                     dur="2s"
                     repeatCount="indefinite"
                 />
-                <set attributeName="opacity" to="1" begin="0.2s"/>
+                <set attributeName="opacity" to="1" begin="9.5s"/>
             </g>
         </g>
-        <g id="select-pill-message" transform="translate(18.000000, 252.000000)">
+        <g id="select-pill-message" style="opacity: 0; transition: 0.5s;" transform="translate(18.000000, 252.000000)">
             <g id="Group" transform="translate(0.000000, 60.000000)">
                 <rect id="Rectangle" stroke="#FF5050" stroke-width="7" fill="#FFF0F0" x="0" y="0" width="464" height="168" rx="6"></rect>
                 <text id="You’ve-encountered-a" font-family="Helvetica" font-size="20" font-weight="normal" fill="#000000">
@@ -811,16 +814,57 @@
              <!-- Pill Message Animation -->
              <animateTransform
                 attributeName="transform"
-                keyTimes="0 ; 0.25 ; 0.5 ; 0.75 ; 1"
+                keyTimes="0 ; 0.5 ; 1"
                 type="translate"
                 time="1s"
-                delay="1s"
+                delay="10s"
                 from="18 600"
-                to="18 252"
-                begin="0s"
+                to="18 0"
+                begin="10s"
                 dur="1s"
             />
-         <set attributeName="opacity" to="1" begin="0.5s"/>
+         <set attributeName="opacity" to="1" begin="10.5s"/>
+        </g>
+        <g id="red-pill-message" transform="translate(18.000000, 312.000000)">
+            <rect id="Rectangle" stroke="#BD0000" stroke-width="7" fill="#BD0000" x="0" y="0" width="464" height="149" rx="6"></rect>
+            <g id="restart-button" transform="translate(175.000000, 95.000000)">
+                <rect id="Rectangle" fill="url(#linearGradient-9)" x="0" y="0" width="116" height="38" rx="5"></rect>
+                <text id="Restart" font-family="Helvetica" font-size="20" font-weight="normal" fill="#1D071F">
+                    <tspan x="26.2685547" y="26">Restart</tspan>
+                </text>
+            </g>
+            <text id="You-selected-the-Red" font-family="Helvetica" font-size="15" font-weight="normal" fill="#FFFFFF">
+                <tspan x="38.9777832" y="34">You selected the </tspan>
+                <tspan x="153.513916" y="34" font-family="Helvetica-Bold, Helvetica" font-weight="bold">Red Pill</tspan>
+                <tspan x="208.526123" y="34">. You made the </tspan>
+                <tspan x="312.786377" y="34" font-family="Helvetica-Bold, Helvetica" font-weight="bold">right</tspan>
+                <tspan x="346.111572" y="34"> choice. You </tspan>
+                <tspan x="50.8503418" y="52">obviously watched the Matrix … right? </tspan>
+                <tspan x="308.465088" y="52" font-family="Helvetica-Bold, Helvetica" font-weight="bold">Shame on you.</tspan>
+                <tspan x="415.149658" y="52"> </tspan>
+                <tspan x="32.8803711" y="70">Morpehus would shed a tear at your choice of both pills, and </tspan>
+                <tspan x="207.160156" y="88">movies. </tspan>
+            </text>
+        </g>
+        <g id="blue-pill-message" transform="translate(18.000000, 312.000000)">
+            <rect id="Rectangle" stroke="#507BFF" stroke-width="7" fill="#EAEFFF" x="0" y="0" width="464" height="149" rx="6"></rect>
+            <g id="restart-button" transform="translate(175.000000, 95.000000)">
+                <rect id="Rectangle" fill="url(#linearGradient-999)" x="0" y="0" width="116" height="38" rx="5"></rect>
+                <text id="Restart" font-family="Helvetica" font-size="20" font-weight="normal" fill="white">
+                    <tspan x="26.2685547" y="26">Restart</tspan>
+                </text>
+            </g>
+            <text id="You-selected-the-Blu" font-family="Helvetica" font-size="15" font-weight="normal">
+                <tspan x="31.0603027" y="34" fill="#000000">You selected the </tspan>
+                <tspan x="145.596436" y="34" font-family="Helvetica-Bold, Helvetica" font-weight="bold" fill="#0600BD">Blue Pill</tspan>
+                <tspan x="204.776123" y="34" fill="#000000">. You made the </tspan>
+                <tspan x="309.036377" y="34" font-family="Helvetica-Bold, Helvetica" font-weight="bold" fill="#000000">wrong</tspan>
+                <tspan x="354.029053" y="34" fill="#000000"> choice. You </tspan>
+                <tspan x="27.0869141" y="52" fill="#000000">watched the Matrix … right? </tspan>
+                <tspan x="218" y="52" font-family="Helvetica-Bold, Helvetica" font-weight="bold" fill="#000000">Shame on you.</tspan>
+                <tspan x="324.68457" y="52" fill="#000000"> Morpehus would </tspan>
+                <tspan x="62.0710449" y="70" fill="#000000">shed a tear at your choice of both pills, and movies. </tspan>
+            </text>
         </g>
     </g>
 </svg>

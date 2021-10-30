@@ -28,6 +28,7 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
+    "canvas-confetti": "^1.4.0",
     "canvg": "^3.0.7",
     "date-fns": "^2.24.0",
     "rxjs": "~6.5.5",
