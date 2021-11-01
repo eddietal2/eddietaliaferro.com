@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-const confetti = require('canvas-confetti');
 
 @Component({
   selector: 'app-header-illustration',
@@ -145,19 +144,6 @@ export class HeaderIllustrationComponent implements OnInit {
   redPillSelect() {
     console.clear();
     console.log('User has selected Blue Pill');
-    var myCanvas = document.createElement('canvas');
-    document.appendChild(myCanvas);
-
-    var myConfetti = confetti.create(myCanvas, {
-      resize: true,
-      useWorker: true
-    });
-    myConfetti({
-      particleCount: 100,
-      spread: 160
-      // any other options from the global
-      // confetti function
-    });
 
     // Take Red Pill out of frame
     let bluePill = document.getElementById('blue-pill');
