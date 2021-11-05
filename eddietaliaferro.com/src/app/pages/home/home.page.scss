@@ -107,7 +107,7 @@
 
 }
 .service-card {
-  background: #000000e0;
+  background: #0c0e0c;
   min-height: 600px;
   margin: 2em auto;
   box-shadow: 1px 1px 10px #0003;
@@ -219,10 +219,13 @@
 
 .green-mobile-button {
   height: 56px;
+  width: 300px;
   margin-top: 63px;
-  --background: #3cf63c;
+  --background: #6bff6b61;
   font-size: 1em;
-  color: #1d071f;
+  color: white;
+  border: 3px solid #3cf63c;
+  border-radius: 5px;
 }
 
 // Latest Blogs
@@ -256,9 +259,12 @@
       --box-shadow: none;
   }
 }
+.blog-post:hover {
+  border-left: 16px solid #3df63d;
+}
 .blog-post {
   height: auto;
-  background: #1805199e;
+  background: #0c0e0c;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
@@ -313,6 +319,9 @@
     margin: 0 0;
     color: #3df63d;
   }
+  .blog-post:hover {
+    border-left: 16px solid none;
+  }
 }
 
 
@@ -346,10 +355,6 @@
     --box-shadow: none;
 }
 
-  .project-post:hover {
-    border-left: 16px solid #3df63d;
-  }
-
   h2 {
     color: white;
     font-size: 3em;
@@ -371,7 +376,7 @@
 }
 .project-post {
   height: auto;
-  background: #1805199e;
+  background: #0c0e0c;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
@@ -402,6 +407,9 @@
     }
     .project-description {
       font-size: 1em;
+    }
+    .project-post:hover {
+      border-left: none;
     }
   }
 

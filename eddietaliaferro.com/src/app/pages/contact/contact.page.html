@@ -21,7 +21,7 @@
   </ion-row>
 
   <ion-row class="ion-justify-content-center">
-    <ion-col size-xs="12" size-sm="8" size-lg="6">
+    <ion-col style="margin-bottom: 3em"  size-xs="12" size-sm="8" size-lg="6">
       <form [formGroup]="contactForm" (ngSubmit)="sendMessage(this.contactForm.value)">
         <ion-item lines="none">
           <p class="alert">Have a question? Found a bug? Want to do business? Just have something nice to say? Leave me a message!</p>
@@ -53,14 +53,16 @@
           rows="15" cols="20"
           placeholder="Please enter your message here"></ion-textarea>
         </ion-item>
-        <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 3em auto">
-          Send
-        </ion-button>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-button type="submit" class="green-button ion-hide-lg-down">
+            Send
+          </ion-button>
+        </ion-item>
       </form>
     </ion-col>
   </ion-row>
 
-  <ion-footer class="ion-hide-lg-up" (click)="sendMessage(this.contactForm.value)">
+  <ion-footer class="green-button-mobile ion-hide-lg-up" (click)="sendMessage(this.contactForm.value)">
     <p>Send</p>
   </ion-footer>
   </ion-grid>

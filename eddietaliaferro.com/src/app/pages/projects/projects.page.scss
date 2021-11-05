@@ -30,7 +30,7 @@
 }
 .project-post {
   height: auto;
-  background: #1805199e;
+  background: #0c0e0c;
   padding: 25px;
   transition: 0.5s;
   border-radius: 10px;
@@ -73,10 +73,10 @@
     .project-description {
       font-size: 1em;
     }
+    .project-post:hover {
+      border-left: none;
+    }
 }
-}
-.project-post:hover {
-  border-left: 16px solid #3df63d;
 }
 .latest-projects {
   // background: #f7f7f7;

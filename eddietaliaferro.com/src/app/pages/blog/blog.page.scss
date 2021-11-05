@@ -13,7 +13,7 @@
 
 .blog-post {
   height: auto;
-  background: #1805199e;
+  background: #0c0e0c;
   padding: 30px;
   transition: 0.5s;
   border-radius: 10px;
@@ -53,9 +53,9 @@
     margin: 0 0;
     color: #3df63d;
   }
-}
-.blog-post:hover {
-  border-left: 16px solid #3df63d;
+  .blog-post:hover {
+    border-left: none;
+  }
 }
 
 @media only screen and (max-width: 500px) {

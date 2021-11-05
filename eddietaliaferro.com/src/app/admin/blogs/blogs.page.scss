@@ -40,7 +40,7 @@ ion-toolbar {
 
 .blog-post {
   height: auto;
-  background: #1805199e;
+  background: #0c0e0c;
   padding: 30px;
   transition: 0.5s;
   margin: 2em 0;
@@ -51,7 +51,7 @@ ion-toolbar {
 
   ion-toolbar {
     margin: 2.5em 0;
-    --background: #1805199e;
+    --background: #0c0e0c;
     border-radius: 5px;
     padding: 0em 1em;
     ion-title {
@@ -112,13 +112,14 @@ ion-toolbar {
       margin-top: 3em;
     }
   }
+  .blog-post:hover {
+    margin: 2.3em 0;
+    background: #0c0e0c;
+    border-left: none;
+  }
 }
 
-.blog-post:hover {
-  margin: 2.3em 0;
-  background: #1805199e;
-  border-left: 16px solid #3df63d;
-}
+
 .active-link {
   color: #3df63d;
   padding-left: 0.3em;

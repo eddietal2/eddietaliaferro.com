@@ -97,13 +97,12 @@ ion-grid {
     .green-button {
       margin-top: 3em;
     }
+    .project-post:hover {
+      margin: 2.3em 0;
+      background: #1805199e;
+      border-left: none;
+    }
   }
-}
-
-.project-post:hover {
-  margin: 2.3em 0;
-  background: #1805199e;
-  border-left: 16px solid #3df63d;
 }
 .active-link {
   color: #3df63d;

@@ -262,13 +262,13 @@
           }
         </style>
     <defs>
-        <linearGradient x1="50%" y1="53.5835293%" x2="80.896476%" y2="101.388429%" id="linearGradient-1">
+        <!-- <linearGradient x1="50%" y1="53.5835293%" x2="80.896476%" y2="101.388429%" id="linearGradient-1">
             <stop stop-color="#000" offset="0%"></stop>
             <stop stop-color="rgba(29,7,31,0.75)" offset="100%"></stop>
-        </linearGradient>
+        </linearGradient> -->
     </defs>
     <g id="Matrix-Background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="1500" height="844"></rect>
+        <rect id="Rectangle" fill="#1d071f" x="0" y="0" width="1500" height="844"></rect>
         <text id="number-line-copy-3" font-family="Helvetica" font-size="10" font-weight="normal" fill="#FFFFFF">
             <tspan x="280.219238" y="516">0</tspan>
             <tspan x="280.219238" y="528">1</tspan>

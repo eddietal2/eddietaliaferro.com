@@ -36,6 +36,7 @@
       <h1 id="or">OR</h1>
       <div class="alert">
         You can donate directly to me. Online donations are powered and secured by Stripe.
+        The entire form needs to be filled before you can submit.
       </div>
     </ion-col>
   </ion-row>
@@ -57,19 +58,16 @@
           rows="15" cols="20"
           placeholder="Please enter your message here"></ion-textarea>
         </ion-item>
-        <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 3em auto">
-          Send
-        </ion-button>
+        <ion-item class="ion-text-center" lines="none">
+          <ion-button type="submit" class="green-button ion-hide-lg-down" style="margin: 3em auto">
+            Send
+          </ion-button>
+        </ion-item>
       </form>
     </ion-col>
   </ion-row>
-  <ion-row class="ion-justify-content-center">
-    <ion-col size-xs="10" size-sm="10" size-md="6" size-lg="4" size-xl="4">
-      <!-- Mobile Submit -->
-      <ion-button [disabled]="!this.donateForm.valid" expand="full" (click)="makePayment(this.donateForm.value)" class="green-mobile-button ion-hide-lg-up" style="margin: 0 auto">
-       Send
-     </ion-button>
-   </ion-col>
-  </ion-row>
+  <ion-footer [disabled]="!this.donateForm.valid" (click)="makePayment(this.donateForm.value)" class="green-mobile-button ion-hide-lg-up">
+    <p>Send</p>
+  </ion-footer>
   </ion-grid>
 </ion-content>

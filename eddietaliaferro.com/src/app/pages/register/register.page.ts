@@ -52,7 +52,12 @@ export class RegisterPage implements OnInit, OnDestroy {
     console.log(this.registerForm.valid);
   }
   back() {
-    this.router.navigate(['login', this.auth.blogID]);
+    if(!this.auth.blogID) {
+      this.router.navigate(['login', '']);
+    }
+    else {
+      return this.router.navigate(['login', this.auth.blogID]);
+    }
   }
   register() {
     console.clear();
