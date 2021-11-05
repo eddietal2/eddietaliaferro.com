@@ -107,7 +107,8 @@
 
 }
 .service-card {
-  background: #0c0e0c;
+  background: linear-gradient(45deg, #320534, #150018);
+  background-attachment: fixed;
   min-height: 600px;
   margin: 2em auto;
   box-shadow: 1px 1px 10px #0003;
@@ -171,6 +172,7 @@
 }
 .gold-button {
   width: 100px;
+  float: right;
 }
 @media only screen and (max-width: 1100px) {
   #landing-page-header {
@@ -259,17 +261,15 @@
       --box-shadow: none;
   }
 }
-.blog-post:hover {
-  border-left: 16px solid #3df63d;
-}
 .blog-post {
   height: auto;
-  background: #0c0e0c;
+  background: linear-gradient(45deg, #320534, #150018);
+  background-attachment: fixed;
+  box-shadow: 1px 1px 13px #00000094;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
   border-radius: 10px;
-  border-left: 16px solid #1d071f;
   display: flex;
   align-items: center;
 
@@ -318,9 +318,6 @@
   .blog-hashtags {
     margin: 0 0;
     color: #3df63d;
-  }
-  .blog-post:hover {
-    border-left: 16px solid none;
   }
 }
 
@@ -376,12 +373,13 @@
 }
 .project-post {
   height: auto;
-  background: #0c0e0c;
+  background: linear-gradient(45deg, #320534, #150018);
+  background-attachment: fixed;
+  box-shadow: 1px 1px 13px #00000094;
   padding: 25px;
   transition: 0.5s;
   margin: 2em 0;
   border-radius: 10px;
-  border-left: 16px solid #1d071f;
   display: flex;
   align-items: center;
 
@@ -407,9 +405,6 @@
     }
     .project-description {
       font-size: 1em;
-    }
-    .project-post:hover {
-      border-left: none;
     }
   }
 

@@ -99,8 +99,11 @@
             <h6>{{this.userFullName}}</h6>
           </ion-buttons>
           <ion-buttons slot="end">
-            <ion-button *ngIf="this.userType === 'user' || this.userType === 'admin'" (click)="commentFromTop(this.id, this.userFullName, this.userPicture, this.commentInput.value, this.userEmail)" class="green-button" style="
-            --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);">
+            <ion-button 
+              class="green-button" 
+              style="width: 100px" 
+              *ngIf="this.userType === 'user' || this.userType === 'admin'" 
+              (click)="commentFromTop(this.id, this.userFullName, this.userPicture, this.commentInput.value, this.userEmail)">
               Post
             </ion-button>
           </ion-buttons>
@@ -239,8 +242,7 @@
             <h6>{{this.userFullName}}</h6>
           </ion-buttons>
           <ion-buttons slot="end">
-            <ion-button *ngIf="this.userType === 'user' || this.userType === 'admin'" (click)="comment(this.id, this.userFullName, this.userPicture, this.commentInputBottom.value, this.userEmail)" style="width: 100px; position: relative; right: 10px;" class="green-button"  style="
-            --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);">
+            <ion-button *ngIf="this.userType === 'user' || this.userType === 'admin'" (click)="comment(this.id, this.userFullName, this.userPicture, this.commentInputBottom.value, this.userEmail)" style="width: 100px; position: relative; right: 10px;" class="green-button">
               Post
             </ion-button>
           </ion-buttons>

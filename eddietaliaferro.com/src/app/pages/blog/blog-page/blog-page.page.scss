@@ -149,7 +149,8 @@ ion-fab {
   border-radius: 5px;
 }
 .comment-wrapper {
-  background: #0c0e0c;
+  background: linear-gradient(45deg, #320534, #150018);
+  background-attachment: fixed;
   padding: 2em;
   margin: 2em auto;
   border-radius: 5px;
@@ -185,13 +186,6 @@ ion-fab {
     padding-top: 1em;
 
     ion-buttons {
-      .green-button {
-        width: 100px;
-        --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
-        --color: white;
-        --border-radius: 50px;
-        --box-shadow: none;
-      }
       .grey-button {
         width: 170px;
         --background: linear-gradient(360deg, #130e0e -2%, #000000, #130e0e);
