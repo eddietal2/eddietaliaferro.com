@@ -53,10 +53,10 @@ export class HomePage implements OnInit {
     // console.log('\n');
     // console.log('\n');
     // console.log('\n');
-    console.log('\n');
-    console.log('%cScrollTop:  ', 'background: #222; color: #bada55');
-    console.log(scrollTop);
-    console.log('\n');
+    // console.log('\n');
+    // console.log('%cScrollTop:  ', 'background: #222; color: #bada55');
+    // console.log(scrollTop);
+    // console.log('\n');
 
     // Services Animation Wrappers
     let servicesWrapperOffsetTop = document.getElementById('services').offsetTop;
@@ -81,9 +81,9 @@ export class HomePage implements OnInit {
 
     // Yin-Ying Animation Wrappers
     let yinYangWrapperOffsetTop = (document.getElementById('yin-yang-wrapper')).parentElement.parentElement.offsetTop;
-    console.log('Yin Yang Wrapper OffsetTop: ');
-    console.log(yinYangWrapperOffsetTop);
-    console.log('\n');
+    // console.log('Yin Yang Wrapper OffsetTop: ');
+    // console.log(yinYangWrapperOffsetTop);
+    // console.log('\n');
 
     // console.log('Window Width: ');
     // console.log(widowWidth);
@@ -121,11 +121,11 @@ export class HomePage implements OnInit {
 
     // Yin Yang Animation
     if( yinYangWrapperOffsetTop > scrollTop ) {
-      console.log('Released Instructing Icon Animation');
+      // console.log('Released Instructing Icon Animation');
       this.yinYangRotateAnimationRelease(((yinYangWrapperOffsetTop - 500) ), scrollTop);
     }
     if( (yinYangWrapperOffsetTop - 500) < scrollTop) {
-      console.log('Trigger Instructing Icon Animation');
+      // console.log('Trigger Instructing Icon Animation');
       this.yinYangRotateAnimationTrigger((yinYangWrapperOffsetTop - 500), scrollTop);
     }
 
@@ -226,7 +226,7 @@ export class HomePage implements OnInit {
     let yin = document.getElementById("yin");
     let yinYangWrapper = document.getElementById("yin-yang-wrapper")
     let yingYangRotationSpeed =  ((yinYangWrapperOffsetTop - scrollTop) / 4.33);
-    console.log('Yin Yang Animation Measure: ');
+    // console.log('Yin Yang Animation Measure: ');
     yinYangWrapper.style.transform = "rotateZ(" + yingYangRotationSpeed + "deg)";
   }
 

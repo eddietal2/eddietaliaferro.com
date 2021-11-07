@@ -115,6 +115,72 @@ svg {
     fill: #3df63d;
     animation: bux-fix-up 1s ease 14s forwards;
 }
+@keyframes falling-line-rotate {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    50% {
+        transform-origin: 200px 500px;
+        transform: translate(200px, 0px) rotate(20deg);
+    }
+    100% {
+        transform: translate(220px, 200px) rotate(50deg);
+    }
+}
+@keyframes game-over-slide-up {
+    0% {
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+#header-name {
+    color: white;
+    font-size: 1.7em;
+    margin: 1em auto;
+    padding: 6px;
+    transition: 500ms;
+    border-radius: 7px;
+    margin-bottom: 0.5em;
+    box-shadow: 1px 1px 3px #0000006e;
+  }
+@keyframes header-background-blue-pill-animation {
+    0% {
+        background-image: linear-gradient(45deg, #ffffffe5, #ffffffe5);
+    }
+
+    100% {
+        background-image: linear-gradient(180deg, #ffffffe5 72%, #ffb3b3);
+    }
+}
+@keyframes header-background-red-pill-animation {
+    0% {
+        background-image: linear-gradient(45deg, #ffffffe5, #ffffffe5);
+    }
+
+    100% {
+        background: #1500187a;
+    }
+}
+@keyframes svg-wrapper-fall {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    20% {
+        transform-origin: 20px 500px;
+        transform: translate(20px, 0px) rotate(20deg);
+    }
+    98% {
+        opacity: 0;
+        transform: translate(25px, 1000px) rotate(50deg);
+    }
+    100% {
+        // display: none;
+    }
+}
 @keyframes number-color-animation {
     0% {
         fill: white;

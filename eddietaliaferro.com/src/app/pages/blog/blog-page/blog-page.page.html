@@ -16,11 +16,11 @@
             <ion-button routerLink="/blog" class="grey-button">
               Back
             </ion-button>
-            <ion-button *ngIf="this.userType === 'admin'" (click)="editBlog()" class="red-button">
-              Edit
-            </ion-button>
             <ion-button (click)="viewComments()" class="blue-button">
               Comments
+            </ion-button>
+            <ion-button *ngIf="this.userType === 'admin'" (click)="editBlog()" class="red-button">
+              Edit
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
@@ -63,7 +63,7 @@
             <ion-button (click)="loginPageFromBlog()" routerLink="/login" class="login-button">
               Login
             </ion-button>
-            <ion-button routerLink="/register" class="register-button" style="--border-radius: 50px;">
+            <ion-button routerLink="/register" class="register-button">
               Register
             </ion-button>
           </ion-buttons>

@@ -87,15 +87,6 @@ export class BlogPagePage implements OnInit {
           this.comments = info['comments'];
           this.commentsLength = this.comments.length;
 
-          for (let i = 0; i < this.comments.length; i++) {
-            this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
-            let replies = this.comments[i]['replies'];
-            for (let i = 0; i < replies.length; i++) {
-              console.log(replies[i]['date'])
-              replies[i]['date'] = formatDistance(parseISO(replies[i]['date']), Date.now())
-            }
-          }
-
           // Convert Code to Pre tags
           let codeSourceOne: string = info['code_1'];
           let codeSourceTwo: string = info['code_2'];
@@ -161,6 +152,7 @@ export class BlogPagePage implements OnInit {
 
           let codeRegex = /<< code-1 >>|<< code-2 >>|<< code-3 >>|<< code-4 >>|<< code-5 >>/gi;
 
+          this.post = info['post'];
           let postContent: string = info['post'];
           let postHTML = document.getElementById('blog-post');
 
@@ -170,6 +162,15 @@ export class BlogPagePage implements OnInit {
           }).replace(codeRegex, function(matched){
             return codeInserts[matched];
           });
+
+          for (let i = 0; i < this.comments.length; i++) {
+            this.comments[i]['date'] = formatDistance(parseISO(this.comments[i]['date']), Date.now())
+            let replies = this.comments[i]['replies'];
+            for (let i = 0; i < replies.length; i++) {
+              console.log(replies[i]['date'])
+              replies[i]['date'] = formatDistance(parseISO(replies[i]['date']), Date.now())
+            }
+          }
 
 
           // postHTML.innerHTML = postContent.replace(codeRegex, function(matched){
