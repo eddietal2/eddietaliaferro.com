@@ -7,9 +7,6 @@
 }
 #footer {
   background: #000000d1;
-  height: 600px;
-  margin-top: 4em;
-  padding: 6em 0em 3em 0em;
 
   #footer-logo {
     width: 100px;
@@ -30,7 +27,7 @@
 }
 .project-post {
   height: auto;
-  background: #0c0e0c;
+  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
   padding: 25px;
   transition: 0.5s;
   border-radius: 10px;
@@ -39,6 +36,9 @@
   align-items: center;
 
   .green-button {
+    margin: 0;
+  }
+  .gold-button {
     margin: 0;
   }
 
@@ -62,9 +62,9 @@
 
   }
   .project-description {
-    margin: 0 0;
+    margin: 0 4em 0 0;
     color: white;
-    font-size: 1.2em;
+    font-size: 0.9em;
   }
   @media only screen and (max-width: 645px) {
     .project-title {
@@ -82,8 +82,7 @@
   // background: #f7f7f7;
   height: auto;
   padding: 1em 0.4em;
-  margin: 0;
-  // padding: 40px;
+  padding-bottom: 10em;
 
   ion-toolbar > ion-buttons > .gold-button {
     width: 150px;

@@ -52,7 +52,7 @@ ion-item {
   ion-input {
     border: 2px solid white;
     font-size: 1.2em;
-    margin: 1em;
+    margin: 1em 0em;
     --background: #fbfbfb47;
     --placeholder-color: white;
     --placeholder-opacity: 1;
@@ -155,7 +155,6 @@ ion-row:last-child {
    }
 }
 .page-header {
-  margin-top: 5em;
   font-size: 1.2em;
   font-family: Ayuthaya;
   // font-size:  1.4em;
@@ -235,7 +234,7 @@ p {
 .gold-button {
   width: 100px;
   display: block;
-  margin: 5em 0 0 0;
+  margin: 1em 0 0 0;
   --background: #d8cca894;
   --color: white;
   --border-color: #d8cca8;
@@ -245,12 +244,16 @@ p {
   --box-shadow: none;
 }
 .red-button {
-  width: 150px;
+  width: 100px;
   display: block;
   margin: 30px 0;
-  --background: linear-gradient(360deg, #D01801 -2%, #810b00, #D01801);
+  --border-color: #D01801;
+  --border-width: 2px;
+  --border-style: solid;
+  --border-radius: 5px;
+  --background: #D0180194;
   --color: white;
-  --border-radius: 50px;
+  --border-radius: 5px;
   --box-shadow: none;
 }
 .green-mobile-button {
@@ -279,12 +282,15 @@ p {
   --box-shadow: none;
 }
 .grey-button {
-  width: 150px;
+  width: 100px;
   display: block;
-  margin: 30px 0;
-  --background: linear-gradient(360deg, #777777 -2%, #333, #777777);
+  margin: 1em 0 0 0;
+  --background: #77777794;
   --color: white;
-  --border-radius: 50px;
+  --border-color: #777777;
+  --border-width: 2px;
+  --border-style: solid;
+  --border-radius: 5px;
   --box-shadow: none;
 }
 .alert-delete-button {

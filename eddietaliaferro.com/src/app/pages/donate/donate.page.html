@@ -1,16 +1,15 @@
 <ion-content>
   <ion-grid>
+    <!-- Donate Illustration -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
+        <app-donate-illustration></app-donate-illustration>
+      </ion-col>
+    </ion-row>
     <!-- Blog Header and Search Bar -->
   <ion-row class="ion-justify-content-center" style="margin-bottom: 20px;">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
       <h1 class="page-header">Donate</h1>
-    </ion-col>
-  </ion-row>
-
-  <!-- Donate Illustration -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <app-donate-illustration></app-donate-illustration>
     </ion-col>
   </ion-row>
 
@@ -41,7 +40,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
+  <ion-row class="ion-justify-content-center" style="padding-bottom: 80px;">
     <ion-col size-xs="12" size-sm="8" size-lg="6" size-xl="4">
       <form [formGroup]="donateForm" (ngSubmit)="makePayment(this.donateForm.value)">
         <ion-item lines="none">

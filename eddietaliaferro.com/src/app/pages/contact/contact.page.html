@@ -1,5 +1,17 @@
 <ion-content>
   <ion-grid>
+    <!-- Contact Illustration -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
+        <app-contact-illustration></app-contact-illustration>
+        <svg style="position: absolute; top: -50px; left: 140px; animation: clouds-fade-in 5s ease-in infinite;" width="300px" height="300px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M197,665 C237.316787,665 270,697.683213 270,738 C270,743.559735 269.378471,748.974304 268.201105,754.178016 C289.633294,766.895133 304,790.269804 304,817 C304,857.316787 271.316787,890 231,890 C208.351534,890 188.112051,879.68592 174.722339,863.498548 C161.590125,876.191023 143.707004,884 124,884 C83.6832133,884 51,851.316787 51,811 C51,770.683213 83.6832133,738 124,738 L124,738 L124.00978,736.792812 C124.654428,697.032817 157.086381,665 197,665 Z" id="Smoke-cloud-2" fill="url(#linearGradient-4)"></path>
+      </svg>
+        <svg style="position: absolute; top: -50px; left: 140px; animation: clouds-fade-in 5s ease-in 0.5s infinite;" width="300px" height="300px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M175,799 C215.316787,799 248,831.683213 248,872 C248,877.559735 247.378471,882.974304 246.201105,888.178016 C267.633294,900.895133 282,924.269804 282,951 C282,991.316787 249.316787,1024 209,1024 C186.351534,1024 166.112051,1013.68592 152.722339,997.498548 C139.590125,1010.19102 121.707004,1018 102,1018 C61.6832133,1018 29,985.316787 29,945 C29,904.683213 61.6832133,872 102,872 L102,872 L102.00978,870.792812 C102.654428,831.032817 135.086381,799 175,799 Z" id="Smoke-cloud-1" fill="url(#linearGradient-4)"></path>
+      </svg>
+      </ion-col>
+    </ion-row>
     <!-- Blog Header and Search Bar -->
   <ion-row class="ion-justify-content-center" style="margin-bottom: 20px;">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
@@ -7,18 +19,6 @@
     </ion-col>
   </ion-row>
 
-  <!-- Contact Illustration -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <app-contact-illustration></app-contact-illustration>
-      <svg style="position: absolute; top: -50px; left: 140px; animation: clouds-fade-in 5s ease-in infinite;" width="300px" height="300px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path d="M197,665 C237.316787,665 270,697.683213 270,738 C270,743.559735 269.378471,748.974304 268.201105,754.178016 C289.633294,766.895133 304,790.269804 304,817 C304,857.316787 271.316787,890 231,890 C208.351534,890 188.112051,879.68592 174.722339,863.498548 C161.590125,876.191023 143.707004,884 124,884 C83.6832133,884 51,851.316787 51,811 C51,770.683213 83.6832133,738 124,738 L124,738 L124.00978,736.792812 C124.654428,697.032817 157.086381,665 197,665 Z" id="Smoke-cloud-2" fill="url(#linearGradient-4)"></path>
-    </svg>
-      <svg style="position: absolute; top: -50px; left: 140px; animation: clouds-fade-in 5s ease-in 0.5s infinite;" width="300px" height="300px" viewBox="0 0 1050 1050" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path d="M175,799 C215.316787,799 248,831.683213 248,872 C248,877.559735 247.378471,882.974304 246.201105,888.178016 C267.633294,900.895133 282,924.269804 282,951 C282,991.316787 249.316787,1024 209,1024 C186.351534,1024 166.112051,1013.68592 152.722339,997.498548 C139.590125,1010.19102 121.707004,1018 102,1018 C61.6832133,1018 29,985.316787 29,945 C29,904.683213 61.6832133,872 102,872 L102,872 L102.00978,870.792812 C102.654428,831.032817 135.086381,799 175,799 Z" id="Smoke-cloud-1" fill="url(#linearGradient-4)"></path>
-    </svg>
-    </ion-col>
-  </ion-row>
 
   <ion-row class="ion-justify-content-center">
     <ion-col style="margin-bottom: 3em"  size-xs="12" size-sm="8" size-lg="6">
@@ -62,8 +62,5 @@
     </ion-col>
   </ion-row>
 
-  <ion-footer class="green-button-mobile ion-hide-lg-up" (click)="sendMessage(this.contactForm.value)">
-    <p>Send</p>
-  </ion-footer>
   </ion-grid>
 </ion-content>

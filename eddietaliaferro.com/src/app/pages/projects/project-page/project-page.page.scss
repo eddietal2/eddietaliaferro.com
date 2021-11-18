@@ -9,7 +9,7 @@
 }
 .project-wrapper{
   padding: 1.5em;
-  background: #1805199e;
+  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
   border-radius: 10px;
   margin-top: 7em;
 }
@@ -38,30 +38,28 @@ ion-footer {
 ion-toolbar {
   --background: none;
   ion-buttons {
-    .gold-button {
-      width: 80px;
-      display: block;
-      --background: linear-gradient(360deg, #d8cca8 -2%, #847145, #d8cca8);
-      --color: white;
-      --border-radius: 50px;
-      --box-shadow: none;
-    }
     .green-button {
       width: 80px;
       display: block;
       margin-right: 1em;
-      --background: linear-gradient(360deg, #3df63d -2%, #005c47, #3df63d);
+      --background: #3df63d94;
       --color: white;
-      --border-radius: 50px;
+      --border-color: #3df63d;
+      --border-width: 2px;
+      --border-style: solid;
+      --border-radius: 5px;
       --box-shadow: none;
     }
     .grey-button {
       width: 80px;
       display: block;
       margin-right: 1em;
-      --background: linear-gradient(360deg, #777777 -2%, #333, #777777);
+      --background: #77777794;
       --color: white;
-      --border-radius: 50px;
+      --border-color: #777777;
+      --border-width: 2px;
+      --border-style: solid;
+      --border-radius: 5px;
       --box-shadow: none;
     }
   }

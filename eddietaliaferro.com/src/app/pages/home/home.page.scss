@@ -1,7 +1,7 @@
 #landing-page-header {
   background: linear-gradient(45deg, #ffffffe5, #ffffffe5);
   height: auto;
-  padding: 10em 0;
+  padding: 5em 0 5em 0;
   position: relative;
   margin-bottom: 5em;
   span {
@@ -48,7 +48,7 @@
     margin: 1em auto;
     padding: 6px;
     transition: 500ms;
-    border-radius: 7px;
+    // border-radius: 7px;
     margin-bottom: 0.5em;
     box-shadow: 1px 1px 3px #0000006e;
   }
@@ -105,7 +105,7 @@
 
 }
 .service-card {
-  background: linear-gradient(45deg, #320534, #150018);
+  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
   background-attachment: fixed;
   min-height: 600px;
   margin: 2em auto;
@@ -261,7 +261,7 @@
 }
 .blog-post {
   height: auto;
-  background: linear-gradient(45deg, #320534, #150018);
+  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
   background-attachment: fixed;
   box-shadow: 1px 1px 13px #00000094;
   padding: 25px;
@@ -371,7 +371,7 @@
 }
 .project-post {
   height: auto;
-  background: linear-gradient(45deg, #320534, #150018);
+  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
   background-attachment: fixed;
   box-shadow: 1px 1px 13px #00000094;
   padding: 25px;
@@ -395,7 +395,7 @@
   .project-description {
     margin: 0 0;
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
   }
   @media only screen and (max-width: 645px) {
     .project-title {

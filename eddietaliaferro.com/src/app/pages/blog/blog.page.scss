@@ -10,17 +10,18 @@
   border: 2px solid #2B50C8;
   transition: 500ms;
 }
-
+.latest-blogs {
+  margin-bottom: 10em;
+}
 .blog-post {
   height: auto;
-  background: #0c0e0c;
+  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
   padding: 30px;
   transition: 0.5s;
   border-radius: 10px;
   border-left: 16px solid #1d071f;
   display: flex;
   align-items: center;
-  box-shadow: 1px 1px 21px #00000057;
 
   .green-button {
     margin: 0;

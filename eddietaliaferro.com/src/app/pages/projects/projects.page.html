@@ -6,17 +6,17 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
-      <ion-col class="ion-text-center" size-xs="11" size-sm="8">
-        <h1 class="page-header">Here are some personal and professional projects of mine.</h1>
-        <!-- <h4 class="page-sub-header"></h4> -->
-      </ion-col>
-    </ion-row>
-
     <!-- Project Illustration -->
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
         <app-projects-illustration></app-projects-illustration>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
+      <ion-col class="ion-text-center" size-xs="11" size-sm="8">
+        <h1 class="page-header">Here are some personal and professional projects of mine.</h1>
+        <!-- <h4 class="page-sub-header"></h4> -->
       </ion-col>
     </ion-row>
 
@@ -27,11 +27,11 @@
             <ion-col size-xs="2" size-sm="2" size-lg="2">
               <img src="{{project.thumbnail}}" alt="Project Post Thumbnail" class="project-thumbnail">
             </ion-col>
-            <ion-col size-xs="10" size-sm="10" size-lg="7" class="project-info">
+            <ion-col size-xs="10" size-sm="10" size-lg="8" class="project-info">
               <h1 class="project-title">{{project.title}}</h1>
               <p class="project-description">{{project.description}}</p>
             </ion-col>
-            <ion-col size-xs="11" size-sm="11" size-lg="3" class="view-page-button ion-text-center">
+            <ion-col size-xs="11" size-sm="11" size-lg="2" class="view-page-button ion-text-center">
               <ion-button class="gold-button" (click)="viewProject(project._id)">
                 View
               </ion-button>
@@ -42,25 +42,21 @@
     </ion-row>
 
     <!-- Footer Illustration -->
-    <ion-row id="footer" class="ion-justify-content-center">
-      <ion-col class="ion-text-center" size="11">
+    <!-- <ion-row id="footer" class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size-md="11" size-lg="3">
         <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
       </ion-col>
-      <ion-col class="ion-text-center" size="11">
-        <div id="footer-buttons">
-          <hr class="footer-hr">
-          <ion-button class="gold-button" (click)="donatePage()">
-            Donate
-          </ion-button>
-          <ion-button class="red-button" (click)="contactPage()">
-            Contact
-          </ion-button>
-        </div>
-      <div id="social-media">
-        <hr class="footer-hr">
+      <ion-col class="ion-text-center" size-md="11" size-lg="3">
         <ion-icon size="large" name="logo-linkedin"></ion-icon>
-      </div>
       </ion-col>
-    </ion-row>
+      <ion-col class="ion-text-center" size-md="11" size-lg="3">
+        <ion-button class="gold-button" (click)="donatePage()">
+          Donate
+        </ion-button>
+        <ion-button class="red-button" (click)="contactPage()">
+          Contact
+        </ion-button>
+      </ion-col>
+    </ion-row> -->
   </ion-grid>
 </ion-content>
