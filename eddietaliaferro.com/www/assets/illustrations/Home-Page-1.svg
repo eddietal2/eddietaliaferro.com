@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="1024px" viewBox="0 0 1440 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Home-Page-1</title>
+    <g id="Home-Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#222222" x="0" y="0" width="1440" height="1024"></rect>
+        <path d="M674.611975,1024 C737.273401,871.243906 856.390438,784.127999 1031.96309,762.65228 C1207.53574,741.176561 1343.54804,562.521237 1440,226.686309" id="Path" stroke="#979797"></path>
+        <path d="M719.611975,1044 C782.273401,891.243906 901.390438,804.127999 1076.96309,782.65228 C1252.53574,761.176561 1388.54804,582.521237 1485,246.686309" id="Path-Copy" stroke="#979797"></path>
+        <path d="M736.611975,1080 C799.273401,927.243906 918.390438,840.127999 1093.96309,818.65228 C1269.53574,797.176561 1405.54804,618.521237 1502,282.686309" id="Path-Copy-2" stroke="#979797"></path>
+    </g>
+</svg>

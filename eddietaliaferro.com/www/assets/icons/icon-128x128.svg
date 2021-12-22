@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>icon-128x128</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="56.3697921%" x2="4.15648831%" y2="35.3684664%" id="linearGradient-1">
+            <stop stop-color="#64E249" offset="0%"></stop>
+            <stop stop-color="#406E11" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="icon-128x128" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="128" height="128"></rect>
+        <g id="logo-2" transform="translate(27.000000, 19.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" transform="translate(37.500000, 45.000000) scale(-1, 1) translate(-37.500000, -45.000000) " points="0 90 75 90 60.7142857 72.7876518 15.6756665 72.7876518 15.6756665 51.7524721 52.6785714 51.7524721 52.6785714 43.1428157 52.6785714 36.5335673 15.6756665 36.5335673 15.6756665 17.8617537 60.7142857 17.8617537 75 0 0 5.99520434e-16"></polygon>
+        </g>
+    </g>
+</svg>
