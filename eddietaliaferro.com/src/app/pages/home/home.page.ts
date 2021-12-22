@@ -129,7 +129,7 @@ export class HomePage implements OnInit {
       this.yinYangRotateAnimationTrigger((yinYangWrapperOffsetTop - 500), scrollTop);
     }
 
-    
+
   }
 
   // Design Icon
