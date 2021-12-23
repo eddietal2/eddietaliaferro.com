@@ -25,10 +25,10 @@ export const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   },
-  {
-    path: 'donate',
-    loadChildren: () => import('./pages/donate/donate.module').then( m => m.DonatePageModule)
-  },
+  // {
+  //   path: 'donate',
+  //   loadChildren: () => import('./pages/donate/donate.module').then( m => m.DonatePageModule)
+  // },
   {
     path: 'projects',
     loadChildren: () => import('./pages/projects/projects.module').then( m => m.ProjectsPageModule)
