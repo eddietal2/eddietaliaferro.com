@@ -30,6 +30,7 @@
   .header-info-wrapper {
     // background: #0000006b;
     border-radius: 10px;
+    text-align: center;
     height: auto;
     padding: 1em;
     position: relative;
@@ -37,6 +38,7 @@
   #headshot-picture {
     width: 200px;
     height: 200px;
+    margin: 0 auto;
     border-radius: 200px;
     background-image: url('..//../../assets/photo.png');
     background-size: contain;
@@ -105,7 +107,7 @@
 
 }
 .service-card {
-  background: #372c38;
+  background: #ffffff26;
   background-attachment: fixed;
   min-height: 600px;
   margin: 2em auto;
@@ -114,7 +116,7 @@
   padding: 2em;
 
   p {
-    font-size: 1.1em;
+    font-size: 1.3em;
     line-height: 1.5em;
   }
   h3 {
@@ -261,7 +263,7 @@
 }
 .blog-post {
   height: auto;
-  background: #372c38;
+  background: #ffffff26;
   background-attachment: fixed;
   box-shadow: 1px 1px 13px #00000094;
   padding: 25px;
@@ -371,7 +373,7 @@
 }
 .project-post {
   height: auto;
-  background: #372c38;
+  background: #ffffff26;
   background-attachment: fixed;
   box-shadow: 1px 1px 13px #00000094;
   padding: 25px;

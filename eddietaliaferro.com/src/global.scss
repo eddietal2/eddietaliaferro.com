@@ -70,6 +70,32 @@ ion-textarea {
   --padding-bottom: 1em;
   --padding-start: 1em;
 }
+ion-skeleton-text {
+  line-height: 20px;
+  --background-rgb: 60,246,60;
+}
+.skeleton-text-wrapper {
+  background: linear-gradient(
+    118deg, #320534 1%, rgba(48, 7, 55, 0.5) 25%, #320534 50%, rgba(38, 7, 42, 0.5) 75%, #320534 100%);
+  border-radius: 10px;
+}
+
+// General Custom Classes
+.spacer-1x {
+  padding-top: 1em;
+}
+.spacer-2x {
+  padding-top: 2em;
+}
+.spacer-3x {
+  padding-top: 3em;
+}
+.spacer-4x {
+  padding-top: 4em;
+}
+.spacer-5x {
+  padding-top: 5em;
+}
 
 // Toasts, Error Messages, Alerts
 .danger-toast {
@@ -155,7 +181,7 @@ ion-row:last-child {
    }
 }
 .page-header {
-  font-size: 1.2em;
+  font-size: 1em;
   font-family: Ayuthaya;
   // font-size:  1.4em;
   padding: 1em 1em;

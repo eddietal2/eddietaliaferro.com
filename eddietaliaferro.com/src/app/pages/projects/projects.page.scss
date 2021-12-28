@@ -79,10 +79,15 @@
 }
 }
 .latest-projects {
-  // background: #f7f7f7;
-  height: auto;
-  padding: 1em 0.4em;
-  padding-bottom: 10em;
+  margin-bottom: 10em;
+  padding: 2em;
+  // border-bottom: 4px solid #00c400;
+  // background: linear-gradient(118deg, 
+  //   rgba(50,5,52,1) 1%, 
+  //   rgb(48 7 55 / 50%) 25%, 
+  //   rgba(50,5,52,1) 50%, 
+  //   rgb(38 7 42 / 50%) 75%, 
+  //   rgba(50,5,52,1) 100%);
 
   ion-toolbar > ion-buttons > .gold-button {
     width: 150px;

@@ -14,7 +14,12 @@ ion-toolbar ion-menu-button {
   font-size: 2em;
 }
 .navbar {
-  --background: linear-gradient(73.54497825384362deg, #000000, 8.871497304413253%,#1d071f);
+  --background: linear-gradient(118deg, 
+    rgba(50,5,52,1) 1%, 
+    rgb(48 7 55) 25%, 
+    rgba(50,5,52,1) 50%, 
+    rgb(38 7 42) 75%, 
+    rgba(50,5,52,1) 100%);
   box-shadow: 1px 1px 9px #000000e8;
   padding: 0px 30px;
 

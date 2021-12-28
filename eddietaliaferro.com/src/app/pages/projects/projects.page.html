@@ -6,6 +6,14 @@
 
 <ion-content>
   <ion-grid>
+
+    <!-- Page Header -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-md="6">
+        <h1 class="page-header">Here are some personal and professional projects of mine.</h1>
+      </ion-col>
+    </ion-row>
+
     <!-- Project Illustration -->
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
@@ -13,10 +21,18 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
-      <ion-col class="ion-text-center" size-xs="11" size-sm="8">
-        <h1 class="page-header">Here are some personal and professional projects of mine.</h1>
-        <!-- <h4 class="page-sub-header"></h4> -->
+    <!-- Skeleton Text -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col *ngIf="skeletonData" class="skeleton-text-wrapper" size-xs="11" size-sm="8" size-lg="6">
+        <div>
+          <div class="ion-padding custom-skeleton">
+            <ion-skeleton-text animated style="width: 100px; height: 100px; border-radius: 100px;"></ion-skeleton-text>
+            <div class="spacer-1x"></div>
+            <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+          </div>
+        </div>
       </ion-col>
     </ion-row>
 
@@ -41,22 +57,5 @@
       </ion-col>
     </ion-row>
 
-    <!-- Footer Illustration -->
-    <!-- <ion-row id="footer" class="ion-justify-content-center">
-      <ion-col class="ion-text-center" size-md="11" size-lg="3">
-        <img id="footer-logo" src="../../../assets/gold-logo.svg" alt="Footer Logo">
-      </ion-col>
-      <ion-col class="ion-text-center" size-md="11" size-lg="3">
-        <ion-icon size="large" name="logo-linkedin"></ion-icon>
-      </ion-col>
-      <ion-col class="ion-text-center" size-md="11" size-lg="3">
-        <ion-button class="gold-button" (click)="donatePage()">
-          Donate
-        </ion-button>
-        <ion-button class="red-button" (click)="contactPage()">
-          Contact
-        </ion-button>
-      </ion-col>
-    </ion-row> -->
   </ion-grid>
 </ion-content>

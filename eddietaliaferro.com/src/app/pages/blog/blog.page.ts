@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class BlogPage implements OnInit, OnDestroy {
   allBlogs = [];
+  skeletonData = true;
 
   constructor(
     private router: Router,
@@ -19,7 +20,10 @@ export class BlogPage implements OnInit, OnDestroy {
     private adminBlogEmitterService: AdminBlogEmitterService,
     private blogs: BlogService,
   ) { }
-
+  
+  /**
+   * 
+   */
   ngOnInit() {
     // When a blog is added on the Add Blog page, refresh this page.
     if (this.adminBlogEmitterService.subsVar == undefined) {
@@ -29,6 +33,27 @@ export class BlogPage implements OnInit, OnDestroy {
     }
     this.getBlogs();
   }
+
+  /**
+   * 
+   */
+  ionViewWillEnter() {
+    this.triggerSkeletonData();
+  }
+
+  /**
+   * Trigger skeleton Data on UI for 1s
+   */
+  triggerSkeletonData() {
+    setTimeout(() => {
+      this.skeletonData = false;
+      this.getBlogs();
+      return;
+    }, 1500);
+  }
+  /**
+   * Description
+   */
   getBlogs() {
     this.blogs.getBlogs().subscribe(blogs => {
       this.allBlogs = blogs.reverse();
@@ -39,16 +64,28 @@ export class BlogPage implements OnInit, OnDestroy {
       return;
     });
   }
+  /**
+   * Description
+   */  
   donatePage() {
     
   }
+  /**
+   * Description
+   */
   contactPage() {
 
   }
+  /**
+   * Description
+   */
   viewBlogPage(id) {
     console.log(id);
     this.router.navigate(['/blog/blog-page/', id]);
   }
+  /**
+   * Description
+   */
   @HostListener('unloaded')
   ngOnDestroy() {
     this.auth.blogID = null;

@@ -10,6 +10,7 @@ import { ProjectService, Project } from 'src/app/services/project/project.servic
 })
 export class ProjectsPage implements OnInit {
   allProjects: Project[];
+  skeletonData = true;
 
   constructor(
     private router: Router,
@@ -17,7 +18,22 @@ export class ProjectsPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getProjects();
+    this.triggerSkeletonData();
+  }
+
+  ionViewWillEnter() {
+    this.triggerSkeletonData();
+  }
+
+  /**
+   * Trigger skeleton Data on UI for 1s
+   */
+  triggerSkeletonData() {
+    setTimeout(() => {
+      this.skeletonData = false;
+      this.getProjects();
+      return;
+    }, 1500);
   }
   getProjects() {
     this.projectService.getProjects().subscribe(
