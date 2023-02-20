@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
 import { Blog, BlogService } from 'src/app/services/blog/blog.service';
 import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
@@ -14,7 +14,7 @@ import { of } from 'rxjs';
   styleUrls: ['./edit-blog.page.scss'],
 })
 export class EditBlogPage implements OnInit, OnDestroy {
-  editBlogForm: FormGroup;
+  editBlogForm: UntypedFormGroup;
   id;
   hashtagOne;
   hashtagTwo;
@@ -43,7 +43,7 @@ export class EditBlogPage implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastController: ToastController,
     private blogService: BlogService,
     private adminBlogEmitterService: AdminBlogEmitterService,

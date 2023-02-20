@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ToastController, LoadingController, IonSpinner } from '@ionic/angular';
 import { BlogService, Blog } from 'src/app/services/blog/blog.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,7 +17,7 @@ import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-em
   styleUrls: ['./add-blog.page.scss'],
 })
 export class AddBlogPage implements OnInit, OnDestroy {
-  addBlogForm: FormGroup;
+  addBlogForm: UntypedFormGroup;
   thumbnailDataURL;
   thumbnailS3Link;
 
@@ -38,7 +38,7 @@ export class AddBlogPage implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastController: ToastController,
     private blogService: BlogService,
     private adminBlogEmitterService: AdminBlogEmitterService,

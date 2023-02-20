@@ -1,6 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController, ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { PicturesService } from 'src/app/services/pictures/pictures.service';
@@ -16,7 +16,7 @@ import { SuccessModalComponent } from 'src/app/components/success-modal/success-
 })
 export class RegisterPage implements OnInit, OnDestroy {
   emailCheckSub: Subscription;
-  registerForm: FormGroup;
+  registerForm: UntypedFormGroup;
   pictureDataURL: string | ArrayBuffer;
   passwordShow = false;
   validCode = false;
@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit, OnDestroy {
     private alertController: AlertController,
     private modalController: ModalController,
     private pictureService: PicturesService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: UntypedFormBuilder) { }
 
 
     ngOnInit() {

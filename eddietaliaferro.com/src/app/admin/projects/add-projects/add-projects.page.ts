@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ToastController, AlertController } from '@ionic/angular';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { AdminProjectEmitterService } from 'src/app/services/emitters/admin-project-emitter/admin-project-emitter.service';
@@ -15,13 +15,13 @@ import { of } from 'rxjs';
   styleUrls: ['./add-projects.page.scss'],
 })
 export class AddProjectsPage implements OnInit {
-  addProjectForm: FormGroup;
+  addProjectForm: UntypedFormGroup;
   thumbnailDataURL;
   thumbnailS3Link;
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastController: ToastController,
     private projectService: ProjectService,
     private adminProjectEmitterService: AdminProjectEmitterService,

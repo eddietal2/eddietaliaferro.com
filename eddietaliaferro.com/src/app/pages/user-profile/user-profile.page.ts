@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { PicturesService } from 'src/app/services/pictures/pictures.service';
 import { Storage } from '@ionic/storage';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -15,7 +15,7 @@ import { AlertController, ToastController } from '@ionic/angular';
   styleUrls: ['./user-profile.page.scss'],
 })
 export class UserProfilePage implements OnInit {
-  userProfileForm: FormGroup;
+  userProfileForm: UntypedFormGroup;
   userFullName: Subscription;
   userFirstName: string;
   userLastName: string;
@@ -31,7 +31,7 @@ export class UserProfilePage implements OnInit {
     private auth: AuthService,
     private storage: Storage,
     private pictureService: PicturesService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private alertController: AlertController,
     private toastController: ToastController,
     private helper: JwtHelperService,

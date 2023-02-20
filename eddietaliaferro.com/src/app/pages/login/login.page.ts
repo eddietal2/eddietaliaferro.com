@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -11,14 +11,14 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LoginPage implements OnInit {
   blogID
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   BACKEND_URL = environment.url;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private auth: AuthService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit() {
     this.blogID = this.activatedRoute.snapshot.paramMap.get('id');

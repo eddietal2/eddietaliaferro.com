@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ContactService } from 'src/app/services/contact/contact.service';
 import { catchError, tap } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { SuccessModalComponent } from 'src/app/components/success-modal/success-
   styleUrls: ['./contact.page.scss'],
 })
 export class ContactPage implements OnInit {
-  contactForm: FormGroup;
+  contactForm: UntypedFormGroup;
 
   validationMessasges = {
     email: [
@@ -21,7 +21,7 @@ export class ContactPage implements OnInit {
   };
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private modalController: ModalController,
     private alertController: AlertController,
     private contact: ContactService,

@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ToastController, LoadingController, IonInput, IonSpinner, AlertController } from '@ionic/angular';
 import { ProjectService, Project } from 'src/app/services/project/project.service';
 import { AdminBlogEmitterService } from 'src/app/services/emitters/admin-blog-emitter/admin-blog-emitter.service';
@@ -14,7 +14,7 @@ import { of } from 'rxjs';
   styleUrls: ['./edit-projects.page.scss'],
 })
 export class EditProjectsPage implements OnInit {
-  editProjectForm: FormGroup;
+  editProjectForm: UntypedFormGroup;
   id;
 
   formattedThumbailToDataURL;
@@ -25,7 +25,7 @@ export class EditProjectsPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastController: ToastController,
     private projectService: ProjectService,
     private adminBlogEmitterService: AdminBlogEmitterService,
