@@ -107,9 +107,10 @@
 
 }
 .service-card {
-  background: #ffffff26;
+  background: #482e49;
   background-attachment: fixed;
-  min-height: 600px;
+  border-bottom: 4px solid #00c400;
+  min-height: 700px;
   margin: 2em auto;
   box-shadow: 1px 1px 10px #0003;
   border-radius: 5px;
@@ -119,8 +120,9 @@
     font-size: 1.3em;
     line-height: 1.5em;
   }
-  h3 {
+  h1 {
     color: #3df63d;
+    font-size: 2em;
     margin: 0 auto;
   }
 }
@@ -219,16 +221,7 @@
   margin: 0em auto 5em auto;
 }
 
-.green-mobile-button {
-  height: 56px;
-  width: 300px;
-  margin-top: 63px;
-  --background: #6bff6b61;
-  font-size: 1em;
-  color: white;
-  border: 3px solid #3cf63c;
-  border-radius: 5px;
-}
+
 
 // Latest Blogs
 .latest-blogs {
@@ -263,7 +256,7 @@
 }
 .blog-post {
   height: auto;
-  background: #ffffff26;
+  background: #482e49;
   background-attachment: fixed;
   box-shadow: 1px 1px 13px #00000094;
   padding: 25px;
@@ -373,7 +366,7 @@
 }
 .project-post {
   height: auto;
-  background: #ffffff26;
+  background: #482e49;
   background-attachment: fixed;
   box-shadow: 1px 1px 13px #00000094;
   padding: 25px;

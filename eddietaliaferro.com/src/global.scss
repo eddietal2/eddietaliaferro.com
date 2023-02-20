@@ -284,17 +284,21 @@ p {
 }
 .green-mobile-button {
   height: 56px;
-  --background: #3cf63c;
-  font-size: 1em;
-  color: #1d071f;
-}
-.green-button {
-  height: 56px;
   width: 300px;
-  margin: 3em auto;
+  margin-top: 63px;
   --background: #6bff6b61;
   font-size: 1em;
   color: white;
+  border: 3px solid #3cf63c;
+  border-radius: 5px;
+}
+.green-button {
+  height: 56px;
+  width: 100px;
+  margin: 3em auto;
+  --background: #6bff6b61;
+  font-size: 1em;
+  color: #3cf63c;
   border: 3px solid #3cf63c;
   border-radius: 5px;
 }

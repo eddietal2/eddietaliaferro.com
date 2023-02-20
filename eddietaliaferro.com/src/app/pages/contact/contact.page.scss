@@ -40,10 +40,11 @@
   font-size: 1em;
 }
 form {
-  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
+  background: #482e49;
   padding: 1em;
   border-radius: 10px;
   box-shadow: 1px 1px 40px #0000001f;
+  margin-bottom: 5em;
 }
 @media only screen and (max-width: 600px) {
   form {

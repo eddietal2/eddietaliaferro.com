@@ -32,6 +32,13 @@ export class HomePage implements OnInit {
     window.onscroll = function () {
     };
   }
+
+  @HostListener('unloaded')
+  ngOnDestroy() {
+    this.projectServiceSub.unsubscribe();
+    this.blogServiceSub.unsubscribe();
+    console.log('Home Page destroyed');
+  }
   headerNameBackgroundAnimation() {
     let headerName = document.getElementById('header-name');
     let degrees = 180;
@@ -273,12 +280,5 @@ export class HomePage implements OnInit {
     this.router.navigate(['/projects/project-page', projectID]);
   }
 
-
-  @HostListener('unloaded')
-  ngOnDestroy() {
-  this.projectServiceSub.unsubscribe();
-  this.blogServiceSub.unsubscribe();
-  console.log('Home Page destroyed');
-}
 
 }

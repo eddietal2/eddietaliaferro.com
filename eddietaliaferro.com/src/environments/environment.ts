@@ -4,7 +4,7 @@
 
 // import 'zone.js/plugins/zone-error';
 
-const ip = '10.0.1.16';
+const ip = '172.16.32.218';
 const mobileIP = '172.20.10.2';
 const baseUrl = `http://${ip}:3000`;
 const stripeKeyLive = 'pk_live_51JfTbQEo9mAig2o8WBjwlzGV5JPOjLICIj7zGlVqlKFbloDjnXJxw7fauYLTGfYPyGlVDdaN7ThdUg75mwVbXJRY00fP3MSXx6';

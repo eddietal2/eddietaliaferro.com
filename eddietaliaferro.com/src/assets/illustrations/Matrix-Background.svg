@@ -260,7 +260,7 @@
               fill: white;
             }
           }
-        </style>
+    </style>
     <defs>
         <!-- <linearGradient x1="50%" y1="53.5835293%" x2="80.896476%" y2="101.388429%" id="linearGradient-1">
             <stop stop-color="#000" offset="0%"></stop>

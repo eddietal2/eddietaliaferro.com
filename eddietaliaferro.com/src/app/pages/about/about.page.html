@@ -7,17 +7,25 @@
       </ion-col>
     </ion-row>
   
-    <!-- Blog Header and Search Bar -->
   <ion-row class="ion-justify-content-center" style="margin-bottom: 80px;">
     <ion-col class="ion-text-center" size-xs="11" size-sm="8" size-lg="6">
-      <ion-slides #slider (ionSlidesDidLoad)="slidesDidLoad(slider)" [options]="slideOpts">
-        <ion-slide id="slide-1">
-        </ion-slide>
-        <ion-slide id="slide-2">
-        </ion-slide>
-        <ion-slide id="slide-3">
-        </ion-slide>
-      </ion-slides>
+      <swiper
+      [config]="swiperConfig" 
+      (swiper)="onSwiper($event)">
+
+        <ng-template swiperSlide>
+          <div id="slide-1"></div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div id="slide-2"></div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div id="slide-3"></div>
+        </ng-template>
+
+      </swiper>
     </ion-col>
   </ion-row>
 

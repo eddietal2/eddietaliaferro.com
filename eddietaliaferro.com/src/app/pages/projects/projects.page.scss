@@ -27,11 +27,10 @@
 }
 .project-post {
   height: auto;
-  background: linear-gradient(118deg, rgba(50,5,52,1) 1%, rgb(48 7 55 / 50%) 25%, rgba(50,5,52,1) 50%, rgb(38 7 42 / 50%) 75%, rgba(50,5,52,1) 100%);
+  background: #482e49;
   padding: 25px;
   transition: 0.5s;
-  border-radius: 10px;
-  border-left: 16px solid #1d071f;
+  border-radius: 5px;
   display: flex;
   align-items: center;
 
@@ -52,7 +51,6 @@
   }
   .project-thumbnail {
     width: 100%;
-    border-radius: 100px;
     margin-right: 2.5em;
   }
   .project-title {

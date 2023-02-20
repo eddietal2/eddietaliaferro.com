@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import Swiper, { SwiperOptions, Autoplay } from 'swiper';
+
+Swiper.use([Autoplay]);
 
 @Component({
   selector: 'app-about',
@@ -7,10 +9,13 @@ import { IonSlides } from '@ionic/angular';
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
-  slides: IonSlides;
-  slideOpts = {
-    initialSlide: 0,
-    speed: 400,
+
+  swiperConfig: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: true,
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
   };
 
   constructor() { }
@@ -18,8 +23,8 @@ export class AboutPage implements OnInit {
   ngOnInit() {
     // this.slides.startAutoplay();
   }
-  slidesDidLoad(slides: IonSlides) {
-    slides.startAutoplay();
+  onSwiper(swiper) {
+    // console.log(swiper);
   }
   donatePage() {
     
